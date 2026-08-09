@@ -12,9 +12,17 @@ The **STIHL Kombi Attachment Caddy** is a heavy-duty, mobile 2x4 wooden rack des
 
 ---
 
-## Active Master Model Render (Version 10)
+## Master 3D CAD Multi-View Projection Gallery (v10)
 
-![STIHL Kombi Caddy v10 Render](v10/caddy_v10.png)
+| Isometric (Home View) | Top Plan View |
+| :---: | :---: |
+| ![Isometric View](caddy_iso.png) | ![Top View](caddy_top.png) |
+| **Front Elevation** | **Rear Elevation** |
+| ![Front Elevation](caddy_front.png) | ![Rear Elevation](caddy_back.png) |
+| **Right Side Elevation** | **Left Side Elevation** |
+| ![Right Side View](caddy_right.png) | ![Left Side View](caddy_left.png) |
+| **Bottom Plan View** | |
+| ![Bottom View](caddy_bottom.png) | |
 
 ---
 
@@ -22,7 +30,7 @@ The **STIHL Kombi Attachment Caddy** is a heavy-duty, mobile 2x4 wooden rack des
 
 - 📋 [**REQUIREMENTS.md**](REQUIREMENTS.md): Master requirements specification, functional requirements table, physical shop constraints, and version evolutionary traceability.
 - 📐 [**v10/SPECIFICATION.md**](v10/SPECIFICATION.md): Version 10 engineering specification, parametric VarSet (`dims`) table, dado post joinery, and clearance specs.
-- 🛠️ [**v10/CUT_LIST.md**](v10/CUT_LIST.md): Version 10 DIY cut list tailored for miter saws and table saws, board optimization, dado pocket specs, and fastener BOM.
+- ✂️ [**v10/CUT_LIST.md**](v10/CUT_LIST.md): Version 10 DIY cut list tailored for miter saws and table saws, board optimization, dado pocket specs, and fastener BOM.
 - 🚀 [**v10/README.md**](v10/README.md): Version 10 self-contained directory index.
 
 ---
@@ -46,7 +54,7 @@ The **STIHL Kombi Attachment Caddy** is a heavy-duty, mobile 2x4 wooden rack des
 
 ## FreeCAD Build Command
 
-To build the active master model (Version 10) directly in FreeCAD headless mode:
+To build the active master model (Version 10) and generate all 7 orthographic view renders:
 
 ```bash
 /home/phi/AppImages/FreeCAD_1.1.3-Linux-x86_64-py311.AppImage -c "__file__='/home/phi/PROJECTS/phi-WORKS/maker/projects/caddy/v10/build.py'; exec(open(__file__).read())"

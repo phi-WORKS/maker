@@ -1,9 +1,6 @@
 """
 Harbor Freight Propane Torch with Push-Button Igniter (Item #91037)
-Standalone CAD Component Module
-
-This module provides a function `create_torch_component(doc, insertion_point, lean_angle_deg, flame_angle_deg)`
-that creates the Harbor Freight #91037 torch as a grouped subassembly inside any FreeCAD document.
+CAD Component Module
 """
 
 import os
@@ -12,16 +9,9 @@ import math
 import FreeCAD
 import Part
 
-# Ensure src directory is on sys.path for shared imports
-maker_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-src_dir = os.path.join(maker_dir, "src")
-if src_dir not in sys.path:
-    sys.path.insert(0, src_dir)
-
 try:
     import FreeCADGui
-    FreeCADGui.showMainWindow()
-    HAS_GUI = True
+    HAS_GUI = hasattr(FreeCADGui, "getDocument")
 except Exception:
     FreeCADGui = None
     HAS_GUI = False
@@ -100,7 +90,7 @@ def create_torch_component(doc, insertion_point=None, lean_angle_deg=35.0, flame
     igniter_obj.Shape = igniter_housing.fuse(igniter_button).fuse(igniter_wire)
     grp.addObject(igniter_obj)
 
-    if HAS_GUI and hasattr(FreeCADGui, "getDocument"):
+    if HAS_GUI and FreeCADGui and FreeCADGui.getDocument(doc.Name):
         try:
             gui_d = FreeCADGui.getDocument(doc.Name)
             if gui_d:
@@ -122,21 +112,6 @@ def create_torch_component(doc, insertion_point=None, lean_angle_deg=35.0, flame
 
     return grp
 
-def render_views(gui_doc, base_path):
-    if not HAS_GUI or not gui_doc:
-        return
-    FreeCADGui.updateGui()
-    view = gui_doc.activeView()
-    if view:
-        try:
-            view.setCameraType("Orthographic")
-            view.viewIsometric()
-            view.fitAll()
-            view.saveImage(f"{base_path}_iso.png", 1920, 1080, "White")
-            print(f"Rendered torch view: {base_path}_iso.png")
-        except Exception as e:
-            print(f"Render error: {e}")
-
 def build_standalone_component():
     doc = FreeCAD.newDocument("torch_91037_component")
     comp_dir = os.path.dirname(os.path.abspath(__file__)) if "__file__" in globals() else os.path.abspath(".")
@@ -148,7 +123,7 @@ def build_standalone_component():
     doc.saveAs(fc_path)
     print(f"Saved standalone torch component model: {fc_path}")
 
-    if HAS_GUI and FreeCADGui and FreeCADGui.getDocument(doc.Name):
+    if HAS_GUI and FreeCADGui:
         base_prefix = os.path.join(comp_dir, "torch_hf91037")
         export_orthogonal_views(FreeCADGui.getDocument(doc.Name), base_prefix, model_prefix="torch_hf91037")
 

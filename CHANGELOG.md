@@ -11,6 +11,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.3.0] - 2026-08-09
+
+### Added
+- **Multi-View Camera Projections (`render_all_camera_views`)**: Implemented complete 7-projection FreeCAD camera setup (Isometric Home, Top Plan, Front Elevation, Right Side Elevation, Left Side Elevation, Bottom Plan, Rear/Back Elevation) in `projects/caddy/v10/build.py`.
+- **View-Framing Safety (`view.fitAll()`)**: Guaranteed exact bounding framing on every camera view transition to eliminate model clipping.
+- **Caddy 7-View Visual Galleries**: Embedded complete 7-projection CAD visual gallery tables into [`projects/caddy/v10/README.md`](projects/caddy/v10/README.md) and [`projects/caddy/README.md`](projects/caddy/README.md).
+- **Master Visual Gallery Upgrade**: Updated root [`README.md`](README.md) to feature Caddy Front & Side projections alongside Isometric views.
+
+---
+
 ## [0.2.0] - 2026-08-09
 
 ### Added

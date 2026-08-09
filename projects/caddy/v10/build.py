@@ -3,27 +3,12 @@ import sys
 import FreeCAD
 import Part
 
-try:
-    import FreeCADGui
-    FreeCADGui.showMainWindow()
-    HAS_GUI = True
-except Exception:
-    HAS_GUI = False
+maker_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
+src_dir = os.path.join(maker_dir, "src")
+if src_dir not in sys.path:
+    sys.path.insert(0, src_dir)
 
-def render_camera_view(gui_doc, png_path):
-    if not HAS_GUI or not gui_doc:
-        return
-    FreeCADGui.updateGui()
-    view = gui_doc.activeView()
-    if view:
-        try:
-            view.setCameraType("Orthographic") # 0 - Orthogonal view
-            view.viewIsometric()               # Standard Home Isometric angle
-            view.fitAll()
-        except Exception as e:
-            print(f"Camera setup note: {e}")
-        view.saveImage(png_path, 1920, 1080, "White")
-        print(f"Rendered snapshot: {png_path}")
+from phi_works.maker.render import export_orthogonal_views, HAS_GUI
 
 def build_v10():
     script_dir = os.path.dirname(os.path.abspath(__file__)) if "__file__" in globals() else os.path.abspath(".")
@@ -212,13 +197,17 @@ def build_v10():
     v10_doc.saveAs(main_fc)
 
     if HAS_GUI:
-        gui_d = FreeCADGui.getDocument("caddy_v10")
-        if gui_d:
-            gui_d.activeView().viewIsometric()
-            render_camera_view(gui_d, v10_png)
+        try:
+            import FreeCADGui
+            gui_d = FreeCADGui.getDocument("caddy_v10")
+            if gui_d:
+                base_prefix = os.path.join(script_dir, "caddy_v10")
+                export_orthogonal_views(gui_d, base_prefix, master_dir=caddy_dir, model_prefix="caddy")
+        except Exception as e:
+            print(f"Render error: {e}")
 
     FreeCAD.closeDocument("caddy_v10")
-    print(f"Successfully created Version 10: {v10_fc} and {v10_png}")
+    print(f"Successfully created Version 10 model & multi-view renders in {script_dir}")
 
 if __name__ == "__main__":
     build_v10()

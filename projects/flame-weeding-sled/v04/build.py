@@ -4,51 +4,24 @@ import math
 import FreeCAD
 import Part
 
+# Ensure src directory is on sys.path for shared imports
+maker_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
+src_dir = os.path.join(maker_dir, "src")
+if src_dir not in sys.path:
+    sys.path.insert(0, src_dir)
+
 try:
     import FreeCADGui
     FreeCADGui.showMainWindow()
     HAS_GUI = True
 except Exception:
+    FreeCADGui = None
     HAS_GUI = False
 
-def render_camera_view(gui_doc, png_path, view_type="Isometric", hide_objs=[]):
-    if not HAS_GUI or not gui_doc:
-        return
-    FreeCADGui.updateGui()
-    view = gui_doc.activeView()
-    if view:
-        try:
-            view.setCameraType("Orthographic")
-            if view_type == "Isometric":
-                view.viewIsometric()
-            elif view_type == "Top":
-                view.viewTop()
-            elif view_type == "Side":
-                view.viewRight()
-            elif view_type == "Front":
-                view.viewFront()
-
-            # Temporarily hide distant objects during fitAll camera framing
-            for ho in hide_objs:
-                g_ho = gui_doc.getObject(ho.Name)
-                if g_ho:
-                    g_ho.Visibility = False
-
-            view.fitAll()
-
-            # Restore visibility after framing
-            for ho in hide_objs:
-                g_ho = gui_doc.getObject(ho.Name)
-                if g_ho:
-                    g_ho.Visibility = True
-
-        except Exception as e:
-            print(f"Camera setup note: {e}")
-        view.saveImage(png_path, 1920, 1080, "White")
-        print(f"Rendered snapshot: {png_path}")
+from phi_works.maker.render import export_orthogonal_views
 
 def set_vis(doc, obj, color):
-    if HAS_GUI:
+    if HAS_GUI and FreeCADGui and FreeCADGui.getDocument(doc.Name):
         gui_d = FreeCADGui.getDocument(doc.Name)
         if gui_d:
             g_obj = gui_d.getObject(obj.Name)
@@ -363,13 +336,6 @@ def build_v4():
     for obj, color in color_map.items():
         set_vis(v4_doc, obj, color)
 
-    if HAS_GUI:
-        gui_d = FreeCADGui.getDocument(v4_doc.Name)
-        if gui_d:
-            gui_d.activeView().viewIsometric()
-            gui_d.activeView().fitAll()
-        FreeCADGui.updateGui()
-
     # Save outputs
     fc_v4 = os.path.join(script_dir, "sled_v04.FCStd")
     png_v4 = os.path.join(script_dir, "sled_v04.png")
@@ -379,9 +345,14 @@ def build_v4():
     v4_doc.saveAs(fc_root)
 
     if HAS_GUI:
-        gui_d = FreeCADGui.getDocument(v4_doc.Name)
-        hide_list = [towbar_obj, tank_obj]
-        render_camera_view(gui_d, png_v4, "Isometric", hide_list)
+        try:
+            import FreeCADGui
+            gui_d = FreeCADGui.getDocument(v4_doc.Name)
+            if gui_d:
+                base_prefix = os.path.join(script_dir, "sled_v04")
+                export_orthogonal_views(gui_d, base_prefix, master_dir=sled_dir, model_prefix="flame_sled")
+        except Exception as e:
+            print(f"Render error: {e}")
 
     FreeCAD.closeDocument("caddy_v4")
     print(f"Built Version 4: {fc_v4} and {png_v4}")

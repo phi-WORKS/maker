@@ -6,17 +6,24 @@
 
 ---
 
-## 3D CAD Model Render (v10)
+## 3D CAD Multi-View Projection Gallery (v10)
 
-![Caddy v10 Render](caddy_v10.png)
+| Isometric (Home View) | Top Plan View |
+| :---: | :---: |
+| ![Isometric View](caddy_v10_iso.png) | ![Top View](caddy_v10_top.png) |
+| **Front Elevation** | **Rear Elevation** |
+| ![Front Elevation](caddy_v10_front.png) | ![Rear Elevation](caddy_v10_back.png) |
+| **Right Side Elevation** | **Left Side Elevation** |
+| ![Right Side View](caddy_v10_right.png) | ![Left Side View](caddy_v10_left.png) |
+| **Bottom Plan View** | |
+| ![Bottom View](caddy_v10_bottom.png) | |
 
 ---
 
 ## Version 10 Directory Index
 
-- 🛠️ [**`build.py`**](build.py): FreeCAD Python parametric generator script for Version 10.
+- 🛠️ [**`build.py`**](build.py): FreeCAD Python parametric generator script for Version 10 (renders all 7 views + model).
 - 📦 [**`caddy_v10.FCStd`**](caddy_v10.FCStd): FreeCAD 3D Master Model document file.
-- 🖼️ [**`caddy_v10.png`**](caddy_v10.png): High-resolution 3D CAD isometric render snapshot.
 - 📋 [**`REQUIREMENTS.md`**](REQUIREMENTS.md): Version 10 specific requirement refinements, delta matrix, and verification status.
 - 📐 [**`SPECIFICATION.md`**](SPECIFICATION.md): Detailed engineering specification, parametric VarSet (`dims`) table, joinery pockets, and hardware specs.
 - ✂️ [**`CUT_LIST.md`**](CUT_LIST.md): Complete DIY cut list, board optimization for 2x4 & 1x4 stock lumber, dado notch specs, and fastener list.

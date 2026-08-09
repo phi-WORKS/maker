@@ -19,9 +19,11 @@ Rather than expecting an AI agent to generate complex physical objects out of wh
 
 ## Master Visual Gallery
 
-| Towable Flame Weeding Sled (v04) | STIHL Kombi Attachment Caddy (v10) |
+| Towable Flame Weeding Sled (v04 Iso) | STIHL Kombi Attachment Caddy (v10 Iso) |
 | :---: | :---: |
-| ![Flame Sled Render](projects/flame-weeding-sled/flame_sled_iso.png) | ![Kombi Caddy Render](projects/caddy/v10/caddy_v10.png) |
+| ![Flame Sled Render](projects/flame-weeding-sled/flame_sled_iso.png) | ![Kombi Caddy Render](projects/caddy/caddy_iso.png) |
+| **Kombi Caddy Front Elevation** | **Kombi Caddy Side Elevation** |
+| ![Kombi Caddy Front](projects/caddy/caddy_front.png) | ![Kombi Caddy Right Side](projects/caddy/caddy_right.png) |
 | **STIHL Straight Shaft Line Trimmer** | **Harbor Freight #91037 Propane Torch** |
 | ![STIHL Line Trimmer Render](components/kombi_tools/trimmer_iso.png) | [Harbor Freight Torch Module Documentation](components/torch_hf91037/) |
 
