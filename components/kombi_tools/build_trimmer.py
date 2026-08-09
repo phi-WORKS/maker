@@ -3,38 +3,21 @@ import sys
 import FreeCAD
 import Part
 
+# Ensure src directory is on sys.path for shared imports
+maker_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+src_dir = os.path.join(maker_dir, "src")
+if src_dir not in sys.path:
+    sys.path.insert(0, src_dir)
+
 try:
     import FreeCADGui
     FreeCADGui.showMainWindow()
     HAS_GUI = True
 except Exception:
+    FreeCADGui = None
     HAS_GUI = False
 
-def render_views(gui_doc, base_path):
-    if not HAS_GUI or not gui_doc:
-        return
-    FreeCADGui.updateGui()
-    view = gui_doc.activeView()
-    if view:
-        try:
-            view.setCameraType("Orthographic")
-            
-            # Iso view
-            view.viewIsometric()
-            view.fitAll()
-            view.saveImage(f"{base_path}_iso.png", 1920, 1080, "White")
-            
-            # Top view
-            view.viewTop()
-            view.fitAll()
-            view.saveImage(f"{base_path}_top.png", 1920, 1080, "White")
-
-            # Right Side View
-            view.viewRight()
-            view.fitAll()
-            view.saveImage(f"{base_path}_side.png", 1920, 1080, "White")
-        except Exception as e:
-            print(f"Camera render note: {e}")
+from phi_works.maker.render import export_orthogonal_views
 
 def build_trimmer_model():
     doc_name = "kombi_trimmer"
@@ -148,8 +131,9 @@ def build_trimmer_model():
     doc.saveAs(fc_path)
     print(f"Saved trimmer model with corrected shield offset to {fc_path}")
 
-    if HAS_GUI:
-        render_views(FreeCADGui.getDocument(doc_name), base_png)
+    if HAS_GUI and FreeCADGui and FreeCADGui.getDocument(doc_name):
+        base_prefix = os.path.join(out_dir, "trimmer")
+        export_orthogonal_views(FreeCADGui.getDocument(doc_name), base_prefix, model_prefix="trimmer")
 
 if __name__ == "__main__":
     build_trimmer_model()

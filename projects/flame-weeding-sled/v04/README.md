@@ -1,27 +1,39 @@
-# Towable Flame Weeding Sled — Version 04 (Master)
+# Towable Flame Weeding Sled - Version 04 (Master Version)
 
 **Version Directory**: `projects/flame-weeding-sled/v04/`  
-**Master Model Copy**: [`../flame_sled.FCStd`](../flame_sled.FCStd)  
-**Status**: **Optimal Master Version**  
+**Master Version CAD Model**: [`sled_v04.FCStd`](sled_v04.FCStd)  
+**Parent Project**: [Flame Weeding Sled Master Directory](../)  
 
 ---
 
-## 3D CAD Model Render (v04)
+## Version Overview
 
-![Flame Sled v04 Render](sled_v04.png)
+**Version 04** is the active master release of the Towable Flame Weeding Sled. It organizes the 3D parametric FreeCAD assembly into 4 modular `App::DocumentObjectGroup` containers (`Flame_Sled_Pyramid_Hood`, `Overhead_Support_Frame`, `Rigid_Towbar_Hitch`, `Harbor_Freight_Torch_91037`).
 
 ---
 
-## Version 04 Directory Index
+## 3D CAD Multi-View Projection Gallery (v04)
 
-- 🛠️ [**`build.py`**](build.py): FreeCAD Python parametric generator script for Version 04.
-- 📦 [**`sled_v04.FCStd`**](sled_v04.FCStd): FreeCAD 3D Master Model document file.
-- 🖼️ [**`sled_v04.png`**](sled_v04.png): High-resolution 3D CAD isometric render snapshot.
-- 📋 [**`REQUIREMENTS.md`**](REQUIREMENTS.md): Version 04 specific requirement refinements, delta matrix, and verification status.
-- 📐 [**`SPECIFICATION.md`**](SPECIFICATION.md): Version 04 detailed engineering specification, thermal physics, geometry, and torch interface.
-- ✂️ [**`CUT_LIST.md`**](CUT_LIST.md): DIY cut list tailored for angle grinder cut-off wheels and flux-core MIG welding, flat trapezoid panel templates, and skid tips.
-- 🛠️ [**`FABRICATION_GUIDE.md`**](FABRICATION_GUIDE.md): Step-by-step assembly guide, weld sequence, frame fitting, and safety checklist.
-- 📦 [**`BOM.md`**](BOM.md): Complete Bill of Materials, dimensions, quantities, weights (~22.2 lbs dry sled), and sourcing links.
+| Isometric (Home View) | Top Plan View |
+| :---: | :---: |
+| ![Isometric View](sled_v04_iso.png) | ![Top View](sled_v04_top.png) |
+| **Front Elevation** | **Rear Elevation** |
+| ![Front Elevation](sled_v04_front.png) | ![Rear Elevation](sled_v04_back.png) |
+| **Right Side Elevation** | **Left Side Elevation** |
+| ![Right Side View](sled_v04_right.png) | ![Left Side View](sled_v04_left.png) |
+| **Bottom Plan View** | |
+| ![Bottom View](sled_v04_bottom.png) | |
+
+---
+
+## Version Documentation Index
+
+- 📋 [**REQUIREMENTS.md**](REQUIREMENTS.md): Version 04 requirements, target operating speed, thermal constraints, and puller ergonomic safety.
+- 📐 [**SPECIFICATION.md**](SPECIFICATION.md): Version 04 engineering specification, hood apex collar, torch angle, and hitch pin dimensions.
+- ✂️ [**CUT_LIST.md**](CUT_LIST.md): Cut list for angle grinder prep, flat sheet metal panels, and angle iron frame rails.
+- 🛠️ [**FABRICATION_GUIDE.md**](FABRICATION_GUIDE.md): Step-by-step welding, assembly, torch clamping, and operating guide.
+- 📦 [**BOM.md**](BOM.md): Complete itemized Bill of Materials with hardware callouts.
+- 🛠️ [**`build.py`**](build.py): FreeCAD Python parametric build generator script.
 
 ---
 

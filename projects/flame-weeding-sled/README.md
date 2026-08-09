@@ -3,7 +3,7 @@
 **Project Location**: `projects/flame-weeding-sled/`  
 **Master CAD Model**: [`flame_sled.FCStd`](flame_sled.FCStd) (Master copy of Version 04)  
 **Latest Optimal Version**: **[Version 04](v04/)**  
-**Torch Unit**: [Harbor Freight Propane Torch #91037](../../components/torch_hf91037/)  
+**Torch Component Unit**: [Harbor Freight Propane Torch #91037](../../components/torch_hf91037/)  
 
 ---
 
@@ -13,13 +13,17 @@ The **Towable Flame Weeding Sled** is a lightweight, heat-concentrating drag hoo
 
 ---
 
-## Master 3D CAD Renders (Version 04)
+## Master 3D CAD Multi-View Projection Gallery (v04)
 
-| Isometric View | Top View |
+| Isometric (Home View) | Top Plan View |
 | :---: | :---: |
-| ![Isometric Render](flame_sled_iso.png) | ![Top View Render](flame_sled_top.png) |
-| **Side Profile View** | **Front View** |
-| ![Side View Render](flame_sled_side.png) | ![Front View Render](flame_sled_front.png) |
+| ![Isometric View](flame_sled_iso.png) | ![Top View](flame_sled_top.png) |
+| **Front Elevation** | **Rear Elevation** |
+| ![Front Elevation](flame_sled_front.png) | ![Rear Elevation](flame_sled_back.png) |
+| **Right Side Elevation** | **Left Side Elevation** |
+| ![Right Side View](flame_sled_right.png) | ![Left Side View](flame_sled_left.png) |
+| **Bottom Plan View** | |
+| ![Bottom View](flame_sled_bottom.png) | |
 
 ---
 
@@ -47,7 +51,7 @@ The **Towable Flame Weeding Sled** is a lightweight, heat-concentrating drag hoo
 
 ## FreeCAD Build Command
 
-To build the active master model (Version 04) directly in FreeCAD headless mode:
+To build the active master model (Version 04) and generate all 7 orthographic view renders:
 
 ```bash
 /home/phi/AppImages/FreeCAD_1.1.3-Linux-x86_64-py311.AppImage -c "__file__='/home/phi/PROJECTS/phi-WORKS/maker/projects/flame-weeding-sled/v04/build.py'; exec(open(__file__).read())"

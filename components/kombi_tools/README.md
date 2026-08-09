@@ -11,13 +11,17 @@ This component library provides 3D parametric CAD models for **STIHL KombiSystem
 
 ---
 
-## 3D CAD Renders & Visual Layout
+## 3D CAD Multi-View Projection Gallery (Straight Shaft Trimmer)
 
-| STIHL Straight Shaft Line Trimmer | Full Kombi Attachment Suite |
+| Isometric (Home View) | Top Plan View |
 | :---: | :---: |
-| ![Line Trimmer Iso View](trimmer_iso.png) | ![Kombi Suite Render](kombi_tools.png) |
-| **Trimmer Angle View** | **Trimmer Side Profile** |
-| ![Kombi Trimmer Iso](kombi_trimmer_iso.png) | ![Trimmer Side Render](trimmer_side.png) |
+| ![Isometric View](trimmer_iso.png) | ![Top View](trimmer_top.png) |
+| **Front Elevation** | **Rear Elevation** |
+| ![Front Elevation](trimmer_front.png) | ![Rear Elevation](trimmer_back.png) |
+| **Right Side Elevation** | **Left Side Elevation** |
+| ![Right Side View](trimmer_right.png) | ![Left Side View](trimmer_left.png) |
+| **Bottom Plan View** | |
+| ![Bottom View](trimmer_bottom.png) | |
 
 ---
 
@@ -47,7 +51,7 @@ This component library provides 3D parametric CAD models for **STIHL KombiSystem
 ## FreeCAD Execution Commands
 
 ```bash
-# Build Standalone Line Trimmer Component
+# Build Standalone Line Trimmer Component & 7-View Gallery
 /home/phi/AppImages/FreeCAD_1.1.3-Linux-x86_64-py311.AppImage -c "__file__='/home/phi/PROJECTS/phi-WORKS/maker/components/kombi_tools/build_trimmer.py'; exec(open(__file__).read())"
 
 # Build Multi-Tool Kombi Suite Assembly
