@@ -17,6 +17,16 @@ Rather than expecting an AI agent to generate complex physical objects out of wh
 
 ---
 
+## Master Visual Gallery
+
+| Towable Flame Weeding Sled (v04) | STIHL Kombi Attachment Caddy (v10) |
+| :---: | :---: |
+| ![Flame Sled Render](projects/flame-weeding-sled/flame_sled_iso.png) | ![Kombi Caddy Render](projects/caddy/v10/caddy_v10.png) |
+| **STIHL Straight Shaft Line Trimmer** | **Harbor Freight #91037 Propane Torch** |
+| ![STIHL Line Trimmer Render](components/kombi_tools/trimmer_iso.png) | [Harbor Freight Torch Module Documentation](components/torch_hf91037/) |
+
+---
+
 ## Core Operating Principles
 
 ### 1. The Human-AI Collaborative Loop
@@ -52,12 +62,9 @@ Requirements are not static one-time prompts. Each project maintains:
 - **`projects/<project>/REQUIREMENTS.md`**: Master project vision, constraints, and target specifications.
 - **`projects/<project>/vXX/REQUIREMENTS.md`**: Iteration-specific requirements, design trade-offs, and delta refinements.
 
-### 5. Git Feature Branching Workflow
-All feature development, version iterations, and refactors are performed on dedicated Git feature branches (`feature/<name>` or `version/<name>`) before being tested, documented, and merged into `main`.
-
 ---
 
-## Directory Architecture
+## Directory Architecture & Master Index
 
 ```
 /home/phi/PROJECTS/phi-WORKS/maker/
@@ -83,22 +90,37 @@ All feature development, version iterations, and refactors are performed on dedi
 
 ---
 
-## Current Active Projects
+## Master Project & Documentation Index
 
 ### 1. [Towable Flame Weeding Sled](projects/flame-weeding-sled/README.md)
 - **Application**: Gravel driveway weed suppression via targeted thermal shock ($150^\circ\text{F}$–$180^\circ\text{F}$).
-- **Torch Unit**: [Harbor Freight Propane Torch #91037](components/torch_hf91037/).
-- **Features**: 14-gauge mild steel pyramidal hood ($18'' \times 18''$), $1.5'' \times 12.0''$ rear exhaust vent, 5 ft rigid forward tow bar with $20^\circ$ drop-stop tab, forward-leaning torch handle ergonomics, and FreeCAD subassembly tree grouping (v04).
-- **Master Directory**: [`projects/flame-weeding-sled/v04/`](projects/flame-weeding-sled/v04/)
+- **Torch Component**: [Harbor Freight Propane Torch #91037](components/torch_hf91037/)
+- **Quick Links**:
+  - 📋 [**REQUIREMENTS.md**](projects/flame-weeding-sled/REQUIREMENTS.md): Master Requirements Specification
+  - 📐 [**SPECIFICATION.md**](projects/flame-weeding-sled/v04/SPECIFICATION.md): Version 04 Engineering & Kinematics Spec
+  - ✂️ [**CUT_LIST.md**](projects/flame-weeding-sled/v04/CUT_LIST.md): Sheet Metal Panel & Angle Grinder Cut List
+  - 🛠️ [**FABRICATION_GUIDE.md**](projects/flame-weeding-sled/v04/FABRICATION_GUIDE.md): MIG Welding & Assembly Guide
+  - 📦 [**BOM.md**](projects/flame-weeding-sled/v04/BOM.md): Complete Bill of Materials & Hardware Specs
+  - 🛠️ [**build.py**](projects/flame-weeding-sled/v04/build.py): FreeCAD Parametric Generator Script
+  - 📂 [**Master Directory (v04)**](projects/flame-weeding-sled/v04/): Self-Contained Version 04 Folder
 
 ### 2. [STIHL Kombi Attachment Caddy](projects/caddy/README.md)
 - **Application**: Heavy-duty 2x4 mobile storage rack for STIHL KombiSystem powerhead and attachments.
-- **Features**: Parametric VarSet geometry, 24" post stud alignment, 36" cantilever rail overhangs, 1x4 deck slats, 5" hand-truck wheels, and self-contained version folders (`v01`–`v10`).
-- **Master Directory**: [`projects/caddy/v10/`](projects/caddy/v10/)
+- **Component Library**: [STIHL Kombi Tools Component Library](components/kombi_tools/)
+- **Quick Links**:
+  - 📋 [**REQUIREMENTS.md**](projects/caddy/REQUIREMENTS.md): Master Requirements Specification
+  - 📐 [**SPECIFICATION.md**](projects/caddy/v10/SPECIFICATION.md): Version 10 Engineering & Joinery Spec
+  - ✂️ [**CUT_LIST.md**](projects/caddy/v10/CUT_LIST.md): Lumber Cut List, Dado Notch Specs & Fasteners
+  - 🛠️ [**build.py**](projects/caddy/v10/build.py): FreeCAD Parametric Generator Script
+  - 📂 [**Master Directory (v10)**](projects/caddy/v10/): Self-Contained Version 10 Folder
+
+### 3. Reusable Commercial Components Library
+- 🛠️ **Harbor Freight #91037 Torch**: [`components/torch_hf91037/README.md`](components/torch_hf91037/README.md) | [`torch_hf91037.py`](components/torch_hf91037/torch_hf91037.py) | [`torch_hf91037.FCStd`](components/torch_hf91037/torch_hf91037.FCStd)
+- 🛠️ **STIHL Kombi Attachment Suite**: [`components/kombi_tools/README.md`](components/kombi_tools/README.md) | [`build_trimmer.py`](components/kombi_tools/build_trimmer.py) | [`trimmer.FCStd`](components/kombi_tools/trimmer.FCStd) | [`build_kombi_tools.py`](components/kombi_tools/build_kombi_tools.py)
 
 ---
 
-## Quick Start & FreeCAD Build Execution
+## FreeCAD Execution Commands
 
 To build the active master model of any project directly in FreeCAD headless mode:
 

@@ -11,6 +11,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.2.0] - 2026-08-09
+
+### Added
+- **Deep Markdown Navigation & Indexing**: Added multi-level README indices across root, component libraries (`components/torch_hf91037/README.md`, `components/kombi_tools/README.md`), master projects (`projects/caddy/README.md`, `projects/flame-weeding-sled/README.md`), and version subdirectories (`projects/caddy/v10/README.md`, `projects/flame-weeding-sled/v04/README.md`).
+- **Embedded 3D Visual Galleries**: Integrated high-resolution side-by-side CAD render snapshots (`caddy_v10.png`, `flame_sled_iso.png`, `trimmer_iso.png`, `kombi_tools.png`) directly into README documents across all folder levels.
+- **Direct Document Links**: Established deep cross-links from master project hubs directly to `REQUIREMENTS.md`, `SPECIFICATION.md`, `CUT_LIST.md`, `FABRICATION_GUIDE.md`, `BOM.md`, and `build.py` scripts.
+
+---
+
 ## [0.1.0] - 2026-08-09
 
 ### Added
