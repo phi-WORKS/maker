@@ -18,7 +18,6 @@
 - `components/`: Reusable commercial tools and hardware modules (e.g., `components/torch_hf91037/`, `components/kombi_tools/`).
 - `projects/`: Physical assembly projects (`projects/caddy/`, `projects/flame-weeding-sled/`), organized by self-contained version subdirectories (`v01/`, `v02/`, ..., `v10/`).
 - `templates/`: Boilerplate starter scripts (`component_template.py`, `project_template.py`).
-- `sketches/`: Raw user freehand sketches, dimension photos, and field notes.
 - `WORKFLOW.md`: Official Maker Collaboration & CAD Best Practices Guide.
 - `README.md`: Master project suite overview and workspace navigation.
 - `ROADMAP.md`: Strategic roadmap for future component modeling and physical projects.
@@ -33,4 +32,5 @@
 4. **No STEP Export Overhead**: Do not generate `.step` files during routine builds; generate STEP models only upon explicit user request.
 5. **Vector Math Rule**: Use non-mutating vector addition (`v1 + v2`) in FreeCAD Python API. Never use `vec.add(other)` in a chained fashion as it mutates vectors in place.
 6. **Tree View Part Containers**: Organize assembly models using `App::DocumentObjectGroup` or `App::Part` subassembly containers.
-7. **Documentation Standard**: Keep `README.md`, `SPECIFICATION.md`, `CUT_LIST.md`, `FABRICATION_GUIDE.md`, and `BOM.md` updated for every project version.
+7. **Git Feature Branching**: Execute new features, refactors, and version iterations on dedicated Git branches (`feature/<name>` or `version/<name>`).
+8. **Documentation Standard**: Keep `README.md`, `REQUIREMENTS.md`, `SPECIFICATION.md`, `CUT_LIST.md`, `FABRICATION_GUIDE.md`, and `BOM.md` updated for every project version.

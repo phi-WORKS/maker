@@ -1,23 +1,34 @@
 # Maker Collaboration & Modular CAD Workflow Guide
 
-This document defines the standard operating workflow and best practices for physical DIY design, CAD modeling, component modularization, and fabrication documentation within the **`maker`** suite (`/home/phi/PROJECTS/phi-WORKS/maker`).
+This document defines the standard operating workflow and best practices for physical DIY design, CAD modeling, component modularization, Git version control, and fabrication documentation within the **`maker`** suite (`/home/phi/PROJECTS/phi-WORKS/maker`).
 
 ---
 
 ## 1. Core Operating Principles
 
-### 1.1 Commercial Tools & Purchased Component Isolation
+### 1.1 The Engelbart AI-Human Pairing Model
+Physical design in **Maker** is a collaborative pair-designing process between human domain expertise and AI agentic execution:
+- **Human Partner**: Communicates physical intent, target constraints, ergonomics, shop tooling availability, and verification feedback.
+- **AI Agent**: Translates prompts into FreeCAD parametric Python scripts, maintains modular component libraries, generates exact cut lists / BOMs, and manages Git version control.
+
+### 1.2 Git Feature Branching Workflow
+From a given baseline, all new feature developments, version iterations, and refactors must be executed on dedicated Git feature branches:
+1. **Branch Naming**: Use `feature/<name>` (e.g. `feature/englebart-framework`) or `version/<project>-vXX` (e.g. `version/caddy-v11`).
+2. **Commit Messages**: Write clear, descriptive commit messages summarizing structural or parametric changes.
+3. **Verification**: Run headless FreeCAD build checks on the branch before merging into `main`.
+
+### 1.3 Commercial Tools & Purchased Component Isolation
 Avoid building large, monolithic CAD scripts where real-world tools, burners, or commercial hardware are re-invented inside the main assembly script.
 - **Isolate Commercial Tools & Components**: Model purchased tools (e.g., Harbor Freight #91037 Propane Torch, STIHL Kombi tool attachments, standard wheels, clevis hitches) as standalone 3D modules in `components/` (e.g., `components/torch_hf91037/`, `components/kombi_tools/`).
 - **Clean Insertion Origins**: Component models must define an explicit insertion origin $(0,0,0)$ and orientation vector so they can be imported and placed cleanly inside any host assembly document.
 - **Fast Iteration**: Build and verify individual components in isolation before incorporating them into host projects.
 
-### 1.2 Hand Sketch & Dimension Inflow
-Fabricators and CAD designers collaborate using freehand sketches, dimensioned field notes, and photographs:
-- Place raw hand sketches, field notes, and photo references into `sketches/` within the relevant project or component folder.
+### 1.4 Hand Sketch & Photo Inflow (`artifacts/`)
+Fabricators and CAD designers collaborate using freehand sketches, dimensioned field notes, photo references, and raw specs:
+- Place raw hand sketches, field notes, and photo references into an `artifacts/` folder within the relevant project (`projects/<project>/artifacts/` or `projects/<project>/vXX/artifacts/`).
 - Translate key parameters directly into FreeCAD `App::VarSet` (e.g., `dims`) for full parametric control.
 
-### 1.3 FreeCAD Tree View Subassembly Containers
+### 1.5 FreeCAD Tree View Subassembly Containers
 Keep the FreeCAD object tree clean and structured:
 - Group related parts into subassembly containers using `App::DocumentObjectGroup` or `App::Part`.
 - Example Tree Hierarchy:
@@ -30,12 +41,11 @@ Keep the FreeCAD object tree clean and structured:
     └── 4. Forward Tow Rigging Subassembly
   ```
 
-### 1.4 Self-Contained Version Subdirectories (`v01/`, `v02/`, ..., `vXX/`)
+### 1.6 Self-Contained Version Subdirectories (`v01/`, `v02/`, ..., `vXX/`)
 - Save each major design iteration inside a dedicated version subdirectory: `projects/<project>/v01/`, `v02/`, ..., `v10/`.
-- Each version folder is **self-contained**, housing its own `build.py` script, FreeCAD model (`caddy_v10.FCStd`), render images, `CUT_LIST.md`, and `SPECIFICATION.md`.
+- Each version folder is **self-contained**, housing its own `build.py` script, FreeCAD model (`caddy_v10.FCStd`), render images, `REQUIREMENTS.md`, `CUT_LIST.md`, and `SPECIFICATION.md`.
 - The project root directory houses the master `README.md` (which details master project objectives and indexes all version iterations) and a copy of the active master CAD model (`caddy.FCStd`).
 - **Dynamic Path Resolution**: Build scripts resolve output directories dynamically relative to `__file__` (never hardcode local workspace paths).
-- **Lightweight Builds**: Do not generate STEP models during routine iterations; generate STEP exports only when explicitly requested for external manufacturing.
 
 ---
 
@@ -56,7 +66,8 @@ Keep the FreeCAD object tree clean and structured:
 Every physical project within `maker/projects/` must maintain the following documentation suite:
 
 1. **`README.md`**: Project overview, hardware links, system architecture, rendering index, and build instructions.
-2. **`SPECIFICATION.md`**: Engineering specifications, physics/operating principles, geometric specs, and mechanical kinematics.
-3. **`CUT_LIST.md`**: DIY cut list optimized for angle grinder cut-off wheels and flux-core MIG welding, flat sheet metal panel templates, and cut diagrams.
-4. **`FABRICATION_GUIDE.md`**: Step-by-step assembly guide, weld sequence, frame fitting, and safety checklist.
-5. **`BOM.md`**: Itemized Bill of Materials with specs, quantities, weights, and sourcing sources.
+2. **`REQUIREMENTS.md`**: Master requirements specification, functional requirements table, physical constraints, and version traceability.
+3. **`SPECIFICATION.md`**: Engineering specifications, physics/operating principles, geometric specs, and mechanical kinematics.
+4. **`CUT_LIST.md`**: DIY cut list optimized for table saws, band saws, angle grinders, and flux-core MIG welding.
+5. **`FABRICATION_GUIDE.md`**: Step-by-step assembly guide, weld sequence, frame fitting, and safety checklist.
+7. **`CHANGELOG.md`**: Master repository changelog tracking framework releases, project milestones, and version iterations.
