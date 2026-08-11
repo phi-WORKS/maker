@@ -1,4 +1,4 @@
-# Woodworking Cut List & Bill of Materials (BOM) - Kombi Caddy (Version 10 Master)
+# Woodworking Cut List & Bill of Materials (BOM) - Kombi Kaddy (Version 10 Master)
 
 ## 1. Stock Timber Requirements
 

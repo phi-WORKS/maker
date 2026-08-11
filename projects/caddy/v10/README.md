@@ -1,4 +1,4 @@
-# Kombi Caddy — Version 10 (Master)
+# Kombi Kaddy — Version 10 (Master)
 
 > *Mobile STIHL KombiSystem Attachment Rack*
 

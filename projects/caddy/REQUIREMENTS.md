@@ -1,4 +1,4 @@
-# Master Requirements Specification — Kombi Caddy
+# Master Requirements Specification — Kombi Kaddy
 
 ## 1. Vision & Purpose
 

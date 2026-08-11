@@ -40,7 +40,7 @@ def build_v10():
     RUBBER = (0.12, 0.12, 0.12, 0.0)
 
     v10_doc = FreeCAD.newDocument("caddy_v10")
-    v10_doc.Label = "Kombi Caddy v10 - 24in Post Spacing & 6in Cantilever Rail Overhangs"
+    v10_doc.Label = "Kombi Kaddy v10 - 24in Post Spacing & 6in Cantilever Rail Overhangs"
 
     # Core Dimensions
     LUMBER_W = 88.9   # 3.5 in (2x4 & 1x4 width)

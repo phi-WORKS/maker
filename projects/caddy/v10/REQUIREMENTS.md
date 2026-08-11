@@ -1,4 +1,4 @@
-# Version 10 Requirement Refinements — Kombi Caddy
+# Version 10 Requirement Refinements — Kombi Kaddy
 
 ## 1. Iteration Objectives
 
