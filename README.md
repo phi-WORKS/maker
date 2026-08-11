@@ -66,27 +66,27 @@ Requirements are not static one-time prompts. Each project maintains:
 │   └── kombi_tools/          # STIHL Kombi tool attachments & trimmer 3D models
 │
 └── projects/                 # Physical Projects & Master Assemblies
-    ├── caddy/                # STIHL Kombi Attachment Caddy (v01..v10 master)
-    └── flame-weeding-sled/   # Towable Flame Weeding Sled (v01..v04 master)
+    ├── kombi-kaddy/           # STIHL Kombi Attachment Kaddy (v01..v10 master)
+    └── road-roaster/          # Towable Flame Weeding Sled (v01..v04 master)
 ```
 
 ---
 
 ## Physical Projects
 
-### 1. [Road Roaster](projects/flame-weeding-sled/README.md)
+### 1. [Road Roaster](projects/road-roaster/README.md)
 *Towable Thermal Weed Shock Sled*
 
 | Project Master Render | Quick Specs & Master Links |
 | :---: | :--- |
-| ![Flame Sled Render](projects/flame-weeding-sled/flame_sled_iso.png) | • **Application**: Non-chemical gravel driveway weed management via thermal shock (150°F–180°F).<br>• **Master Version**: [**Version 04**](projects/flame-weeding-sled/v04/)<br>• 📋 [**REQUIREMENTS.md**](projects/flame-weeding-sled/REQUIREMENTS.md)<br>• 📐 [**SPECIFICATION.md**](projects/flame-weeding-sled/v04/SPECIFICATION.md)<br>• ✂️ [**CUT_LIST.md**](projects/flame-weeding-sled/v04/CUT_LIST.md)<br>• 🛠️ [**FABRICATION_GUIDE.md**](projects/flame-weeding-sled/v04/FABRICATION_GUIDE.md)<br>• 📦 [**BOM.md**](projects/flame-weeding-sled/v04/BOM.md) |
+| ![Flame Sled Render](projects/road-roaster/flame_sled_iso.png) | • **Application**: Non-chemical gravel driveway weed management via thermal shock (150°F–180°F).<br>• **Master Version**: [**Version 04**](projects/road-roaster/v04/)<br>• 📋 [**REQUIREMENTS.md**](projects/road-roaster/REQUIREMENTS.md)<br>• 📐 [**SPECIFICATION.md**](projects/road-roaster/v04/SPECIFICATION.md)<br>• ✂️ [**CUT_LIST.md**](projects/road-roaster/v04/CUT_LIST.md)<br>• 🛠️ [**FABRICATION_GUIDE.md**](projects/road-roaster/v04/FABRICATION_GUIDE.md)<br>• 📦 [**BOM.md**](projects/road-roaster/v04/BOM.md) |
 
-### 2. [Kombi Kaddy](projects/caddy/README.md)
+### 2. [Kombi Kaddy](projects/kombi-kaddy/README.md)
 *Mobile STIHL KombiSystem Attachment Rack*
 
 | Project Master Render | Quick Specs & Master Links |
 | :---: | :--- |
-| ![Kombi Kaddy Render](projects/caddy/caddy_iso.png) | • **Application**: Heavy-duty mobile 2x4 wooden rack for STIHL KombiSystem storage.<br>• **Master Version**: [**Version 10**](projects/caddy/v10/)<br>• 📋 [**REQUIREMENTS.md**](projects/caddy/REQUIREMENTS.md)<br>• 📐 [**SPECIFICATION.md**](projects/caddy/v10/SPECIFICATION.md)<br>• ✂️ [**CUT_LIST.md**](projects/caddy/v10/CUT_LIST.md)<br>• 🛠️ [**build.py**](projects/caddy/v10/build.py) |
+| ![Kombi Kaddy Render](projects/kombi-kaddy/caddy_iso.png) | • **Application**: Heavy-duty mobile 2x4 wooden rack for STIHL KombiSystem storage.<br>• **Master Version**: [**Version 10**](projects/kombi-kaddy/v10/)<br>• 📋 [**REQUIREMENTS.md**](projects/kombi-kaddy/REQUIREMENTS.md)<br>• 📐 [**SPECIFICATION.md**](projects/kombi-kaddy/v10/SPECIFICATION.md)<br>• ✂️ [**CUT_LIST.md**](projects/kombi-kaddy/v10/CUT_LIST.md)<br>• 🛠️ [**build.py**](projects/kombi-kaddy/v10/build.py) |
 
 ---
 
@@ -109,9 +109,9 @@ Requirements are not static one-time prompts. Each project maintains:
 ## FreeCAD Execution Commands
 
 ```bash
-# Build Caddy Version 10 Master Model
-/home/phi/AppImages/FreeCAD_1.1.3-Linux-x86_64-py311.AppImage -c "__file__='/home/phi/PROJECTS/phi-WORKS/maker/projects/caddy/v10/build.py'; exec(open(__file__).read())"
+# Build Kombi Kaddy Version 10 Master Model
+/home/phi/AppImages/FreeCAD_1.1.3-Linux-x86_64-py311.AppImage -c "__file__='/home/phi/PROJECTS/phi-WORKS/maker/projects/kombi-kaddy/v10/build.py'; exec(open(__file__).read())"
 
-# Build Flame Weeding Sled Version 04 Master Model
-/home/phi/AppImages/FreeCAD_1.1.3-Linux-x86_64-py311.AppImage -c "__file__='/home/phi/PROJECTS/phi-WORKS/maker/projects/flame-weeding-sled/v04/build.py'; exec(open(__file__).read())"
+# Build Road Roaster Version 04 Master Model
+/home/phi/AppImages/FreeCAD_1.1.3-Linux-x86_64-py311.AppImage -c "__file__='/home/phi/PROJECTS/phi-WORKS/maker/projects/road-roaster/v04/build.py'; exec(open(__file__).read())"
 ```

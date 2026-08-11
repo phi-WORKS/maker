@@ -9,15 +9,17 @@
 
 ## Workspace Purpose & Context
 
-`maker` is the central repository for physical design, FreeCAD 3D parametric modeling, component library development, and DIY fabrication documentation. It consolidates all projects (`caddy`, `flame-weeding-sled`) under a single folder structure for seamless single-agent context retention and handoff.
+`maker` is the central repository for physical design, FreeCAD 3D parametric modeling, component library development, and DIY fabrication documentation. It consolidates all projects (`kombi-kaddy`, `road-roaster`) under a single folder structure for seamless single-agent context retention and handoff.
 
 ---
 
 ## Folder Layout
 
+- `src/`: Primary Python package library (`src/phi_works/maker/`) for shared CAD helpers and rendering utilities.
 - `components/`: Reusable commercial tools and hardware modules (e.g., `components/torch_hf91037/`, `components/kombi_tools/`).
-- `projects/`: Physical assembly projects (`projects/caddy/`, `projects/flame-weeding-sled/`), organized by self-contained version subdirectories (`v01/`, `v02/`, ..., `v10/`).
+- `projects/`: Physical assembly projects (`projects/kombi-kaddy/`, `projects/road-roaster/`), organized by self-contained version subdirectories (`v01/`, `v02/`, ..., `v10/`).
 - `templates/`: Boilerplate starter scripts (`component_template.py`, `project_template.py`).
+- `pyproject.toml`: Package metadata, dependencies, and build settings (`phi_works_maker`).
 - `WORKFLOW.md`: Official Maker Collaboration & CAD Best Practices Guide.
 - `README.md`: Master project suite overview and workspace navigation.
 - `ROADMAP.md`: Strategic roadmap for future component modeling and physical projects.
@@ -34,3 +36,4 @@
 6. **Tree View Part Containers**: Organize assembly models using `App::DocumentObjectGroup` or `App::Part` subassembly containers.
 7. **Git Feature Branching**: Execute new features, refactors, and version iterations on dedicated Git branches (`feature/<name>` or `version/<name>`).
 8. **Documentation Standard**: Keep `README.md`, `REQUIREMENTS.md`, `SPECIFICATION.md`, `CUT_LIST.md`, `FABRICATION_GUIDE.md`, and `BOM.md` updated for every project version.
+9. **Shared Library Architecture (`src/`)**: Utilize `src/phi_works/maker` for shared Python utilities, CAD routines, and rendering exports (`phi_works.maker.render`) rather than duplicating helper code in individual build scripts.

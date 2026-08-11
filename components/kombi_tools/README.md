@@ -7,7 +7,7 @@
 
 ## Library Overview
 
-This component library provides 3D parametric CAD models for **STIHL KombiSystem power heads and attachments** (line trimmers, hedge trimmers, pole pruners, lawn edgers). Modeled as reusable 3D modules in `components/`, they serve as accurate building blocks for designing storage solutions like the [STIHL Kombi Attachment Caddy](../../projects/caddy/).
+This component library provides 3D parametric CAD models for **STIHL KombiSystem power heads and attachments** (line trimmers, hedge trimmers, pole pruners, lawn edgers). Modeled as reusable 3D modules in `components/`, they serve as accurate building blocks for designing storage solutions like the [Kombi Kaddy](../../projects/kombi-kaddy/).
 
 ---
 
