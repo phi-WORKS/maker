@@ -37,8 +37,8 @@ The system consists of a ground-contact drag hood pulled ahead of the operator v
 
 ### Thermal Mechanics
 
-- **Target Mechanism**: Thermal disruption of plant cellular walls ($150^\circ\text{F}$–$180^\circ\text{F}$ / $65^\circ\text{C}$–$80^\circ\text{C}$) rather than complete combustion to ash. Heating cell sap causes cell walls to burst, interrupting photosynthesis and starving root systems.
-- **Flame Orientation & Heat Containment**: The burner nozzle is angled $35^\circ$ down and rearward (away from the puller). The pyramidal hood acts as a large heat-concentrating flange, trapping superheated air ($1,000^\circ\text{F}+$ exhaust gases) over the ground and driving hot exhaust out the rear vent.
+- **Target Mechanism**: Thermal disruption of plant cellular walls (150°F–180°F / 65°C–80°C) rather than complete combustion to ash. Heating cell sap causes cell walls to burst, interrupting photosynthesis and starving root systems.
+- **Flame Orientation & Heat Containment**: The burner nozzle is angled 35° down and rearward (away from the puller). The pyramidal hood acts as a large heat-concentrating flange, trapping superheated air (1,000°F+ exhaust gases) over the ground and driving hot exhaust out the rear vent.
 
 ---
 

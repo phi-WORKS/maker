@@ -79,7 +79,7 @@ Requirements are not static one-time prompts. Each project maintains:
 
 | Project Master Render | Quick Specs & Master Links |
 | :---: | :--- |
-| ![Flame Sled Render](projects/flame-weeding-sled/flame_sled_iso.png) | • **Application**: Non-chemical gravel driveway weed management via thermal shock ($150^\circ\text{F}$–$180^\circ\text{F}$).<br>• **Master Version**: [**Version 04**](projects/flame-weeding-sled/v04/)<br>• 📋 [**REQUIREMENTS.md**](projects/flame-weeding-sled/REQUIREMENTS.md)<br>• 📐 [**SPECIFICATION.md**](projects/flame-weeding-sled/v04/SPECIFICATION.md)<br>• ✂️ [**CUT_LIST.md**](projects/flame-weeding-sled/v04/CUT_LIST.md)<br>• 🛠️ [**FABRICATION_GUIDE.md**](projects/flame-weeding-sled/v04/FABRICATION_GUIDE.md)<br>• 📦 [**BOM.md**](projects/flame-weeding-sled/v04/BOM.md) |
+| ![Flame Sled Render](projects/flame-weeding-sled/flame_sled_iso.png) | • **Application**: Non-chemical gravel driveway weed management via thermal shock (150°F–180°F).<br>• **Master Version**: [**Version 04**](projects/flame-weeding-sled/v04/)<br>• 📋 [**REQUIREMENTS.md**](projects/flame-weeding-sled/REQUIREMENTS.md)<br>• 📐 [**SPECIFICATION.md**](projects/flame-weeding-sled/v04/SPECIFICATION.md)<br>• ✂️ [**CUT_LIST.md**](projects/flame-weeding-sled/v04/CUT_LIST.md)<br>• 🛠️ [**FABRICATION_GUIDE.md**](projects/flame-weeding-sled/v04/FABRICATION_GUIDE.md)<br>• 📦 [**BOM.md**](projects/flame-weeding-sled/v04/BOM.md) |
 
 ### 2. [Kombi Kaddy](projects/caddy/README.md)
 *Mobile STIHL KombiSystem Attachment Rack*

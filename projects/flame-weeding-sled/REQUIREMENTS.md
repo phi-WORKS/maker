@@ -4,7 +4,7 @@
 
 Design and build a lightweight, heat-concentrating drag hood pulled ahead of an operator via a 5 ft rigid steel tow bar. Designed for gravel driveway weed management, it utilizes an overhead steel frame mounting a **Harbor Freight #91037 Propane Torch** above an enclosed 14-gauge mild steel pyramidal hood.
 
-Target application: Gravel driveway weed suppression via targeted thermal shock ($150^\circ\text{F}$–$180^\circ\text{F}$).
+Target application: Gravel driveway weed suppression via targeted thermal shock (150°F–180°F).
 
 ---
 
