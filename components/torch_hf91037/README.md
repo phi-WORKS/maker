@@ -1,6 +1,5 @@
 # Harbor Freight #91037 Propane Torch Component
 
-**Component Directory**: `components/torch_hf91037/`  
 **Commercial Product**: [Harbor Freight Propane Torch with Push-Button Igniter (Item #91037)](https://www.harborfreight.com/propane-torch-with-push-button-igniter-91037.html)  
 
 ---

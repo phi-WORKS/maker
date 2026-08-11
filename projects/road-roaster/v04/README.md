@@ -2,7 +2,6 @@
 
 > *Towable Thermal Weed Shock Sled*
 
-**Version Directory**: `projects/flame-weeding-sled/v04/`  
 **Master Version CAD Model**: [`sled_v04.FCStd`](sled_v04.FCStd)  
 **Parent Project**: [Road Roaster Master Directory](../)  
 

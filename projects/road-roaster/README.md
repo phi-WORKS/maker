@@ -2,7 +2,6 @@
 
 > *Towable Thermal Weed Shock Sled*
 
-**Project Location**: `projects/flame-weeding-sled/`  
 **Master CAD Model**: [`flame_sled.FCStd`](flame_sled.FCStd) (Master copy of Version 04)  
 **Latest Optimal Version**: **[Version 04](v04/)**  
 **Torch Component Unit**: [Harbor Freight Propane Torch #91037](../../components/torch_hf91037/)  

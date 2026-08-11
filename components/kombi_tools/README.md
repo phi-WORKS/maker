@@ -1,6 +1,5 @@
 # STIHL Kombi Tool Attachments Component Library
 
-**Component Directory**: `components/kombi_tools/`  
 **Equipment Ecosystem**: STIHL KombiSystem Multi-Tasking Outdoor Power Equipment  
 
 ---
