@@ -341,22 +341,18 @@ def build_v4():
     png_v4 = os.path.join(script_dir, "sled_v04.png")
     v4_doc.saveAs(fc_v4)
 
-    fc_root = os.path.join(sled_dir, "flame_sled.FCStd")
-    v4_doc.saveAs(fc_root)
-
     if HAS_GUI:
         try:
             import FreeCADGui
             gui_d = FreeCADGui.getDocument(v4_doc.Name)
             if gui_d:
                 base_prefix = os.path.join(script_dir, "sled_v04")
-                export_orthogonal_views(gui_d, base_prefix, master_dir=sled_dir, model_prefix="flame_sled")
+                export_orthogonal_views(gui_d, base_prefix)
         except Exception as e:
             print(f"Render error: {e}")
 
     FreeCAD.closeDocument("road_roaster_v4")
     print(f"Built Version 4: {fc_v4} and {png_v4}")
-    print(f"Master root file updated: {fc_root}")
 
 if __name__ == "__main__":
     build_v4()

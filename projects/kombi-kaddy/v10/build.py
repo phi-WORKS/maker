@@ -202,9 +202,6 @@ def build_v10():
     v10_fc = os.path.join(script_dir, "caddy_v10.FCStd")
     v10_png = os.path.join(script_dir, "caddy_v10.png")
     v10_doc.saveAs(v10_fc)
-    
-    main_fc = os.path.join(caddy_dir, "caddy.FCStd")
-    v10_doc.saveAs(main_fc)
 
     if HAS_GUI:
         try:
@@ -212,7 +209,7 @@ def build_v10():
             gui_d = FreeCADGui.getDocument("caddy_v10")
             if gui_d:
                 base_prefix = os.path.join(script_dir, "caddy_v10")
-                export_orthogonal_views(gui_d, base_prefix, master_dir=caddy_dir, model_prefix="caddy")
+                export_orthogonal_views(gui_d, base_prefix)
         except Exception as e:
             print(f"Render error: {e}")
 
