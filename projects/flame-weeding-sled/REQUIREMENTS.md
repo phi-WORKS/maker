@@ -1,4 +1,4 @@
-# Master Requirements Specification — Towable Flame Weeding Sled
+# Master Requirements Specification — Road Roaster (Towable Flame Weeding Sled)
 
 ## 1. Vision & Purpose
 

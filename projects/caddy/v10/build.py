@@ -8,7 +8,25 @@ src_dir = os.path.join(maker_dir, "src")
 if src_dir not in sys.path:
     sys.path.insert(0, src_dir)
 
-from phi_works.maker.render import export_orthogonal_views, HAS_GUI
+try:
+    import FreeCADGui
+    FreeCADGui.showMainWindow()
+    HAS_GUI = True
+except Exception:
+    FreeCADGui = None
+    HAS_GUI = False
+
+from phi_works.maker.render import export_orthogonal_views
+
+def set_vis(doc, obj, color):
+    if HAS_GUI and FreeCADGui and FreeCADGui.getDocument(doc.Name):
+        gui_d = FreeCADGui.getDocument(doc.Name)
+        if gui_d:
+            g_obj = gui_d.getObject(obj.Name)
+            if g_obj:
+                g_obj.Visibility = True
+                g_obj.ShapeColor = color
+                g_obj.DisplayMode = "Flat Lines"
 
 def build_v10():
     script_dir = os.path.dirname(os.path.abspath(__file__)) if "__file__" in globals() else os.path.abspath(".")
@@ -20,14 +38,6 @@ def build_v10():
     CLIP = (0.15, 0.15, 0.15, 0.0)
     SHAFT = (0.85, 0.85, 0.88, 0.0)
     RUBBER = (0.12, 0.12, 0.12, 0.0)
-
-    def set_vis(doc, obj, color):
-        if HAS_GUI:
-            g_obj = FreeCADGui.getDocument(doc.Name).getObject(obj.Name)
-            if g_obj:
-                g_obj.Visibility = True
-                g_obj.ShapeColor = color
-                g_obj.DisplayMode = "Flat Lines"
 
     v10_doc = FreeCAD.newDocument("caddy_v10")
     v10_doc.Label = "Kombi Caddy v10 - 24in Post Spacing & 6in Cantilever Rail Overhangs"

@@ -1,4 +1,6 @@
-# Towable Flame Weeding Sled Project
+# Road Roaster
+
+> *Towable Thermal Weed Shock Sled*
 
 **Project Location**: `projects/flame-weeding-sled/`  
 **Master CAD Model**: [`flame_sled.FCStd`](flame_sled.FCStd) (Master copy of Version 04)  
@@ -9,7 +11,7 @@
 
 ## Project Overview
 
-The **Towable Flame Weeding Sled** is a lightweight, heat-concentrating drag hood pulled ahead of an operator via a 5 ft rigid steel tow bar. Designed for gravel driveway weed management via thermal shock ($150^\circ\text{F}$–$180^\circ\text{F}$), it mounts a high-output **Harbor Freight #91037 Propane Torch** above an enclosed 14-gauge mild steel pyramidal hood.
+The **Road Roaster** is a heavy-duty, heat-concentrating drag hood pulled ahead of an operator via a 5 ft rigid steel tow bar. Engineered for chemical-free gravel driveway and pathway weed management via thermal shock ($150^\circ\text{F}$–$180^\circ\text{F}$), it mounts a high-output **Harbor Freight #91037 Propane Torch** above an enclosed 14-gauge mild steel pyramidal hood to burst weed cell walls at walking speed while keeping heat safely directed away from the operator.
 
 ---
 

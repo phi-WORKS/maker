@@ -1,4 +1,6 @@
-# STIHL Kombi Attachment Caddy — Version 10 (Master)
+# Kombi Caddy — Version 10 (Master)
+
+> *Mobile STIHL KombiSystem Attachment Rack*
 
 **Version Directory**: `projects/caddy/v10/`  
 **Master Model Copy**: [`../caddy.FCStd`](../caddy.FCStd)  

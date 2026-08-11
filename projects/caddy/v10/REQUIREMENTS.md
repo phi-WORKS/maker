@@ -1,4 +1,4 @@
-# Version 10 Requirement Refinements — STIHL Kombi Caddy
+# Version 10 Requirement Refinements — Kombi Caddy
 
 ## 1. Iteration Objectives
 

@@ -1,14 +1,16 @@
-# Towable Flame Weeding Sled - Version 04 (Master Version)
+# Road Roaster - Version 04 (Master Version)
+
+> *Towable Thermal Weed Shock Sled*
 
 **Version Directory**: `projects/flame-weeding-sled/v04/`  
 **Master Version CAD Model**: [`sled_v04.FCStd`](sled_v04.FCStd)  
-**Parent Project**: [Flame Weeding Sled Master Directory](../)  
+**Parent Project**: [Road Roaster Master Directory](../)  
 
 ---
 
 ## Version Overview
 
-**Version 04** is the active master release of the Towable Flame Weeding Sled. It organizes the 3D parametric FreeCAD assembly into 4 modular `App::DocumentObjectGroup` containers (`Flame_Sled_Pyramid_Hood`, `Overhead_Support_Frame`, `Rigid_Towbar_Hitch`, `Harbor_Freight_Torch_91037`).
+**Version 04** is the active master release of the **Road Roaster** (Towable Flame Weeding Sled). It organizes the 3D parametric FreeCAD assembly into 4 modular `App::DocumentObjectGroup` containers (`Flame_Sled_Pyramid_Hood`, `Overhead_Support_Frame`, `Rigid_Towbar_Hitch`, `Harbor_Freight_Torch_91037`).
 
 ---
 

@@ -1,4 +1,4 @@
-# Master Requirements Specification — STIHL Kombi Attachment Caddy
+# Master Requirements Specification — Kombi Caddy
 
 ## 1. Vision & Purpose
 

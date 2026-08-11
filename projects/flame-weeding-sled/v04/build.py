@@ -44,8 +44,8 @@ def build_v4():
     PROPANE_GREEN = (0.12, 0.48, 0.22, 0.0)   # 1 lb Propane Cylinder
     TOWBAR_YELLOW = (0.88, 0.68, 0.12, 0.0)  # High-Vis Powdercoated Tow Bar
 
-    v4_doc = FreeCAD.newDocument("caddy_v4")
-    v4_doc.Label = "Flame Sled v4 - Subassembly Part Containers"
+    v4_doc = FreeCAD.newDocument("road_roaster_v4")
+    v4_doc.Label = "Road Roaster v04 - Subassembly Part Containers"
 
     # ==========================================
     # 0. SUBASSEMBLY PART CONTAINERS (v4)
@@ -354,7 +354,7 @@ def build_v4():
         except Exception as e:
             print(f"Render error: {e}")
 
-    FreeCAD.closeDocument("caddy_v4")
+    FreeCAD.closeDocument("road_roaster_v4")
     print(f"Built Version 4: {fc_v4} and {png_v4}")
     print(f"Master root file updated: {fc_root}")
 
