@@ -56,6 +56,7 @@ Physical design iterations follow **Semantic Versioning** rules adapted for hard
   - `🔵 FABRICATION READY`: CAD model finalized; complete `CUT_LIST.md`, `SPECIFICATION.md`, `FABRICATION_GUIDE.md`, and `BOM.md` compiled for shop fabrication.
   - `🟢 BUILT & VERIFIED`: Fabricated in shop and physically verified in field testing.
   - `📦 SUPERSEDED`: Historical release superseded by a newer verified iteration.
+- **Isometric Thumbnail Rule**: Always use the full isometric view render (`<model>_iso.png`, e.g. `sled_v04_iso.png`, `caddy_v10_iso.png`) as the representative CAD snapshot/thumbnail in project history tables and master README files, avoiding cropped default snapshots.
 - **Dynamic Path Resolution**: Build scripts resolve output directories dynamically relative to `__file__` (never hardcode local workspace paths).
 
 ---
