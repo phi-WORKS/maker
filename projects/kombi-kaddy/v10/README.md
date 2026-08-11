@@ -2,7 +2,7 @@
 
 > *Mobile STIHL KombiSystem Attachment Rack*
 
-**Master Model Copy**: [`../caddy.FCStd`](../caddy.FCStd)  
+**Master CAD Model**: [`caddy_v10.FCStd`](caddy_v10.FCStd)  
 **Status**: **Optimal Master Version**  
 
 ---

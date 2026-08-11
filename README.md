@@ -40,12 +40,11 @@ The design and fabrication process follows a structured, evolutionary cycle:
 ### 2. Intelligent Work Partitioning & Component Library
 Real-world physical assemblies are built from reusable commercial tools, standard hardware, and custom lumber/metal fabrications:
 - **Commercial & Purchased Tools (`components/`)**: Items such as the Harbor Freight #91037 Propane Torch, STIHL Kombi tool attachments, fixed caster wheels, and clevis hitches are modeled once as standalone, independent 3D modules in `components/`. Once modeled, they become permanent, reusable building blocks for any host assembly.
-- **Physical Assembly Projects (`projects/`)**: Complete physical designs (e.g. `caddy`, `flame-weeding-sled`) import these component modules and structure lumber/metal frames around them.
+- **Physical Assembly Projects (`projects/`)**: Complete physical designs (e.g. `kombi-kaddy`, `road-roaster`) import these component modules and structure lumber/metal frames around them.
 
 ### 3. Living Requirements Lifecycle (`REQUIREMENTS.md`)
-Requirements are not static one-time prompts. Each project maintains:
-- **`projects/<project>/REQUIREMENTS.md`**: Master project vision, constraints, and target specifications.
-- **`projects/<project>/vXX/REQUIREMENTS.md`**: Iteration-specific requirements, design trade-offs, and delta refinements.
+Requirements are not static one-time prompts. Each project version maintains:
+- **`projects/<project>/vXX/REQUIREMENTS.md`**: Iteration-specific requirements, design trade-offs, and verification status.
 
 ---
 
@@ -79,14 +78,14 @@ Requirements are not static one-time prompts. Each project maintains:
 
 | Project Master Render | Quick Specs & Master Links |
 | :---: | :--- |
-| ![Flame Sled Render](projects/road-roaster/flame_sled_iso.png) | • **Application**: Non-chemical gravel driveway weed management via thermal shock (150°F–180°F).<br>• **Master Version**: [**Version 04**](projects/road-roaster/v04/)<br>• 📋 [**REQUIREMENTS.md**](projects/road-roaster/REQUIREMENTS.md)<br>• 📐 [**SPECIFICATION.md**](projects/road-roaster/v04/SPECIFICATION.md)<br>• ✂️ [**CUT_LIST.md**](projects/road-roaster/v04/CUT_LIST.md)<br>• 🛠️ [**FABRICATION_GUIDE.md**](projects/road-roaster/v04/FABRICATION_GUIDE.md)<br>• 📦 [**BOM.md**](projects/road-roaster/v04/BOM.md) |
+| ![Road Roaster Render](projects/road-roaster/v04/sled_v04.png) | • **Application**: Non-chemical gravel driveway weed management via thermal shock (150°F–180°F).<br>• **Master Version**: [**Version 04**](projects/road-roaster/v04/)<br>• 📋 [**REQUIREMENTS.md**](projects/road-roaster/v04/REQUIREMENTS.md)<br>• 📐 [**SPECIFICATION.md**](projects/road-roaster/v04/SPECIFICATION.md)<br>• ✂️ [**CUT_LIST.md**](projects/road-roaster/v04/CUT_LIST.md)<br>• 🛠️ [**FABRICATION_GUIDE.md**](projects/road-roaster/v04/FABRICATION_GUIDE.md)<br>• 📦 [**BOM.md**](projects/road-roaster/v04/BOM.md) |
 
 ### 2. [Kombi Kaddy](projects/kombi-kaddy/README.md)
 *Mobile STIHL KombiSystem Attachment Rack*
 
 | Project Master Render | Quick Specs & Master Links |
 | :---: | :--- |
-| ![Kombi Kaddy Render](projects/kombi-kaddy/caddy_iso.png) | • **Application**: Heavy-duty mobile 2x4 wooden rack for STIHL KombiSystem storage.<br>• **Master Version**: [**Version 10**](projects/kombi-kaddy/v10/)<br>• 📋 [**REQUIREMENTS.md**](projects/kombi-kaddy/REQUIREMENTS.md)<br>• 📐 [**SPECIFICATION.md**](projects/kombi-kaddy/v10/SPECIFICATION.md)<br>• ✂️ [**CUT_LIST.md**](projects/kombi-kaddy/v10/CUT_LIST.md)<br>• 🛠️ [**build.py**](projects/kombi-kaddy/v10/build.py) |
+| ![Kombi Kaddy Render](projects/kombi-kaddy/v10/caddy_v10.png) | • **Application**: Heavy-duty mobile 2x4 wooden rack for STIHL KombiSystem storage.<br>• **Master Version**: [**Version 10**](projects/kombi-kaddy/v10/)<br>• 📋 [**REQUIREMENTS.md**](projects/kombi-kaddy/v10/REQUIREMENTS.md)<br>• 📐 [**SPECIFICATION.md**](projects/kombi-kaddy/v10/SPECIFICATION.md)<br>• ✂️ [**CUT_LIST.md**](projects/kombi-kaddy/v10/CUT_LIST.md)<br>• 🛠️ [**build.py**](projects/kombi-kaddy/v10/build.py) |
 
 ---
 

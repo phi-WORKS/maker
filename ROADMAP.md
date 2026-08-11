@@ -24,9 +24,9 @@ This document outlines upcoming development goals for component library expansio
 
 ## 🛠️ Physical Project Roadmap
 
-- [x] **Towable Flame Weeding Sled (v1.4)**: Enclosed 14-ga mild steel pyramidal hood, rearward flame orientation, forward tow bar, forward-leaning torch handle, and FreeCAD subassembly tree grouping.
-- [x] **STIHL Kombi Attachment Caddy (v10)**: Modular storage rack and transport caddy for STIHL KombiSystem tools.
-- [ ] **Component Refinement**: Refine project assembly scripts (`flame-weeding-sled` and `caddy`) to import standalone components directly from `components/`.
+- [x] **Road Roaster (v04 Master)**: Enclosed 14-ga mild steel pyramidal hood, rearward flame orientation, forward tow bar, forward-leaning torch handle, and FreeCAD subassembly tree grouping (`projects/road-roaster/`).
+- [x] **Kombi Kaddy (v10 Master)**: Modular storage rack and transport caddy for STIHL KombiSystem tools (`projects/kombi-kaddy/`).
+- [ ] **Component Refinement**: Refine project assembly scripts (`road-roaster` and `kombi-kaddy`) to import standalone components directly from `components/`.
 
 ---
 
