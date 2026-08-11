@@ -41,10 +41,21 @@ Keep the FreeCAD object tree clean and structured:
     └── 4. Forward Tow Rigging Subassembly
   ```
 
-### 1.6 Self-Contained Version Subdirectories (`v01/`, `v02/`, ..., `vXX/`)
-- Save each major design iteration inside a dedicated version subdirectory: `projects/<project>/v01/`, `v02/`, ..., `v10/`.
-- Each version folder is **self-contained**, housing its own `build.py` script, FreeCAD model (`caddy_v10.FCStd`), render images, `REQUIREMENTS.md`, `CUT_LIST.md`, and `SPECIFICATION.md`.
-- The project root directory houses the master `README.md`, which acts as an **Evolutionary Journey Index** (newest version at the top) logging the human-AI co-design process over time, while version subdirectories house version-specific galleries, build scripts, cut lists, and specs.
+### 1.6 Semantic Versioning for Physical CAD & Fabrication (`vMAJOR.MINOR.PATCH`)
+Physical design iterations follow **Semantic Versioning** rules adapted for hardware & fabrication:
+- **`MAJOR` (`v1.0.0`, `v2.0.0`)**: Major structural, chassis, or architectural overhaul (e.g. frame material migration, fundamental mechanism redesign).
+- **`MINOR` (`v1.1.0`, `v1.2.0`)**: Feature addition, component module swap, ergonomic adjustment, or dimensional calibration (e.g. adding swivel casters, extending top clip rails).
+- **`PATCH` (`v1.0.1`, `v1.1.1`)**: Cut list tolerance adjustment, CAD script geometry refactor, or documentation fix.
+
+### 1.7 Self-Contained Version Subdirectories & Lifecycle Status Badges
+- Save each design iteration inside a dedicated version subdirectory: `projects/<project>/v1.0.0/`, `v1.1.0/`, `v2.0.0/` (or legacy `v01/`..`v10/` mapped to SemVer).
+- Each version folder is **self-contained**, housing its own `build.py` script, FreeCAD model (`caddy_v10.FCStd`), render images, `REQUIREMENTS.md`, `CUT_LIST.md`, `SPECIFICATION.md`, `FABRICATION_GUIDE.md`, and `BOM.md`.
+- The project root directory houses the master `README.md`, which acts as an **Evolutionary Journey Index** (newest version at the top) logging the human-AI co-design process over time.
+- **Lifecycle Status Badges**: Every version listed in project history tables must display a standardized status badge:
+  - `🟡 IN PROGRESS (Draft)`: Requirements defined in `REQUIREMENTS.md`; CAD script (`build.py`) or model under active development.
+  - `🔵 FABRICATION READY`: CAD model finalized; complete `CUT_LIST.md`, `SPECIFICATION.md`, `FABRICATION_GUIDE.md`, and `BOM.md` compiled for shop fabrication.
+  - `🟢 BUILT & VERIFIED`: Fabricated in shop and physically verified in field testing.
+  - `📦 SUPERSEDED`: Historical release superseded by a newer verified iteration.
 - **Dynamic Path Resolution**: Build scripts resolve output directories dynamically relative to `__file__` (never hardcode local workspace paths).
 
 ---
