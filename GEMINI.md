@@ -29,7 +29,7 @@
 ## Agent Operating Directives
 
 1. **Component Modularization**: When modeling commercial tools, burners, or attachments, build them first as standalone 3D modules in `components/` before placing them into project assemblies.
-2. **Self-Contained Versioning**: Store design iterations in self-contained version folders (`projects/<project>/v01/`, `v02/`, ..., `v10/`), each housing its standalone `build.py`, `.FCStd` model, cut lists, and specs. Keep the project root `.FCStd` updated to the latest master version.
+2. **Self-Contained Versioning & Evolutionary Project Indices**: Store design iterations in self-contained version folders (`projects/<project>/v01/`, `v02/`, ..., `vXX/`), each housing its standalone `build.py`, `.FCStd` model, cut lists, and specs. The project root `projects/<project>/README.md` serves as an **Evolutionary Journey Index** (newest version at the top), highlighting the active master release and documenting how human-AI co-design evolved the physical structure over time without duplicating version-specific galleries.
 3. **Dynamic Pathing**: Resolve script paths dynamically relative to `__file__` (never hardcode local `/home/phi/...` workspace paths).
 4. **No STEP Export Overhead**: Do not generate `.step` files during routine builds; generate STEP models only upon explicit user request.
 5. **Vector Math Rule**: Use non-mutating vector addition (`v1 + v2`) in FreeCAD Python API. Never use `vec.add(other)` in a chained fashion as it mutates vectors in place.

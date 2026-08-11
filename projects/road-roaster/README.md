@@ -2,9 +2,13 @@
 
 > *Towable Thermal Weed Shock Sled*
 
-**Master CAD Model**: [`flame_sled.FCStd`](flame_sled.FCStd) (Master copy of Version 04)  
-**Latest Optimal Version**: **[Version 04](v04/)**  
-**Torch Component Unit**: [Harbor Freight Propane Torch #91037](../../components/torch_hf91037/)  
+---
+
+## Active Master Release: Version 04
+
+| Master Render Snapshot | Active Version Details & Master Links |
+| :---: | :--- |
+| ![Road Roaster Master Render](flame_sled_iso.png) | • **Latest Optimal Version**: **[Version 04](v04/)**<br>• **Master CAD Model**: [`flame_sled.FCStd`](flame_sled.FCStd) (Master copy of v04)<br>• **Torch Unit**: [Harbor Freight Propane Torch #91037](../../components/torch_hf91037/)<br>• 📋 [**REQUIREMENTS.md**](REQUIREMENTS.md)<br>• 📐 [**v04/SPECIFICATION.md**](v04/SPECIFICATION.md)<br>• ✂️ [**v04/CUT_LIST.md**](v04/CUT_LIST.md)<br>• 🛠️ [**v04/FABRICATION_GUIDE.md**](v04/FABRICATION_GUIDE.md)<br>• 📦 [**v04/BOM.md**](v04/BOM.md)<br>• 🚀 [**v04/README.md**](v04/README.md) *(Full 7-View Gallery)* |
 
 ---
 
@@ -14,46 +18,23 @@ The **Road Roaster** is a heavy-duty, heat-concentrating drag hood pulled ahead 
 
 ---
 
-## Master 3D CAD Multi-View Projection Gallery (v04)
+## Evolutionary Version History & Human-AI Design Journey
 
-| Isometric (Home View) | Top Plan View |
-| :---: | :---: |
-| ![Isometric View](flame_sled_iso.png) | ![Top View](flame_sled_top.png) |
-| **Front Elevation** | **Rear Elevation** |
-| ![Front Elevation](flame_sled_front.png) | ![Rear Elevation](flame_sled_back.png) |
-| **Right Side Elevation** | **Left Side Elevation** |
-| ![Right Side View](flame_sled_right.png) | ![Left Side View](flame_sled_left.png) |
-| **Bottom Plan View** | |
-| ![Bottom View](flame_sled_bottom.png) | |
+This project documents the collaborative evolutionary cycle between human shop feedback and AI-agentic parametric CAD modeling across 4 version iterations:
 
----
-
-## Project Master Documentation Index
-
-- 📋 [**REQUIREMENTS.md**](REQUIREMENTS.md): Master requirements specification, functional requirements table, physical fabrication constraints, and version evolution.
-- 📐 [**v04/SPECIFICATION.md**](v04/SPECIFICATION.md): Version 04 engineering specification, thermal shock physics, geometry, torch mounting clamp, and forward tow kinetics.
-- ✂️ [**v04/CUT_LIST.md**](v04/CUT_LIST.md): DIY cut list optimized for angle grinder cut-off wheels and flux-core MIG welding, flat trapezoid templates, and skid tip geometry.
-- 🛠️ [**v04/FABRICATION_GUIDE.md**](v04/FABRICATION_GUIDE.md): Step-by-step angle grinder panel prep, flux-core seam welding, overhead frame assembly, torch clamping, and operating safety checklist.
-- 📦 [**v04/BOM.md**](v04/BOM.md): Complete itemized Bill of Materials with dimensions, weights (~22.2 lbs dry sled), and sourcing recommendations.
-- 🚀 [**v04/README.md**](v04/README.md): Version 04 self-contained directory index.
-
----
-
-## Version Iteration Index
-
-| Version | Directory | Description & Key Milestones | Status |
+| Version | Directory | Design Milestones & Key Evolutionary Changes | Status |
 | :---: | :--- | :--- | :---: |
-| **v01** | [`v01/`](v01/) | Apex collar & closed pyramid hood prototype. | Baseline |
-| **v02** | [`v02/`](v02/) | Integrated Harbor Freight #91037 torch, overhead frame, and forward tow bar. | Mechanical Integration |
-| **v03** | [`v03/`](v03/) | Re-angled torch handle 180° forward leaning toward operator puller. | Ergonomic Refinement |
-| **v04** | [`v04/`](v04/) | **Master Version**: Organized 3D model into 4 modular FreeCAD `App::DocumentObjectGroup` containers. | **OPTIMAL MASTER** |
+| **v04** | [`v04/`](v04/) | **Master Version**: Organized 3D model into 4 modular FreeCAD `App::DocumentObjectGroup` containers (`Flame_Sled_Pyramid_Hood`, `Overhead_Support_Frame`, `Rigid_Towbar_Hitch`, `Harbor_Freight_Torch_91037`), establishing clean tree structure and parametric VarSet (`dims`) control. | **OPTIMAL MASTER** |
+| **v03** | [`v03/`](v03/) | **Ergonomic Forward Lean**: Re-angled torch handle wand 180° forward leaning toward the operator pulling at the front, putting the blue handle, flow knob, and piezo igniter within comfortable walking reach. | Ergonomic Refinement |
+| **v02** | [`v02/`](v02/) | **Mechanical Integration**: Integrated overhead steel bridge mounting frame, Harbor Freight #91037 propane torch module, 2.0" vertical skirts, and 5 ft rigid square tube tow bar with 20° drop-stop rest tab. | Mechanical Integration |
+| **v01** | [`v01/`](v01/) | **Baseline Prototype**: Initial $18'' \times 18''$ closed pyramid hood geometry, 14-gauge sheet metal templates, and dual $1.5'' \times 3/16''$ flat bar skid runners with 30° turned-up tips. | Baseline |
 
 ---
 
-## FreeCAD Build Command
+## FreeCAD Execution Command
 
 To build the active master model (Version 04) and generate all 7 orthographic view renders:
 
 ```bash
-/home/phi/AppImages/FreeCAD_1.1.3-Linux-x86_64-py311.AppImage -c "__file__='/home/phi/PROJECTS/phi-WORKS/maker/projects/flame-weeding-sled/v04/build.py'; exec(open(__file__).read())"
+/home/phi/AppImages/FreeCAD_1.1.3-Linux-x86_64-py311.AppImage -c "__file__='/home/phi/PROJECTS/phi-WORKS/maker/projects/road-roaster/v04/build.py'; exec(open(__file__).read())"
 ```

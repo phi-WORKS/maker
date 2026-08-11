@@ -44,7 +44,7 @@ Keep the FreeCAD object tree clean and structured:
 ### 1.6 Self-Contained Version Subdirectories (`v01/`, `v02/`, ..., `vXX/`)
 - Save each major design iteration inside a dedicated version subdirectory: `projects/<project>/v01/`, `v02/`, ..., `v10/`.
 - Each version folder is **self-contained**, housing its own `build.py` script, FreeCAD model (`caddy_v10.FCStd`), render images, `REQUIREMENTS.md`, `CUT_LIST.md`, and `SPECIFICATION.md`.
-- The project root directory houses the master `README.md` (which details master project objectives and indexes all version iterations) and a copy of the active master CAD model (`caddy.FCStd`).
+- The project root directory houses the master `README.md`, which acts as an **Evolutionary Journey Index** (newest version at the top) logging the human-AI co-design process over time, while version subdirectories house version-specific galleries, build scripts, cut lists, and specs.
 - **Dynamic Path Resolution**: Build scripts resolve output directories dynamically relative to `__file__` (never hardcode local workspace paths).
 
 ---

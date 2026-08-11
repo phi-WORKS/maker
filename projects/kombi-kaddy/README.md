@@ -2,8 +2,13 @@
 
 > *Mobile STIHL KombiSystem Attachment Rack*
 
-**Master CAD Model**: [`caddy.FCStd`](caddy.FCStd) (Master copy of Version 10)  
-**Latest Optimal Version**: **[Version 10](v10/)**  
+---
+
+## Active Master Release: Version 10
+
+| Master Render Snapshot | Active Version Details & Master Links |
+| :---: | :--- |
+| ![Kombi Kaddy Master Render](caddy_iso.png) | • **Latest Optimal Version**: **[Version 10](v10/)**<br>• **Master CAD Model**: [`caddy.FCStd`](caddy.FCStd) (Master copy of v10)<br>• 📋 [**REQUIREMENTS.md**](REQUIREMENTS.md)<br>• 📐 [**v10/SPECIFICATION.md**](v10/SPECIFICATION.md)<br>• ✂️ [**v10/CUT_LIST.md**](v10/CUT_LIST.md)<br>• 🛠️ [**v10/build.py**](v10/build.py)<br>• 🚀 [**v10/README.md**](v10/README.md) *(Full 7-View Gallery)* |
 
 ---
 
@@ -13,47 +18,26 @@ The **Kombi Kaddy** is a heavy-duty mobile shop rack designed to store, organize
 
 ---
 
-## Master 3D CAD Multi-View Projection Gallery (v10)
+## Evolutionary Version History & Human-AI Design Journey
 
-| Isometric (Home View) | Top Plan View |
-| :---: | :---: |
-| ![Isometric View](caddy_iso.png) | ![Top View](caddy_top.png) |
-| **Front Elevation** | **Rear Elevation** |
-| ![Front Elevation](caddy_front.png) | ![Rear Elevation](caddy_back.png) |
-| **Right Side Elevation** | **Left Side Elevation** |
-| ![Right Side View](caddy_right.png) | ![Left Side View](caddy_left.png) |
-| **Bottom Plan View** | |
-| ![Bottom View](caddy_bottom.png) | |
+This project documents the collaborative evolutionary cycle between human shop feedback and AI-agentic parametric CAD modeling across 10 version iterations:
 
----
-
-## Project Master Documentation Index
-
-- 📋 [**REQUIREMENTS.md**](REQUIREMENTS.md): Master requirements specification, functional requirements table, physical shop constraints, and version evolutionary traceability.
-- 📐 [**v10/SPECIFICATION.md**](v10/SPECIFICATION.md): Version 10 engineering specification, parametric VarSet (`dims`) table, dado post joinery, and clearance specs.
-- ✂️ [**v10/CUT_LIST.md**](v10/CUT_LIST.md): Version 10 DIY cut list tailored for miter saws and table saws, board optimization, dado pocket specs, and fastener BOM.
-- 🚀 [**v10/README.md**](v10/README.md): Version 10 self-contained directory index.
-
----
-
-## Version Iteration Index
-
-| Version | Directory | Description & Key Milestones | Status |
+| Version | Directory | Design Milestones & Key Evolutionary Changes | Status |
 | :---: | :--- | :--- | :---: |
-| **v01** | [`v01/`](v01/) | Initial flat 2x4 frame prototype. | Baseline |
-| **v02** | [`v02/`](v02/) | Extended base foot depth to 15". | Deprecated |
-| **v03** | [`v03/`](v03/) | Added top 1x4 cross rail and clip alignment. | Deprecated |
-| **v04** | [`v04/`](v04/) | Added sloped front toe and rear plywood gussets. | Deprecated |
-| **v05** | [`v05/`](v05/) | Parametric VarSet clean rebuild (`caddy_v05.FCStd`). | Milestone |
-| **v06** | [`v06/`](v06/) | Offset vertical posts 8.5" rearward for tool head clearance. | Structural Refinement |
-| **v07** | [`v07/`](v07/) | Housed cross rails in dado post pockets; added 1x4 floor deck slats. | Structural Refinement |
-| **v08** | [`v08/`](v08/) | Added rear 5" fixed rubber casters for tilt-and-roll transport. | Mobility Refinement |
-| **v09** | [`v09/`](v09/) | Height calibrated to 44.5" for 39.5" Kombi tool standing height. | Height Calibration |
-| **v10** | [`v10/`](v10/) | **Master Version**: Expanded rails to 36" width with 24" post span & 6" cantilever overhangs. | **OPTIMAL MASTER** |
+| **v10** | [`v10/`](v10/) | **Master Version**: Expanded top/bottom rails to 36.0" width with 6.0" cantilever overhangs, allowing 4 full-sized attachments to be mounted without clip crowding while preserving 24.0" post alignment for garage studs. | **OPTIMAL MASTER** |
+| **v09** | [`v09/`](v09/) | **Height Calibration**: Calibrated post height to 44.5" to align spring clip grab centers at 42.75", matching real-world 39.5" Kombi attachment standing heights. | Height Calibration |
+| **v08** | [`v08/`](v08/) | **Mobility Refinement**: Mounted rear 5" fixed rubber casters to the heel of base feet for tilt-and-roll transport across shop floors. | Mobility Refinement |
+| **v07** | [`v07/`](v07/) | **Structural Joinery**: Housed 1x4 cross rails inside 0.75" dado post pockets; added 2x 1x4 horizontal floor deck slats to support gearboxes. | Structural Refinement |
+| **v06** | [`v06/`](v06/) | **Ergonomic Clearance**: Offset vertical 2x4 posts 8.5" rearward along base feet to prevent heavy tool heads (tillers, edgers, blowers) from striking posts. | Structural Refinement |
+| **v05** | [`v05/`](v05/) | **Parametric Clean Rebuild**: Rebuilt 3D model using FreeCAD `App::VarSet` (`dims`) table for fully parametric dimension management. | Milestone |
+| **v04** | [`v04/`](v04/) | **Anti-Racking Stability**: Added sloped front foot toe profile and 3/4" rear plywood corner gussets to eliminate lateral frame sway under load. | Deprecated |
+| **v03** | [`v03/`](v03/) | **Clip Rail Integration**: Added top 1x4 cross rail and spring clip mounting layout for vertical attachment storage. | Deprecated |
+| **v02** | [`v02/`](v02/) | **Foot Depth Extension**: Extended base foot depth to 15.0" to improve forward tipping stability. | Deprecated |
+| **v01** | [`v01/`](v01/) | **Baseline Prototype**: Initial flat 2x4 frame prototype and baseline dimensions. | Baseline |
 
 ---
 
-## FreeCAD Build Command
+## FreeCAD Execution Command
 
 To build the active master model (Version 10) and generate all 7 orthographic view renders:
 
