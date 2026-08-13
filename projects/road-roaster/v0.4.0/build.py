@@ -312,9 +312,9 @@ def build():
     HOSE_BLACK = (0.08, 0.08, 0.08, 0.0)      # Rubber Extension Hose
 
     model = FreeCAD.newDocument("road_roaster")
-    model.Label = "Road Roaster v1.4.0 - Onboard Propane Harness & Imported Components"
+    model.Label = "Road Roaster v0.4.0 - Onboard Propane Harness & Imported Components"
 
-    # 0. SUBASSEMBLY PART CONTAINERS (v1.4.0)
+    # 0. SUBASSEMBLY PART CONTAINERS (v0.4.0)
     grp_hood = model.addObject("App::DocumentObjectGroup", "Hood_Subassembly")
     grp_hood.Label = "1. Pyramid Hood & Skid Subassembly"
 
@@ -376,8 +376,8 @@ def build():
         set_vis(model, obj, color)
 
     # Save outputs
-    fc_file = os.path.join(script_dir, "sled_v1.4.0.FCStd")
-    png_file = os.path.join(script_dir, "sled_v1.4.0.png")
+    fc_file = os.path.join(script_dir, "sled_v0.4.0.FCStd")
+    png_file = os.path.join(script_dir, "sled_v0.4.0.png")
     model.saveAs(fc_file)
 
     if HAS_GUI:
@@ -385,13 +385,13 @@ def build():
             import FreeCADGui
             gui_d = FreeCADGui.getDocument(model.Name)
             if gui_d:
-                base_prefix = os.path.join(script_dir, "sled_v1.4.0")
+                base_prefix = os.path.join(script_dir, "sled_v0.4.0")
                 export_orthogonal_views(gui_d, base_prefix)
         except Exception as e:
             print(f"Render error: {e}")
 
     FreeCAD.closeDocument("road_roaster")
-    print(f"Built Version 1.4.0: {fc_file} and {png_file}")
+    print(f"Built Version 0.4.0: {fc_file} and {png_file}")
 
 if __name__ == "__main__":
     build()

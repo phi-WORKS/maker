@@ -65,8 +65,9 @@ Requirements are not static one-time prompts. Physical design iterations follow 
 │   └── kombi_tools/          # STIHL Kombi tool attachments & trimmer 3D models
 │
 └── projects/                 # Physical Projects & Master Assemblies
-    ├── kombi-kaddy/           # STIHL Kombi Attachment Kaddy (v1.0.0..v1.9.0 / v10 master)
-    └── road-roaster/          # Towable Flame Weeding Sled (v1.0.0..v1.4.0 master)
+└── projects/                 # Physical Projects & Master Assemblies
+    ├── kombi-kaddy/           # STIHL Kombi Attachment Kaddy (v0.0.0..v0.9.0 master)
+    └── road-roaster/          # Towable Flame Weeding Sled (v0.0.0..v0.4.0 master)
 ```
 
 ---
@@ -78,14 +79,14 @@ Requirements are not static one-time prompts. Physical design iterations follow 
 
 | Project Master Render | Quick Specs & Master Links |
 | :---: | :--- |
-| ![Road Roaster Render](projects/road-roaster/v1.4.0/sled_v1.4.0_iso.png) | • **Application**: Non-chemical gravel driveway weed management via thermal shock (150°F–180°F).<br>• **Master Release**: [**v1.4.0**](projects/road-roaster/v1.4.0/) 🟡 **`[IN PROGRESS]`**<br>• 📋 [**REQUIREMENTS.md**](projects/road-roaster/v1.4.0/REQUIREMENTS.md)<br>• 📐 [**SPECIFICATION.md**](projects/road-roaster/v1.4.0/SPECIFICATION.md)<br>• ✂️ [**CUT_LIST.md**](projects/road-roaster/v1.4.0/CUT_LIST.md)<br>• 🛠️ [**FABRICATION_GUIDE.md**](projects/road-roaster/v1.4.0/FABRICATION_GUIDE.md)<br>• 📦 [**BOM.md**](projects/road-roaster/v1.4.0/BOM.md) |
+| ![Road Roaster Render](projects/road-roaster/v0.4.0/sled_v0.4.0_iso.png) | • **Application**: Non-chemical gravel driveway weed management via thermal shock (150°F–180°F).<br>• **Master Release**: [**v0.4.0**](projects/road-roaster/v0.4.0/) 🟡 **`[IN PROGRESS]`**<br>• 📋 [**REQUIREMENTS.md**](projects/road-roaster/v0.4.0/REQUIREMENTS.md)<br>• 📐 [**SPECIFICATION.md**](projects/road-roaster/v0.4.0/SPECIFICATION.md)<br>• ✂️ [**CUT_LIST.md**](projects/road-roaster/v0.4.0/CUT_LIST.md)<br>• 🛠️ [**FABRICATION_GUIDE.md**](projects/road-roaster/v0.4.0/FABRICATION_GUIDE.md)<br>• 📦 [**BOM.md**](projects/road-roaster/v0.4.0/BOM.md) |
 
 ### 2. [Kombi Kaddy](projects/kombi-kaddy/README.md)
 *Mobile STIHL KombiSystem Attachment Rack*
 
 | Project Master Render | Quick Specs & Master Links |
 | :---: | :--- |
-| ![Kombi Kaddy Render](projects/kombi-kaddy/v10/caddy_v10_iso.png) | • **Application**: Heavy-duty mobile 2x4 wooden rack for STIHL KombiSystem storage.<br>• **Master Release**: [**v1.9.0 (v10)**](projects/kombi-kaddy/v10/) 🟡 **`[IN PROGRESS]`**<br>• 📋 [**REQUIREMENTS.md**](projects/kombi-kaddy/v10/REQUIREMENTS.md)<br>• 📐 [**SPECIFICATION.md**](projects/kombi-kaddy/v10/SPECIFICATION.md)<br>• ✂️ [**CUT_LIST.md**](projects/kombi-kaddy/v10/CUT_LIST.md)<br>• 🛠️ [**build.py**](projects/kombi-kaddy/v10/build.py) |
+| ![Kombi Kaddy Render](projects/kombi-kaddy/v0.9.0/caddy_v0.9.0_iso.png) | • **Application**: Heavy-duty mobile 2x4 wooden rack for STIHL KombiSystem storage.<br>• **Master Release**: [**v0.9.0**](projects/kombi-kaddy/v0.9.0/) 🟡 **`[IN PROGRESS]`**<br>• 📋 [**REQUIREMENTS.md**](projects/kombi-kaddy/v0.9.0/REQUIREMENTS.md)<br>• 📐 [**SPECIFICATION.md**](projects/kombi-kaddy/v0.9.0/SPECIFICATION.md)<br>• ✂️ [**CUT_LIST.md**](projects/kombi-kaddy/v0.9.0/CUT_LIST.md)<br>• 🛠️ [**build.py**](projects/kombi-kaddy/v0.9.0/build.py) |
 
 ---
 
@@ -108,9 +109,9 @@ Requirements are not static one-time prompts. Physical design iterations follow 
 ## FreeCAD Execution Commands
 
 ```bash
-# Build Kombi Kaddy Version 10 Master Model
-/home/phi/AppImages/FreeCAD_1.1.3-Linux-x86_64-py311.AppImage -c "__file__='/home/phi/PROJECTS/phi-WORKS/maker/projects/kombi-kaddy/v10/build.py'; exec(open(__file__).read())"
+# Build Kombi Kaddy Version 0.9.0 Master Model
+/home/phi/AppImages/FreeCAD_1.1.3-Linux-x86_64-py311.AppImage -c "__file__='/home/phi/PROJECTS/phi-WORKS/maker/projects/kombi-kaddy/v0.9.0/build.py'; exec(open(__file__).read())"
 
-# Build Road Roaster Version 1.4.0 Master Model
-/home/phi/AppImages/FreeCAD_1.1.3-Linux-x86_64-py311.AppImage -c "__file__='/home/phi/PROJECTS/phi-WORKS/maker/projects/road-roaster/v1.4.0/build.py'; exec(open(__file__).read())"
+# Build Road Roaster Version 0.4.0 Master Model
+/home/phi/AppImages/FreeCAD_1.1.3-Linux-x86_64-py311.AppImage -c "__file__='/home/phi/PROJECTS/phi-WORKS/maker/projects/road-roaster/v0.4.0/build.py'; exec(open(__file__).read())"
 ```

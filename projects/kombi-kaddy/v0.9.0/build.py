@@ -28,7 +28,7 @@ def set_vis(doc, obj, color):
                 g_obj.ShapeColor = color
                 g_obj.DisplayMode = "Flat Lines"
 
-def build_v10():
+def build_v0_9_0():
     script_dir = os.path.dirname(os.path.abspath(__file__)) if "__file__" in globals() else os.path.abspath(".")
     caddy_dir = os.path.dirname(script_dir)
 
@@ -39,8 +39,8 @@ def build_v10():
     SHAFT = (0.85, 0.85, 0.88, 0.0)
     RUBBER = (0.12, 0.12, 0.12, 0.0)
 
-    v10_doc = FreeCAD.newDocument("caddy_v10")
-    v10_doc.Label = "Kombi Kaddy v10 - 24in Post Spacing & 6in Cantilever Rail Overhangs"
+    v10_doc = FreeCAD.newDocument("caddy_v0_9_0")
+    v10_doc.Label = "Kombi Kaddy v0.9.0 - 24in Post Spacing & 6in Cantilever Rail Overhangs"
 
     # Core Dimensions
     LUMBER_W = 88.9   # 3.5 in (2x4 & 1x4 width)
@@ -199,23 +199,23 @@ def build_v10():
 
     v10_doc.recompute()
 
-    v10_fc = os.path.join(script_dir, "caddy_v10.FCStd")
-    v10_png = os.path.join(script_dir, "caddy_v10.png")
+    v10_fc = os.path.join(script_dir, "caddy_v0.9.0.FCStd")
+    v10_png = os.path.join(script_dir, "caddy_v0.9.0.png")
     v10_doc.saveAs(v10_fc)
 
     if HAS_GUI:
         try:
             import FreeCADGui
-            gui_d = FreeCADGui.getDocument("caddy_v10")
+            gui_d = FreeCADGui.getDocument("caddy_v0_9_0")
             if gui_d:
-                base_prefix = os.path.join(script_dir, "caddy_v10")
+                base_prefix = os.path.join(script_dir, "caddy_v0.9.0")
                 export_orthogonal_views(gui_d, base_prefix)
         except Exception as e:
             print(f"Render error: {e}")
 
-    FreeCAD.closeDocument("caddy_v10")
-    print(f"Successfully created Version 10 model & multi-view renders in {script_dir}")
+    FreeCAD.closeDocument("caddy_v0_9_0")
+    print(f"Successfully created Version 0.9.0 model & multi-view renders in {script_dir}")
 
 if __name__ == "__main__":
-    build_v10()
+    build_v0_9_0()
     sys.exit(0)

@@ -24,8 +24,8 @@ This document outlines upcoming development goals for component library expansio
 
 ## 🛠️ Physical Project Roadmap
 
-- [x] **Road Roaster (v04 Master)**: Enclosed 14-ga mild steel pyramidal hood, rearward flame orientation, forward tow bar, forward-leaning torch handle, and FreeCAD subassembly tree grouping (`projects/road-roaster/`).
-- [x] **Kombi Kaddy (v10 Master)**: Modular storage rack and transport caddy for STIHL KombiSystem tools (`projects/kombi-kaddy/`).
+- [x] **Road Roaster (v0.4.0 Master)**: Enclosed 14-ga mild steel pyramidal hood, rearward flame orientation, forward tow bar, forward-leaning torch handle, and FreeCAD subassembly tree grouping (`projects/road-roaster/`).
+- [x] **Kombi Kaddy (v0.9.0 Master)**: Modular storage rack and transport caddy for STIHL KombiSystem tools (`projects/kombi-kaddy/`).
 - [ ] **Component Refinement**: Refine project assembly scripts (`road-roaster` and `kombi-kaddy`) to import standalone components directly from `components/`.
 
 ---

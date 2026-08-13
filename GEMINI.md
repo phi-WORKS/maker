@@ -17,7 +17,7 @@
 
 - `src/`: Primary Python package library (`src/phi_works/maker/`) for shared CAD helpers and rendering utilities.
 - `components/`: Reusable commercial tools and hardware modules (e.g., `components/torch_hf91037/`, `components/kombi_tools/`).
-- `projects/`: Physical assembly projects (`projects/kombi-kaddy/`, `projects/road-roaster/`), organized by self-contained version subdirectories (`v01/`, `v02/`, ..., `v10/`).
+- `projects/`: Physical assembly projects (`projects/kombi-kaddy/`, `projects/road-roaster/`), organized by self-contained version subdirectories (`v0.0.0/`, `v0.1.0/`, ..., `v0.9.0/`).
 - `templates/`: Boilerplate starter scripts (`component_template.py`, `project_template.py`).
 - `pyproject.toml`: Package metadata, dependencies, and build settings (`phi_works_maker`).
 - `WORKFLOW.md`: Official Maker Collaboration & CAD Best Practices Guide.

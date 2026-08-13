@@ -1,37 +1,37 @@
-# Kombi Kaddy — Version 10 (Master)
+# Kombi Kaddy — Version 0.9.0 (Master)
 
 > *Mobile STIHL KombiSystem Attachment Rack*
 
-**Master CAD Model**: [`caddy_v10.FCStd`](caddy_v10.FCStd)  
+**Master CAD Model**: [`caddy_v0.9.0.FCStd`](caddy_v0.9.0.FCStd)  
 **Status**: **Optimal Master Version**  
 
 ---
 
-## 3D CAD Multi-View Projection Gallery (v10)
+## 3D CAD Multi-View Projection Gallery (v0.9.0)
 
 | Isometric (Home View) | Top Plan View |
 | :---: | :---: |
-| ![Isometric View](caddy_v10_iso.png) | ![Top View](caddy_v10_top.png) |
+| ![Isometric View](caddy_v0.9.0_iso.png) | ![Top View](caddy_v0.9.0_top.png) |
 | **Front Elevation** | **Rear Elevation** |
-| ![Front Elevation](caddy_v10_front.png) | ![Rear Elevation](caddy_v10_back.png) |
+| ![Front Elevation](caddy_v0.9.0_front.png) | ![Rear Elevation](caddy_v0.9.0_back.png) |
 | **Right Side Elevation** | **Left Side Elevation** |
-| ![Right Side View](caddy_v10_right.png) | ![Left Side View](caddy_v10_left.png) |
+| ![Right Side View](caddy_v0.9.0_right.png) | ![Left Side View](caddy_v0.9.0_left.png) |
 | **Bottom Plan View** | |
-| ![Bottom View](caddy_v10_bottom.png) | |
+| ![Bottom View](caddy_v0.9.0_bottom.png) | |
 
 ---
 
-## Version 10 Directory Index
+## Version 0.9.0 Directory Index
 
-- 🛠️ [**`build.py`**](build.py): FreeCAD Python parametric generator script for Version 10 (renders all 7 views + model).
-- 📦 [**`caddy_v10.FCStd`**](caddy_v10.FCStd): FreeCAD 3D Master Model document file.
-- 📋 [**`REQUIREMENTS.md`**](REQUIREMENTS.md): Version 10 specific requirement refinements, delta matrix, and verification status.
+- 🛠️ [**`build.py`**](build.py): FreeCAD Python parametric generator script for Version 0.9.0 (renders all 7 views + model).
+- 📦 [**`caddy_v0.9.0.FCStd`**](caddy_v0.9.0.FCStd): FreeCAD 3D Master Model document file.
+- 📋 [**`REQUIREMENTS.md`**](REQUIREMENTS.md): Version 0.9.0 specific requirement refinements, delta matrix, and verification status.
 - 📐 [**`SPECIFICATION.md`**](SPECIFICATION.md): Detailed engineering specification, parametric VarSet (`dims`) table, joinery pockets, and hardware specs.
 - ✂️ [**`CUT_LIST.md`**](CUT_LIST.md): Complete DIY cut list, board optimization for 2x4 & 1x4 stock lumber, dado notch specs, and fastener list.
 
 ---
 
-## Key Version 10 Improvements
+## Key Version 0.9.0 Improvements
 
 1. **36.0 in Cross Rails**: Expanded top and lower 1x4 rails to 36.0 inches wide with 6.0 in cantilever overhangs beyond the vertical posts.
 2. **24.0 in Post Span**: Maintained 24.0 in outer post spacing for garage wall stud alignment and wheel track stability.
@@ -42,5 +42,5 @@
 ## FreeCAD Execution Command
 
 ```bash
-/home/phi/AppImages/FreeCAD_1.1.3-Linux-x86_64-py311.AppImage -c "__file__='/home/phi/PROJECTS/phi-WORKS/maker/projects/kombi-kaddy/v10/build.py'; exec(open(__file__).read())"
+/home/phi/AppImages/FreeCAD_1.1.3-Linux-x86_64-py311.AppImage -c "__file__='/home/phi/PROJECTS/phi-WORKS/maker/projects/kombi-kaddy/v0.9.0/build.py'; exec(open(__file__).read())"
 ```

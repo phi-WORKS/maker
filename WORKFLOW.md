@@ -48,15 +48,15 @@ Physical design iterations follow **Semantic Versioning** rules adapted for hard
 - **`PATCH` (`v1.0.1`, `v1.1.1`)**: Cut list tolerance adjustment, CAD script geometry refactor, or documentation fix.
 
 ### 1.7 Self-Contained Version Subdirectories & Lifecycle Status Badges
-- Save each design iteration inside a dedicated version subdirectory: `projects/<project>/v1.0.0/`, `v1.1.0/`, `v2.0.0/` (or legacy `v01/`..`v10/` mapped to SemVer).
-- Each version folder is **self-contained**, housing its own `build.py` script, FreeCAD model (`caddy_v10.FCStd`), render images, `REQUIREMENTS.md`, `CUT_LIST.md`, `SPECIFICATION.md`, `FABRICATION_GUIDE.md`, and `BOM.md`.
+- Save each design iteration inside a dedicated version subdirectory: `projects/<project>/v0.0.0/`, `v0.1.0/`, `v0.2.0/` (zero-major preliminary semantic versioning).
+- Each version folder is **self-contained**, housing its own `build.py` script, FreeCAD model (`caddy_v0.9.0.FCStd`), render images, `REQUIREMENTS.md`, `CUT_LIST.md`, `SPECIFICATION.md`, `FABRICATION_GUIDE.md`, and `BOM.md`.
 - The project root directory houses the master `README.md`, which acts as an **Evolutionary Journey Index** (newest version at the top) logging the human-AI co-design process over time.
 - **Lifecycle Status Badges**: Every version listed in project history tables must display a standardized status badge:
   - `🟡 IN PROGRESS (Draft)`: Requirements defined in `REQUIREMENTS.md`; CAD script (`build.py`) or model under active development.
   - `🔵 FABRICATION READY`: CAD model finalized; complete `CUT_LIST.md`, `SPECIFICATION.md`, `FABRICATION_GUIDE.md`, and `BOM.md` compiled for shop fabrication.
   - `🟢 BUILT & VERIFIED`: Fabricated in shop and physically verified in field testing.
   - `📦 SUPERSEDED`: Historical release superseded by a newer verified iteration.
-- **Isometric Thumbnail Rule**: Always use the full isometric view render (`<model>_iso.png`, e.g. `sled_v04_iso.png`, `caddy_v10_iso.png`) as the representative CAD snapshot/thumbnail in project history tables and master README files, avoiding cropped default snapshots.
+- **Isometric Thumbnail Rule**: Always use the full isometric view render (`<model>_iso.png`, e.g. `sled_v0.4.0_iso.png`, `caddy_v0.9.0_iso.png`) as the representative CAD snapshot/thumbnail in project history tables and master README files, avoiding cropped default snapshots.
 - **Dynamic Path Resolution**: Build scripts resolve output directories dynamically relative to `__file__` (never hardcode local workspace paths).
 
 ---
