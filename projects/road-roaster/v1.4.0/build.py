@@ -296,9 +296,9 @@ def build_propane_harness_subassembly(doc, grp_harness, pin_center, tow_dir):
     return harness_grp, cylinder_grp, hose_obj
 
 # ==========================================
-# MAIN ORCHESTRATOR FUNCTION: build_v5()
+# MAIN ORCHESTRATOR FUNCTION: build()
 # ==========================================
-def build_v5():
+def build():
     STEEL_DARK = (0.28, 0.30, 0.33, 0.0)      # 14-ga Hood & Skirts
     STEEL_BRIGHT = (0.55, 0.58, 0.62, 0.0)    # Skids, Frame, Clevis, Angle Iron
     BRASS = (0.85, 0.65, 0.20, 0.0)           # Valve & Brass Fittings
@@ -311,27 +311,27 @@ def build_v5():
     HARNESS_MATTE = (0.18, 0.18, 0.18, 0.0)   # Black Powdercoat Cage
     HOSE_BLACK = (0.08, 0.08, 0.08, 0.0)      # Rubber Extension Hose
 
-    v5_doc = FreeCAD.newDocument("road_roaster_v5")
-    v5_doc.Label = "Road Roaster v05 - Onboard Propane Harness & Imported Components"
+    model = FreeCAD.newDocument("road_roaster")
+    model.Label = "Road Roaster v1.4.0 - Onboard Propane Harness & Imported Components"
 
-    # 0. SUBASSEMBLY PART CONTAINERS (v05)
-    grp_hood = v5_doc.addObject("App::DocumentObjectGroup", "Hood_Subassembly")
+    # 0. SUBASSEMBLY PART CONTAINERS (v1.4.0)
+    grp_hood = model.addObject("App::DocumentObjectGroup", "Hood_Subassembly")
     grp_hood.Label = "1. Pyramid Hood & Skid Subassembly"
 
-    grp_frame = v5_doc.addObject("App::DocumentObjectGroup", "Overhead_Frame_Subassembly")
+    grp_frame = model.addObject("App::DocumentObjectGroup", "Overhead_Frame_Subassembly")
     grp_frame.Label = "2. Overhead Torch Mounting Frame"
 
-    grp_torch = v5_doc.addObject("App::DocumentObjectGroup", "Harbor_Freight_Torch_Subassembly")
+    grp_torch = model.addObject("App::DocumentObjectGroup", "Harbor_Freight_Torch_Subassembly")
     grp_torch.Label = "3. Harbor Freight #91037 Torch Subassembly"
 
-    grp_harness = v5_doc.addObject("App::DocumentObjectGroup", "Propane_Harness_Subassembly")
+    grp_harness = model.addObject("App::DocumentObjectGroup", "Propane_Harness_Subassembly")
     grp_harness.Label = "4. Propane Bottle Harness & Tank Subassembly"
 
-    grp_tow = v5_doc.addObject("App::DocumentObjectGroup", "Tow_Rigging_Subassembly")
+    grp_tow = model.addObject("App::DocumentObjectGroup", "Tow_Rigging_Subassembly")
     grp_tow.Label = "5. Forward Tow Rigging Subassembly"
 
     # 1. PARAMETRIC VARSET (dims)
-    dims = v5_doc.addObject("App::VarSet", "dims")
+    dims = model.addObject("App::VarSet", "dims")
     
     BASE_W = 457.2       # 18.0 in
     BASE_L = 457.2       # 18.0 in
@@ -352,13 +352,13 @@ def build_v5():
     dims.addProperty("App::PropertyLength", "TowBarLength", "Dimensions", "Tow Bar Length").TowBarLength = TOWBAR_L
 
     # 2. BUILD SUBASSEMBLIES
-    hood_obj, gussets_obj, skids_obj = build_hood_subassembly(v5_doc, grp_hood, dims)
-    torch_frame_obj = build_overhead_frame_subassembly(v5_doc, grp_frame, dims)
-    torch_grp = build_torch_subassembly(v5_doc, grp_torch, dims)
-    hitch_obj, pin_obj, towbar_obj, pin_center, tow_dir = build_tow_rigging_subassembly(v5_doc, grp_tow, dims)
-    harness_grp, cylinder_grp, hose_obj = build_propane_harness_subassembly(v5_doc, grp_harness, pin_center, tow_dir)
+    hood_obj, gussets_obj, skids_obj = build_hood_subassembly(model, grp_hood, dims)
+    torch_frame_obj = build_overhead_frame_subassembly(model, grp_frame, dims)
+    torch_grp = build_torch_subassembly(model, grp_torch, dims)
+    hitch_obj, pin_obj, towbar_obj, pin_center, tow_dir = build_tow_rigging_subassembly(model, grp_tow, dims)
+    harness_grp, cylinder_grp, hose_obj = build_propane_harness_subassembly(model, grp_harness, pin_center, tow_dir)
 
-    v5_doc.recompute()
+    model.recompute()
 
     # Apply Visual Colors
     color_map = {
@@ -373,26 +373,26 @@ def build_v5():
     }
 
     for obj, color in color_map.items():
-        set_vis(v5_doc, obj, color)
+        set_vis(model, obj, color)
 
     # Save outputs
-    fc_v5 = os.path.join(script_dir, "sled_v05.FCStd")
-    png_v5 = os.path.join(script_dir, "sled_v05.png")
-    v5_doc.saveAs(fc_v5)
+    fc_file = os.path.join(script_dir, "sled_v1.4.0.FCStd")
+    png_file = os.path.join(script_dir, "sled_v1.4.0.png")
+    model.saveAs(fc_file)
 
     if HAS_GUI:
         try:
             import FreeCADGui
-            gui_d = FreeCADGui.getDocument(v5_doc.Name)
+            gui_d = FreeCADGui.getDocument(model.Name)
             if gui_d:
-                base_prefix = os.path.join(script_dir, "sled_v05")
+                base_prefix = os.path.join(script_dir, "sled_v1.4.0")
                 export_orthogonal_views(gui_d, base_prefix)
         except Exception as e:
             print(f"Render error: {e}")
 
-    FreeCAD.closeDocument("road_roaster_v5")
-    print(f"Built Version 5 (v1.4.0): {fc_v5} and {png_v5}")
+    FreeCAD.closeDocument("road_roaster")
+    print(f"Built Version 1.4.0: {fc_file} and {png_file}")
 
 if __name__ == "__main__":
-    build_v5()
+    build()
     sys.exit(0)

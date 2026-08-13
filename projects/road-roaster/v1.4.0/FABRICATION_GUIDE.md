@@ -1,4 +1,4 @@
-# Fabrication & Assembly Guide — Road Roaster Version 1.4.0 (v05)
+# Fabrication & Assembly Guide — Road Roaster Version 1.4.0
 
 Step-by-step instructions for fabricating and assembling the **Road Roaster Towable Flame Weeding Sled (v1.4.0)** equipped with an onboard **1 lb Propane Bottle Harness** and **Harbor Freight #91037 Torch Mount**.
 

@@ -1,4 +1,4 @@
-# Cut List — Road Roaster Version 1.4.0 (v05)
+# Cut List — Road Roaster Version 1.4.0
 
 All cuts specified for standard shop raw stock. Verify dimensions before cutting.
 

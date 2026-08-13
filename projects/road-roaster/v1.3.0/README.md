@@ -1,19 +1,19 @@
-# Road Roaster - Version 04 (Master Version)
+# Road Roaster — Version 1.3.0
 
 > *Towable Thermal Weed Shock Sled*
 
-**Master Version CAD Model**: [`sled_v04.FCStd`](sled_v04.FCStd)  
+**CAD Model**: [`sled_v04.FCStd`](sled_v04.FCStd)  
 **Parent Project**: [Road Roaster Master Directory](../)  
 
 ---
 
 ## Version Overview
 
-**Version 04** is the active master release of the **Road Roaster** (Towable Flame Weeding Sled). It organizes the 3D parametric FreeCAD assembly into 4 modular `App::DocumentObjectGroup` containers (`Flame_Sled_Pyramid_Hood`, `Overhead_Support_Frame`, `Rigid_Towbar_Hitch`, `Harbor_Freight_Torch_91037`).
+**Version 1.3.0** is an earlier release of the **Road Roaster** (Towable Flame Weeding Sled). It organizes the 3D parametric FreeCAD assembly into 4 modular `App::DocumentObjectGroup` containers (`Flame_Sled_Pyramid_Hood`, `Overhead_Support_Frame`, `Rigid_Towbar_Hitch`, `Harbor_Freight_Torch_91037`).
 
 ---
 
-## 3D CAD Multi-View Projection Gallery (v04)
+## 3D CAD Multi-View Projection Gallery (v1.3.0)
 
 | Isometric (Home View) | Top Plan View |
 | :---: | :---: |
@@ -29,8 +29,8 @@
 
 ## Version Documentation Index
 
-- 📋 [**REQUIREMENTS.md**](REQUIREMENTS.md): Version 04 requirements, target operating speed, thermal constraints, and puller ergonomic safety.
-- 📐 [**SPECIFICATION.md**](SPECIFICATION.md): Version 04 engineering specification, hood apex collar, torch angle, and hitch pin dimensions.
+- 📋 [**REQUIREMENTS.md**](REQUIREMENTS.md): Version 1.3.0 requirements, target operating speed, thermal constraints, and puller ergonomic safety.
+- 📐 [**SPECIFICATION.md**](SPECIFICATION.md): Version 1.3.0 engineering specification, hood apex collar, torch angle, and hitch pin dimensions.
 - ✂️ [**CUT_LIST.md**](CUT_LIST.md): Cut list for angle grinder prep, flat sheet metal panels, and angle iron frame rails.
 - 🛠️ [**FABRICATION_GUIDE.md**](FABRICATION_GUIDE.md): Step-by-step welding, assembly, torch clamping, and operating guide.
 - 📦 [**BOM.md**](BOM.md): Complete itemized Bill of Materials with hardware callouts.

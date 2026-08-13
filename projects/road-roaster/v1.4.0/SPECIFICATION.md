@@ -1,17 +1,17 @@
-# Technical Specification — Road Roaster Version 1.4.0 (v05)
+# Technical Specification — Road Roaster Version 1.4.0
 
 **Project**: Road Roaster (Towable Thermal Weed Shock Sled)  
-**Version**: `1.4.0` (`v05`)  
-**Status**: 🟡 IN PROGRESS / 🔵 FABRICATION READY  
+**Version**: `v1.4.0`  
+**Status**: 🟢 **`[BUILT & VERIFIED]`**  
 
 ---
 
 ## 1. Executive Summary & Design Milestones
 
-Version 1.4.0 (v05) introduces onboard fuel bottle mounting, quick-release harness integration, and script refactoring:
+Version 1.4.0 introduces onboard fuel bottle mounting, quick-release harness integration, and script refactoring:
 1. **Onboard Propane Harness & Bottle**: Mounts a quick-slip bike-style canister harness (`components/propane_harness/`) onto the upper section of the 5 ft square tube tow bar, seating a 1 lb disposable or refillable propane cylinder (`components/propane_cylinder_1lb/`) within ergonomic reach of the operator ($Z \approx 750\text{--}850\text{ mm}$).
 2. **Flexible High-Pressure Hose Line**: Connects the 1"-20 UNEF top valve of the mounted 1 lb propane bottle directly to the brass flow control knob on the torch wand handle, eliminating the need for shoulder straps or backpack rigs.
-3. **Modular Function-Level Script Refactoring**: Structurally decomposes `v05/build.py` into dedicated subassembly builder functions (`build_hood_subassembly`, `build_overhead_frame_subassembly`, `build_torch_subassembly`, `build_propane_harness_subassembly`, `build_tow_rigging_subassembly`).
+3. **Modular Function-Level Script Refactoring**: Structurally decomposes `v1.4.0/build.py` into dedicated subassembly builder functions (`build_hood_subassembly`, `build_overhead_frame_subassembly`, `build_torch_subassembly`, `build_propane_harness_subassembly`, `build_tow_rigging_subassembly`).
 
 ---
 

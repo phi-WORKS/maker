@@ -1,6 +1,6 @@
-# Bill of Materials (BOM) — Road Roaster Version 1.4.0 (v05)
+# Bill of Materials (BOM) — Road Roaster Version 1.4.0
 
-Complete component, material, and hardware specification for **Road Roaster Version 1.4.0 (v05)**.
+Complete component, material, and hardware specification for **Road Roaster Version 1.4.0**.
 
 ---
 
