@@ -3,6 +3,12 @@ import sys
 import FreeCAD
 import Part
 
+# Ensure src directory is on sys.path for shared imports
+maker_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+src_dir = os.path.join(maker_dir, "src")
+if src_dir not in sys.path:
+    sys.path.insert(0, src_dir)
+
 try:
     import FreeCADGui
     FreeCADGui.showMainWindow()
@@ -10,31 +16,15 @@ try:
 except Exception:
     HAS_GUI = False
 
+from phi_works.maker.render import render_single_view
+
 def render_views(gui_doc, base_path):
     if not HAS_GUI or not gui_doc:
         return
-    FreeCADGui.updateGui()
-    view = gui_doc.activeView()
-    if view:
-        try:
-            view.setCameraType("Orthographic")
-            
-            # Iso view
-            view.viewIsometric()
-            view.fitAll()
-            view.saveImage(f"{base_path}_iso.png", 1920, 1080, "White")
-            
-            # Top view
-            view.viewTop()
-            view.fitAll()
-            view.saveImage(f"{base_path}_top.png", 1920, 1080, "White")
+    render_single_view(gui_doc, f"{base_path}_iso.png", view_type="Isometric")
+    render_single_view(gui_doc, f"{base_path}_top.png", view_type="Top")
+    render_single_view(gui_doc, f"{base_path}_side.png", view_type="Right")
 
-            # Right Side View
-            view.viewRight()
-            view.fitAll()
-            view.saveImage(f"{base_path}_side.png", 1920, 1080, "White")
-        except Exception as e:
-            print(f"Camera render note: {e}")
 
 def build_trimmer_model():
     doc_name = "kombi_trimmer"

@@ -125,17 +125,7 @@ def create_torch_component(doc, insertion_point=None, lean_angle_deg=35.0, flame
 def render_views(gui_doc, base_path):
     if not HAS_GUI or not gui_doc:
         return
-    FreeCADGui.updateGui()
-    view = gui_doc.activeView()
-    if view:
-        try:
-            view.setCameraType("Orthographic")
-            view.viewIsometric()
-            view.fitAll()
-            view.saveImage(f"{base_path}_iso.png", 1920, 1080, "White")
-            print(f"Rendered torch view: {base_path}_iso.png")
-        except Exception as e:
-            print(f"Render error: {e}")
+    render_single_view(gui_doc, f"{base_path}_iso.png", view_type="Isometric")
 
 def build_standalone_component():
     doc = FreeCAD.newDocument("torch_91037_component")

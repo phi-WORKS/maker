@@ -3,6 +3,12 @@ import sys
 import FreeCAD
 import Part
 
+# Ensure src directory is on sys.path for shared imports
+maker_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
+src_dir = os.path.join(maker_dir, "src")
+if src_dir not in sys.path:
+    sys.path.insert(0, src_dir)
+
 try:
     import FreeCADGui
     FreeCADGui.showMainWindow()
@@ -10,20 +16,11 @@ try:
 except Exception:
     HAS_GUI = False
 
+from phi_works.maker.render import render_single_view
+
 def render_camera_view(gui_doc, png_path):
-    if not HAS_GUI or not gui_doc:
-        return
-    FreeCADGui.updateGui()
-    view = gui_doc.activeView()
-    if view:
-        try:
-            view.setCameraType("Orthographic")
-            view.viewIsometric()
-            view.fitAll()
-        except Exception as e:
-            print(f"Camera setup note: {e}")
-        view.saveImage(png_path, 1920, 1080, "White")
-        print(f"Rendered snapshot: {png_path}")
+    render_single_view(gui_doc, png_path, view_type="Isometric")
+
 
 def build_v7():
     script_dir = os.path.dirname(os.path.abspath(__file__)) if "__file__" in globals() else os.path.abspath(".")
