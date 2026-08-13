@@ -15,11 +15,7 @@ except Exception:
     HAS_GUI = False
 
 from phi_works.maker.render import export_orthogonal_views
-from phi_works.maker.components import (
-    create_torch_component,
-    create_propane_cylinder_component,
-    create_propane_harness_component,
-)
+from phi_works.maker.components import import_component
 
 def set_vis(doc, obj, color):
     if HAS_GUI and FreeCADGui and FreeCADGui.getDocument(doc.Name):
@@ -193,7 +189,7 @@ def build_torch_subassembly(doc, grp_torch, dims):
     Z_apex = GROUND_CLR + SKIRT_H + HOOD_H
 
     nozzle_pos = FreeCAD.Vector(0, -30.0, Z_apex - NOZZLE_RECESS)
-    torch_grp = create_torch_component(doc, insertion_point=nozzle_pos, lean_angle_deg=35.0, flame_angle_deg=35.0)
+    torch_grp = import_component(doc, "torch_hf91037", placement=nozzle_pos, group_label="Harbor Freight Torch #91037 Component")
     
     # Move torch component objects into grp_torch subassembly
     for obj in torch_grp.Group:
@@ -263,7 +259,7 @@ def build_propane_harness_subassembly(doc, grp_harness, pin_center, tow_dir):
     rot = FreeCAD.Rotation(FreeCAD.Vector(1, 0, 0), 35.0)
     harness_placement = FreeCAD.Placement(harness_base_pos, rot)
 
-    harness_grp = create_propane_harness_component(doc, placement=harness_placement)
+    harness_grp = import_component(doc, "propane_harness", placement=harness_placement, group_label="Propane Bottle Harness Component")
     for obj in harness_grp.Group:
         grp_harness.addObject(obj)
 
@@ -271,7 +267,7 @@ def build_propane_harness_subassembly(doc, grp_harness, pin_center, tow_dir):
     cylinder_base_pos = harness_base_pos + FreeCAD.Vector(0, -math.sin(math.radians(35.0))*2.0, math.cos(math.radians(35.0))*2.0)
     cylinder_placement = FreeCAD.Placement(cylinder_base_pos, rot)
     
-    cylinder_grp = create_propane_cylinder_component(doc, placement=cylinder_placement)
+    cylinder_grp = import_component(doc, "propane_cylinder_1lb", placement=cylinder_placement, group_label="1 lb Propane Cylinder Component")
     for obj in cylinder_grp.Group:
         grp_harness.addObject(obj)
 
