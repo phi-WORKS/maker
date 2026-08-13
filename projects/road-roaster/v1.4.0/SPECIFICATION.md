@@ -2,7 +2,7 @@
 
 **Project**: Road Roaster (Towable Thermal Weed Shock Sled)  
 **Version**: `v1.4.0`  
-**Status**: 🟢 **`[BUILT & VERIFIED]`**  
+**Status**: 🟡 **`[IN PROGRESS]`**  
 
 ---
 

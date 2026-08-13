@@ -78,14 +78,14 @@ Requirements are not static one-time prompts. Physical design iterations follow 
 
 | Project Master Render | Quick Specs & Master Links |
 | :---: | :--- |
-| ![Road Roaster Render](projects/road-roaster/v1.4.0/sled_v1.4.0_iso.png) | • **Application**: Non-chemical gravel driveway weed management via thermal shock (150°F–180°F).<br>• **Master Release**: [**v1.4.0**](projects/road-roaster/v1.4.0/) 🟢 **`[BUILT & VERIFIED]`**<br>• 📋 [**REQUIREMENTS.md**](projects/road-roaster/v1.4.0/REQUIREMENTS.md)<br>• 📐 [**SPECIFICATION.md**](projects/road-roaster/v1.4.0/SPECIFICATION.md)<br>• ✂️ [**CUT_LIST.md**](projects/road-roaster/v1.4.0/CUT_LIST.md)<br>• 🛠️ [**FABRICATION_GUIDE.md**](projects/road-roaster/v1.4.0/FABRICATION_GUIDE.md)<br>• 📦 [**BOM.md**](projects/road-roaster/v1.4.0/BOM.md) |
+| ![Road Roaster Render](projects/road-roaster/v1.4.0/sled_v1.4.0_iso.png) | • **Application**: Non-chemical gravel driveway weed management via thermal shock (150°F–180°F).<br>• **Master Release**: [**v1.4.0**](projects/road-roaster/v1.4.0/) 🟡 **`[IN PROGRESS]`**<br>• 📋 [**REQUIREMENTS.md**](projects/road-roaster/v1.4.0/REQUIREMENTS.md)<br>• 📐 [**SPECIFICATION.md**](projects/road-roaster/v1.4.0/SPECIFICATION.md)<br>• ✂️ [**CUT_LIST.md**](projects/road-roaster/v1.4.0/CUT_LIST.md)<br>• 🛠️ [**FABRICATION_GUIDE.md**](projects/road-roaster/v1.4.0/FABRICATION_GUIDE.md)<br>• 📦 [**BOM.md**](projects/road-roaster/v1.4.0/BOM.md) |
 
 ### 2. [Kombi Kaddy](projects/kombi-kaddy/README.md)
 *Mobile STIHL KombiSystem Attachment Rack*
 
 | Project Master Render | Quick Specs & Master Links |
 | :---: | :--- |
-| ![Kombi Kaddy Render](projects/kombi-kaddy/v10/caddy_v10_iso.png) | • **Application**: Heavy-duty mobile 2x4 wooden rack for STIHL KombiSystem storage.<br>• **Master Release**: [**v1.9.0 (v10)**](projects/kombi-kaddy/v10/) 🟢 **`[BUILT & VERIFIED]`**<br>• 📋 [**REQUIREMENTS.md**](projects/kombi-kaddy/v10/REQUIREMENTS.md)<br>• 📐 [**SPECIFICATION.md**](projects/kombi-kaddy/v10/SPECIFICATION.md)<br>• ✂️ [**CUT_LIST.md**](projects/kombi-kaddy/v10/CUT_LIST.md)<br>• 🛠️ [**build.py**](projects/kombi-kaddy/v10/build.py) |
+| ![Kombi Kaddy Render](projects/kombi-kaddy/v10/caddy_v10_iso.png) | • **Application**: Heavy-duty mobile 2x4 wooden rack for STIHL KombiSystem storage.<br>• **Master Release**: [**v1.9.0 (v10)**](projects/kombi-kaddy/v10/) 🟡 **`[IN PROGRESS]`**<br>• 📋 [**REQUIREMENTS.md**](projects/kombi-kaddy/v10/REQUIREMENTS.md)<br>• 📐 [**SPECIFICATION.md**](projects/kombi-kaddy/v10/SPECIFICATION.md)<br>• ✂️ [**CUT_LIST.md**](projects/kombi-kaddy/v10/CUT_LIST.md)<br>• 🛠️ [**build.py**](projects/kombi-kaddy/v10/build.py) |
 
 ---
 
