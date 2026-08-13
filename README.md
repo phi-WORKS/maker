@@ -42,9 +42,10 @@ Real-world physical assemblies are built from reusable commercial tools, standar
 - **Commercial & Purchased Tools (`components/`)**: Items such as the Harbor Freight #91037 Propane Torch, STIHL Kombi tool attachments, fixed caster wheels, and clevis hitches are modeled once as standalone, independent 3D modules in `components/`. Once modeled, they become permanent, reusable building blocks for any host assembly.
 - **Physical Assembly Projects (`projects/`)**: Complete physical designs (e.g. `kombi-kaddy`, `road-roaster`) import these component modules and structure lumber/metal frames around them.
 
-### 3. Living Requirements Lifecycle & Semantic Versioning
-Requirements are not static one-time prompts. Physical design iterations follow Semantic Versioning (`vMAJOR.MINOR.PATCH`) paired with standard Lifecycle Status Badges (`🟡 IN PROGRESS`, `🔵 FABRICATION READY`, `🟢 BUILT & VERIFIED`, `📦 SUPERSEDED`).
-- **`projects/<project>/vMAJOR.MINOR.PATCH/REQUIREMENTS.md`**: Iteration-specific requirements, design trade-offs, and verification status.
+### 3. Living Requirements Lifecycle & Git-Native Versioning
+Physical design iterations follow Semantic Versioning (`vMAJOR.MINOR.PATCH`) paired with standard Lifecycle Status Badges (`🟡 IN PROGRESS`, `🔵 FABRICATION READY`, `🟢 BUILT & VERIFIED`, `📦 SUPERSEDED`).
+- **Git-Native History**: Historical CAD model iterations are managed natively in Git history via tags (`v0.0.0`, `v0.1.0`...).
+- **Visual Transformation Changelogs**: `projects/<project>/CHANGELOG.md` and `projects/<project>/changelog/` track the visual story of design evolution with historical thumbnails.
 
 ---
 
@@ -62,12 +63,12 @@ Requirements are not static one-time prompts. Physical design iterations follow 
 │
 ├── components/               # Standalone Reusable Commercial Tools & Hardware Library
 │   ├── torch_hf91037/        # Harbor Freight #91037 Propane Torch module & 3D model
-│   └── kombi_tools/          # STIHL Kombi tool attachments & trimmer 3D models
+│   ├── propane_cylinder_1lb/ # 1 lb Propane Cylinder module & 3D model
+│   └── propane_harness/      # Quick-release bottle harness module & 3D model
 │
 └── projects/                 # Physical Projects & Master Assemblies
-└── projects/                 # Physical Projects & Master Assemblies
-    ├── kombi-kaddy/           # STIHL Kombi Attachment Kaddy (v0.0.0..v0.9.0 master)
-    └── road-roaster/          # Towable Flame Weeding Sled (v0.0.0..v0.4.0 master)
+    ├── kombi-kaddy/          # STIHL Kombi Attachment Kaddy (Master active product & changelog)
+    └── road-roaster/         # Towable Flame Weeding Sled (Master active product & changelog)
 ```
 
 ---
@@ -79,14 +80,14 @@ Requirements are not static one-time prompts. Physical design iterations follow 
 
 | Project Master Render | Quick Specs & Master Links |
 | :---: | :--- |
-| ![Road Roaster Render](projects/road-roaster/v0.4.0/sled_v0.4.0_iso.png) | • **Application**: Non-chemical gravel driveway weed management via thermal shock (150°F–180°F).<br>• **Master Release**: [**v0.4.0**](projects/road-roaster/v0.4.0/) 🟡 **`[IN PROGRESS]`**<br>• 📋 [**REQUIREMENTS.md**](projects/road-roaster/v0.4.0/REQUIREMENTS.md)<br>• 📐 [**SPECIFICATION.md**](projects/road-roaster/v0.4.0/SPECIFICATION.md)<br>• ✂️ [**CUT_LIST.md**](projects/road-roaster/v0.4.0/CUT_LIST.md)<br>• 🛠️ [**FABRICATION_GUIDE.md**](projects/road-roaster/v0.4.0/FABRICATION_GUIDE.md)<br>• 📦 [**BOM.md**](projects/road-roaster/v0.4.0/BOM.md) |
+| ![Road Roaster Render](projects/road-roaster/sled_iso.png) | • **Application**: Non-chemical gravel driveway weed management via thermal shock.<br>• **Active Master**: [**v0.4.0**](projects/road-roaster/) 🟡 **`[IN PROGRESS]`**<br>• 📐 [**SPECIFICATION.md**](projects/road-roaster/SPECIFICATION.md)<br>• 📜 [**CHANGELOG.md**](projects/road-roaster/CHANGELOG.md)<br>• 🛠️ [**build.py**](projects/road-roaster/build.py)<br>• 📦 [**sled.FCStd**](projects/road-roaster/sled.FCStd) |
 
 ### 2. [Kombi Kaddy](projects/kombi-kaddy/README.md)
 *Mobile STIHL KombiSystem Attachment Rack*
 
 | Project Master Render | Quick Specs & Master Links |
 | :---: | :--- |
-| ![Kombi Kaddy Render](projects/kombi-kaddy/v0.9.0/caddy_v0.9.0_iso.png) | • **Application**: Heavy-duty mobile 2x4 wooden rack for STIHL KombiSystem storage.<br>• **Master Release**: [**v0.9.0**](projects/kombi-kaddy/v0.9.0/) 🟡 **`[IN PROGRESS]`**<br>• 📋 [**REQUIREMENTS.md**](projects/kombi-kaddy/v0.9.0/REQUIREMENTS.md)<br>• 📐 [**SPECIFICATION.md**](projects/kombi-kaddy/v0.9.0/SPECIFICATION.md)<br>• ✂️ [**CUT_LIST.md**](projects/kombi-kaddy/v0.9.0/CUT_LIST.md)<br>• 🛠️ [**build.py**](projects/kombi-kaddy/v0.9.0/build.py) |
+| ![Kombi Kaddy Render](projects/kombi-kaddy/caddy_iso.png) | • **Application**: Heavy-duty mobile 2x4 wooden rack for STIHL KombiSystem storage.<br>• **Active Master**: [**v0.9.0**](projects/kombi-kaddy/) 🟡 **`[IN PROGRESS]`**<br>• 📐 [**SPECIFICATION.md**](projects/kombi-kaddy/SPECIFICATION.md)<br>• 📜 [**CHANGELOG.md**](projects/kombi-kaddy/CHANGELOG.md)<br>• 🛠️ [**build.py**](projects/kombi-kaddy/build.py)<br>• 📦 [**caddy.FCStd**](projects/kombi-kaddy/caddy.FCStd) |
 
 ---
 
@@ -96,7 +97,7 @@ Requirements are not static one-time prompts. Physical design iterations follow 
 
 | Component Render | Specifications & Links |
 | :---: | :--- |
-| ![Harbor Freight Torch Render](components/torch_hf91037/torch_hf91037_iso.png) | • **Application**: High-output propane burner with push-button igniter.<br>• 🛠️ [**`torch_hf91037.py`**](components/torch_hf91037/torch_hf91037.py)<br>• 📦 [**`torch_hf91037.FCStd`**](components/torch_hf91037/torch_hf91037.FCStd) |
+| ![Harbor Freight Torch Render](components/torch_hf91037/torch_hf91037_iso.png) | • **Application**: High-output propane burner with push-button igniter.<br>• 🛠️ [**`build.py`**](components/torch_hf91037/build.py)<br>• 📦 [**`torch_hf91037.FCStd`**](components/torch_hf91037/torch_hf91037.FCStd) |
 
 ### 2. [STIHL Kombi Tools Component Library](components/kombi_tools/README.md)
 
