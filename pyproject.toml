@@ -19,4 +19,6 @@ classifiers = [
 
 [tool.setuptools]
 package-dir = {"" = "src"}
-packages = ["phi_works.maker", "phi_works.maker.components"]
+
+[tool.setuptools.packages.find]
+where = ["src"]

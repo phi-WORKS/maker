@@ -3,17 +3,12 @@ import sys
 import FreeCAD
 import Part
 
-# Ensure src directory is on sys.path for shared imports
-maker_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
-src_dir = os.path.join(maker_dir, "src")
-if src_dir not in sys.path:
-    sys.path.insert(0, src_dir)
-
 try:
     import FreeCADGui
     FreeCADGui.showMainWindow()
     HAS_GUI = True
 except Exception:
+    FreeCADGui = None
     HAS_GUI = False
 
 from phi_works.maker.render import render_single_view

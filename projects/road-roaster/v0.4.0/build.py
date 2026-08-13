@@ -4,15 +4,7 @@ import math
 import FreeCAD
 import Part
 
-# Ensure workspace src and components directories are on sys.path for shared imports
 script_dir = os.path.dirname(os.path.abspath(__file__)) if "__file__" in globals() else os.path.abspath(".")
-maker_dir = os.path.abspath(os.path.join(script_dir, "..", "..", ".."))
-src_dir = os.path.join(maker_dir, "src")
-comp_dir = os.path.join(maker_dir, "components")
-
-for d in [src_dir, comp_dir, maker_dir]:
-    if d not in sys.path:
-        sys.path.insert(0, d)
 
 try:
     import FreeCADGui
@@ -23,11 +15,11 @@ except Exception:
     HAS_GUI = False
 
 from phi_works.maker.render import export_orthogonal_views
-
-# Import Standalone Component Modules
-from torch_hf91037.torch_hf91037 import create_torch_component
-from propane_cylinder_1lb.propane_cylinder_1lb import create_propane_cylinder_component
-from propane_harness.propane_harness import create_propane_harness_component
+from phi_works.maker.components import (
+    create_torch_component,
+    create_propane_cylinder_component,
+    create_propane_harness_component,
+)
 
 def set_vis(doc, obj, color):
     if HAS_GUI and FreeCADGui and FreeCADGui.getDocument(doc.Name):

@@ -3,11 +3,6 @@ import sys
 import FreeCAD
 import Part
 
-maker_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
-src_dir = os.path.join(maker_dir, "src")
-if src_dir not in sys.path:
-    sys.path.insert(0, src_dir)
-
 try:
     import FreeCADGui
     FreeCADGui.showMainWindow()
