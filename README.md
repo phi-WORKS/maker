@@ -66,7 +66,7 @@ Requirements are not static one-time prompts. Physical design iterations follow 
 │
 └── projects/                 # Physical Projects & Master Assemblies
     ├── kombi-kaddy/           # STIHL Kombi Attachment Kaddy (v1.0.0..v1.9.0 / v10 master)
-    └── road-roaster/          # Towable Flame Weeding Sled (v1.0.0..v1.3.0 / v04 master)
+    └── road-roaster/          # Towable Flame Weeding Sled (v1.0.0..v1.4.0 master)
 ```
 
 ---
@@ -78,7 +78,7 @@ Requirements are not static one-time prompts. Physical design iterations follow 
 
 | Project Master Render | Quick Specs & Master Links |
 | :---: | :--- |
-| ![Road Roaster Render](projects/road-roaster/v04/sled_v04_iso.png) | • **Application**: Non-chemical gravel driveway weed management via thermal shock (150°F–180°F).<br>• **Master Release**: [**v1.3.0 (v04)**](projects/road-roaster/v04/) 🟢 **`[BUILT & VERIFIED]`**<br>• 📋 [**REQUIREMENTS.md**](projects/road-roaster/v04/REQUIREMENTS.md)<br>• 📐 [**SPECIFICATION.md**](projects/road-roaster/v04/SPECIFICATION.md)<br>• ✂️ [**CUT_LIST.md**](projects/road-roaster/v04/CUT_LIST.md)<br>• 🛠️ [**FABRICATION_GUIDE.md**](projects/road-roaster/v04/FABRICATION_GUIDE.md)<br>• 📦 [**BOM.md**](projects/road-roaster/v04/BOM.md) |
+| ![Road Roaster Render](projects/road-roaster/v1.4.0/sled_v1.4.0_iso.png) | • **Application**: Non-chemical gravel driveway weed management via thermal shock (150°F–180°F).<br>• **Master Release**: [**v1.4.0**](projects/road-roaster/v1.4.0/) 🟢 **`[BUILT & VERIFIED]`**<br>• 📋 [**REQUIREMENTS.md**](projects/road-roaster/v1.4.0/REQUIREMENTS.md)<br>• 📐 [**SPECIFICATION.md**](projects/road-roaster/v1.4.0/SPECIFICATION.md)<br>• ✂️ [**CUT_LIST.md**](projects/road-roaster/v1.4.0/CUT_LIST.md)<br>• 🛠️ [**FABRICATION_GUIDE.md**](projects/road-roaster/v1.4.0/FABRICATION_GUIDE.md)<br>• 📦 [**BOM.md**](projects/road-roaster/v1.4.0/BOM.md) |
 
 ### 2. [Kombi Kaddy](projects/kombi-kaddy/README.md)
 *Mobile STIHL KombiSystem Attachment Rack*
@@ -111,6 +111,6 @@ Requirements are not static one-time prompts. Physical design iterations follow 
 # Build Kombi Kaddy Version 10 Master Model
 /home/phi/AppImages/FreeCAD_1.1.3-Linux-x86_64-py311.AppImage -c "__file__='/home/phi/PROJECTS/phi-WORKS/maker/projects/kombi-kaddy/v10/build.py'; exec(open(__file__).read())"
 
-# Build Road Roaster Version 04 Master Model
-/home/phi/AppImages/FreeCAD_1.1.3-Linux-x86_64-py311.AppImage -c "__file__='/home/phi/PROJECTS/phi-WORKS/maker/projects/road-roaster/v04/build.py'; exec(open(__file__).read())"
+# Build Road Roaster Version 1.4.0 Master Model
+/home/phi/AppImages/FreeCAD_1.1.3-Linux-x86_64-py311.AppImage -c "__file__='/home/phi/PROJECTS/phi-WORKS/maker/projects/road-roaster/v1.4.0/build.py'; exec(open(__file__).read())"
 ```
