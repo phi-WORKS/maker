@@ -79,11 +79,11 @@ Physical design iterations follow Semantic Versioning (`vMAJOR.MINOR.PATCH`) pai
 ## Physical Projects
 
 ### 1. [Road Roaster](projects/road-roaster/README.md)
-*Directional Upright-Vacuum Thermal Weed Shock Sled*
+*Directional Thermal Weed Shock Sled*
 
 | Project Master Render | Quick Specs & Master Links |
 | :---: | :--- |
-| ![Road Roaster Render](projects/road-roaster/road-roaster_iso.png) | • **Application**: Non-chemical gravel driveway weed management via thermal shock.<br>• **Active Master**: [**v0.6.0**](projects/road-roaster/) 🟡 **`[IN PROGRESS]`**<br>• 📐 [**SPECIFICATION.md**](projects/road-roaster/SPECIFICATION.md)<br>• 📜 [**CHANGELOG.md**](projects/road-roaster/CHANGELOG.md)<br>• 🛠️ [**build.py**](projects/road-roaster/build.py)<br>• 📦 [**road-roaster.FCStd**](projects/road-roaster/road-roaster.FCStd) |
+| ![Road Roaster Render](projects/road-roaster/road-roaster_iso.png) | • **Application**: Chemical-free hardscape weed eradication via enclosed radiant cellular shock.<br>• **Core Advantage**: Uses up to 70% less propane than open torches; features a 15–30s deep heat-soak mode for 1–2" soil/root crown sterilization ($180^\circ\text{F}$).<br>• **Active Master**: [**v0.6.0**](projects/road-roaster/) 🟡 **`[IN PROGRESS]`**<br>• 📐 [**SPECIFICATION.md**](projects/road-roaster/SPECIFICATION.md)<br>• 📜 [**CHANGELOG.md**](projects/road-roaster/CHANGELOG.md)<br>• 🛠️ [**build.py**](projects/road-roaster/build.py)<br>• 📦 [**road-roaster.FCStd**](projects/road-roaster/road-roaster.FCStd) |
 
 ### 2. [Kombi Kaddy](projects/kombi-kaddy/README.md)
 *Mobile STIHL KombiSystem Attachment Rack*

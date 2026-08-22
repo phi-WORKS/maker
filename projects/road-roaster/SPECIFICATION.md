@@ -1,25 +1,34 @@
 # Road Roaster — Master Technical Specification
 
-> **Directional Upright-Vacuum Thermal Weed Shock Sled**  
+> **Directional Thermal Weed Shock Sled**  
 > *Single-Source Architectural & Engineering Specification*
 
 ---
 
-## 1. Executive Summary & Design Purpose
+## 1. Executive Summary & Problem-Solution Engineering
 
-The **Road Roaster** is a directional thermal weed management machine designed for agricultural beds, gravel driveways, pathways, and municipal roadside weed shock abatement.
+The **Road Roaster** is a directional thermal weed management platform engineered to eradicate invasive hardscape weeds (gravel driveways, agricultural headlands, roadside corridors, paver paths) through concentrated radiant cellular shock without chemical herbicides or open-flame fuel waste.
 
-### Core Design Objectives
-1. **Directional Forward-Firing Asymmetrical Hood**:
-   - **Aerodynamic Heat Deflector**: The apex is offset rearward ($Y_{apex} = +110.0\text{ mm}$), creating a steep $\approx 66^\circ$ rear heat shield that protects the operator, wheels, and handle while forming a long forward-sloping radiant roof ramp ($\approx 28^\circ$).
-   - **Forward Heat Channeling**: The $500,000\text{ BTU/hr}$ burner fires downward and forward at a $30^\circ$ pitch, driving radiant heat and hot combustion gases across the weed bed and out the front exhaust vent, completely away from the operator.
-2. **Decomposed Gas-Train & Safety Squeeze Cockpit**:
-   - **Handle Control Cockpit** (`components/torch_control_handle/`): Clamped to the upper right U-frame handle within natural grip reach. Includes a master needle valve knob (pilot adjustment & emergency shutoff), a dead-man turbo squeeze boost lever (hold-to-scorch), and a push-button piezo spark igniter.
-   - **Chassis Burner Head** (`components/torch_burner_head/`): Hard-mounted to the rear apex of the hood with cast venturi air induction cone, precision brass orifice jet, 2.5" combustion bell, and high-voltage ceramic electrode.
-   - **Flexible Plumbing**: 350 PSI flexible LP hose and spark ignition wire connect the handle cockpit to the chassis burner.
-3. **Upright-Vacuum Dual-Mode Kinematics**:
-   - **Roasting Mode**: Latch disengaged; hood skids glide flush with ground surfaces.
-   - **Transit Mode**: Latch engaged; tilting the handle back pivots the unit on the rear $4.0''$ solid steel wheels ($Y_{axle} = +280.0\text{ mm}$), levering the entire front hood high off the ground for non-contact transit over lawns and asphalt.
+### The Ecological & Shop Problem
+* **The Chemical Trap**: Synthetic herbicides (glyphosate, 2,4-D) poison groundwater, threaten pets and native pollinators, foster chemical-resistant weeds, and leave toxic residues in soils.
+* **The Open-Air Torch Energy Trap**: Conventional handheld weed torches lose over 85% of their thermal energy to atmospheric wind dissipation, consuming excessive propane while presenting an open fire hazard.
+* **Mechanical Removal Inefficacy**: Hand-pulling leaves deep taproots intact to regrow, while string trimmers fling hazardous gravel projectiles.
+
+### Core Thermodynamic & Design Solutions
+1. **Enclosed Radiant Heat Trap**:
+   - The 14-gauge mild steel pyramid hood and 2.0" ground skirts enclose the $500,000\text{ BTU/hr}$ burner, trapping superheated air and reradiating infrared energy downward into the soil matrix with over 80% thermal efficiency.
+2. **Directional Forward-Firing Asymmetrical Hood**:
+   - **Steep Rear Heat Shield**: Apex is offset rearward ($Y_{apex} = +110.0\text{ mm}$), creating an $\approx 66^\circ$ rear wall that shields the operator, wheels, and fuel cylinder from radiant heat.
+   - **Forward Radiant Roof Ramp**: An $\approx 28^\circ$ forward slope directs high-velocity flame and thermal waves forward across the weed bed, expelling exhaust safely through the front vent ($Y = -228.6\text{ mm}$).
+3. **Deep Conductive Heat-Soak Station**:
+   - In stationary dwell mode, the closed hood traps heat, conducting $180^\circ\text{F}$ ($82^\circ\text{C}$) thermal energy **1 to 2 inches below the surface** to destroy stubborn perennial taproots (dandelions, thistles, bindweed) and sterilize dormant weed seed banks.
+4. **Decomposed Dead-Man Gas Train**:
+   - **Top Crossbar Cockpit** ([`components/torch_control_handle/`](../../components/torch_control_handle/)): Thumb needle valve (pilot flame/shutoff), dead-man turbo squeeze boost lever (hold-to-roast), and push-button piezo igniter.
+   - **Chassis Burner Head** ([`components/torch_burner_head/`](../../components/torch_burner_head/)): Cast venturi air cone, brass jet orifice, 2.5" black steel combustion bell, and high-voltage ceramic electrode.
+   - **Right-Upright Propane Mounting**: 1 lb canister clamped to the right vertical riser with zero line crossovers.
+5. **Continuous Solid Through-Axle & Dual-Mode Upright Vacuum Tilt**:
+   - Continuous $1/2''$ solid steel axle tie-rod absorbs all torsional loads.
+   - Foot-release snap latch enables instant switching between ground-gliding roasting mode and non-contact rolling transit mode over grass, lawns, and curbs.
 
 ---
 
@@ -79,10 +88,31 @@ road-roaster.FCStd (Road Roaster Master Assembly)
 
 ## 4. Materials & Manufacturing Specifications
 
-- **Hood & Skirts**: 14-gauge Hot-Rolled Mild Steel Sheet (CNC cut, brake formed, welded).
-- **Skid Runners**: $1.5'' \times 3/16''$ Steel Flat Bar with $30^\circ$ turned-up skids.
-- **U-Handle Frame**: $3/4'' \times 3/4'' \times 1/8''$ Steel Square Tubing with round crossbar and rubber grips.
-- **Wheels**: Dual $4.0'' \times 1.5''$ solid machined cast steel wheels with $1/2''$ Grade 5 zinc-plated axle bolts.
+- **Hood & Skirts**: 14-gauge Hot-Rolled Mild Steel Sheet (CNC plasma cut, press brake formed, MIG welded).
+- **Skid Runners**: $1.5'' \times 3/16''$ Steel Flat Bar with $30^\circ$ turned-up front/rear ski tips.
+- **U-Handle Frame**: $3/4'' \times 3/4'' \times 1/8''$ Mild Steel Square Tubing with round crossbar and high-traction rubber grips.
+- **Solid Axle**: Continuous $1/2''$ ($12.7\text{ mm}$) Cold-Rolled 1018 Steel Round Rod with dual zinc-plated clamp collars.
+- **Wheels**: Dual $4.0'' \times 1.5''$ solid machined cast steel / ductile iron wheels.
 - **Gas Controls**: Forged brass dual-stage manifold with needle pilot valve, dead-man turbo squeeze lever, and push-button piezo igniter.
 - **Burner Head**: 2.5" black steel combustion bell with cast venturi oxygen mixing cone and precision brass orifice jet ($500,000\text{ BTU/hr}$).
 - **Fuel System**: Standard 1 lb Propane Cylinder mounted in quick-release steel bottle harness with 350 PSI flexible rubber hoses.
+
+---
+
+## 5. Operational Protocols & Field Guidelines
+
+1. **Ignition & Pilot Setup**:
+   - Open cylinder valve.
+   - Crack top needle valve knob 1/4 turn to initiate low pilot gas flow.
+   - Depress red push-button piezo igniter to establish internal pilot flame.
+2. **Glide Scorching (Walking Pace: 1–2 mph)**:
+   - Disengage foot tilt-latch to let hood rest flat on skids.
+   - Squeeze and hold top crossbar dead-man lever while walking along gravel/driveway corridor.
+   - 2–3 second thermal pulse ruptures plant cells. Weeds will wither and desiccate within 24 hours.
+3. **Deep Heat-Soak Station (Dwell Time: 15–30 sec)**:
+   - For mature perennial weeds (thistle, dandelion, bindweed), halt sled directly over root crown.
+   - Hold squeeze lever for 15–30 seconds.
+   - Trapped heat conducts $180^\circ\text{F}$ energy 1–2" into upper soil, sterilizing taproots and ungerminated seeds.
+4. **Transit Over Turf / Asphalt**:
+   - Step down on foot-latch pedal to engage snap catch onto hood bridge.
+   - Tilt handle back; roll smoothly on 4.0" steel wheels.
