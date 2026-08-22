@@ -47,9 +47,9 @@ All dimensions are managed parametrically in FreeCAD via `App::VarSet` (`dims`):
 | `SkirtHeight` | $50.8\text{ mm}$ ($2.0\text{ in}$) | Vertical perimeter skirt extension |
 | `SheetThickness` | $1.905\text{ mm}$ ($0.075\text{ in}$) | 14-gauge mild steel sheet thickness |
 | `WheelDiameter` | $101.6\text{ mm}$ ($4.0\text{ in}$) | Solid machined steel wheel diameter |
-| `TrackWidth` | $533.4\text{ mm}$ ($21.0\text{ in}$) | Outer wheel track width |
+| `TrackWidth` | $520.0\text{ mm}$ ($20.5\text{ in}$) | Outer wheel track width |
 | `HandleLength` | $1219.2\text{ mm}$ ($48.0\text{ in}$) | U-frame upright handle tube length |
-| `HandleWidth` | $482.6\text{ mm}$ ($19.0\text{ in}$) | U-frame handle riser center-to-center width |
+| `HandleWidth` | $430.0\text{ mm}$ ($16.9\text{ in}$) | U-frame handle riser center-to-center width (inboard of side rails) |
 | `BurnerPitchAngle` | $30.0^\circ$ | Downward forward burner incline pitch angle |
 
 ---
@@ -62,18 +62,18 @@ The assembly document `road-roaster.FCStd` consists of the following modular sub
 road-roaster.FCStd (Road Roaster Master Assembly)
 ├── dims (App::VarSet)
 ├── 1. Directional Asymmetrical Hood & Skid Subassembly
-│   ├── Asymmetrical_Directional_Hood (Part::Feature - 14-ga offset-apex hood, skirts, front vent & rear axle arms)
+│   ├── Asymmetrical_Directional_Hood (Part::Feature - 14-ga offset-apex hood, 4-sided solid ground skirts & continuous 3/16" side rails with axle ears)
 │   ├── Corner_Gussets_AngleIron (Part::Feature - 4x Corner angle iron gussets)
 │   └── Dual_Skid_Runners (Part::Feature - 1.5" x 3/16" flat bar skids with 30° tips)
 ├── 2. Forward-Firing 500k BTU Burner Head Subassembly
 │   ├── (Imported from components/torch_burner_head/torch_burner_head.FCStd)
 │   └── Burner_Mount_Overhead_Bridge (Part::Feature - Apex mounting plate & latch catch tower)
 ├── 3. Dual Solid Steel Wheel & Axle Subassembly
-│   ├── Left 4" Solid Steel Wheel (Imported from components/steel_caster_wheel/steel_caster_wheel.FCStd)
-│   ├── Right 4" Solid Steel Wheel (Imported from components/steel_caster_wheel/steel_caster_wheel.FCStd)
+│   ├── Left 4" Solid Steel Wheel (Imported from components/steel_caster_wheel/steel_caster_wheel.FCStd at X = -260 mm)
+│   ├── Right 4" Solid Steel Wheel (Imported from components/steel_caster_wheel/steel_caster_wheel.FCStd at X = +260 mm)
 │   └── Solid_Through_Axle_Tie_Rod (Part::Feature - Continuous 1/2" solid cold-rolled steel through-axle shaft & lock collars)
 ├── 4. Dual-Pivot U-Handle & Operator Cockpit Subassembly
-│   ├── HandTruck_U_Frame_Handle (Part::Feature - 3/4" square tube U-frame, top grip, dual horizontal cross-rails & latch striker)
+│   ├── HandTruck_U_Frame_Handle (Part::Feature - 3/4" square tube U-frame at X = ±215 mm, top grip, dual horizontal cross-rails & latch striker)
 │   ├── Tilt_Back_Vacuum_Snap_Latch (Part::Feature - Upright vacuum foot-release snap catch linkage)
 │   └── (Imported from components/torch_control_handle/torch_control_handle.FCStd)
 └── 5. Propane Gas-Train & Spark Ignition Subassembly
@@ -89,10 +89,11 @@ road-roaster.FCStd (Road Roaster Master Assembly)
 ## 4. Materials & Manufacturing Specifications
 
 - **Hood & Skirts**: 14-gauge Hot-Rolled Mild Steel Sheet (CNC plasma cut, press brake formed, MIG welded).
+- **Continuous Chassis Side Rails**: Dual $1.5'' \times 3/16''$ ($38.1\text{ mm} \times 4.76\text{ mm}$) Hot-Rolled Steel Flat Bars running continuously from front skid to rear axle ($L = 534\text{ mm}$), featuring integrated $1/2''$ axle pivot ears and machined bronze flange bushings.
 - **Skid Runners**: $1.5'' \times 3/16''$ Steel Flat Bar with $30^\circ$ turned-up front/rear ski tips.
-- **U-Handle Frame**: $3/4'' \times 3/4'' \times 1/8''$ Mild Steel Square Tubing with round crossbar and high-traction rubber grips.
-- **Solid Axle**: Continuous $1/2''$ ($12.7\text{ mm}$) Cold-Rolled 1018 Steel Round Rod with dual zinc-plated clamp collars.
-- **Wheels**: Dual $4.0'' \times 1.5''$ solid machined cast steel / ductile iron wheels.
+- **U-Handle Frame**: $3/4'' \times 3/4'' \times 1/8''$ Mild Steel Square Tubing ($W = 430\text{ mm}$, inboard of side rails) with dual cross-rails and rubber grips.
+- **Solid Axle**: Continuous $1/2''$ ($12.7\text{ mm}$) Cold-Rolled 1018 Steel Round Rod ($L = 584.2\text{ mm} / 23.0\text{ in}$) with dual zinc-plated clamp collars.
+- **Axle Stacking Order**: `[Collar (X=±285)] ── [Wheel (X=±260)] ── [Side Rail Ear (X=±231)] ── [Handle Clevis (X=±215)]` on each side.
 - **Gas Controls**: Forged brass dual-stage manifold with needle pilot valve, dead-man turbo squeeze lever, and push-button piezo igniter.
 - **Burner Head**: 2.5" black steel combustion bell with cast venturi oxygen mixing cone and precision brass orifice jet ($500,000\text{ BTU/hr}$).
 - **Fuel System**: Standard 1 lb Propane Cylinder mounted in quick-release steel bottle harness with 350 PSI flexible rubber hoses.

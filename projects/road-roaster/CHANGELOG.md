@@ -14,11 +14,12 @@
 
 #### Changes & Milestones
 - **Forward-Firing Asymmetrical Hood**: Re-engineered hood geometry with a rear-offset apex ($Y_{apex} = +110\text{ mm}$), creating a steep $\approx 66^\circ$ rear heat deflector shield facing the operator and a long $\approx 28^\circ$ forward-sloping radiant roof ramp. Front exhaust vent safely channels all combustion heat away from the user.
+- **Continuous Longitudinal Chassis Side Rails**: Replaced patchwork extension tabs with continuous $1.5'' \times 3/16''$ steel side rails ($L = 534\text{ mm}$) running from the front of the sled to the rear axle, with integrated $1/2''$ axle pivot ears and machined bronze flange bushings.
+- **Clean Coaxial Axle Stacking**: Established symmetric axle stack on each side: `[Lock Collar] ── [4" Solid Wheel] ── [Chassis Side Rail Ear] ── [Handle Clevis]`, securely bracing the sled side rail directly between the wheel and handle connector with zero interference.
 - **Top Crossbar Operator Cockpit**: Created and imported standalone CAD module [`components/torch_control_handle/`](../../components/torch_control_handle/) mounted to the top horizontal crossbar adjacent to the right grip, featuring a pilot needle valve knob, dead-man turbo squeeze lever, and push-button piezo spark igniter.
 - **Dual Horizontal Cross-Rail Ladder Frame**: Integrated upper ($L = 720\text{ mm}$) and lower ($L = 540\text{ mm}$) horizontal structural cross-rails bridging between the U-frame uprights.
 - **Side-Mounted 1 lb Propane Bottle Harness**: Side-mounted [`components/propane_harness/`](../../components/propane_harness/) across both upper and lower horizontal cross-rails at $X = +140\text{ mm}$, leaving the entire center bay open and establishing a clean vertical fuel line run straight up to the cockpit with zero crossovers.
 - **Chassis-Mounted 500k BTU Burner Head**: Created and imported standalone CAD module [`components/torch_burner_head/`](../../components/torch_burner_head/) mounted in the rear apex, firing downward and forward at a $30^\circ$ pitch.
-- **Continuous Solid 1/2" Steel Through-Axle**: Spans the entire track width ($L \approx 617\text{ mm}$) to absorb torsional loads while preserving the upright-vacuum tilt-latch mechanism.
 
 ---
 

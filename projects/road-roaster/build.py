@@ -94,34 +94,41 @@ def build_hood_subassembly(doc, grp_hood, dims, axle_y):
 
     hood_full = pyramid_shell.fuse(skirt_shell)
 
-    # Front Exhaust Relief Vent (Expelling heat forward at Y = -BASE_L/2)
-    front_vent_box = Part.makeBox(VENT_W, SHEET_T * 4.0, VENT_H, FreeCAD.Vector(-VENT_W/2, -BASE_L/2 - SHEET_T*2, Z_base - VENT_H))
-    hood_with_vent = hood_full.cut(front_vent_box)
+    # 3. Continuous Longitudinal Structural Side Rails with Integrated Rear Axle Pivot Ears
+    rail_t = 4.76      # 3/16" thick steel plate
+    rail_h = SKIRT_H   # 50.8 mm height
+    rail_y_start = -BASE_L/2
+    rail_y_end = axle_y + 25.4
+    rail_len = rail_y_end - rail_y_start
+    axle_z = dims.WheelDiameter.Value / 2.0  # 50.8 mm
 
-    # Perimeter Flange
-    flange_outer = Part.makeBox(BASE_W + 25.4, BASE_L + 25.4, 4.76, FreeCAD.Vector(-BASE_W/2 - 12.7, -BASE_L/2 - 12.7, Z_skirt_bot))
-    flange_inner = Part.makeBox(BASE_W, BASE_L, 5.0, FreeCAD.Vector(-BASE_W/2, -BASE_L/2, Z_skirt_bot - 0.1))
-    perimeter_flange = flange_outer.cut(flange_inner)
+    def make_chassis_side_rail(x_center):
+        # Main longitudinal bar
+        x_min = x_center - rail_t/2
+        bar = Part.makeBox(rail_t, rail_len, rail_h, FreeCAD.Vector(x_min, rail_y_start, Z_skirt_bot))
+        
+        # Rounded rear pivot ear
+        ear_cyl = Part.makeCylinder(25.4, rail_t, FreeCAD.Vector(x_min, axle_y, axle_z), FreeCAD.Vector(1, 0, 0))
+        
+        # Flanged bronze bearing boss
+        boss_od = 22.0
+        boss_w = 3.0
+        boss = Part.makeCylinder(boss_od/2, boss_w, FreeCAD.Vector(x_min - boss_w/2, axle_y, axle_z), FreeCAD.Vector(1, 0, 0))
+        
+        # Precision 1/2" (12.7 mm) axle through-bore
+        axle_bore = Part.makeCylinder(12.7/2, rail_t + boss_w + 4.0, FreeCAD.Vector(x_min - boss_w - 2.0, axle_y, axle_z), FreeCAD.Vector(1, 0, 0))
+        
+        rail_solid = bar.fuse(ear_cyl).fuse(boss).cut(axle_bore)
+        return rail_solid
 
-    # Rear Cantilevered Axle Extension Arms extending back to axle_y (+280 mm)
-    arm_w = 40.0
-    arm_l = axle_y - (BASE_L/2 - 50.0) + 25.0
-    arm_t = 4.76
-    arm_left = Part.makeBox(arm_w, arm_l, arm_t, FreeCAD.Vector(-BASE_W/2 - arm_w, BASE_L/2 - 50.0, Z_skirt_bot))
-    arm_right = Part.makeBox(arm_w, arm_l, arm_t, FreeCAD.Vector(BASE_W/2, BASE_L/2 - 50.0, Z_skirt_bot))
-    
-    # Dual Upright Pivot Ears for U-Handle & Axle Pins at axle_y
-    ear_h = 65.0
-    ear_l = 40.0
-    ear_t = 4.76
-    ear_l1 = Part.makeBox(ear_t, ear_l, ear_h, FreeCAD.Vector(-BASE_W/2 - 15.0 - ear_t, axle_y - ear_l/2, Z_skirt_bot))
-    ear_l2 = Part.makeBox(ear_t, ear_l, ear_h, FreeCAD.Vector(-BASE_W/2 - 35.0, axle_y - ear_l/2, Z_skirt_bot))
-    ear_r1 = Part.makeBox(ear_t, ear_l, ear_h, FreeCAD.Vector(BASE_W/2 + 15.0, axle_y - ear_l/2, Z_skirt_bot))
-    ear_r2 = Part.makeBox(ear_t, ear_l, ear_h, FreeCAD.Vector(BASE_W/2 + 35.0 - ear_t, axle_y - ear_l/2, Z_skirt_bot))
+    rail_left_x = -BASE_W/2 - rail_t/2
+    rail_right_x = BASE_W/2 + rail_t/2
+    left_rail = make_chassis_side_rail(rail_left_x)
+    right_rail = make_chassis_side_rail(rail_right_x)
 
-    hood_assembly = hood_with_vent.fuse(perimeter_flange).fuse(arm_left).fuse(arm_right).fuse(ear_l1).fuse(ear_l2).fuse(ear_r1).fuse(ear_r2)
+    chassis_assembly = hood_full.fuse(left_rail).fuse(right_rail)
     hood_obj = doc.addObject("Part::Feature", "Asymmetrical_Directional_Hood")
-    hood_obj.Shape = hood_assembly
+    hood_obj.Shape = chassis_assembly
     grp_hood.addObject(hood_obj)
 
     # Corner Gussets
@@ -219,8 +226,9 @@ def build_wheels_subassembly(doc, grp_wheels, dims, axle_y):
     AXLE_Y = axle_y
     AXLE_Z = WHEEL_R # Axle center aligned so wheel bottom is at Z = 0 (ground level)
 
-    left_wheel_x = -BASE_W/2 - 55.0
-    right_wheel_x = BASE_W/2 + 55.0
+    # Wheel centers positioned outboard of side rail ears (which are at X = ±231.0 mm)
+    left_wheel_x = -260.0
+    right_wheel_x = 260.0
 
     # Import Left Solid Steel Wheel
     placement_left = FreeCAD.Placement(FreeCAD.Vector(left_wheel_x, AXLE_Y, AXLE_Z), FreeCAD.Rotation())
@@ -235,16 +243,16 @@ def build_wheels_subassembly(doc, grp_wheels, dims, axle_y):
         grp_wheels.addObject(obj)
 
     # Continuous Solid Steel Through-Axle Tie Rod spanning the full track width
-    # Unifies Left Wheel, Left Chassis Ear, Left Handle Clevis, Right Handle Clevis, Right Chassis Ear, Right Wheel
+    # Sequence along X: [Collar: -285] ── [Wheel: -260] ── [Side Rail Ear: -231] ── [Handle Clevis: -215] ── [Handle Clevis: +215] ── [Side Rail Ear: +231] ── [Wheel: +260] ── [Collar: +285]
     axle_d = 12.7       # 1/2 in (0.50 in) solid cold-rolled steel axle shaft
-    total_axle_l = BASE_W + 160.0 # ~617 mm (24.3 in) total length
+    total_axle_l = 584.2 # 23.0 in total length
     axle_shaft = Part.makeCylinder(axle_d/2, total_axle_l, FreeCAD.Vector(-total_axle_l/2, AXLE_Y, AXLE_Z), FreeCAD.Vector(1, 0, 0))
 
     # Outboard Retaining Lock Collars
     collar_od = 25.4    # 1.0 in outer collar
     collar_w = 12.7     # 0.5 in collar width
-    left_collar = Part.makeCylinder(collar_od/2, collar_w, FreeCAD.Vector(-total_axle_l/2 + 5.0, AXLE_Y, AXLE_Z), FreeCAD.Vector(1, 0, 0))
-    right_collar = Part.makeCylinder(collar_od/2, collar_w, FreeCAD.Vector(total_axle_l/2 - 5.0 - collar_w, AXLE_Y, AXLE_Z), FreeCAD.Vector(1, 0, 0))
+    left_collar = Part.makeCylinder(collar_od/2, collar_w, FreeCAD.Vector(-total_axle_l/2 + 3.0, AXLE_Y, AXLE_Z), FreeCAD.Vector(1, 0, 0))
+    right_collar = Part.makeCylinder(collar_od/2, collar_w, FreeCAD.Vector(total_axle_l/2 - 3.0 - collar_w, AXLE_Y, AXLE_Z), FreeCAD.Vector(1, 0, 0))
 
     axle_assembly = axle_shaft.fuse(left_collar).fuse(right_collar)
 
@@ -260,7 +268,7 @@ def build_wheels_subassembly(doc, grp_wheels, dims, axle_y):
 def build_handle_frame_subassembly(doc, grp_handle, dims, axle_center):
     BASE_W = dims.BaseWidth.Value
     HANDLE_L = dims.HandleLength.Value
-    HANDLE_W = dims.HandleWidth.Value
+    HANDLE_W = 430.0    # 16.93 in U-handle frame width (inboard of side rails at X = ±215.0 mm)
     HANDLE_SQ = 19.05   # 3/4" square steel tube (0.75 in)
     HANDLE_ANGLE = 40.0 # 40 deg upright ergonomic angle leaning towards rear (+Y)
 
@@ -270,7 +278,7 @@ def build_handle_frame_subassembly(doc, grp_handle, dims, axle_center):
     # Direction vector of U-handle pointing rearward-upward (+Y, +Z) toward operator
     handle_dir = FreeCAD.Vector(0, math.sin(math.radians(HANDLE_ANGLE)), math.cos(math.radians(HANDLE_ANGLE)))
 
-    # Left & Right Upright Tubes
+    # Left & Right Upright Tubes (centered at X = ±215.0 mm, cleanly inside side rails at X = ±231.0 mm)
     left_x = -HANDLE_W/2
     right_x = HANDLE_W/2
 
@@ -308,9 +316,9 @@ def build_handle_frame_subassembly(doc, grp_handle, dims, axle_center):
     low_brace.rotate(FreeCAD.Vector(0, 0, 0), FreeCAD.Vector(1, 0, 0), -HANDLE_ANGLE)
     low_brace.translate(low_pos)
 
-    # Dual Lower Pivot Eye Clevis Ends (connecting to axle pins)
-    clevis_l = Part.makeCylinder(15.0, HANDLE_SQ + 6.0, FreeCAD.Vector(left_x - (HANDLE_SQ+6)/2, AXLE_Y, AXLE_Z), FreeCAD.Vector(1, 0, 0))
-    clevis_r = Part.makeCylinder(15.0, HANDLE_SQ + 6.0, FreeCAD.Vector(right_x - (HANDLE_SQ+6)/2, AXLE_Y, AXLE_Z), FreeCAD.Vector(1, 0, 0))
+    # Dual Lower Pivot Eye Clevis Ends (pivoting on axle shaft)
+    clevis_l = Part.makeCylinder(14.0, HANDLE_SQ + 2.0, FreeCAD.Vector(left_x - (HANDLE_SQ+2)/2, AXLE_Y, AXLE_Z), FreeCAD.Vector(1, 0, 0))
+    clevis_r = Part.makeCylinder(14.0, HANDLE_SQ + 2.0, FreeCAD.Vector(right_x - (HANDLE_SQ+2)/2, AXLE_Y, AXLE_Z), FreeCAD.Vector(1, 0, 0))
 
     u_frame_solid = tube_left.fuse(tube_right).fuse(top_assembly).fuse(upper_cross_rail).fuse(lower_cross_rail).fuse(low_brace).fuse(clevis_l).fuse(clevis_r)
 
@@ -442,9 +450,9 @@ def build():
     SKIRT_H = 50.8       # 2.0 in vertical skirt extension
     SHEET_T = 1.905      # 14-gauge mild steel (0.075 in)
     WHEEL_DIA = 101.6    # 4.0 in metal wheel diameter
-    TRACK_W = 533.4      # 21.0 in wheel track width
+    TRACK_W = 520.0      # 20.5 in wheel track width
     HANDLE_L = 1219.2    # 48.0 in upright handle length
-    HANDLE_W = 482.6     # 19.0 in U-handle frame width
+    HANDLE_W = 430.0     # 16.9 in U-handle frame width (inboard of side rails)
     BURNER_PITCH = 30.0  # 30 deg forward-downward pitch
 
     dims.addProperty("App::PropertyLength", "BaseWidth", "Dimensions", "Hood Base Width").BaseWidth = BASE_W
