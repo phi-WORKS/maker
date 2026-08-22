@@ -291,11 +291,16 @@ def build_handle_frame_subassembly(doc, grp_handle, dims, axle_center):
     grip_right = Part.makeCylinder(15.8, 120.0, top_pos + FreeCAD.Vector(crossbar_w/2 - 120.0, 0, 0), FreeCAD.Vector(1, 0, 0))
     top_assembly = top_crossbar.fuse(grip_left).fuse(grip_right)
 
-    # Middle Cross-Brace (Directly connected between verticals, mounting spine for 1 lb Propane Tank)
-    mid_pos = FreeCAD.Vector(0, AXLE_Y, AXLE_Z) + handle_dir * 650.0
-    mid_brace = Part.makeBox(HANDLE_W, 38.1, 4.76, FreeCAD.Vector(-HANDLE_W/2, -19.05, -2.38))
-    mid_brace.rotate(FreeCAD.Vector(0, 0, 0), FreeCAD.Vector(1, 0, 0), -HANDLE_ANGLE)
-    mid_brace.translate(mid_pos)
+    # Dual Horizontal Cross-Rails (Mounting ladder for side-mounted 1 lb Propane Tank)
+    upper_pos = FreeCAD.Vector(0, AXLE_Y, AXLE_Z) + handle_dir * 720.0
+    upper_cross_rail = Part.makeBox(HANDLE_W, 38.1, 4.76, FreeCAD.Vector(-HANDLE_W/2, -19.05, -2.38))
+    upper_cross_rail.rotate(FreeCAD.Vector(0, 0, 0), FreeCAD.Vector(1, 0, 0), -HANDLE_ANGLE)
+    upper_cross_rail.translate(upper_pos)
+
+    lower_pos = FreeCAD.Vector(0, AXLE_Y, AXLE_Z) + handle_dir * 540.0
+    lower_cross_rail = Part.makeBox(HANDLE_W, 38.1, 4.76, FreeCAD.Vector(-HANDLE_W/2, -19.05, -2.38))
+    lower_cross_rail.rotate(FreeCAD.Vector(0, 0, 0), FreeCAD.Vector(1, 0, 0), -HANDLE_ANGLE)
+    lower_cross_rail.translate(lower_pos)
 
     # Lower Cross-Brace (Directly connected between verticals, striker for Upright-Vacuum Tilt Latch)
     low_pos = FreeCAD.Vector(0, AXLE_Y, AXLE_Z) + handle_dir * 280.0
@@ -307,7 +312,7 @@ def build_handle_frame_subassembly(doc, grp_handle, dims, axle_center):
     clevis_l = Part.makeCylinder(15.0, HANDLE_SQ + 6.0, FreeCAD.Vector(left_x - (HANDLE_SQ+6)/2, AXLE_Y, AXLE_Z), FreeCAD.Vector(1, 0, 0))
     clevis_r = Part.makeCylinder(15.0, HANDLE_SQ + 6.0, FreeCAD.Vector(right_x - (HANDLE_SQ+6)/2, AXLE_Y, AXLE_Z), FreeCAD.Vector(1, 0, 0))
 
-    u_frame_solid = tube_left.fuse(tube_right).fuse(top_assembly).fuse(mid_brace).fuse(low_brace).fuse(clevis_l).fuse(clevis_r)
+    u_frame_solid = tube_left.fuse(tube_right).fuse(top_assembly).fuse(upper_cross_rail).fuse(lower_cross_rail).fuse(low_brace).fuse(clevis_l).fuse(clevis_r)
 
     handle_obj = doc.addObject("Part::Feature", "HandTruck_U_Frame_Handle")
     handle_obj.Shape = u_frame_solid
@@ -335,7 +340,7 @@ def build_handle_frame_subassembly(doc, grp_handle, dims, axle_center):
     for obj in cockpit_grp.Group:
         grp_handle.addObject(obj)
 
-    return handle_obj, latch_obj, cockpit_grp, mid_pos, cockpit_pos, handle_dir
+    return handle_obj, latch_obj, cockpit_grp, lower_pos, cockpit_pos, handle_dir
 
 # ==========================================
 # 5. SUBASSEMBLY BUILDER 5: PROPANE HARNESS & GAS TRAIN
@@ -344,31 +349,30 @@ def build_gas_train_subassembly(doc, grp_fuel, axle_center, cockpit_pos, handle_
     APEX_OFFSET_Y = dims.ApexOffsetY.Value
     HOOD_H = dims.HoodHeight.Value
     SKIRT_H = dims.SkirtHeight.Value
-    HANDLE_W = dims.HandleWidth.Value
     HANDLE_ANGLE = 40.0
     GROUND_CLR = 12.7
     Z_apex = GROUND_CLR + SKIRT_H + HOOD_H
 
     AXLE_Y = axle_center.y
     AXLE_Z = axle_center.z
-    right_x = HANDLE_W / 2.0  # Right vertical upright tube (X = +241.3 mm)
+    bottle_x = 140.0  # Side-mounted on the right side of dual horizontal cross-rails (X = +140 mm)
 
-    # 1. Mount 1 lb Cylinder Harness onto Right Vertical Upright Tube at L = 600 mm
+    # 1. Mount 1 lb Cylinder Harness onto Right Side of Dual Horizontal Cross-Rails
     rot = FreeCAD.Rotation(FreeCAD.Vector(1, 0, 0), -HANDLE_ANGLE)
-    bottle_base_pos = FreeCAD.Vector(right_x, AXLE_Y, AXLE_Z) + handle_dir * 580.0
+    bottle_base_pos = FreeCAD.Vector(bottle_x, AXLE_Y, AXLE_Z) + handle_dir * 540.0
     harness_placement = FreeCAD.Placement(bottle_base_pos + FreeCAD.Vector(0, 5.0, 5.0), rot)
 
     harness_grp = import_component(doc, "propane_harness", placement=harness_placement, group_label="Propane Bottle Harness Component")
     for obj in harness_grp.Group:
         grp_fuel.addObject(obj)
 
-    # 2. Seat 1 lb Cylinder inside harness on right upright
+    # 2. Seat 1 lb Cylinder inside harness on right cross-rails
     cylinder_placement = FreeCAD.Placement(bottle_base_pos + FreeCAD.Vector(0, 5.0, 5.0), rot)
     cylinder_grp = import_component(doc, "propane_cylinder_1lb", placement=cylinder_placement, group_label="1 lb Propane Cylinder Component")
     for obj in cylinder_grp.Group:
         grp_fuel.addObject(obj)
 
-    # 3. Supply Line: 1/4" Flexible Hose straight up Right Upright Tube into Right-Side Cockpit Inlet (+X)
+    # 3. Supply Line: 1/4" Flexible Hose straight up from Bottle Valve to Right-Side Cockpit Inlet (+X)
     valve_top_pos = bottle_base_pos + handle_dir * 198.0 + FreeCAD.Vector(0, 5.0, 5.0)
     cockpit_inlet_pos = cockpit_pos + FreeCAD.Vector(80.0, 0, 0)
 

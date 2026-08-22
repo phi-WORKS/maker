@@ -73,11 +73,11 @@ road-roaster.FCStd (Road Roaster Master Assembly)
 │   ├── Right 4" Solid Steel Wheel (Imported from components/steel_caster_wheel/steel_caster_wheel.FCStd)
 │   └── Solid_Through_Axle_Tie_Rod (Part::Feature - Continuous 1/2" solid cold-rolled steel through-axle shaft & lock collars)
 ├── 4. Dual-Pivot U-Handle & Operator Cockpit Subassembly
-│   ├── HandTruck_U_Frame_Handle (Part::Feature - 3/4" square tube U-frame, top grip & cross-braces)
+│   ├── HandTruck_U_Frame_Handle (Part::Feature - 3/4" square tube U-frame, top grip, dual horizontal cross-rails & latch striker)
 │   ├── Tilt_Back_Vacuum_Snap_Latch (Part::Feature - Upright vacuum foot-release snap catch linkage)
 │   └── (Imported from components/torch_control_handle/torch_control_handle.FCStd)
 └── 5. Propane Gas-Train & Spark Ignition Subassembly
-    ├── (Imported from components/propane_harness/propane_harness.FCStd)
+    ├── (Imported from components/propane_harness/propane_harness.FCStd - Side-mounted across dual cross-rails at X = +140 mm)
     ├── (Imported from components/propane_cylinder_1lb/propane_cylinder_1lb.FCStd)
     ├── Propane_Supply_Hose_Cylinder_To_Cockpit (Part::Feature - 1/4" Flexible supply line)
     ├── Burner_Feed_Hose_Cockpit_To_Burner (Part::Feature - 1/4" 350 PSI High-pressure feed line)
