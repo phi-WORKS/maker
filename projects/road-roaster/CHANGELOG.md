@@ -1,16 +1,29 @@
 # Road Roaster — Evolutionary Changelog & Visual History
 
-> **Towable Thermal Weed Shock Sled**  
+> **Upright Vacuum / Hand-Truck Thermal Weed Shock Sled**  
 > *Chronological Design Transformation Log & Release History*
 
 ---
 
 ## Releases & Transformation Story
 
-### Version 0.4.0 — Onboard Propane Harness & Imported Components
+### Version 0.5.0 — Upright-Vacuum Tilt-Back Frame & Dual Metal Wheels
 **Status**: 🟡 `[IN PROGRESS]`  
-**Date**: 2026-08-13  
-**Visual Snapshot**: ![v0.4.0 Snapshot](sled_iso.png)
+**Date**: 2026-08-22  
+**Visual Snapshot**: ![v0.5.0 Snapshot](road-roaster_iso.png)
+
+#### Changes & Milestones
+- **Upright Vacuum Tilt-Back Concept**: Re-architected chassis with dual-pivot hinge mounts, allowing operator to tilt handle back to lever the sled/skids completely off the ground for non-contact rolling transit across lawns, asphalt, and curbs.
+- **Dual Heat-Resistant Steel Wheels**: Created and imported standalone 4.0" all-metal caster wheel components (`components/steel_caster_wheel/`) at the rear pivot axis to handle intense radiant heat.
+- **Hand-Truck U-Frame**: Replaced single square tube tow bar with a 48" dual-riser U-frame handle featuring dual pivot pin brackets, top hand grips, and cross-braces for superior torsional stability and easy pivoting.
+- **Foot-Release Tilt Latch Linkage**: Added snap-lock latch mechanism linking handle lower cross-member to overhead torch frame catch tower.
+- **Central Propane Bottle Mounting**: Relocated 1 lb bottle harness to handle mid-crossbar for improved balance and accessibility.
+
+---
+
+### Version 0.4.0 — Onboard Propane Harness & Imported Components
+**Status**: 📦 `[SUPERSEDED]`  
+**Visual Snapshot**: ![v0.4.0 Snapshot](changelog/v0.4.0_iso.png)
 
 #### Changes & Milestones
 - **Onboard Fuel Bottle Mounting**: Integrated standalone 1 lb Propane Cylinder (`components/propane_cylinder_1lb/`) and quick-slip Propane Bottle Harness (`components/propane_harness/`) onto upper tow bar handle tube.

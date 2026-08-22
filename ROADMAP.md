@@ -6,27 +6,27 @@ This document outlines upcoming development goals for component library expansio
 
 ## 🎯 Component Library Development Roadmap
 
-- [x] **Harbor Freight #91037 Propane Torch**: Detailed CAD component model with insertion origin $(0,0,0)$, flame direction vector, blue handle, brass flow valve, and piezo igniter (`components/torch_hf91037.py`).
+- [x] **Harbor Freight #91037 Propane Torch**: Detailed CAD component model with insertion origin $(0,0,0)$, flame direction vector, blue handle, brass flow valve, and piezo igniter (`components/torch_hf91037/`).
+- [x] **1 lb Propane Cylinder & Bottle Harness**: Standard 1 lb canister and quick-release steel mounting cage (`components/propane_cylinder_1lb/`, `components/propane_harness/`).
+- [x] **4.0" Heavy-Duty Steel Caster Wheel**: Heat-resistant solid machined steel wheel and mounting yoke for high-heat equipment (`components/steel_caster_wheel/`).
 - [ ] **STIHL Kombi Tool Attachments**:
   - [ ] Power Head Engine Unit
-  - [ ] Straight Shaft String Trimmer
+  - [x] Straight Shaft String Trimmer (`components/kombi_tools/`)
   - [ ] Edger Attachment
   - [ ] Pole Pruner Chainsaw
   - [ ] Hedge Trimmer
   - [ ] Rubber Paddle Sweeper
 - [ ] **Hardware & Rigging Components**:
-  - [ ] Single-Axis Clevis Hitch Bracket & 20° Drop-Stop Tab (`components/clevis_hitch.py`)
-  - [ ] Dual Steel Skid Runners (`components/skid_runner.py`)
-  - [ ] 1 lb Disposable/Refillable Propane Cylinder (`components/propane_tank.py`)
+  - [ ] Quick-Release Snap-Latch Linkages & Pivot Hinges
   - [ ] Standard Pneumatic & Solid Rubber Wheels
 
 ---
 
 ## 🛠️ Physical Project Roadmap
 
-- [x] **Road Roaster (v0.4.0 Master)**: Enclosed 14-ga mild steel pyramidal hood, rearward flame orientation, forward tow bar, forward-leaning torch handle, and FreeCAD subassembly tree grouping (`projects/road-roaster/`).
+- [x] **Road Roaster (v0.5.0 Master)**: Upright vacuum / hand-truck tilt-back architecture, dual hinge pivot points, 4" heavy-duty steel wheels, 48" U-handle frame, foot-release tilt latch, and onboard propane harness (`projects/road-roaster/`).
 - [x] **Kombi Kaddy (v0.9.0 Master)**: Modular storage rack and transport caddy for STIHL KombiSystem tools (`projects/kombi-kaddy/`).
-- [ ] **Component Refinement**: Refine project assembly scripts (`road-roaster` and `kombi-kaddy`) to import standalone components directly from `components/`.
+- [ ] **Physical Cut Lists & Welding Jigs**: Parametric bill of materials and fabrication cut lists for shop assembly.
 
 ---
 

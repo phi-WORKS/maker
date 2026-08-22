@@ -33,13 +33,13 @@ The design and fabrication process follows a structured, evolutionary cycle:
 ┌───────────────────────────┐      ┌───────────────────────────────┐
 │     Shop Fabrication      │      │   Living Project Docs & Git   │
 │  - Table Saw / Weld Prep  │      │  - REQUIREMENTS.md & CUT_LIST │
-│  - Physical Test & Fit    │      │  - Version Folders (v01..vXX) │
+│  - Physical Test & Fit    │      │  - Git-Native Tagged Releases │
 └───────────────────────────┘      └───────────────────────────────┘
 ```
 
 ### 2. Intelligent Work Partitioning & Component Library
 Real-world physical assemblies are built from reusable commercial tools, standard hardware, and custom lumber/metal fabrications:
-- **Commercial & Purchased Tools (`components/`)**: Items such as the Harbor Freight #91037 Propane Torch, STIHL Kombi tool attachments, fixed caster wheels, and clevis hitches are modeled once as standalone, independent 3D modules in `components/`. Once modeled, they become permanent, reusable building blocks for any host assembly.
+- **Commercial & Purchased Tools (`components/`)**: Items such as the Harbor Freight #91037 Propane Torch, 1 lb Propane Cylinders, quick-slip bottle harnesses, heavy-duty steel caster wheels, and STIHL Kombi tool attachments are modeled once as standalone, independent 3D modules in `components/`. Once modeled, they become permanent, reusable building blocks for any host assembly.
 - **Physical Assembly Projects (`projects/`)**: Complete physical designs (e.g. `kombi-kaddy`, `road-roaster`) import these component modules and structure lumber/metal frames around them.
 
 ### 3. Living Requirements Lifecycle & Git-Native Versioning
@@ -64,11 +64,12 @@ Physical design iterations follow Semantic Versioning (`vMAJOR.MINOR.PATCH`) pai
 ├── components/               # Standalone Reusable Commercial Tools & Hardware Library
 │   ├── torch_hf91037/        # Harbor Freight #91037 Propane Torch module & 3D model
 │   ├── propane_cylinder_1lb/ # 1 lb Propane Cylinder module & 3D model
-│   └── propane_harness/      # Quick-release bottle harness module & 3D model
+│   ├── propane_harness/      # Quick-release bottle harness module & 3D model
+│   └── steel_caster_wheel/   # 4.0" Solid Steel Wheel & Caster Bracket module & 3D model
 │
 └── projects/                 # Physical Projects & Master Assemblies
     ├── kombi-kaddy/          # STIHL Kombi Attachment Kaddy (Master active product & changelog)
-    └── road-roaster/         # Towable Flame Weeding Sled (Master active product & changelog)
+    └── road-roaster/         # Upright Vacuum Weed Shock Sled (Master active product & changelog)
 ```
 
 ---
@@ -76,11 +77,11 @@ Physical design iterations follow Semantic Versioning (`vMAJOR.MINOR.PATCH`) pai
 ## Physical Projects
 
 ### 1. [Road Roaster](projects/road-roaster/README.md)
-*Towable Thermal Weed Shock Sled*
+*Upright Vacuum / Hand-Truck Thermal Weed Shock Sled*
 
 | Project Master Render | Quick Specs & Master Links |
 | :---: | :--- |
-| ![Road Roaster Render](projects/road-roaster/sled_iso.png) | • **Application**: Non-chemical gravel driveway weed management via thermal shock.<br>• **Active Master**: [**v0.4.0**](projects/road-roaster/) 🟡 **`[IN PROGRESS]`**<br>• 📐 [**SPECIFICATION.md**](projects/road-roaster/SPECIFICATION.md)<br>• 📜 [**CHANGELOG.md**](projects/road-roaster/CHANGELOG.md)<br>• 🛠️ [**build.py**](projects/road-roaster/build.py)<br>• 📦 [**sled.FCStd**](projects/road-roaster/sled.FCStd) |
+| ![Road Roaster Render](projects/road-roaster/road-roaster_iso.png) | • **Application**: Non-chemical gravel driveway weed management via thermal shock.<br>• **Active Master**: [**v0.5.0**](projects/road-roaster/) 🟡 **`[IN PROGRESS]`**<br>• 📐 [**SPECIFICATION.md**](projects/road-roaster/SPECIFICATION.md)<br>• 📜 [**CHANGELOG.md**](projects/road-roaster/CHANGELOG.md)<br>• 🛠️ [**build.py**](projects/road-roaster/build.py)<br>• 📦 [**road-roaster.FCStd**](projects/road-roaster/road-roaster.FCStd) |
 
 ### 2. [Kombi Kaddy](projects/kombi-kaddy/README.md)
 *Mobile STIHL KombiSystem Attachment Rack*
@@ -99,20 +100,26 @@ Physical design iterations follow Semantic Versioning (`vMAJOR.MINOR.PATCH`) pai
 | :---: | :--- |
 | ![Harbor Freight Torch Render](components/torch_hf91037/torch_hf91037_iso.png) | • **Application**: High-output propane burner with push-button igniter.<br>• 🛠️ [**`build.py`**](components/torch_hf91037/build.py)<br>• 📦 [**`torch_hf91037.FCStd`**](components/torch_hf91037/torch_hf91037.FCStd) |
 
-### 2. [STIHL Kombi Tools Component Library](components/kombi_tools/README.md)
+### 2. [4.0" Heavy-Duty Steel Caster Wheel](components/steel_caster_wheel/README.md)
 
 | Component Render | Specifications & Links |
 | :---: | :--- |
-| ![STIHL Line Trimmer Render](components/kombi_tools/trimmer_iso.png) | • **Application**: 3D parametric models for STIHL straight-shaft attachments.<br>• 🛠️ [**`build_trimmer.py`**](components/kombi_tools/build_trimmer.py)<br>• 📦 [**`trimmer.FCStd`**](components/kombi_tools/trimmer.FCStd) |
+| ![Steel Caster Wheel Render](components/steel_caster_wheel/steel_caster_wheel_iso.png) | • **Application**: Solid cast steel wheel and heavy formed bracket for high-heat equipment.<br>• 🛠️ [**`build.py`**](components/steel_caster_wheel/build.py)<br>• 📦 [**`steel_caster_wheel.FCStd`**](components/steel_caster_wheel/steel_caster_wheel.FCStd) |
+
+### 3. [1 lb Propane Bottle Harness](components/propane_harness/README.md)
+
+| Component Render | Specifications & Links |
+| :---: | :--- |
+| ![Propane Harness Render](components/propane_harness/propane_harness_iso.png) | • **Application**: Quick-release steel bottle cage for 1 lb propane canisters.<br>• 🛠️ [**`build.py`**](components/propane_harness/build.py)<br>• 📦 [**`propane_harness.FCStd`**](components/propane_harness/propane_harness.FCStd) |
 
 ---
 
 ## FreeCAD Execution Commands
 
 ```bash
-# Build Kombi Kaddy Version 0.9.0 Master Model
-/home/phi/AppImages/FreeCAD_1.1.3-Linux-x86_64-py311.AppImage -c "__file__='/home/phi/PROJECTS/phi-WORKS/maker/projects/kombi-kaddy/v0.9.0/build.py'; exec(open(__file__).read())"
+# Build Kombi Kaddy Master Model
+/home/phi/AppImages/FreeCAD_1.1.3-Linux-x86_64-py311.AppImage -c "__file__='/home/phi/PROJECTS/phi-WORKS/maker/projects/kombi-kaddy/build.py'; exec(open(__file__).read())"
 
-# Build Road Roaster Version 0.4.0 Master Model
-/home/phi/AppImages/FreeCAD_1.1.3-Linux-x86_64-py311.AppImage -c "__file__='/home/phi/PROJECTS/phi-WORKS/maker/projects/road-roaster/v0.4.0/build.py'; exec(open(__file__).read())"
+# Build Road Roaster Master Model
+/home/phi/AppImages/FreeCAD_1.1.3-Linux-x86_64-py311.AppImage -c "__file__='/home/phi/PROJECTS/phi-WORKS/maker/projects/road-roaster/build.py'; exec(open(__file__).read())"
 ```
