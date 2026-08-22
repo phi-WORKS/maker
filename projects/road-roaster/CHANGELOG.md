@@ -1,20 +1,32 @@
 # Road Roaster — Evolutionary Changelog & Visual History
 
-> **Upright Vacuum / Hand-Truck Thermal Weed Shock Sled**  
+> **Directional Upright-Vacuum Thermal Weed Shock Sled**  
 > *Chronological Design Transformation Log & Release History*
 
 ---
 
 ## Releases & Transformation Story
 
-### Version 0.5.0 — Upright-Vacuum Tilt-Back Frame & Dual Metal Wheels
+### Version 0.6.0 — Decomposed Torch Controls & Forward-Firing Asymmetrical Hood
 **Status**: 🟡 `[IN PROGRESS]`  
 **Date**: 2026-08-22  
-**Visual Snapshot**: ![v0.5.0 Snapshot](road-roaster_iso.png)
+**Visual Snapshot**: ![v0.6.0 Snapshot](road-roaster_iso.png)
+
+#### Changes & Milestones
+- **Forward-Firing Asymmetrical Hood**: Re-engineered hood geometry with a rear-offset apex ($Y_{apex} = +110\text{ mm}$), creating a steep $\approx 66^\circ$ rear heat deflector shield facing the operator and a long $\approx 28^\circ$ forward-sloping radiant roof ramp. Front exhaust vent safely channels all combustion heat away from the user.
+- **Decomposed Handle Control Cockpit**: Created and imported standalone CAD module [`components/torch_control_handle/`](../../components/torch_control_handle/) clamped to the right U-handle upright, featuring a pilot needle valve knob, dead-man turbo squeeze lever, and push-button piezo spark igniter.
+- **Chassis-Mounted 500k BTU Burner Head**: Created and imported standalone CAD module [`components/torch_burner_head/`](../../components/torch_burner_head/) mounted in the rear apex, firing downward and forward at a $30^\circ$ pitch.
+- **Flexible Gas Train & Ignition Wiring**: Routed 350 PSI high-pressure rubber fuel hose from cylinder to handle cockpit, and from cockpit down to the chassis burner, along with silicone high-voltage spark wiring.
+
+---
+
+### Version 0.5.0 — Upright-Vacuum Tilt-Back Frame & Dual Metal Wheels
+**Status**: 📦 `[SUPERSEDED]`  
+**Visual Snapshot**: ![v0.5.0 Snapshot](changelog/v0.5.0_iso.png)
 
 #### Changes & Milestones
 - **Upright Vacuum Tilt-Back Concept**: Re-architected chassis with dual-pivot hinge mounts, allowing operator to tilt handle back to lever the sled/skids completely off the ground for non-contact rolling transit across lawns, asphalt, and curbs.
-- **Dual Heat-Resistant Steel Wheels**: Created and imported standalone 4.0" all-metal caster wheel components (`components/steel_caster_wheel/`) at the rear pivot axis to handle intense radiant heat.
+- **Dual Heat-Resistant Steel Wheels**: Created and imported standalone 4.0" all-metal wheel components (`components/steel_caster_wheel/`) at the rear pivot axis to handle intense radiant heat.
 - **Hand-Truck U-Frame**: Replaced single square tube tow bar with a 48" dual-riser U-frame handle featuring dual pivot pin brackets, top hand grips, and cross-braces for superior torsional stability and easy pivoting.
 - **Foot-Release Tilt Latch Linkage**: Added snap-lock latch mechanism linking handle lower cross-member to overhead torch frame catch tower.
 - **Central Propane Bottle Mounting**: Relocated 1 lb bottle harness to handle mid-crossbar for improved balance and accessibility.

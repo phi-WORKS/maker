@@ -1,6 +1,6 @@
 # Road Roaster
 
-> **Upright Vacuum / Hand-Truck Thermal Weed Shock Sled**  
+> **Directional Upright-Vacuum Thermal Weed Shock Sled**  
 > *Git-Native Parametric CAD Model & Fabrication Documentation*
 
 **Active CAD Model**: [`road-roaster.FCStd`](road-roaster.FCStd)  
@@ -33,11 +33,12 @@
 
 ## Evolutionary Transformation Story
 
-This project documents the evolutionary design transformation of the Road Roaster. Historical CAD models are preserved natively via Git tags (`v0.0.0` .. `v0.5.0`).
+This project documents the evolutionary design transformation of the Road Roaster. Historical CAD models are preserved natively via Git tags (`v0.0.0` .. `v0.6.0`).
 
 | Version | Visual Milestone Snapshot | Key Evolutionary Milestone | Lifecycle Status |
 | :---: | :---: | :--- | :---: |
-| **v0.5.0** | ![v0.5.0 Snapshot](road-roaster_iso.png) | **Upright-Vacuum Tilt-Back Frame & Dual Metal Wheels**: Transformed towing concept to an upright vacuum / hand-truck architecture. Integrated dual 4.0" solid steel wheels at the rear pivot axis, a 48" dual-riser U-frame handle, and a foot-release snap tilt-latch allowing the sled to be levered completely off the ground for non-contact rolling transit across grass and asphalt. | 🟡 **`[IN PROGRESS]`** |
+| **v0.6.0** | ![v0.6.0 Snapshot](road-roaster_iso.png) | **Decomposed Torch Controls & Forward-Firing Asymmetrical Hood**: Transformed hood into an asymmetrical directional heat scoop with rearward offset apex ($Y_{apex} = +110\text{ mm}$), steep rear heat deflector, and long forward-sloping radiant roof ramp. Decomposed torch into a handle-mounted squeeze boost cockpit (`components/torch_control_handle/`) and a chassis-mounted $500\text{k BTU}$ burner nozzle (`components/torch_burner_head/`) firing downward and forward away from the user. | 🟡 **`[IN PROGRESS]`** |
+| **v0.5.0** | ![v0.5.0 Snapshot](changelog/v0.5.0_iso.png) | **Upright-Vacuum Tilt-Back Frame & Dual Metal Wheels**: Transformed towing concept to an upright vacuum / hand-truck architecture. Integrated dual 4.0" solid steel wheels at the rear pivot axis, a 48" dual-riser U-frame handle, and a foot-release snap tilt-latch allowing the sled to be levered completely off the ground for non-contact rolling transit across grass and asphalt. | 📦 **`[SUPERSEDED]`** |
 | **v0.4.0** | ![v0.4.0 Snapshot](changelog/v0.4.0_iso.png) | **Onboard Propane Harness & Imported Components**: Integrated standalone 1 lb Propane Cylinder (`components/propane_cylinder_1lb/`) and quick-slip Propane Bottle Harness (`components/propane_harness/`) onto handle tube. Refactored `build.py` to consume pre-built `.FCStd` component files directly via `import_component()`. | 📦 **`[SUPERSEDED]`** |
 | **v0.3.0** | ![v0.3.0 Snapshot](changelog/v0.3.0_iso.png) | **Modular Master Container**: Organized 3D model into modular FreeCAD `App::DocumentObjectGroup` containers (`Flame_Sled_Pyramid_Hood`, `Overhead_Support_Frame`, `Rigid_Towbar_Hitch`, `Harbor_Freight_Torch_91037`), establishing clean tree structure and parametric VarSet (`dims`) control. | 📦 **`[SUPERSEDED]`** |
 | **v0.2.0** | ![v0.2.0 Snapshot](changelog/v0.2.0_iso.png) | **Ergonomic Forward Lean**: Re-angled torch handle wand 180° forward leaning toward the operator pulling at the front, putting the blue handle, flow knob, and piezo igniter button within comfortable walking reach. | 📦 **`[SUPERSEDED]`** |

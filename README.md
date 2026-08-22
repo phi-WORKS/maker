@@ -39,8 +39,8 @@ The design and fabrication process follows a structured, evolutionary cycle:
 
 ### 2. Intelligent Work Partitioning & Component Library
 Real-world physical assemblies are built from reusable commercial tools, standard hardware, and custom lumber/metal fabrications:
-- **Commercial & Purchased Tools (`components/`)**: Items such as the Harbor Freight #91037 Propane Torch, 1 lb Propane Cylinders, quick-slip bottle harnesses, heavy-duty steel caster wheels, and STIHL Kombi tool attachments are modeled once as standalone, independent 3D modules in `components/`. Once modeled, they become permanent, reusable building blocks for any host assembly.
-- **Physical Assembly Projects (`projects/`)**: Complete physical designs (e.g. `kombi-kaddy`, `road-roaster`) import these component modules and structure lumber/metal frames around them.
+- **Commercial & Fabricated Components (`components/`)**: Discrete items such as torch burner nozzles, handle control cockpits, propane cylinders, bottle cages, steel wheels, and tool attachments are modeled as independent, reusable 3D CAD modules in `components/`.
+- **Physical Assembly Projects (`projects/`)**: Complete physical designs (e.g. `kombi-kaddy`, `road-roaster`) import these pre-built components and structure frames around them.
 
 ### 3. Living Requirements Lifecycle & Git-Native Versioning
 Physical design iterations follow Semantic Versioning (`vMAJOR.MINOR.PATCH`) paired with standard Lifecycle Status Badges (`🟡 IN PROGRESS`, `🔵 FABRICATION READY`, `🟢 BUILT & VERIFIED`, `📦 SUPERSEDED`).
@@ -62,14 +62,16 @@ Physical design iterations follow Semantic Versioning (`vMAJOR.MINOR.PATCH`) pai
 ├── src/                      # Primary Python library source (phi_works_maker)
 │
 ├── components/               # Standalone Reusable Commercial Tools & Hardware Library
-│   ├── torch_hf91037/        # Harbor Freight #91037 Propane Torch module & 3D model
+│   ├── torch_control_handle/ # Ergonomic Squeeze Cockpit & Valve module & 3D model
+│   ├── torch_burner_head/    # 500k BTU Venturi Burner Nozzle module & 3D model
 │   ├── propane_cylinder_1lb/ # 1 lb Propane Cylinder module & 3D model
 │   ├── propane_harness/      # Quick-release bottle harness module & 3D model
-│   └── steel_caster_wheel/   # 4.0" Solid Steel Wheel & Caster Bracket module & 3D model
+│   ├── steel_caster_wheel/   # 4.0" Solid Steel Wheel module & 3D model
+│   └── torch_hf91037/        # Harbor Freight #91037 full wand module & reference photos
 │
 └── projects/                 # Physical Projects & Master Assemblies
     ├── kombi-kaddy/          # STIHL Kombi Attachment Kaddy (Master active product & changelog)
-    └── road-roaster/         # Upright Vacuum Weed Shock Sled (Master active product & changelog)
+    └── road-roaster/         # Directional Weed Shock Sled (Master active product & changelog)
 ```
 
 ---
@@ -77,11 +79,11 @@ Physical design iterations follow Semantic Versioning (`vMAJOR.MINOR.PATCH`) pai
 ## Physical Projects
 
 ### 1. [Road Roaster](projects/road-roaster/README.md)
-*Upright Vacuum / Hand-Truck Thermal Weed Shock Sled*
+*Directional Upright-Vacuum Thermal Weed Shock Sled*
 
 | Project Master Render | Quick Specs & Master Links |
 | :---: | :--- |
-| ![Road Roaster Render](projects/road-roaster/road-roaster_iso.png) | • **Application**: Non-chemical gravel driveway weed management via thermal shock.<br>• **Active Master**: [**v0.5.0**](projects/road-roaster/) 🟡 **`[IN PROGRESS]`**<br>• 📐 [**SPECIFICATION.md**](projects/road-roaster/SPECIFICATION.md)<br>• 📜 [**CHANGELOG.md**](projects/road-roaster/CHANGELOG.md)<br>• 🛠️ [**build.py**](projects/road-roaster/build.py)<br>• 📦 [**road-roaster.FCStd**](projects/road-roaster/road-roaster.FCStd) |
+| ![Road Roaster Render](projects/road-roaster/road-roaster_iso.png) | • **Application**: Non-chemical gravel driveway weed management via thermal shock.<br>• **Active Master**: [**v0.6.0**](projects/road-roaster/) 🟡 **`[IN PROGRESS]`**<br>• 📐 [**SPECIFICATION.md**](projects/road-roaster/SPECIFICATION.md)<br>• 📜 [**CHANGELOG.md**](projects/road-roaster/CHANGELOG.md)<br>• 🛠️ [**build.py**](projects/road-roaster/build.py)<br>• 📦 [**road-roaster.FCStd**](projects/road-roaster/road-roaster.FCStd) |
 
 ### 2. [Kombi Kaddy](projects/kombi-kaddy/README.md)
 *Mobile STIHL KombiSystem Attachment Rack*
@@ -94,19 +96,25 @@ Physical design iterations follow Semantic Versioning (`vMAJOR.MINOR.PATCH`) pai
 
 ## Component Libraries
 
-### 1. [Harbor Freight #91037 Propane Torch](components/torch_hf91037/README.md)
+### 1. [Torch Control Handle Cockpit](components/torch_control_handle/README.md)
 
 | Component Render | Specifications & Links |
 | :---: | :--- |
-| ![Harbor Freight Torch Render](components/torch_hf91037/torch_hf91037_iso.png) | • **Application**: High-output propane burner with push-button igniter.<br>• 🛠️ [**`build.py`**](components/torch_hf91037/build.py)<br>• 📦 [**`torch_hf91037.FCStd`**](components/torch_hf91037/torch_hf91037.FCStd) |
+| ![Torch Handle Render](components/torch_control_handle/torch_control_handle_iso.png) | • **Application**: Handle-mounted brass valve, squeeze boost lever & piezo spark igniter.<br>• 🛠️ [**`build.py`**](components/torch_control_handle/build.py)<br>• 📦 [**`torch_control_handle.FCStd`**](components/torch_control_handle/torch_control_handle.FCStd) |
 
-### 2. [4.0" Heavy-Duty Steel Caster Wheel](components/steel_caster_wheel/README.md)
+### 2. [500,000 BTU Torch Burner Head](components/torch_burner_head/README.md)
 
 | Component Render | Specifications & Links |
 | :---: | :--- |
-| ![Steel Caster Wheel Render](components/steel_caster_wheel/steel_caster_wheel_iso.png) | • **Application**: Solid cast steel wheel and heavy formed bracket for high-heat equipment.<br>• 🛠️ [**`build.py`**](components/steel_caster_wheel/build.py)<br>• 📦 [**`steel_caster_wheel.FCStd`**](components/steel_caster_wheel/steel_caster_wheel.FCStd) |
+| ![Burner Head Render](components/torch_burner_head/torch_burner_head_iso.png) | • **Application**: Chassis-mounted 2.5" combustion bell, venturi cone & spark electrode.<br>• 🛠️ [**`build.py`**](components/torch_burner_head/build.py)<br>• 📦 [**`torch_burner_head.FCStd`**](components/torch_burner_head/torch_burner_head.FCStd) |
 
-### 3. [1 lb Propane Bottle Harness](components/propane_harness/README.md)
+### 3. [4.0" Solid Steel Wheel](components/steel_caster_wheel/README.md)
+
+| Component Render | Specifications & Links |
+| :---: | :--- |
+| ![Steel Wheel Render](components/steel_caster_wheel/steel_caster_wheel_iso.png) | • **Application**: Solid machined cast steel wheel and 1/2" Grade 5 axle hardware.<br>• 🛠️ [**`build.py`**](components/steel_caster_wheel/build.py)<br>• 📦 [**`steel_caster_wheel.FCStd`**](components/steel_caster_wheel/steel_caster_wheel.FCStd) |
+
+### 4. [1 lb Propane Bottle Harness](components/propane_harness/README.md)
 
 | Component Render | Specifications & Links |
 | :---: | :--- |
