@@ -3,7 +3,7 @@
 
 ---
 
-## 1. Executive Summary & The "Inverted Broiler" Concept
+## 1. Executive Summary & The "Overhead Ground Broiler" Concept
 
 The design goal of the **Road Roaster** is to deliver rapid, lethal cellular shock to invasive weeds in gravel corridors, driveways, and hardscapes without relying on toxic herbicides or open-air fuel waste.
 
@@ -11,12 +11,14 @@ Initial prototypes utilized commercial high-output propane weed torches (e.g., G
 
 ```
 ┌────────────────────────────────────────────────────────────────────────────────────────┐
-│                          THE "INVERTED BROILER" PARADIGM                               │
+│                        THE "OVERHEAD GROUND BROILER" PARADIGM                          │
 │                                                                                        │
-│     Instead of a high-pressure flamethrower blowing hot gas into a box,               │
-│     the Road Roaster operates as an INVERTED GAS STEAK BROILER gliding                 │
-│     over the ground: emitting high-intensity downward infrared radiation (1,600°F)     │
-│     with ZERO blast pressure, ZERO flying gravel, and whisper-quiet operation.        │
+│     Unlike a GRILL (which fires upward from below), a BROILER positions                │
+│     the heat source ABOVE the target to radiate intense downward infrared.             │
+│                                                                                        │
+│     The Road Roaster operates in the true orientation of a COMMERCIAL STEAK BROILER    │
+│     gliding over the ground: emitting 1,600°F downward radiant flux with ZERO blast   │
+│     pressure, ZERO flying gravel, and whisper-quiet operation.                        │
 └────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -71,7 +73,7 @@ graph TD
     A[Heat Generation Candidates] --> B[1. Propane Blast Torch<br>Greenwood 91037]
     A --> C[2. Battery-Powered Electric<br>Power Tool Packs]
     A --> D[3. Corded 120V AC Electric<br>Quartz / Calrod Elements]
-    A --> E[4. Ceramic Infrared Propane<br>Inverted Broiler Plaque]
+    A --> E[4. Ceramic Infrared Propane<br>Overhead Broiler Plaque]
 
     B --> B1[Result: Severe blast pressure, blows gravel/ash, low efficiency]
     C --> C1[Result: 100x battery weight penalty, very short runtime]
@@ -182,7 +184,7 @@ The **Ceramic Infrared Propane Burner** operates on the exact same thermodynamic
 
 ## 5. Off-the-Shelf Parts Architecture for Road Roaster
 
-To implement the "Inverted Ground Broiler" system, the following modular off-the-shelf components can be integrated into the Road Roaster chassis:
+To implement the "Overhead Ground Broiler" system, the following modular off-the-shelf components can be integrated into the Road Roaster chassis:
 
 ```
 ┌────────────────────────────────────────────────────────────────────────────────────────┐

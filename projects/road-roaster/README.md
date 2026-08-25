@@ -92,7 +92,7 @@ Thermal weed control does **not** require burning green vegetation to ash. Inste
 
 ## 6. Documentation Index
 
-- 🔥 [**`HEAT_SOURCE_ANALYSIS.md`**](HEAT_SOURCE_ANALYSIS.md): Comprehensive thermal engineering analysis comparing blast torches, electric radiant, and ceramic infrared "Inverted Broiler" architecture.
+- 🔥 [**`HEAT_SOURCE_ANALYSIS.md`**](HEAT_SOURCE_ANALYSIS.md): Comprehensive thermal engineering analysis comparing blast torches, electric radiant, and ceramic infrared "Overhead Broiler" architecture.
 - 📐 [**`SPECIFICATION.md`**](SPECIFICATION.md): Master technical specification, parametric VarSet (`dims`) table, joinery, and hardware.
 - 📜 [**`CHANGELOG.md`**](CHANGELOG.md): Complete chronological version transformation log and release history.
 - 🛠️ [**`build.py`**](build.py): Master FreeCAD Python parametric generator script.
