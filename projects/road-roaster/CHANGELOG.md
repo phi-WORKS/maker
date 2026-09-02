@@ -7,10 +7,32 @@
 
 ## Releases & Transformation Story
 
-### Version 0.6.0 — Decomposed Torch Controls & Forward-Firing Asymmetrical Hood
+### Version 0.7.0 — Solaronics Ceramic Infrared Array, Vintage Hand Truck & Common-Axis Suspension
 **Status**: 🟡 `[IN PROGRESS]`  
+**Date**: 2026-09-02  
+**Visual Snapshot**: ![v0.7.0 Snapshot](road-roaster_iso.png)
+
+#### Changes & Milestones
+- **Solaronics High-Intensity Ceramic Radiant Engine**: Integrated industrial cordierite grooved ceramic plaque matrix ($173\text{ sq. in}$ active radiant face, $1,800^\circ\text{F}$ surface emission) with mirror-bright deep parabolic focusing aluminum reflector and Inconel re-radiating wire grid.
+- **Zero Aerodynamic Blast Pressure**: Shifted from high-velocity torch flame to low-pressure ($11''\text{ W.C.}$, $60,000\text{ BTU/hr}$) flameless surface combustion, completely eliminating the blown gravel, dust, and flying ember hazards of open blast torches.
+- **Restored Vintage Commercial Hand Truck Chassis**: Modeled after user's physical vintage green donor frame (restored in industrial Red):
+  - $1.0''\text{ OD}$ continuous tubular steel inverted U-frame ($12.5''$ center-to-center upright spacing, $46.0''$ top of U-bend).
+  - Center handle spine pipe with ergonomic top backward loop and vertical spine tube.
+  - 3 horizontal steel cross-straps ($1.0''$ wide at $12.0''$, $22.0''$, and $31.0''$ heights).
+- **Authentic Dual Triangular Axle Trusses**: Modeled two-strut triangular truss brackets (lower strut from upright base at $Z = 30\text{ mm}$, upper diagonal strut from Strap 1 at $Z = 292\text{ mm}$) welded flush to vertical pipes and converging at axle sleeves.
+- **$\varnothing 9.5''$ Wheels & Datum Axle Center**: Continuous $5/8''$ solid steel axle shaft centered at **$4.75''$ ($120.65\text{ mm}$)** from the floor and **$4.75''$ ($120.65\text{ mm}$)** rearward from the side rail plane.
+- **Common-Wheel-Axle Triangular Sled Suspension**: The forward radiant sled connects directly to the same continuous wheel axle shaft via matching triangular straps ($X = \pm 145.0\text{ mm}$, inboard of frame trusses), providing concentric pivoting and eliminating frame flex.
+- **Rear-Mounted Propane Harness & Cross-Strap Clamps**: 1 lb LP bottle and cage harness relocated behind the vertical supports ($X = +80.0\text{ mm}, Y = +75.4\text{ mm}$), clamped directly around the middle horizontal cross-strap (Strap 2) with sandwich clamp jaws and side stabilizer tab.
+- **Center-Support Routed 3D B-Spline Flexible Hose & Spark Wire**: Modeled smooth 3D B-spline flexible LP gas hose and silicone igniter wire traveling down the center support pipe secured by retaining clips, sweeping under the frame directly into the Solaronics burner gas connector.
+- **Solaronics Engineering Outreach Document**: Created [`SOLARONICS_INQUIRY.md`](SOLARONICS_INQUIRY.md) detailing technical collaboration and OEM component inquiries.
+- **Modular Component Library**: Added standalone CAD modules [`components/commercial_hand_truck/`](../../components/commercial_hand_truck/) and [`components/solaronics_infrared_burner/`](../../components/solaronics_infrared_burner/).
+
+---
+
+### Version 0.6.0 — Decomposed Torch Controls & Forward-Firing Asymmetrical Hood
+**Status**: 📦 `[SUPERSEDED]`  
 **Date**: 2026-08-22  
-**Visual Snapshot**: ![v0.6.0 Snapshot](road-roaster_iso.png)
+**Visual Snapshot**: ![v0.6.0 Snapshot](changelog/v0.6.0_iso.png)
 
 #### Changes & Milestones
 - **Forward-Firing Asymmetrical Hood**: Re-engineered hood geometry with a rear-offset apex ($Y_{apex} = +110\text{ mm}$), creating a steep $\approx 66^\circ$ rear heat deflector shield facing the operator and a long $\approx 28^\circ$ forward-sloping radiant roof ramp. Front exhaust vent safely channels all combustion heat away from the user.

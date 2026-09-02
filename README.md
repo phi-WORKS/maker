@@ -62,6 +62,8 @@ Physical design iterations follow Semantic Versioning (`vMAJOR.MINOR.PATCH`) pai
 ├── src/                      # Primary Python library source (phi_works_maker)
 │
 ├── components/               # Standalone Reusable Commercial Tools & Hardware Library
+│   ├── commercial_hand_truck/ # Vintage Restored Hand Truck Chassis & Triangular Trusses
+│   ├── solaronics_infrared_burner/ # Solaronics High-Intensity Ceramic Infrared Burner Engine
 │   ├── torch_control_handle/ # Ergonomic Squeeze Cockpit & Valve module & 3D model
 │   ├── torch_burner_head/    # 500k BTU Venturi Burner Nozzle module & 3D model
 │   ├── propane_cylinder_1lb/ # 1 lb Propane Cylinder module & 3D model
@@ -79,11 +81,11 @@ Physical design iterations follow Semantic Versioning (`vMAJOR.MINOR.PATCH`) pai
 ## Physical Projects
 
 ### 1. [Road Roaster](projects/road-roaster/README.md)
-*Directional Thermal Weed Shock Sled*
+*Directional Ceramic Infrared Thermal Weed Shock Sled*
 
 | Project Master Render | Quick Specs & Master Links |
 | :---: | :--- |
-| ![Road Roaster Render](projects/road-roaster/road-roaster_iso.png) | • **Application**: Chemical-free hardscape weed eradication via enclosed radiant cellular shock.<br>• **Core Advantage**: Uses up to 70% less propane than open torches; features a 15–30s deep heat-soak mode for 1–2" soil/root crown sterilization ($180^\circ\text{F}$).<br>• **Active Master**: [**v0.6.0**](projects/road-roaster/) 🟡 **`[IN PROGRESS]`**<br>• 📐 [**SPECIFICATION.md**](projects/road-roaster/SPECIFICATION.md)<br>• 📜 [**CHANGELOG.md**](projects/road-roaster/CHANGELOG.md)<br>• 🛠️ [**build.py**](projects/road-roaster/build.py)<br>• 📦 [**road-roaster.FCStd**](projects/road-roaster/road-roaster.FCStd) |
+| ![Road Roaster Render](projects/road-roaster/road-roaster_iso.png) | • **Application**: Chemical-free hardscape weed eradication via Solaronics ceramic infrared radiant shock.<br>• **Core Advantage**: Zero aerodynamic blast pressure (no blown gravel or embers); uses up to 70% less fuel than open torches; 15–30s deep heat-soak kills root crowns.<br>• **Active Master**: [**v0.7.0**](projects/road-roaster/) 🟡 **`[IN PROGRESS]`**<br>• 📐 [**SPECIFICATION.md**](projects/road-roaster/SPECIFICATION.md)<br>• 📜 [**CHANGELOG.md**](projects/road-roaster/CHANGELOG.md)<br>• 🤝 [**SOLARONICS_INQUIRY.md**](projects/road-roaster/SOLARONICS_INQUIRY.md)<br>• 🛠️ [**build.py**](projects/road-roaster/build.py)<br>• 📦 [**road-roaster.FCStd**](projects/road-roaster/road-roaster.FCStd) |
 
 ### 2. [Kombi Kaddy](projects/kombi-kaddy/README.md)
 *Mobile STIHL KombiSystem Attachment Rack*
@@ -96,19 +98,31 @@ Physical design iterations follow Semantic Versioning (`vMAJOR.MINOR.PATCH`) pai
 
 ## Component Libraries
 
-### 1. [Torch Control Handle Cockpit](components/torch_control_handle/README.md)
+### 1. [Vintage Commercial Hand Truck Chassis](components/commercial_hand_truck/README.md)
+
+| Component Render | Specifications & Links |
+| :---: | :--- |
+| ![Hand Truck Render](components/commercial_hand_truck/commercial_hand_truck_iso.png) | • **Application**: Vintage restored $1.0''\text{ OD}$ tubular steel U-frame, center spine handle, triangular axle trusses & $9.5''$ wheels.<br>• 🛠️ [**`build.py`**](components/commercial_hand_truck/build.py)<br>• 📦 [**`commercial_hand_truck.FCStd`**](components/commercial_hand_truck/commercial_hand_truck.FCStd) |
+
+### 2. [Solaronics High-Intensity Ceramic Infrared Burner](components/solaronics_infrared_burner/README.md)
+
+| Component Render | Specifications & Links |
+| :---: | :--- |
+| ![Solaronics Burner Render](components/solaronics_infrared_burner/solaronics_infrared_burner_iso.png) | • **Application**: $173\text{ sq. in}$ cordierite ceramic plaque matrix ($1,800^\circ\text{F}$), parabolic aluminum reflector, and Inconel rock shield.<br>• 🛠️ [**`build.py`**](components/solaronics_infrared_burner/build.py)<br>• 📦 [**`solaronics_infrared_burner.FCStd`**](components/solaronics_infrared_burner/solaronics_infrared_burner.FCStd) |
+
+### 3. [Torch Control Handle Cockpit](components/torch_control_handle/README.md)
 
 | Component Render | Specifications & Links |
 | :---: | :--- |
 | ![Torch Handle Render](components/torch_control_handle/torch_control_handle_iso.png) | • **Application**: Handle-mounted brass valve, squeeze boost lever & piezo spark igniter.<br>• 🛠️ [**`build.py`**](components/torch_control_handle/build.py)<br>• 📦 [**`torch_control_handle.FCStd`**](components/torch_control_handle/torch_control_handle.FCStd) |
 
-### 2. [500,000 BTU Torch Burner Head](components/torch_burner_head/README.md)
+### 4. [500,000 BTU Torch Burner Head](components/torch_burner_head/README.md)
 
 | Component Render | Specifications & Links |
 | :---: | :--- |
 | ![Burner Head Render](components/torch_burner_head/torch_burner_head_iso.png) | • **Application**: Chassis-mounted 2.5" combustion bell, venturi cone & spark electrode.<br>• 🛠️ [**`build.py`**](components/torch_burner_head/build.py)<br>• 📦 [**`torch_burner_head.FCStd`**](components/torch_burner_head/torch_burner_head.FCStd) |
 
-### 3. [4.0" Solid Steel Wheel](components/steel_caster_wheel/README.md)
+### 5. [4.0" Solid Steel Wheel](components/steel_caster_wheel/README.md)
 
 | Component Render | Specifications & Links |
 | :---: | :--- |
