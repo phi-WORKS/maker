@@ -5,7 +5,7 @@
 
 **Active CAD Model**: [`road-roaster.FCStd`](road-roaster.FCStd)  
 **Status**: 🟡 **`[IN PROGRESS - v0.7.0]`**  
-**Engineering Collaboration Document**: [**`SOLARONICS_INQUIRY.md`**](SOLARONICS_INQUIRY.md) *(OEM Technical Outreach & Application Proposal)*  
+**Engineering Documents**: [**`HEAT_SOURCE_ANALYSIS.md`**](HEAT_SOURCE_ANALYSIS.md) | [**`MICROWAVE_VS_PROPANE_ANALYSIS.md`**](MICROWAVE_VS_PROPANE_ANALYSIS.md) | [**`SOLARONICS_INQUIRY.md`**](SOLARONICS_INQUIRY.md) | [**`WET_VS_DRY_STRATEGY.md`**](WET_VS_DRY_STRATEGY.md)  
 
 ![Road Roaster Isometric](road-roaster_iso.png)
 
