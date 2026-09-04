@@ -19,11 +19,21 @@ The **Standard DOT 20 lb Propane Cylinder** (`propane_cylinder_20lb`) is a reusa
 
 ---
 
-## Visual Gallery
+![Standard DOT 20 lb Propane Cylinder](propane_cylinder_20lb.png)
 
-| Isometric View | Front Elevation View |
+---
+
+## Visual Projection Gallery
+
+| Home (Perspective) View | Top Plan View |
 | :---: | :---: |
-| ![Isometric](propane_cylinder_20lb_iso.png) | ![Front](propane_cylinder_20lb_front.png) |
+| ![Home View](propane_cylinder_20lb.png) | ![Top View](propane_cylinder_20lb_top.png) |
+| **Front Elevation** | **Rear Elevation** |
+| ![Front Elevation](propane_cylinder_20lb_front.png) | ![Rear Elevation](propane_cylinder_20lb_back.png) |
+| **Right Side Elevation** | **Left Side Elevation** |
+| ![Right Side View](propane_cylinder_20lb_right.png) | ![Left Side View](propane_cylinder_20lb_left.png) |
+| **Bottom Plan View** | |
+| ![Bottom View](propane_cylinder_20lb_bottom.png) | |
 
 ---
 

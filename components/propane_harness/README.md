@@ -4,6 +4,24 @@
 
 ---
 
+![1 lb Propane Bottle Harness](propane_harness.png)
+
+---
+
+## Visual Projection Gallery
+
+| Home (Perspective) View | Top Plan View |
+| :---: | :---: |
+| ![Home View](propane_harness.png) | ![Top View](propane_harness_top.png) |
+| **Front Elevation** | **Rear Elevation** |
+| ![Front Elevation](propane_harness_front.png) | ![Rear Elevation](propane_harness_back.png) |
+| **Right Side Elevation** | **Left Side Elevation** |
+| ![Right Side View](propane_harness_right.png) | ![Left Side View](propane_harness_left.png) |
+| **Bottom Plan View** | |
+| ![Bottom View](propane_harness_bottom.png) | |
+
+---
+
 ## Key Features & Construction Specs
 
 - **Inner Cage Clearance**: $100.0\text{ mm}$ ($3.94''$) ID for smooth slip-in / slip-out operation.

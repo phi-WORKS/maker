@@ -4,6 +4,24 @@
 
 ---
 
+![1 lb Propane Cylinder](propane_cylinder_1lb.png)
+
+---
+
+## Visual Projection Gallery
+
+| Home (Perspective) View | Top Plan View |
+| :---: | :---: |
+| ![Home View](propane_cylinder_1lb.png) | ![Top View](propane_cylinder_1lb_top.png) |
+| **Front Elevation** | **Rear Elevation** |
+| ![Front Elevation](propane_cylinder_1lb_front.png) | ![Rear Elevation](propane_cylinder_1lb_back.png) |
+| **Right Side Elevation** | **Left Side Elevation** |
+| ![Right Side View](propane_cylinder_1lb_right.png) | ![Left Side View](propane_cylinder_1lb_left.png) |
+| **Bottom Plan View** | |
+| ![Bottom View](propane_cylinder_1lb_bottom.png) | |
+
+---
+
 ## Technical Specifications
 
 - **Outer Diameter (Body)**: $3.875''$ ($98.4\text{ mm}$)

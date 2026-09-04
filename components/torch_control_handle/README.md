@@ -8,11 +8,15 @@
 
 ---
 
+![Torch Control Handle Cockpit](torch_control_handle.png)
+
+---
+
 ## 1. Visual Model Gallery
 
-| Isometric View | Top Plan View |
+| Home (Perspective) View | Top Plan View |
 | :---: | :---: |
-| ![Isometric View](torch_control_handle_iso.png) | ![Top View](torch_control_handle_top.png) |
+| ![Home View](torch_control_handle.png) | ![Top View](torch_control_handle_top.png) |
 | **Front Elevation** | **Rear Elevation** |
 | ![Front Elevation](torch_control_handle_front.png) | ![Rear Elevation](torch_control_handle_back.png) |
 | **Right Side Elevation** | **Left Side Elevation** |

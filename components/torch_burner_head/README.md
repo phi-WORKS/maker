@@ -8,11 +8,15 @@
 
 ---
 
+![500,000 BTU Torch Burner Head](torch_burner_head.png)
+
+---
+
 ## 1. Visual Model Gallery
 
-| Isometric View | Top Plan View |
+| Home (Perspective) View | Top Plan View |
 | :---: | :---: |
-| ![Isometric View](torch_burner_head_iso.png) | ![Top View](torch_burner_head_top.png) |
+| ![Home View](torch_burner_head.png) | ![Top View](torch_burner_head_top.png) |
 | **Front Elevation** | **Rear Elevation** |
 | ![Front Elevation](torch_burner_head_front.png) | ![Rear Elevation](torch_burner_head_back.png) |
 | **Right Side Elevation** | **Left Side Elevation** |

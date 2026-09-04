@@ -146,4 +146,4 @@ Website: [github.com/phiarchitect/maker](https://github.com/phiarchitect/maker)
 Repository: `phi-WORKS/maker`  
 Project: `projects/road-roaster`  
 Email / Phone: *(Provided upon submission)*  
-Attachments: Full 3D Multi-View Orthogonal CAD Renders (`road-roaster_iso.png`, `road-roaster_right.png`, `road-roaster_back.png`)
+Attachments: Full 3D Multi-View Orthogonal CAD Renders (`road-roaster.png`, `road-roaster_right.png`, `road-roaster_back.png`)

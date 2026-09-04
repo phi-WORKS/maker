@@ -121,11 +121,6 @@ def create_torch_component(doc, insertion_point=None, lean_angle_deg=0.0, flame_
 
     return grp
 
-def render_views(gui_doc, base_path):
-    if not HAS_GUI or not gui_doc:
-        return
-    render_single_view(gui_doc, f"{base_path}_iso.png", view_type="Isometric")
-
 def build_standalone_component():
     doc = FreeCAD.newDocument("torch_91037_component")
     comp_dir = os.path.dirname(os.path.abspath(__file__)) if "__file__" in globals() else os.path.abspath(".")

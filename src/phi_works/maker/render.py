@@ -102,7 +102,7 @@ def export_orthogonal_views(gui_doc, base_prefix, master_dir=None, model_prefix=
     except Exception as e:
         print(f"Camera type note: {e}")
 
-    # 2. Define standard view methods (iso is last to leave viewport framed for doc save)
+    # 2. Define standard view methods (home view is last to leave viewport framed for doc save)
     back_fn = getattr(view, "viewRear", getattr(view, "viewBack", lambda: None))
     views_to_export = [
         ("front", view.viewFront, "Front Elevation View"),
@@ -111,7 +111,7 @@ def export_orthogonal_views(gui_doc, base_prefix, master_dir=None, model_prefix=
         ("bottom", view.viewBottom, "Bottom Plan View"),
         ("left", view.viewLeft, "Left Side Elevation View"),
         ("right", view.viewRight, "Right Side Elevation View"),
-        ("iso", view.viewIsometric, "Isometric (Home) View"),
+        ("home", view.viewIsometric, "Home Perspective View"),
     ]
 
     # Ensure target output directory exists
@@ -140,15 +140,20 @@ def export_orthogonal_views(gui_doc, base_prefix, master_dir=None, model_prefix=
             time.sleep(0.3)
             FreeCADGui.updateGui()
 
-            # Save version-specific PNG image
-            filepath = f"{base_prefix}_{name}.png"
+            # Save PNG image: home view is saved without underscore modifier (<model>.png)
+            if name == "home":
+                filepath = f"{base_prefix}.png"
+                master_png = os.path.join(master_dir, f"{model_prefix}.png") if master_dir else None
+            else:
+                filepath = f"{base_prefix}_{name}.png"
+                master_png = os.path.join(master_dir, f"{model_prefix}_{name}.png") if master_dir else None
+
             view.saveImage(filepath, width, height, bg_type)
             print(f"Exported {label}: {filepath}")
 
             # Save master copy if master_dir is provided
-            if master_dir:
+            if master_png:
                 os.makedirs(master_dir, exist_ok=True)
-                master_png = os.path.join(master_dir, f"{model_prefix}_{name}.png")
                 view.saveImage(master_png, width, height, bg_type)
         except Exception as e:
             print(f"Error rendering {name} view: {e}")

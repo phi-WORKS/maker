@@ -10,11 +10,15 @@ This module is a standalone 3D CAD representation of the **Harbor Freight #91037
 
 ---
 
+![Harbor Freight #91037 Propane Torch](torch_hf91037.png)
+
+---
+
 ## 3D CAD Multi-View Projection Gallery
 
-| Isometric (Home View) | Top Plan View |
+| Home (Perspective) View | Top Plan View |
 | :---: | :---: |
-| ![Isometric View](torch_hf91037_iso.png) | ![Top View](torch_hf91037_top.png) |
+| ![Home View](torch_hf91037.png) | ![Top View](torch_hf91037_top.png) |
 | **Front Elevation** | **Rear Elevation** |
 | ![Front Elevation](torch_hf91037_front.png) | ![Rear Elevation](torch_hf91037_back.png) |
 | **Right Side Elevation** | **Left Side Elevation** |
@@ -39,7 +43,7 @@ This module is a standalone 3D CAD representation of the **Harbor Freight #91037
 
 ## Component Files Index
 
-- 🛠️ [**`torch_hf91037.py`**](torch_hf91037.py): Standalone FreeCAD Python parametric generator script.
+- 🛠️ [**`build.py`**](build.py): Standalone FreeCAD Python parametric generator script.
 - 📦 [**`torch_hf91037.FCStd`**](torch_hf91037.FCStd): FreeCAD 3D Component Master Model file.
 
 ---
@@ -49,5 +53,5 @@ This module is a standalone 3D CAD representation of the **Harbor Freight #91037
 To re-generate the standalone FreeCAD torch model document and all 7 views:
 
 ```bash
-/home/phi/AppImages/FreeCAD_1.1.3-Linux-x86_64-py311.AppImage -c "__file__='/home/phi/PROJECTS/phi-WORKS/maker/components/torch_hf91037/torch_hf91037.py'; exec(open(__file__).read())"
+/home/phi/AppImages/FreeCAD_1.1.3-Linux-x86_64-py311.AppImage -c "__file__='components/torch_hf91037/build.py'; exec(open(__file__).read())"
 ```

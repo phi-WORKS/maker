@@ -10,7 +10,7 @@
 ### Version 0.7.0 — Solaronics Ceramic Infrared Array, Vintage Hand Truck & Common-Axis Suspension
 **Status**: 🟡 `[IN PROGRESS]`  
 **Date**: 2026-09-02  
-**Visual Snapshot**: ![v0.7.0 Snapshot](road-roaster_iso.png)
+**Visual Snapshot**: ![v0.7.0 Snapshot](road-roaster.png)
 
 #### Changes & Milestones
 - **Solaronics High-Intensity Ceramic Radiant Engine**: Integrated industrial cordierite grooved ceramic plaque matrix ($173\text{ sq. in}$ active radiant face, $1,800^\circ\text{F}$ surface emission) with mirror-bright deep parabolic focusing aluminum reflector and Inconel re-radiating wire grid.

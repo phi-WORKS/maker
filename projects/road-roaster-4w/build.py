@@ -475,11 +475,11 @@ def build_road_roaster_4w():
         # Archive milestone thumbnail to changelog/
         changelog_dir = os.path.join(script_dir, "changelog")
         os.makedirs(changelog_dir, exist_ok=True)
-        iso_src = os.path.join(script_dir, f"{doc_name}_iso.png")
-        iso_dst = os.path.join(changelog_dir, "v0.1.0_iso.png")
-        if os.path.exists(iso_src):
-            shutil.copyfile(iso_src, iso_dst)
-            print(f"Archived milestone render to changelog: {iso_dst}")
+        home_src = os.path.join(script_dir, f"{doc_name}.png")
+        home_dst = os.path.join(changelog_dir, "v0.1.0.png")
+        if os.path.exists(home_src):
+            shutil.copyfile(home_src, home_dst)
+            print(f"Archived milestone render to changelog: {home_dst}")
 
     # Save Master CAD Model with framed Perspective Isometric home view
     save_model(doc, fcstd_path, camera_type="Perspective")

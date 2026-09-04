@@ -6,13 +6,15 @@
 **Active CAD Model**: [`caddy.FCStd`](caddy.FCStd)  
 **Status**: 🟡 **`[IN PROGRESS]`**  
 
+![Kombi Kaddy](caddy.png)
+
 ---
 
 ## Active Model Gallery
 
-| Isometric View | Top Plan View |
+| Home (Perspective) View | Top Plan View |
 | :---: | :---: |
-| ![Isometric View](caddy_iso.png) | ![Top View](caddy_top.png) |
+| ![Home View](caddy.png) | ![Top View](caddy_top.png) |
 | **Front Elevation** | **Rear Elevation** |
 | ![Front Elevation](caddy_front.png) | ![Rear Elevation](caddy_back.png) |
 | **Right Side Elevation** | **Left Side Elevation** |
@@ -37,7 +39,7 @@ This project documents the evolutionary design transformation of the Kombi Kaddy
 
 | Version | Visual Milestone Snapshot | Key Evolutionary Milestone | Lifecycle Status |
 | :---: | :---: | :--- | :---: |
-| **v0.9.0** | ![v0.9.0 Snapshot](caddy_iso.png) | **Master Cantilever Expansion**: Expanded top/bottom rails to 36.0" width with 6.0" cantilever overhangs, allowing 4 full-sized attachments without clip crowding while preserving 24.0" post alignment for garage studs. | 🟡 **`[IN PROGRESS]`** |
+| **v0.9.0** | ![v0.9.0 Snapshot](caddy.png) | **Master Cantilever Expansion**: Expanded top/bottom rails to 36.0" width with 6.0" cantilever overhangs, allowing 4 full-sized attachments without clip crowding while preserving 24.0" post alignment for garage studs. | 🟡 **`[IN PROGRESS]`** |
 | **v0.8.0** | ![v0.8.0 Snapshot](changelog/v0.8.0_iso.png) | **Height Calibration**: Calibrated overall post height to 44.5" to align spring clip grab centers at 42.75", matching real-world attachment standing heights. | 📦 **`[SUPERSEDED]`** |
 | **v0.7.0** | ![v0.7.0 Snapshot](changelog/v0.7.0_iso.png) | **Mobility Refinement**: Mounted rear 5" fixed rubber casters to the heel of base feet for tilt-and-roll transport across shop floors. | 📦 **`[SUPERSEDED]`** |
 | **v0.6.0** | ![v0.6.0 Snapshot](changelog/v0.6.0_iso.png) | **Structural Joinery & Deck**: Housed 1x4 cross rails inside 0.75" dado post pockets; added 2x 1x4 horizontal floor deck slats to support gearboxes. | 📦 **`[SUPERSEDED]`** |

@@ -8,7 +8,7 @@
 **Foundation**: Commercial 24" × 36" Heavy-Duty Platform Truck (5" Caster Running Gear, 29" Push Handle)  
 **Parallel Variant**: See [`projects/road-roaster`](../road-roaster/) for the ultra-compact 2-wheel vintage hand truck variant.
 
-![Road Roaster 4W Isometric](road-roaster-4w_iso.png)
+![Road Roaster 4W](road-roaster-4w.png)
 
 ---
 
@@ -56,15 +56,17 @@ While the original [Road Roaster (`road-roaster`)](../road-roaster/) leverages a
 
 ---
 
-## 3. Visual Gallery
+## 3. Visual Projection Gallery
 
-| Isometric View | Front Elevation View |
+| Home (Perspective) View | Top Plan View |
 | :---: | :---: |
-| ![Isometric](road-roaster-4w_iso.png) | ![Front](road-roaster-4w_front.png) |
-
-| Top Plan View | Side Elevation View |
-| :---: | :---: |
-| ![Top](road-roaster-4w_top.png) | ![Side](road-roaster-4w_right.png) |
+| ![Home View](road-roaster-4w.png) | ![Top View](road-roaster-4w_top.png) |
+| **Front Elevation** | **Rear Elevation** |
+| ![Front Elevation](road-roaster-4w_front.png) | ![Rear Elevation](road-roaster-4w_back.png) |
+| **Right Side Elevation** | **Left Side Elevation** |
+| ![Right Side View](road-roaster-4w_right.png) | ![Left Side View](road-roaster-4w_left.png) |
+| **Bottom Plan View** | |
+| ![Bottom View](road-roaster-4w_bottom.png) | |
 
 ---
 
@@ -72,7 +74,7 @@ While the original [Road Roaster (`road-roaster`)](../road-roaster/) leverages a
 
 | Version | Milestone Thumbnail | Date | Key Architectural Highlights |
 | :--- | :---: | :---: | :--- |
-| **v0.1.0** | <img src="changelog/v0.1.0_iso.png" width="180"> | *2026-09-04* | **Integrated 4-Wheel Dolly Architecture**: Full integration of commercial 24" × 36" cart foundation (5" wheels, 29" handle), rear 20 lb propane cylinder, handle-mounted spot torch wand, 2.5 gal water safety tank, and front cantilevered 180° flip-back burner assembly with height adjustment. |
+| **v0.1.0** | <img src="changelog/v0.1.0.png" width="180"> | *2026-09-04* | **Integrated 4-Wheel Dolly Architecture**: Full integration of commercial 24" × 36" cart foundation (5" wheels, 29" handle), rear 20 lb propane cylinder, handle-mounted spot torch wand, 2.5 gal water safety tank, and front cantilevered 180° flip-back burner assembly with height adjustment. |
 
 ---
 

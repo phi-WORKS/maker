@@ -4,9 +4,9 @@ All notable architectural transformations, parametric modifications, and visual 
 
 ---
 
-## [[v0.1.0]](changelog/v0.1.0_iso.png) — 2026-09-04: Full 4-Wheel Dolly System Integration
+## [[v0.1.0]](changelog/v0.1.0.png) — 2026-09-04: Full 4-Wheel Dolly System Integration
 
-<img src="changelog/v0.1.0_iso.png" width="540" alt="Road Roaster 4W v0.1.0 Isometric View">
+<img src="changelog/v0.1.0.png" width="540" alt="Road Roaster 4W v0.1.0 Home Perspective View">
 
 ### Added
 - **Project Genesis (`road-roaster-4w`)**: Established the 4-wheel commercial platform dolly parallel project, preserving the compact 2-wheel hand truck variant (`projects/road-roaster`) for tight garden paths and high slope agility.

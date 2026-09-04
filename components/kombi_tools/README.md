@@ -10,11 +10,15 @@ This component library provides 3D parametric CAD models for **STIHL KombiSystem
 
 ---
 
+![STIHL Kombi Tools Suite](kombi_tools.png)
+
+---
+
 ## 3D CAD Multi-View Projection Gallery (Straight Shaft Trimmer)
 
-| Isometric (Home View) | Top Plan View |
+| Home (Perspective) View | Top Plan View |
 | :---: | :---: |
-| ![Isometric View](trimmer_iso.png) | ![Top View](trimmer_top.png) |
+| ![Home View](trimmer.png) | ![Top View](trimmer_top.png) |
 | **Front Elevation** | **Rear Elevation** |
 | ![Front Elevation](trimmer_front.png) | ![Rear Elevation](trimmer_back.png) |
 | **Right Side Elevation** | **Left Side Elevation** |

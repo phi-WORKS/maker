@@ -18,17 +18,21 @@ The **Commercial 24" x 36" Platform Cart** (`platform_cart_24x36`) is a standard
 | **Running Gear Setup** | 2 Front rigid stamped casters, 2 Rear 360° swivel casters with foot brakes |
 | **Hub / Rim Styling** | High-visibility yellow hub cores with 1/2" zinc-plated axle bolts |
 
+![Platform Cart 24x36](platform_cart_24x36.png)
+
 ---
 
-## Visual Gallery
+## Visual Projection Gallery
 
-| Isometric View | Front Elevation View |
+| Home (Perspective) View | Top Plan View |
 | :---: | :---: |
-| ![Isometric](platform_cart_24x36_iso.png) | ![Front](platform_cart_24x36_front.png) |
-
-| Top Plan View | Side Elevation View |
-| :---: | :---: |
-| ![Top](platform_cart_24x36_top.png) | ![Side](platform_cart_24x36_right.png) |
+| ![Home View](platform_cart_24x36.png) | ![Top View](platform_cart_24x36_top.png) |
+| **Front Elevation** | **Rear Elevation** |
+| ![Front Elevation](platform_cart_24x36_front.png) | ![Rear Elevation](platform_cart_24x36_back.png) |
+| **Right Side Elevation** | **Left Side Elevation** |
+| ![Right Side View](platform_cart_24x36_right.png) | ![Left Side View](platform_cart_24x36_left.png) |
+| **Bottom Plan View** | |
+| ![Bottom View](platform_cart_24x36_bottom.png) | |
 
 ---
 

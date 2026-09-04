@@ -5,6 +5,24 @@
 
 ---
 
+![Solaronics Ceramic Infrared Burner](solaronics_infrared_burner.png)
+
+---
+
+## Visual Projection Gallery
+
+| Home (Perspective) View | Top Plan View |
+| :---: | :---: |
+| ![Home View](solaronics_infrared_burner.png) | ![Top View](solaronics_infrared_burner_top.png) |
+| **Front Elevation** | **Rear Elevation** |
+| ![Front Elevation](solaronics_infrared_burner_front.png) | ![Rear Elevation](solaronics_infrared_burner_back.png) |
+| **Right Side Elevation** | **Left Side Elevation** |
+| ![Right Side View](solaronics_infrared_burner_right.png) | ![Left Side View](solaronics_infrared_burner_left.png) |
+| **Bottom Plan View** | |
+| ![Bottom View](solaronics_infrared_burner_bottom.png) | |
+
+---
+
 ## 1. Overview & Thermal Physics
 
 This module models the **Solaronics USA** high-intensity ceramic infrared burner and deep parabolic reflector assembly adapted as the primary downward-firing radiant thermal engine for the **Road Roaster** platform.

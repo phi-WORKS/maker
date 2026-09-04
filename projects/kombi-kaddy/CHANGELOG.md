@@ -10,7 +10,7 @@
 ### Version 0.9.0 — Master Cantilever Expansion
 **Status**: 🟡 `[IN PROGRESS]`  
 **Date**: 2026-08-13  
-**Visual Snapshot**: ![v0.9.0 Snapshot](caddy_iso.png)
+**Visual Snapshot**: ![v0.9.0 Snapshot](caddy.png)
 
 #### Changes & Milestones
 - **36.0 in Cantilever Rail Overhangs**: Expanded top and lower 1x4 cross rails to 36.0 inches wide with 6.0 in cantilever overhangs beyond the vertical posts.

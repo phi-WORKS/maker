@@ -5,6 +5,24 @@
 
 ---
 
+![Commercial Hand Truck](commercial_hand_truck.png)
+
+---
+
+## Visual Projection Gallery
+
+| Home (Perspective) View | Top Plan View |
+| :---: | :---: |
+| ![Home View](commercial_hand_truck.png) | ![Top View](commercial_hand_truck_top.png) |
+| **Front Elevation** | **Rear Elevation** |
+| ![Front Elevation](commercial_hand_truck_front.png) | ![Rear Elevation](commercial_hand_truck_back.png) |
+| **Right Side Elevation** | **Left Side Elevation** |
+| ![Right Side View](commercial_hand_truck_right.png) | ![Left Side View](commercial_hand_truck_left.png) |
+| **Bottom Plan View** | |
+| ![Bottom View](commercial_hand_truck_bottom.png) | |
+
+---
+
 ## 1. Overview & Donor Frame Restoration
 
 This module models an authentic vintage tubular steel hand truck donor frame (restored in industrial Red) adapted as the mobile structural base for the **Road Roaster** directional radiant weed shock sled:

@@ -8,11 +8,15 @@
 
 ---
 
+![4.0" Solid Steel Wheel](steel_caster_wheel.png)
+
+---
+
 ## 1. Visual Model Gallery
 
-| Isometric View | Top Plan View |
+| Home (Perspective) View | Top Plan View |
 | :---: | :---: |
-| ![Isometric View](steel_caster_wheel_iso.png) | ![Top View](steel_caster_wheel_top.png) |
+| ![Home View](steel_caster_wheel.png) | ![Top View](steel_caster_wheel_top.png) |
 | **Front Elevation** | **Rear Elevation** |
 | ![Front Elevation](steel_caster_wheel_front.png) | ![Rear Elevation](steel_caster_wheel_back.png) |
 | **Right Side Elevation** | **Left Side Elevation** |
