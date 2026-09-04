@@ -1,24 +1,24 @@
-# Road Roaster 4
+# Road Roaster 4W
 
 > **4-Wheel Commercial Platform Dolly Architecture for Directional Ceramic Infrared Weed Eradication**  
 > *Chemical-Free, Energy-Efficient Hardscape Weed Eradication via Cantilevered Radiant Heat*
 
-**Active CAD Model**: [`road-roaster-4.FCStd`](road-roaster-4.FCStd)  
+**Active CAD Model**: [`road-roaster-4w.FCStd`](road-roaster-4w.FCStd)  
 **Status**: 🟡 **`[IN PROGRESS - v0.1.0]`**  
 **Foundation**: Commercial 24" × 36" Heavy-Duty Platform Truck (5" Caster Running Gear, 29" Push Handle)  
 **Parallel Variant**: See [`projects/road-roaster`](../road-roaster/) for the ultra-compact 2-wheel vintage hand truck variant.
 
-![Road Roaster 4 Isometric](road-roaster-4_iso.png)
+![Road Roaster 4W Isometric](road-roaster-4w_iso.png)
 
 ---
 
 ## 1. Architectural Vision: The 4-Wheel Dolly Evolution
 
-While the original [Road Roaster (`road-roaster`)](../road-roaster/) leverages a 2-wheel vintage hand truck for tight garden paths and high slope agility, the **Road Roaster 4** introduces a heavy-duty commercial platform cart foundation designed for large-scale driveway, roadway, and agricultural headland eradication:
+While the original [Road Roaster (`road-roaster`)](../road-roaster/) leverages a 2-wheel vintage hand truck for tight garden paths and high slope agility, the **Road Roaster 4W** introduces a heavy-duty commercial platform cart foundation designed for large-scale driveway, roadway, and agricultural headland eradication:
 
 ```
 ┌────────────────────────────────────────────────────────────────────────────────────────┐
-│                          ROAD ROASTER 4 SYSTEM ARCHITECTURE                            │
+│                         ROAD ROASTER 4W SYSTEM ARCHITECTURE                            │
 │                                                                                        │
 │  [FRONT CANTILEVER BURNER]  ◄──  [24x36 PLATFORM DECK]  ──►  [REAR POWER & CONTROLS]   │
 │   • 60,000 BTU Solaronics         • Commercial 1,000+ lb      • Standard 20 lb LP Tank │
@@ -39,9 +39,9 @@ While the original [Road Roaster (`road-roaster`)](../road-roaster/) leverages a
 
 ---
 
-## 2. Platform Comparison: Road Roaster 4 vs. Road Roaster Hand Truck
+## 2. Platform Comparison: Road Roaster 4W vs. Road Roaster Hand Truck
 
-| Feature | Road Roaster Hand Truck (`road-roaster`) | Road Roaster 4 (`road-roaster-4`) |
+| Feature | Road Roaster Hand Truck (`road-roaster`) | Road Roaster 4W (`road-roaster-4w`) |
 | :--- | :--- | :--- |
 | **Chassis** | Repurposed vintage 2-wheel hand truck | Commercial 24" × 36" 4-wheel platform cart |
 | **Footprint** | 18" W × 20" L (ultra-compact) | 24" W × 36" L (spacious, stable) |
@@ -60,11 +60,11 @@ While the original [Road Roaster (`road-roaster`)](../road-roaster/) leverages a
 
 | Isometric View | Front Elevation View |
 | :---: | :---: |
-| ![Isometric](road-roaster-4_iso.png) | ![Front](road-roaster-4_front.png) |
+| ![Isometric](road-roaster-4w_iso.png) | ![Front](road-roaster-4w_front.png) |
 
 | Top Plan View | Side Elevation View |
 | :---: | :---: |
-| ![Top](road-roaster-4_top.png) | ![Side](road-roaster-4_right.png) |
+| ![Top](road-roaster-4w_top.png) | ![Side](road-roaster-4w_right.png) |
 
 ---
 
@@ -78,7 +78,7 @@ While the original [Road Roaster (`road-roaster`)](../road-roaster/) leverages a
 
 ## 5. Build & CAD Verification
 
-To generate the active `.FCStd` model and 7 orthogonal/isometric views:
+To generate the active `.FCStd` model and 7 perspective views:
 ```bash
-/home/phi/AppImages/FreeCAD_1.1.3-Linux-x86_64-py311.AppImage -c "__file__='projects/road-roaster-4/build.py'; exec(open(__file__).read())"
+/home/phi/AppImages/FreeCAD_1.1.3-Linux-x86_64-py311.AppImage -c "__file__='projects/road-roaster-4w/build.py'; exec(open(__file__).read())"
 ```

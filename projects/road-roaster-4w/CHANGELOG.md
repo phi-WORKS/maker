@@ -1,15 +1,15 @@
-# Road Roaster 4 Changelog
+# Road Roaster 4W Changelog
 
-All notable architectural transformations, parametric modifications, and visual milestone releases for the **Road Roaster 4** (`road-roaster-4`) are recorded here in reverse-chronological order.
+All notable architectural transformations, parametric modifications, and visual milestone releases for the **Road Roaster 4W** (`road-roaster-4w`) are recorded here in reverse-chronological order.
 
 ---
 
 ## [[v0.1.0]](changelog/v0.1.0_iso.png) — 2026-09-04: Full 4-Wheel Dolly System Integration
 
-<img src="changelog/v0.1.0_iso.png" width="540" alt="Road Roaster 4 v0.1.0 Isometric View">
+<img src="changelog/v0.1.0_iso.png" width="540" alt="Road Roaster 4W v0.1.0 Isometric View">
 
 ### Added
-- **Project Genesis (`road-roaster-4`)**: Established the 4-wheel commercial platform dolly parallel project on branch `feature/road-roaster-dolly`, preserving the compact 2-wheel hand truck variant (`projects/road-roaster`) for tight garden paths and high slope agility.
+- **Project Genesis (`road-roaster-4w`)**: Established the 4-wheel commercial platform dolly parallel project, preserving the compact 2-wheel hand truck variant (`projects/road-roaster`) for tight garden paths and high slope agility.
 - **Commercial 24" × 36" Cart Foundation**: Imported standalone `components/platform_cart_24x36`:
   - 24" × 36" diamond-tread aluminum deck with 1.75" perimeter skirt and 1.5" radiused corners.
   - 4 molded rubber corner impact guards with recessed blue socket screws.

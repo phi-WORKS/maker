@@ -76,7 +76,7 @@ Physical design iterations follow Semantic Versioning (`vMAJOR.MINOR.PATCH`) pai
 └── projects/                 # Physical Projects & Master Assemblies
     ├── kombi-kaddy/          # STIHL Kombi Attachment Kaddy (Master active product & changelog)
     ├── road-roaster/         # Compact Hand Truck Weed Shock Sled (Master active product & changelog)
-    └── road-roaster-4/       # 4-Wheel Platform Dolly Weed Shock Sled (Master active product & changelog)
+    └── road-roaster-4w/      # 4-Wheel Platform Dolly Weed Shock Sled (Master active product & changelog)
 ```
 
 ---
@@ -90,12 +90,12 @@ Physical design iterations follow Semantic Versioning (`vMAJOR.MINOR.PATCH`) pai
 | :---: | :--- |
 | ![Road Roaster Render](projects/road-roaster/road-roaster_iso.png) | • **Application**: Chemical-free hardscape weed eradication via Solaronics ceramic infrared radiant shock.<br>• **Core Advantage**: Zero aerodynamic blast pressure; 15–30s deep heat-soak kills root crowns; ultra-compact 2-wheel hand truck maneuverability.<br>• **Active Master**: [**v0.7.0**](projects/road-roaster/) 🟡 **`[IN PROGRESS]`**<br>• 📐 [**SPECIFICATION.md**](projects/road-roaster/SPECIFICATION.md)<br>• 📜 [**CHANGELOG.md**](projects/road-roaster/CHANGELOG.md)<br>• 🛠️ [**build.py**](projects/road-roaster/build.py)<br>• 📦 [**road-roaster.FCStd**](projects/road-roaster/road-roaster.FCStd) |
 
-### 2. [Road Roaster 4](projects/road-roaster-4/README.md)
+### 2. [Road Roaster 4W](projects/road-roaster-4w/README.md)
 *4-Wheel Commercial Platform Dolly Architecture for Infrared Thermal Weed Eradication*
 
 | Project Master Render | Quick Specs & Master Links |
 | :---: | :--- |
-| ![Road Roaster 4 Render](projects/road-roaster-4/road-roaster-4_iso.png) | • **Application**: Heavy-duty commercial 24" × 36" platform cart for large-scale driveway & headland weed shock.<br>• **Core Advantage**: Carries full 20 lb propane cylinder (~7.2 hrs runtime) & 2.5 gal water safety tank; front cantilevered burner with 180° flip-back transit stowage; auxiliary torch wand on handle; crawl propulsion ready.<br>• **Active Master**: [**v0.1.0**](projects/road-roaster-4/) 🟡 **`[IN PROGRESS]`**<br>• 📐 [**SPECIFICATION.md**](projects/road-roaster-4/SPECIFICATION.md)<br>• 📜 [**CHANGELOG.md**](projects/road-roaster-4/CHANGELOG.md)<br>• 🛠️ [**build.py**](projects/road-roaster-4/build.py)<br>• 📦 [**road-roaster-4.FCStd**](projects/road-roaster-4/road-roaster-4.FCStd) |
+| ![Road Roaster 4W Render](projects/road-roaster-4w/road-roaster-4w_iso.png) | • **Application**: Heavy-duty commercial 24" × 36" platform cart for large-scale driveway & headland weed shock.<br>• **Core Advantage**: Carries full 20 lb propane cylinder (~7.2 hrs runtime) & 2.5 gal water safety tank; front cantilevered burner with 180° flip-back transit stowage; auxiliary torch wand on handle; crawl propulsion ready.<br>• **Active Master**: [**v0.1.0**](projects/road-roaster-4w/) 🟡 **`[IN PROGRESS]`**<br>• 📐 [**SPECIFICATION.md**](projects/road-roaster-4w/SPECIFICATION.md)<br>• 📜 [**CHANGELOG.md**](projects/road-roaster-4w/CHANGELOG.md)<br>• 🛠️ [**build.py**](projects/road-roaster-4w/build.py)<br>• 📦 [**road-roaster-4w.FCStd**](projects/road-roaster-4w/road-roaster-4w.FCStd) |
 
 ### 3. [Kombi Kaddy](projects/kombi-kaddy/README.md)
 *Mobile STIHL KombiSystem Attachment Rack*

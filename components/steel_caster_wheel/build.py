@@ -21,7 +21,7 @@ except Exception:
     FreeCADGui = None
     HAS_GUI = False
 
-from phi_works.maker.render import export_orthogonal_views
+from phi_works.maker.render import export_orthogonal_views, save_model, close_model
 
 def create_steel_caster_wheel_component(doc, placement=None):
     """
@@ -109,15 +109,14 @@ def build_standalone_component():
     doc.recompute()
 
     fc_path = os.path.join(comp_dir, "steel_caster_wheel.FCStd")
-    doc.saveAs(fc_path)
-    print(f"Saved standalone steel caster wheel model: {fc_path}")
 
     if HAS_GUI and FreeCADGui and FreeCADGui.getDocument(doc.Name):
         base_prefix = os.path.join(comp_dir, "steel_caster_wheel")
-        export_orthogonal_views(FreeCADGui.getDocument(doc.Name), base_prefix, model_prefix="steel_caster_wheel")
+        export_orthogonal_views(FreeCADGui.getDocument(doc.Name), base_prefix, model_prefix="steel_caster_wheel", camera_type="Perspective")
 
-    FreeCAD.closeDocument("steel_caster_wheel_component")
+    save_model(doc, fc_path, camera_type="Perspective")
+    close_model(doc.Name)
 
 if __name__ == "__main__":
     build_standalone_component()
-    sys.exit(0)
+    os._exit(0)

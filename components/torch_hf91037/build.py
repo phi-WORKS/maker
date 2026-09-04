@@ -20,7 +20,7 @@ except Exception:
     FreeCADGui = None
     HAS_GUI = False
 
-from phi_works.maker.render import export_orthogonal_views
+from phi_works.maker.render import export_orthogonal_views, save_model, close_model
 
 def create_torch_component(doc, insertion_point=None, lean_angle_deg=0.0, flame_angle_deg=0.0):
     """
@@ -134,14 +134,13 @@ def build_standalone_component():
     doc.recompute()
 
     fc_path = os.path.join(comp_dir, "torch_hf91037.FCStd")
-    doc.saveAs(fc_path)
-    print(f"Saved standalone torch component model: {fc_path}")
 
     if HAS_GUI and FreeCADGui and FreeCADGui.getDocument(doc.Name):
         base_prefix = os.path.join(comp_dir, "torch_hf91037")
-        export_orthogonal_views(FreeCADGui.getDocument(doc.Name), base_prefix, model_prefix="torch_hf91037")
+        export_orthogonal_views(FreeCADGui.getDocument(doc.Name), base_prefix, model_prefix="torch_hf91037", camera_type="Perspective")
 
-    FreeCAD.closeDocument("torch_91037_component")
+    save_model(doc, fc_path, camera_type="Perspective")
+    close_model(doc.Name)
 
 if __name__ == "__main__":
     build_standalone_component()

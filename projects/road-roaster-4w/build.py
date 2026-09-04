@@ -28,7 +28,7 @@ except Exception:
     FreeCADGui = None
     HAS_GUI = False
 
-from phi_works.maker.render import export_orthogonal_views
+from phi_works.maker.render import export_orthogonal_views, save_model, close_model
 from phi_works.maker.components import import_component
 
 def set_vis(doc, obj, color):
@@ -402,10 +402,10 @@ def build_auxiliary_safety_subassembly(doc, grp_aux, dims):
 # ==============================================================================
 # MASTER ASSEMBLY BUILD FUNCTION
 # ==============================================================================
-def build_road_roaster_4():
-    doc_name = "road-roaster-4"
+def build_road_roaster_4w():
+    doc_name = "road-roaster-4w"
     doc = FreeCAD.newDocument(doc_name)
-    doc.Label = "Road Roaster 4 (4-Wheel Commercial Platform Dolly Architecture)"
+    doc.Label = "Road Roaster 4W (4-Wheel Commercial Platform Dolly Architecture)"
 
     # ==========================================================================
     # PARAMETRIC DATUM VARSET
@@ -431,7 +431,7 @@ def build_road_roaster_4():
     dims.addProperty("App::PropertyDistance", "TankCenterX", "Fuel", "20 lb Tank Lateral Position").TankCenterX = 75.0  # Right-rear zone
     dims.addProperty("App::PropertyDistance", "WaterCenterX", "Safety", "Water Tank Lateral Position").WaterCenterX = -170.0 # Left-rear zone
 
-    print("Building Road Roaster 4 v0.1.0 (Commercial 24x36 Platform Cart + 20lb Propane + Cantilever 180° Flip Burner)...")
+    print("Building Road Roaster 4W v0.1.0 (Commercial 24x36 Platform Cart + 20lb Propane + Cantilever 180° Flip Burner)...")
 
     # ==========================================================================
     # SUBASSEMBLY CONTAINERS
@@ -464,16 +464,13 @@ def build_road_roaster_4():
 
     doc.recompute()
 
-    # Save Master CAD Model
     fcstd_path = os.path.join(script_dir, f"{doc_name}.FCStd")
-    doc.saveAs(fcstd_path)
-    print(f"Saved master Road Roaster 4 model: {fcstd_path}")
 
-    # Export 7 Multi-View PNG Renders
+    # Export 7 Multi-View Perspective PNG Renders
     if HAS_GUI and FreeCADGui and FreeCADGui.getDocument(doc.Name):
         gui_doc = FreeCADGui.getDocument(doc.Name)
         base_prefix = os.path.join(script_dir, doc_name)
-        export_orthogonal_views(gui_doc, base_prefix, model_prefix=doc_name)
+        export_orthogonal_views(gui_doc, base_prefix, model_prefix=doc_name, camera_type="Perspective")
 
         # Archive milestone thumbnail to changelog/
         changelog_dir = os.path.join(script_dir, "changelog")
@@ -484,9 +481,13 @@ def build_road_roaster_4():
             shutil.copyfile(iso_src, iso_dst)
             print(f"Archived milestone render to changelog: {iso_dst}")
 
-    FreeCAD.closeDocument(doc.Name)
-    print("Road Roaster 4 v0.1.0 build complete.")
+    # Save Master CAD Model with framed Perspective Isometric home view
+    save_model(doc, fcstd_path, camera_type="Perspective")
+
+    # Cleanly close document to release locks and avoid stray backup files
+    close_model(doc.Name)
+    print("Road Roaster 4W v0.1.0 build complete.")
 
 if __name__ == "__main__":
-    build_road_roaster_4()
+    build_road_roaster_4w()
     os._exit(0)

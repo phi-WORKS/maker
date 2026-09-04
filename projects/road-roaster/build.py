@@ -14,7 +14,7 @@ except Exception:
     FreeCADGui = None
     HAS_GUI = False
 
-from phi_works.maker.render import export_orthogonal_views
+from phi_works.maker.render import export_orthogonal_views, save_model, close_model
 from phi_works.maker.components import import_component
 
 def set_vis(doc, obj, color):
@@ -443,18 +443,17 @@ def build_road_roaster():
     doc.recompute()
     
     fcstd_path = os.path.join(script_dir, "road-roaster.FCStd")
-    doc.saveAs(fcstd_path)
-    print(f"Saved master Road Roaster assembly: {fcstd_path}")
     
-    # 4. Render Orthogonal & Isometric PNG Views
+    # 4. Render Orthogonal & Isometric Perspective PNG Views
     if HAS_GUI and FreeCADGui and FreeCADGui.getDocument(doc.Name):
         gui_doc = FreeCADGui.getDocument(doc.Name)
         base_prefix = os.path.join(script_dir, "road-roaster")
-        export_orthogonal_views(gui_doc, base_prefix, model_prefix="road-roaster")
+        export_orthogonal_views(gui_doc, base_prefix, model_prefix="road-roaster", camera_type="Perspective")
         
-    FreeCAD.closeDocument(doc.Name)
+    save_model(doc, fcstd_path, camera_type="Perspective")
+    close_model(doc.Name)
     print("Road Roaster v0.7.0 build and render complete.")
 
 if __name__ == "__main__":
     build_road_roaster()
-    sys.exit(0)
+    os._exit(0)

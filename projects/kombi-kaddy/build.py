@@ -11,7 +11,7 @@ except Exception:
     FreeCADGui = None
     HAS_GUI = False
 
-from phi_works.maker.render import export_orthogonal_views
+from phi_works.maker.render import export_orthogonal_views, save_model, close_model
 
 def set_vis(doc, obj, color):
     if HAS_GUI and FreeCADGui and FreeCADGui.getDocument(doc.Name):
@@ -191,8 +191,6 @@ def build():
     doc.recompute()
 
     fc_file = os.path.join(script_dir, "caddy.FCStd")
-    png_file = os.path.join(script_dir, "caddy.png")
-    doc.saveAs(fc_file)
 
     if HAS_GUI:
         try:
@@ -200,13 +198,14 @@ def build():
             gui_d = FreeCADGui.getDocument("caddy")
             if gui_d:
                 base_prefix = os.path.join(script_dir, "caddy")
-                export_orthogonal_views(gui_d, base_prefix)
+                export_orthogonal_views(gui_d, base_prefix, camera_type="Perspective")
         except Exception as e:
             print(f"Render error: {e}")
 
-    FreeCAD.closeDocument("caddy")
+    save_model(doc, fc_file, camera_type="Perspective")
+    close_model(doc.Name)
     print(f"Successfully created Kombi Kaddy master model & multi-view renders in {script_dir}")
 
 if __name__ == "__main__":
     build()
-    sys.exit(0)
+    os._exit(0)

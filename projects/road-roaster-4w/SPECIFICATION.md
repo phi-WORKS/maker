@@ -1,4 +1,4 @@
-# Road Roaster 4 Specification
+# Road Roaster 4W Specification
 
 > **Engineering Design Specification: 4-Wheel Commercial Platform Dolly Architecture**  
 > *Active Baseline: v0.1.0*

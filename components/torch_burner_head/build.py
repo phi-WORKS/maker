@@ -21,7 +21,7 @@ except Exception:
     FreeCADGui = None
     HAS_GUI = False
 
-from phi_works.maker.render import export_orthogonal_views
+from phi_works.maker.render import export_orthogonal_views, save_model, close_model
 
 def create_torch_burner_head_component(doc, placement=None):
     """
@@ -152,15 +152,14 @@ def build_standalone_component():
     doc.recompute()
 
     fc_path = os.path.join(comp_dir, "torch_burner_head.FCStd")
-    doc.saveAs(fc_path)
-    print(f"Saved standalone torch burner head model: {fc_path}")
 
     if HAS_GUI and FreeCADGui and FreeCADGui.getDocument(doc.Name):
         base_prefix = os.path.join(comp_dir, "torch_burner_head")
-        export_orthogonal_views(FreeCADGui.getDocument(doc.Name), base_prefix, model_prefix="torch_burner_head")
+        export_orthogonal_views(FreeCADGui.getDocument(doc.Name), base_prefix, model_prefix="torch_burner_head", camera_type="Perspective")
 
-    FreeCAD.closeDocument("torch_burner_head_component")
+    save_model(doc, fc_path, camera_type="Perspective")
+    close_model(doc.Name)
 
 if __name__ == "__main__":
     build_standalone_component()
-    sys.exit(0)
+    os._exit(0)
