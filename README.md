@@ -63,6 +63,8 @@ Physical design iterations follow Semantic Versioning (`vMAJOR.MINOR.PATCH`) pai
 │
 ├── components/               # Standalone Reusable Commercial Tools & Hardware Library
 │   ├── commercial_hand_truck/ # Vintage Restored Hand Truck Chassis & Triangular Trusses
+│   ├── platform_cart_24x36/  # Commercial 24x36 Platform Cart (5in Wheels, 29in Handle)
+│   ├── propane_cylinder_20lb/# Standard DOT 20 lb Propane Tank module & 3D model
 │   ├── solaronics_infrared_burner/ # Solaronics High-Intensity Ceramic Infrared Burner Engine
 │   ├── torch_control_handle/ # Ergonomic Squeeze Cockpit & Valve module & 3D model
 │   ├── torch_burner_head/    # 500k BTU Venturi Burner Nozzle module & 3D model
@@ -73,7 +75,8 @@ Physical design iterations follow Semantic Versioning (`vMAJOR.MINOR.PATCH`) pai
 │
 └── projects/                 # Physical Projects & Master Assemblies
     ├── kombi-kaddy/          # STIHL Kombi Attachment Kaddy (Master active product & changelog)
-    └── road-roaster/         # Directional Weed Shock Sled (Master active product & changelog)
+    ├── road-roaster/         # Compact Hand Truck Weed Shock Sled (Master active product & changelog)
+    └── road-roaster-4/       # 4-Wheel Platform Dolly Weed Shock Sled (Master active product & changelog)
 ```
 
 ---
@@ -81,13 +84,20 @@ Physical design iterations follow Semantic Versioning (`vMAJOR.MINOR.PATCH`) pai
 ## Physical Projects
 
 ### 1. [Road Roaster](projects/road-roaster/README.md)
-*Directional Ceramic Infrared Thermal Weed Shock Sled*
+*Directional Ceramic Infrared Thermal Weed Shock Sled (Compact 2-Wheel Hand Truck Variant)*
 
 | Project Master Render | Quick Specs & Master Links |
 | :---: | :--- |
-| ![Road Roaster Render](projects/road-roaster/road-roaster_iso.png) | • **Application**: Chemical-free hardscape weed eradication via Solaronics ceramic infrared radiant shock.<br>• **Core Advantage**: Zero aerodynamic blast pressure (no blown gravel or embers); uses up to 70% less fuel than open torches; 15–30s deep heat-soak kills root crowns.<br>• **Active Master**: [**v0.7.0**](projects/road-roaster/) 🟡 **`[IN PROGRESS]`**<br>• 📐 [**SPECIFICATION.md**](projects/road-roaster/SPECIFICATION.md)<br>• 📜 [**CHANGELOG.md**](projects/road-roaster/CHANGELOG.md)<br>• 🤝 [**SOLARONICS_INQUIRY.md**](projects/road-roaster/SOLARONICS_INQUIRY.md)<br>• 🛠️ [**build.py**](projects/road-roaster/build.py)<br>• 📦 [**road-roaster.FCStd**](projects/road-roaster/road-roaster.FCStd) |
+| ![Road Roaster Render](projects/road-roaster/road-roaster_iso.png) | • **Application**: Chemical-free hardscape weed eradication via Solaronics ceramic infrared radiant shock.<br>• **Core Advantage**: Zero aerodynamic blast pressure; 15–30s deep heat-soak kills root crowns; ultra-compact 2-wheel hand truck maneuverability.<br>• **Active Master**: [**v0.7.0**](projects/road-roaster/) 🟡 **`[IN PROGRESS]`**<br>• 📐 [**SPECIFICATION.md**](projects/road-roaster/SPECIFICATION.md)<br>• 📜 [**CHANGELOG.md**](projects/road-roaster/CHANGELOG.md)<br>• 🛠️ [**build.py**](projects/road-roaster/build.py)<br>• 📦 [**road-roaster.FCStd**](projects/road-roaster/road-roaster.FCStd) |
 
-### 2. [Kombi Kaddy](projects/kombi-kaddy/README.md)
+### 2. [Road Roaster 4](projects/road-roaster-4/README.md)
+*4-Wheel Commercial Platform Dolly Architecture for Infrared Thermal Weed Eradication*
+
+| Project Master Render | Quick Specs & Master Links |
+| :---: | :--- |
+| ![Road Roaster 4 Render](projects/road-roaster-4/road-roaster-4_iso.png) | • **Application**: Heavy-duty commercial 24" × 36" platform cart for large-scale driveway & headland weed shock.<br>• **Core Advantage**: Carries full 20 lb propane cylinder (~7.2 hrs runtime) & 2.5 gal water safety tank; front cantilevered burner with 180° flip-back transit stowage; auxiliary torch wand on handle; crawl propulsion ready.<br>• **Active Master**: [**v0.1.0**](projects/road-roaster-4/) 🟡 **`[IN PROGRESS]`**<br>• 📐 [**SPECIFICATION.md**](projects/road-roaster-4/SPECIFICATION.md)<br>• 📜 [**CHANGELOG.md**](projects/road-roaster-4/CHANGELOG.md)<br>• 🛠️ [**build.py**](projects/road-roaster-4/build.py)<br>• 📦 [**road-roaster-4.FCStd**](projects/road-roaster-4/road-roaster-4.FCStd) |
+
+### 3. [Kombi Kaddy](projects/kombi-kaddy/README.md)
 *Mobile STIHL KombiSystem Attachment Rack*
 
 | Project Master Render | Quick Specs & Master Links |
@@ -142,6 +152,9 @@ Physical design iterations follow Semantic Versioning (`vMAJOR.MINOR.PATCH`) pai
 # Build Kombi Kaddy Master Model
 /home/phi/AppImages/FreeCAD_1.1.3-Linux-x86_64-py311.AppImage -c "__file__='/home/phi/PROJECTS/phi-WORKS/maker/projects/kombi-kaddy/build.py'; exec(open(__file__).read())"
 
-# Build Road Roaster Master Model
+# Build Road Roaster Master Model (Compact Hand Truck)
 /home/phi/AppImages/FreeCAD_1.1.3-Linux-x86_64-py311.AppImage -c "__file__='/home/phi/PROJECTS/phi-WORKS/maker/projects/road-roaster/build.py'; exec(open(__file__).read())"
+
+# Build Road Roaster 4 Master Model (4-Wheel Platform Cart)
+/home/phi/AppImages/FreeCAD_1.1.3-Linux-x86_64-py311.AppImage -c "__file__='/home/phi/PROJECTS/phi-WORKS/maker/projects/road-roaster-4/build.py'; exec(open(__file__).read())"
 ```
