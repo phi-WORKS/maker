@@ -1,0 +1,21 @@
+---
+# FreeCAD Material Card
+General:
+  UUID: "3d75d7f1-3f97-4b81-9e01-144496c95117"
+  Author: "phi ARCHITECT"
+  License: "CC-BY-4.0"
+  Name: "Rubber-Solid"
+  Description: "Vulcanized solid rubber (treaded tires, protective corner bumpers, feet)"
+Models:
+  Density:
+    UUID: '454661e5-265b-4320-8e6f-fcf6223ac3af'
+    Density: "1150 kg/m^3"
+AppearanceModels:
+  BasicRendering:
+    UUID: 'f006c7e4-35b7-43d5-bbf9-c5d572309e6e'
+    AmbientColor: "(0.08, 0.08, 0.08, 1.0)"
+    DiffuseColor: "(0.12, 0.12, 0.13, 1.0)"
+    SpecularColor: "(0.15, 0.15, 0.15, 1.0)"
+    EmissiveColor: "(0.0, 0.0, 0.0, 1.0)"
+    Shininess: "0.05"
+    Transparency: "0.0"

@@ -1,0 +1,26 @@
+---
+# FreeCAD Material Card
+General:
+  UUID: "420cdc26-b87b-4001-810d-c24a04e7a71d"
+  Author: "phi ARCHITECT"
+  License: "CC-BY-4.0"
+  Name: "Ceramic-Alumina"
+  Description: "High-purity alumina oxide ceramic (spark igniter electrode insulators)"
+  SourceURL: "https://en.wikipedia.org/wiki/Aluminium_oxide"
+Models:
+  Density:
+    UUID: '454661e5-265b-4320-8e6f-fcf6223ac3af'
+    Density: "3900 kg/m^3"
+  LinearElastic:
+    UUID: '7b561d1d-fb9b-44f6-9da9-56a4f74d7536'
+    YoungsModulus: "380000 MPa"
+    PoissonRatio: "0.22"
+AppearanceModels:
+  BasicRendering:
+    UUID: 'f006c7e4-35b7-43d5-bbf9-c5d572309e6e'
+    AmbientColor: "(0.50, 0.50, 0.52, 1.0)"
+    DiffuseColor: "(0.95, 0.95, 0.98, 1.0)"
+    SpecularColor: "(0.60, 0.60, 0.62, 1.0)"
+    EmissiveColor: "(0.0, 0.0, 0.0, 1.0)"
+    Shininess: "0.30"
+    Transparency: "0.0"

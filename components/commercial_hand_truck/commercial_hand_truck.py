@@ -16,24 +16,7 @@ import sys
 import math
 import FreeCAD
 import Part
-
-try:
-    import FreeCADGui
-    FreeCADGui.showMainWindow()
-    HAS_GUI = True
-except Exception:
-    FreeCADGui = None
-    HAS_GUI = False
-
-def set_obj_visuals(doc, obj, color):
-    if HAS_GUI and FreeCADGui and FreeCADGui.getDocument(doc.Name):
-        gui_d = FreeCADGui.getDocument(doc.Name)
-        if gui_d:
-            g_obj = gui_d.getObject(obj.Name)
-            if g_obj:
-                g_obj.Visibility = True
-                g_obj.ShapeColor = color
-                g_obj.DisplayMode = "Flat Lines"
+from phi_works.maker.materials import apply_material
 
 def create_commercial_hand_truck_component(doc, placement=None):
     """
@@ -46,13 +29,6 @@ def create_commercial_hand_truck_component(doc, placement=None):
 
     grp = doc.addObject("App::DocumentObjectGroup", "Commercial_Hand_Truck")
     grp.Label = "Vintage Commercial Hand Truck Chassis (Restored Red Frame)"
-
-    # Color Palette
-    FRAME_RED = (0.82, 0.12, 0.12, 0.0)       # Industrial Powder-Coated Red Frame
-    TRUSS_RED = (0.78, 0.10, 0.10, 0.0)       # Matching Red Welded Triangular Trusses
-    AXLE_STEEL = (0.75, 0.78, 0.82, 0.0)      # Machined 5/8" Steel Axle Shaft & Collars
-    WHEEL_RIM = (0.85, 0.85, 0.88, 0.0)       # Stamped Steel Wheel Rims
-    TIRE_RUBBER = (0.12, 0.12, 0.12, 0.0)     # 9.5" All-Terrain Rubber Tires
 
     # Verified Physical Dimensions (Imperial user-specified converted to mm)
     TUBE_OD = 25.4              # 1.0 in OD steel tubing
@@ -152,7 +128,7 @@ def create_commercial_hand_truck_component(doc, placement=None):
     obj_frame.Label = "Vintage 1.0in Tubular U-Frame with Center Spine & Straps"
     obj_frame.Shape = full_frame_shape
     grp.addObject(obj_frame)
-    set_obj_visuals(doc, obj_frame, FRAME_RED)
+    apply_material(obj_frame, "PowderCoat-IndustrialRed")
 
     # --------------------------------------------------------------------------
     # 5. Authentic Dual Triangular Axle Trusses (Left & Right)
@@ -211,7 +187,7 @@ def create_commercial_hand_truck_component(doc, placement=None):
     obj_truss.Label = "Triangular Axle Trusses (Frame-to-Axle Triangular Brackets)"
     obj_truss.Shape = trusses_compound
     grp.addObject(obj_truss)
-    set_obj_visuals(doc, obj_truss, TRUSS_RED)
+    apply_material(obj_truss, "PowderCoat-IndustrialRed")
 
     # --------------------------------------------------------------------------
     # 6. Continuous Solid Steel Axle Shaft (Common Datum Axis)
@@ -230,7 +206,7 @@ def create_commercial_hand_truck_component(doc, placement=None):
     obj_axle.Label = "5/8in Continuous Solid Steel Axle Shaft (Common Axis)"
     obj_axle.Shape = axle_shape
     grp.addObject(obj_axle)
-    set_obj_visuals(doc, obj_axle, AXLE_STEEL)
+    apply_material(obj_axle, "Steel-ZincPlated")
 
     # --------------------------------------------------------------------------
     # 7. 9.5" Heavy-Duty Wheels (Tires & Stamped Steel Rims)
@@ -245,7 +221,7 @@ def create_commercial_hand_truck_component(doc, placement=None):
     obj_rims.Label = "5.0in Stamped Steel Wheel Rims"
     obj_rims.Shape = rims_shape
     grp.addObject(obj_rims)
-    set_obj_visuals(doc, obj_rims, WHEEL_RIM)
+    apply_material(obj_rims, "Steel-ZincPlated")
 
     # Left & Right Tires (9.5" OD, 3.0" wide)
     tire_l_out = Part.makeCylinder(WHEEL_OD/2.0, WHEEL_W, FreeCAD.Vector(-WHEEL_X - WHEEL_W/2.0, AXLE_Y, AXLE_Z), FreeCAD.Vector(1, 0, 0))
@@ -263,6 +239,6 @@ def create_commercial_hand_truck_component(doc, placement=None):
     obj_tires.Label = "9.5in Heavy-Duty Semi-Pneumatic All-Terrain Rubber Tires"
     obj_tires.Shape = tires_shape
     grp.addObject(obj_tires)
-    set_obj_visuals(doc, obj_tires, TIRE_RUBBER)
+    apply_material(obj_tires, "Rubber-Solid")
 
     return grp

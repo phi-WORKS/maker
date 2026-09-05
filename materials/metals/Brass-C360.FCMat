@@ -1,0 +1,28 @@
+---
+# FreeCAD Material Card
+General:
+  UUID: "58ce2cc8-62a2-4da5-a391-bc491c373185"
+  Author: "phi ARCHITECT"
+  License: "CC-BY-4.0"
+  Name: "Brass-C360"
+  Description: "C360 free-cutting brass (propane valves, burner orifices, hose fittings)"
+  SourceURL: "https://en.wikipedia.org/wiki/Brass"
+Models:
+  Density:
+    UUID: '454661e5-265b-4320-8e6f-fcf6223ac3af'
+    Density: "8500 kg/m^3"
+  LinearElastic:
+    UUID: '7b561d1d-fb9b-44f6-9da9-56a4f74d7536'
+    YoungsModulus: "97000 MPa"
+    PoissonRatio: "0.31"
+    YieldStrength: "310 MPa"
+    UltimateTensileStrength: "470 MPa"
+AppearanceModels:
+  BasicRendering:
+    UUID: 'f006c7e4-35b7-43d5-bbf9-c5d572309e6e'
+    AmbientColor: "(0.45, 0.35, 0.15, 1.0)"
+    DiffuseColor: "(0.85, 0.68, 0.28, 1.0)"
+    SpecularColor: "(0.95, 0.80, 0.40, 1.0)"
+    EmissiveColor: "(0.0, 0.0, 0.0, 1.0)"
+    Shininess: "0.60"
+    Transparency: "0.0"

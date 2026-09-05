@@ -21,6 +21,7 @@ except Exception:
     HAS_GUI = False
 
 from phi_works.maker.render import export_orthogonal_views, save_model, close_model
+from phi_works.maker.materials import apply_material, get_mass_properties, format_mass_report
 
 def create_torch_component(doc, insertion_point=None, lean_angle_deg=0.0, flame_angle_deg=0.0):
     """
@@ -43,13 +44,6 @@ def create_torch_component(doc, insertion_point=None, lean_angle_deg=0.0, flame_
     grp = doc.addObject("App::DocumentObjectGroup", "Harbor_Freight_Torch_91037")
     grp.Label = "Harbor Freight #91037 Propane Torch Component"
 
-    # Color Palette
-    TORCH_BLACK = (0.15, 0.15, 0.15, 0.0)
-    CHROME = (0.75, 0.78, 0.82, 0.0)
-    HF_BLUE = (0.10, 0.35, 0.80, 0.0)
-    BRASS = (0.85, 0.65, 0.20, 0.0)
-    IGNITER_RED = (0.85, 0.15, 0.15, 0.0)
-
     # Collinear central torch axis:
     # All subcomponents (handle, valve, wand pipe, and burner bell) share the EXACT same central axis
     rad = math.radians(lean_angle_deg)
@@ -61,23 +55,29 @@ def create_torch_component(doc, insertion_point=None, lean_angle_deg=0.0, flame_
     grip_insert = Part.makeBox(20.0, 25.0, 120.0, FreeCAD.Vector(-10.0, insertion_point.y - 12.5, insertion_point.z + 30.0))
     squeeze_lever = Part.makeBox(6.0, 15.0, 100.0, FreeCAD.Vector(-3.0, insertion_point.y - 25.0, insertion_point.z + 20.0))
     handle_obj = doc.addObject("Part::Feature", "HF_Blue_Torch_Handle")
+    handle_obj.Label = "Molded Blue Grip Handle & Trigger Lever"
     handle_obj.Shape = handle_body.fuse(grip_insert).fuse(squeeze_lever)
     grp.addObject(handle_obj)
+    apply_material(handle_obj, "PowderCoat-IndustrialBlue")
 
     # 2. Brass Flow Control Valve
     brass_knob_pos = insertion_point + torch_dir * 25.0
     brass_knob = Part.makeCylinder(14.0, 20.0, brass_knob_pos + FreeCAD.Vector(0, 10.0, 0), FreeCAD.Vector(0, 1, 0))
     brass_obj = doc.addObject("Part::Feature", "Brass_Flow_Control_Knob")
+    brass_obj.Label = "Machined Brass Flow Control Needle Valve Knob"
     brass_obj.Shape = brass_knob
     grp.addObject(brass_obj)
+    apply_material(brass_obj, "Brass-C360")
 
     # 3. Chrome Wand Shaft (Collinear with handle)
     wand_start = insertion_point + torch_dir * handle_len
     wand_length = 500.0
     wand_shaft = Part.makeCylinder(9.525, wand_length, wand_start, torch_dir)
     wand_obj = doc.addObject("Part::Feature", "Torch_Chrome_Wand_Shaft")
+    wand_obj.Label = "Stainless Wand Extension Shaft (500mm)"
     wand_obj.Shape = wand_shaft
     grp.addObject(wand_obj)
+    apply_material(wand_obj, "Steel-304Stainless")
 
     # 4. Burner Bell Nozzle (Collinear with wand pipe, flaring out at tip)
     nozzle_start = wand_start + torch_dir * wand_length
@@ -86,8 +86,10 @@ def create_torch_component(doc, insertion_point=None, lean_angle_deg=0.0, flame_
     bell_rim = Part.makeCylinder(39.0, 12.0, nozzle_start + torch_dir * (bell_len - 12.0), torch_dir)
     burner_head = bell_nozzle.fuse(bell_rim)
     burner_obj = doc.addObject("Part::Feature", "HF_Burner_Head_Nozzle")
+    burner_obj.Label = "Coated Steel Burner Bell Nozzle & Rim"
     burner_obj.Shape = burner_head
     grp.addObject(burner_obj)
+    apply_material(burner_obj, "PowderCoat-MatteBlack")
 
     # 5. Push-Button Piezo Igniter Module
     igniter_clamp_pos = wand_start + torch_dir * 80.0
@@ -96,43 +98,29 @@ def create_torch_component(doc, insertion_point=None, lean_angle_deg=0.0, flame_
     wire_len = wand_length - 80.0 + 15.0
     igniter_wire = Part.makeCylinder(2.5, wire_len, igniter_clamp_pos + FreeCAD.Vector(0, -10.0, 0), torch_dir)
     igniter_obj = doc.addObject("Part::Feature", "Piezo_Igniter_Module")
+    igniter_obj.Label = "Push-Button Piezo Igniter Module & Wire"
     igniter_obj.Shape = igniter_housing.fuse(igniter_button).fuse(igniter_wire)
     grp.addObject(igniter_obj)
-
-    if HAS_GUI and hasattr(FreeCADGui, "getDocument"):
-        try:
-            gui_d = FreeCADGui.getDocument(doc.Name)
-            if gui_d:
-                color_map = {
-                    burner_obj: TORCH_BLACK,
-                    wand_obj: CHROME,
-                    handle_obj: HF_BLUE,
-                    brass_obj: BRASS,
-                    igniter_obj: IGNITER_RED
-                }
-                for obj, col in color_map.items():
-                    g_o = gui_d.getObject(obj.Name)
-                    if g_o:
-                        g_o.Visibility = True
-                        g_o.ShapeColor = col
-                        g_o.DisplayMode = "Flat Lines"
-        except Exception:
-            pass
+    apply_material(igniter_obj, "PowderCoat-IndustrialRed")
 
     return grp
 
 def build_standalone_component():
-    doc = FreeCAD.newDocument("torch_91037_component")
+    doc_name = "torch_hf91037"
+    doc = FreeCAD.newDocument(doc_name)
     comp_dir = os.path.dirname(os.path.abspath(__file__)) if "__file__" in globals() else os.path.abspath(".")
 
-    create_torch_component(doc)
+    grp = create_torch_component(doc)
     doc.recompute()
 
-    fc_path = os.path.join(comp_dir, "torch_hf91037.FCStd")
+    report = get_mass_properties(grp)
+    print(format_mass_report(report, title="Harbor Freight #91037 Propane Torch Mass Report"))
+
+    fc_path = os.path.join(comp_dir, f"{doc_name}.FCStd")
 
     if HAS_GUI and FreeCADGui and FreeCADGui.getDocument(doc.Name):
-        base_prefix = os.path.join(comp_dir, "torch_hf91037")
-        export_orthogonal_views(FreeCADGui.getDocument(doc.Name), base_prefix, model_prefix="torch_hf91037", camera_type="Perspective")
+        base_prefix = os.path.join(comp_dir, doc_name)
+        export_orthogonal_views(FreeCADGui.getDocument(doc.Name), base_prefix, model_prefix=doc_name, camera_type="Perspective")
 
     save_model(doc, fc_path, camera_type="Perspective")
     close_model(doc.Name)

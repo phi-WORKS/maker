@@ -22,13 +22,17 @@ except Exception:
 sys.path.insert(0, script_dir)
 from propane_cylinder_20lb import create_propane_cylinder_20lb_component
 from phi_works.maker.render import export_orthogonal_views, save_model, close_model
+from phi_works.maker.materials import get_mass_properties, format_mass_report
 
 def build():
     doc_name = "propane_cylinder_20lb"
     doc = FreeCAD.newDocument(doc_name)
 
-    create_propane_cylinder_20lb_component(doc)
+    grp = create_propane_cylinder_20lb_component(doc)
     doc.recompute()
+
+    report = get_mass_properties(grp)
+    print(format_mass_report(report, title="Standard 20 lb Propane Cylinder Mass Report"))
 
     fcstd_path = os.path.join(script_dir, f"{doc_name}.FCStd")
 

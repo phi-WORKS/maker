@@ -1,0 +1,21 @@
+---
+# FreeCAD Material Card
+General:
+  UUID: "714bf0f2-b999-4771-9282-560e0469ab9b"
+  Author: "phi ARCHITECT"
+  License: "CC-BY-4.0"
+  Name: "PowderCoat-MatteBlack"
+  Description: "Industrial matte black powder-coated carbon steel (harness cages, brackets, frames)"
+Models:
+  Density:
+    UUID: '454661e5-265b-4320-8e6f-fcf6223ac3af'
+    Density: "7850 kg/m^3"
+AppearanceModels:
+  BasicRendering:
+    UUID: 'f006c7e4-35b7-43d5-bbf9-c5d572309e6e'
+    AmbientColor: "(0.08, 0.08, 0.08, 1.0)"
+    DiffuseColor: "(0.15, 0.15, 0.16, 1.0)"
+    SpecularColor: "(0.25, 0.25, 0.25, 1.0)"
+    EmissiveColor: "(0.0, 0.0, 0.0, 1.0)"
+    Shininess: "0.15"
+    Transparency: "0.0"

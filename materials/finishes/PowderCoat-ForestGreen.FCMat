@@ -1,0 +1,21 @@
+---
+# FreeCAD Material Card
+General:
+  UUID: "3220e768-97a5-478c-aeb1-bb5bb0524e38"
+  Author: "phi ARCHITECT"
+  License: "CC-BY-4.0"
+  Name: "PowderCoat-ForestGreen"
+  Description: "Camping green coated steel (1 lb portable propane canisters)"
+Models:
+  Density:
+    UUID: '454661e5-265b-4320-8e6f-fcf6223ac3af'
+    Density: "7850 kg/m^3"
+AppearanceModels:
+  BasicRendering:
+    UUID: 'f006c7e4-35b7-43d5-bbf9-c5d572309e6e'
+    AmbientColor: "(0.06, 0.24, 0.11, 1.0)"
+    DiffuseColor: "(0.12, 0.48, 0.22, 1.0)"
+    SpecularColor: "(0.40, 0.60, 0.45, 1.0)"
+    EmissiveColor: "(0.0, 0.0, 0.0, 1.0)"
+    Shininess: "0.30"
+    Transparency: "0.0"

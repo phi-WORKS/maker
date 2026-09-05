@@ -22,13 +22,18 @@ except Exception:
 sys.path.insert(0, script_dir)
 from commercial_hand_truck import create_commercial_hand_truck_component
 from phi_works.maker.render import export_orthogonal_views, save_model, close_model
+from phi_works.maker.materials import get_mass_properties, format_mass_report
 
 def build():
     doc_name = "commercial_hand_truck"
     doc = FreeCAD.newDocument(doc_name)
 
-    create_commercial_hand_truck_component(doc)
+    grp = create_commercial_hand_truck_component(doc)
     doc.recompute()
+
+    # Calculate and display mass & center of gravity
+    report = get_mass_properties(grp)
+    print(format_mass_report(report, title="Vintage Commercial Hand Truck Mass Report"))
 
     fcstd_path = os.path.join(script_dir, f"{doc_name}.FCStd")
 

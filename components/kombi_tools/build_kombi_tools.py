@@ -11,6 +11,7 @@ except Exception:
     HAS_GUI = False
 
 from phi_works.maker.render import render_single_view
+from phi_works.maker.materials import apply_material, get_mass_properties, format_mass_report
 
 def render_camera_view(gui_doc, png_path):
     render_single_view(gui_doc, png_path, view_type="Isometric")
@@ -26,24 +27,6 @@ def create_kombi_tools():
 
     doc = FreeCAD.newDocument(doc_name)
     doc.Label = "STIHL Kombi Attachment Models"
-
-    # Color Palette
-    SHAFT_COLOR = (0.85, 0.85, 0.88, 0.0)    # Aluminum shaft
-    COUPLER_COLOR = (0.15, 0.15, 0.15, 0.0)  # Matte black plastic coupler
-    STIHL_ORANGE = (0.95, 0.35, 0.05, 0.0)   # STIHL Orange
-    STEEL_COLOR = (0.70, 0.70, 0.72, 0.0)    # Metal blade/tine
-    RUBBER_COLOR = (0.12, 0.12, 0.12, 0.0)   # Black rubber paddle
-
-    def setup_vis(obj, color):
-        if HAS_GUI:
-            try:
-                g_obj = FreeCADGui.getDocument(doc.Name).getObject(obj.Name)
-                if g_obj:
-                    g_obj.Visibility = True
-                    g_obj.ShapeColor = color
-                    g_obj.DisplayMode = "Flat Lines"
-            except Exception:
-                pass
 
     def make_shaft_and_coupler(length_mm=850.0):
         # Standard 25.4mm (1.0") OD drive shaft tube
@@ -61,23 +44,23 @@ def create_kombi_tools():
 
     ofs_s = doc.addObject("Part::Feature", "FS_Shaft")
     ofs_s.Shape = shaft_fs
-    setup_vis(ofs_s, SHAFT_COLOR)
     grp_fs.addObject(ofs_s)
+    apply_material(ofs_s, "Aluminum-6061-T6")
 
     ofs_c = doc.addObject("Part::Feature", "FS_Coupler")
     ofs_c.Shape = coup_fs
-    setup_vis(ofs_c, COUPLER_COLOR)
     grp_fs.addObject(ofs_c)
+    apply_material(ofs_c, "Plastic-ABS")
 
     ofs_g = doc.addObject("Part::Feature", "FS_Gear_Spool")
     ofs_g.Shape = gear_fs.fuse(spool_fs)
-    setup_vis(ofs_g, COUPLER_COLOR)
     grp_fs.addObject(ofs_g)
+    apply_material(ofs_g, "Plastic-ABS")
 
     ofs_sh = doc.addObject("Part::Feature", "FS_Debris_Shield")
     ofs_sh.Shape = shield_fs
-    setup_vis(ofs_sh, STIHL_ORANGE)
     grp_fs.addObject(ofs_sh)
+    apply_material(ofs_sh, "PowderCoat-StihlOrange")
 
     # 2. KM-HL: 145° Adjustable Hedge Trimmer Attachment (Length ~1260mm / 1480mm max)
     grp_hl = doc.addObject("App::DocumentObjectGroup", "KM_HL_HedgeTrimmer")
@@ -87,23 +70,23 @@ def create_kombi_tools():
 
     ohl_s = doc.addObject("Part::Feature", "HL_Shaft")
     ohl_s.Shape = shaft_hl
-    setup_vis(ohl_s, SHAFT_COLOR)
     grp_hl.addObject(ohl_s)
+    apply_material(ohl_s, "Aluminum-6061-T6")
 
     ohl_c = doc.addObject("Part::Feature", "HL_Coupler")
     ohl_c.Shape = coup_hl
-    setup_vis(ohl_c, COUPLER_COLOR)
     grp_hl.addObject(ohl_c)
+    apply_material(ohl_c, "Plastic-ABS")
 
     ohl_g = doc.addObject("Part::Feature", "HL_Gearbox")
     ohl_g.Shape = gear_hl
-    setup_vis(ohl_g, STIHL_ORANGE)
     grp_hl.addObject(ohl_g)
+    apply_material(ohl_g, "PowderCoat-StihlOrange")
 
     ohl_b = doc.addObject("Part::Feature", "HL_Blades")
     ohl_b.Shape = blade_hl
-    setup_vis(ohl_b, STEEL_COLOR)
     grp_hl.addObject(ohl_b)
+    apply_material(ohl_b, "Steel-A36")
 
     # 3. KM-HT: Pole Pruner / Chainsaw Attachment (Length ~1260mm)
     grp_ht = doc.addObject("App::DocumentObjectGroup", "KM_HT_PolePruner")
@@ -113,23 +96,23 @@ def create_kombi_tools():
 
     oht_s = doc.addObject("Part::Feature", "HT_Shaft")
     oht_s.Shape = shaft_ht
-    setup_vis(oht_s, SHAFT_COLOR)
     grp_ht.addObject(oht_s)
+    apply_material(oht_s, "Aluminum-6061-T6")
 
     oht_c = doc.addObject("Part::Feature", "HT_Coupler")
     oht_c.Shape = coup_ht
-    setup_vis(oht_c, COUPLER_COLOR)
     grp_ht.addObject(oht_c)
+    apply_material(oht_c, "Plastic-ABS")
 
     oht_g = doc.addObject("Part::Feature", "HT_SawHead")
     oht_g.Shape = head_ht
-    setup_vis(oht_g, STIHL_ORANGE)
     grp_ht.addObject(oht_g)
+    apply_material(oht_g, "PowderCoat-StihlOrange")
 
     oht_b = doc.addObject("Part::Feature", "HT_GuideBar")
     oht_b.Shape = bar_ht
-    setup_vis(oht_b, STEEL_COLOR)
     grp_ht.addObject(oht_b)
+    apply_material(oht_b, "Steel-A36")
 
     # 4. KM-BF: Mini-Cultivator Tiller Attachment (Length ~1000mm)
     grp_bf = doc.addObject("App::DocumentObjectGroup", "KM_BF_Cultivator")
@@ -139,23 +122,23 @@ def create_kombi_tools():
 
     obf_s = doc.addObject("Part::Feature", "BF_Shaft")
     obf_s.Shape = shaft_bf
-    setup_vis(obf_s, SHAFT_COLOR)
     grp_bf.addObject(obf_s)
+    apply_material(obf_s, "Aluminum-6061-T6")
 
     obf_c = doc.addObject("Part::Feature", "BF_Coupler")
     obf_c.Shape = coup_bf
-    setup_vis(obf_c, COUPLER_COLOR)
     grp_bf.addObject(obf_c)
+    apply_material(obf_c, "Plastic-ABS")
 
     obf_g = doc.addObject("Part::Feature", "BF_Gearbox")
     obf_g.Shape = gear_bf
-    setup_vis(obf_g, COUPLER_COLOR)
     grp_bf.addObject(obf_g)
+    apply_material(obf_g, "Plastic-ABS")
 
     obf_t = doc.addObject("Part::Feature", "BF_TineRotors")
     obf_t.Shape = tines_bf
-    setup_vis(obf_t, STEEL_COLOR)
     grp_bf.addObject(obf_t)
+    apply_material(obf_t, "Steel-A36")
 
     # 5. KM-BG: Leaf Blower Attachment (Length ~890mm)
     grp_bg = doc.addObject("App::DocumentObjectGroup", "KM_BG_Blower")
@@ -165,23 +148,23 @@ def create_kombi_tools():
 
     obg_s = doc.addObject("Part::Feature", "BG_Shaft")
     obg_s.Shape = shaft_bg
-    setup_vis(obg_s, SHAFT_COLOR)
     grp_bg.addObject(obg_s)
+    apply_material(obg_s, "Aluminum-6061-T6")
 
     obg_c = doc.addObject("Part::Feature", "BG_Coupler")
     obg_c.Shape = coup_bg
-    setup_vis(obg_c, COUPLER_COLOR)
     grp_bg.addObject(obg_c)
+    apply_material(obg_c, "Plastic-ABS")
 
     obg_h = doc.addObject("Part::Feature", "BG_FanHousing")
     obg_h.Shape = fan_housing
-    setup_vis(obg_h, STIHL_ORANGE)
     grp_bg.addObject(obg_h)
+    apply_material(obg_h, "PowderCoat-StihlOrange")
 
     obg_n = doc.addObject("Part::Feature", "BG_Nozzle")
     obg_n.Shape = nozzle_bg
-    setup_vis(obg_n, COUPLER_COLOR)
     grp_bg.addObject(obg_n)
+    apply_material(obg_n, "Plastic-ABS")
 
     # 6. KM-KW: PowerSweep Rubber Paddle Attachment (Length ~1250mm)
     grp_kw = doc.addObject("App::DocumentObjectGroup", "KM_KW_PowerSweep")
@@ -191,23 +174,23 @@ def create_kombi_tools():
 
     okw_s = doc.addObject("Part::Feature", "KW_Shaft")
     okw_s.Shape = shaft_kw
-    setup_vis(okw_s, SHAFT_COLOR)
     grp_kw.addObject(okw_s)
+    apply_material(okw_s, "Aluminum-6061-T6")
 
     okw_c = doc.addObject("Part::Feature", "KW_Coupler")
     okw_c.Shape = coup_kw
-    setup_vis(okw_c, COUPLER_COLOR)
     grp_kw.addObject(okw_c)
+    apply_material(okw_c, "Plastic-ABS")
 
     okw_g = doc.addObject("Part::Feature", "KW_Gearbox")
     okw_g.Shape = gear_kw
-    setup_vis(okw_g, COUPLER_COLOR)
     grp_kw.addObject(okw_g)
+    apply_material(okw_g, "Plastic-ABS")
 
     okw_d = doc.addObject("Part::Feature", "KW_RubberDrum")
     okw_d.Shape = drum_kw
-    setup_vis(okw_d, RUBBER_COLOR)
     grp_kw.addObject(okw_d)
+    apply_material(okw_d, "Rubber-Solid")
 
     # 7. KM-FCB: Curved Shaft Lawn Edger Attachment (Length ~920mm)
     grp_fc = doc.addObject("App::DocumentObjectGroup", "KM_FCB_Edger")
@@ -217,23 +200,23 @@ def create_kombi_tools():
 
     ofc_s = doc.addObject("Part::Feature", "FC_Shaft")
     ofc_s.Shape = shaft_fc
-    setup_vis(ofc_s, SHAFT_COLOR)
     grp_fc.addObject(ofc_s)
+    apply_material(ofc_s, "Aluminum-6061-T6")
 
     ofc_c = doc.addObject("Part::Feature", "FC_Coupler")
     ofc_c.Shape = coup_fc
-    setup_vis(ofc_c, COUPLER_COLOR)
     grp_fc.addObject(ofc_c)
+    apply_material(ofc_c, "Plastic-ABS")
 
     ofc_g = doc.addObject("Part::Feature", "FC_Guard")
     ofc_g.Shape = guard_fc
-    setup_vis(ofc_g, STIHL_ORANGE)
     grp_fc.addObject(ofc_g)
+    apply_material(ofc_g, "PowderCoat-StihlOrange")
 
     ofc_w = doc.addObject("Part::Feature", "FC_Wheel")
     ofc_w.Shape = wheel_fc
-    setup_vis(ofc_w, RUBBER_COLOR)
     grp_fc.addObject(ofc_w)
+    apply_material(ofc_w, "Rubber-Solid")
 
     # Arrange tools horizontally along X axis
     all_groups = [grp_fs, grp_hl, grp_ht, grp_bf, grp_bg, grp_kw, grp_fc]
@@ -243,6 +226,9 @@ def create_kombi_tools():
             obj.Placement.Base = FreeCAD.Vector(x_shift, 0, 0)
 
     doc.recompute()
+
+    report = get_mass_properties(doc)
+    print(format_mass_report(report, title="STIHL Kombi Tools Suite Mass Report"))
 
     script_dir = os.path.dirname(os.path.abspath(__file__)) if "__file__" in globals() else os.path.abspath(".")
     fc_path = os.path.join(script_dir, "kombi_tools.FCStd")

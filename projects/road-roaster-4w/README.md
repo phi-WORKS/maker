@@ -50,7 +50,7 @@ While the original [Road Roaster (`road-roaster`)](../road-roaster/) leverages a
 | **Burner Position** | Common-axis axle suspension sled | Cantilevered front mount with 180° flip-back stowage |
 | **Handle Height** | 46.0" top of U-bend | 29.0" above deck (with dual cross rails) |
 | **Auxiliary Torch** | None | Handle-mounted spot torch wand (`torch_hf91037`) |
-| **Water / Safety** | Handheld bottle only | Dedicated on-deck 2.5 gal pressurized spray tank |
+| **Water / Safety** | Handheld bottle only | Dedicated on-deck 2.5 gal pressurized spray tank ([`water_tank`](../../components/water_tank/)) |
 | **Self-Propulsion** | Manual push / tilt | Future front-wheel slow crawl drive ready |
 | **Target Use Case** | Narrow garden paths, steep stairs, tight gates | Driveways, roadways, paver patios, commercial headlands |
 

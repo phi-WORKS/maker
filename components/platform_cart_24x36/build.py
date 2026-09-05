@@ -22,13 +22,17 @@ except Exception:
 sys.path.insert(0, script_dir)
 from platform_cart_24x36 import create_platform_cart_component
 from phi_works.maker.render import export_orthogonal_views, save_model, close_model
+from phi_works.maker.materials import get_mass_properties, format_mass_report
 
 def build():
     doc_name = "platform_cart_24x36"
     doc = FreeCAD.newDocument(doc_name)
 
-    create_platform_cart_component(doc)
+    grp = create_platform_cart_component(doc)
     doc.recompute()
+
+    report = get_mass_properties(grp)
+    print(format_mass_report(report, title="Commercial 24x36 Platform Cart Mass Report"))
 
     fcstd_path = os.path.join(script_dir, f"{doc_name}.FCStd")
 

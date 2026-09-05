@@ -12,6 +12,7 @@ except Exception:
     HAS_GUI = False
 
 from phi_works.maker.render import export_orthogonal_views, save_model, close_model
+from phi_works.maker.materials import apply_material, get_mass_properties, format_mass_report
 
 def set_vis(doc, obj, color):
     if HAS_GUI and FreeCADGui and FreeCADGui.getDocument(doc.Name):
@@ -93,11 +94,11 @@ def build():
 
     lf = doc.addObject("Part::Feature", "Base_Foot_Left")
     lf.Shape = make_sloped_foot(x_left_post, False)
-    set_vis(doc, lf, WOOD)
+    apply_material(lf, "Wood-SoftwoodPine")
 
     rf = doc.addObject("Part::Feature", "Base_Foot_Right")
     rf.Shape = make_sloped_foot(x_right_post, True)
-    set_vis(doc, rf, WOOD)
+    apply_material(rf, "Wood-SoftwoodPine")
 
     # 2. Vertical Posts (2x4 @ X = 6" and X = 28.5" with 0.75" dado pockets for 1x4 rails)
     def make_post(x_offset, is_right):
@@ -110,31 +111,31 @@ def build():
 
     lp = doc.addObject("Part::Feature", "Post_Left")
     lp.Shape = make_post(x_left_post, False)
-    set_vis(doc, lp, WOOD)
+    apply_material(lp, "Wood-SoftwoodPine")
 
     rp = doc.addObject("Part::Feature", "Post_Right")
     rp.Shape = make_post(x_right_post, True)
-    set_vis(doc, rp, WOOD)
+    apply_material(rp, "Wood-SoftwoodPine")
 
     # 3. Upper Top Rail (1x4 Lumber: 0.75" x 3.5" x 36.0") - 6" Cantilever Overhang on each side!
     ur = doc.addObject("Part::Feature", "Upper_Top_Rail_1x4")
     ur.Shape = Part.makeBox(CADDY_W, RAIL_T, LUMBER_W, FreeCAD.Vector(0, Y_post, z_top_rail))
-    set_vis(doc, ur, WOOD)
+    apply_material(ur, "Wood-SoftwoodPine")
 
     # 4. Lower Rear Cross Rail (1x4 Lumber: 0.75" x 3.5" x 36.0") - 6" Cantilever Overhang on each side!
     y_lower_rail = Y_post + LUMBER_W - RAIL_T
     lr = doc.addObject("Part::Feature", "Lower_Cross_Rail_Rear_1x4")
     lr.Shape = Part.makeBox(CADDY_W, RAIL_T, LUMBER_W, FreeCAD.Vector(0, y_lower_rail, z_lower_pos))
-    set_vis(doc, lr, WOOD)
+    apply_material(lr, "Wood-SoftwoodPine")
 
     # 5. Tool Head Deck Slats (2x 1x4 Lumber @ 36.0" running horizontally across base feet)
     deck_slat_1 = doc.addObject("Part::Feature", "Tool_Deck_Slat_Front_1x4")
     deck_slat_1.Shape = Part.makeBox(CADDY_W, LUMBER_W, RAIL_T, FreeCAD.Vector(0, 12.0, LUMBER_W))
-    set_vis(doc, deck_slat_1, DECK_WOOD)
+    apply_material(deck_slat_1, "Wood-SoftwoodPine")
 
     deck_slat_2 = doc.addObject("Part::Feature", "Tool_Deck_Slat_Rear_1x4")
     deck_slat_2.Shape = Part.makeBox(CADDY_W, LUMBER_W, RAIL_T, FreeCAD.Vector(0, 114.0, LUMBER_W))
-    set_vis(doc, deck_slat_2, DECK_WOOD)
+    apply_material(deck_slat_2, "Wood-SoftwoodPine")
 
     # 6. Flat Rear-Mounted Plywood Gussets (3/4" Plywood mounted across post span)
     def make_flat_rear_gusset(is_left):
@@ -152,20 +153,20 @@ def build():
 
     gl = doc.addObject("Part::Feature", "Plywood_Gusset_Left")
     gl.Shape = make_flat_rear_gusset(True)
-    set_vis(doc, gl, PLYWOOD)
+    apply_material(gl, "Wood-PlywoodSheathing")
 
     gr = doc.addObject("Part::Feature", "Plywood_Gusset_Right")
     gr.Shape = make_flat_rear_gusset(False)
-    set_vis(doc, gr, PLYWOOD)
+    apply_material(gr, "Wood-PlywoodSheathing")
 
     # 7. Hand-Truck Wheels (5" Fixed Casters mounted at outer face of base feet)
     w_left = doc.addObject("Part::Feature", "Wheel_Left")
     w_left.Shape = Part.makeCylinder(63.5, 32.0, FreeCAD.Vector(x_left_post - 37.0, 351.0, 63.5), FreeCAD.Vector(1,0,0))
-    set_vis(doc, w_left, RUBBER)
+    apply_material(w_left, "Rubber-Solid")
 
     w_right = doc.addObject("Part::Feature", "Wheel_Right")
     w_right.Shape = Part.makeCylinder(63.5, 32.0, FreeCAD.Vector(x_right_post + LUMBER_T + 5.0, 351.0, 63.5), FreeCAD.Vector(1,0,0))
-    set_vis(doc, w_right, RUBBER)
+    apply_material(w_right, "Rubber-Solid")
 
     # 8. Spring Clips & Kombi Tool Shafts Spaced Across Full 36" Rail Width
     clip_margin = 114.3 # 4.5 in from rail ends (Clip 1 & 4 on cantilever overhangs!)
@@ -182,13 +183,16 @@ def build():
         arm_r = Part.makeBox(12.0, 25.0, 35.0, FreeCAD.Vector(cx + 8.0, cy - 25.0, cz + 7.5))
         clip_obj = doc.addObject("Part::Feature", f"Spring_Clip_{i+1}")
         clip_obj.Shape = plate.fuse(arm_l).fuse(arm_r)
-        set_vis(doc, clip_obj, CLIP)
+        apply_material(clip_obj, "Steel-A36")
 
         shaft_obj = doc.addObject("Part::Feature", f"Kombi_Shaft_{i+1}")
         shaft_obj.Shape = Part.makeCylinder(12.7, TOOL_STANDING_H, FreeCAD.Vector(cx, cy - 18.0, Z_deck), FreeCAD.Vector(0,0,1))
-        set_vis(doc, shaft_obj, SHAFT)
+        apply_material(shaft_obj, "Aluminum-6061-T6")
 
     doc.recompute()
+
+    report = get_mass_properties(doc)
+    print(format_mass_report(report, title="Kombi Kaddy Master Assembly Mass Report"))
 
     fc_file = os.path.join(script_dir, "caddy.FCStd")
 

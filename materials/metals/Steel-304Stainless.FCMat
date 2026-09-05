@@ -1,0 +1,28 @@
+---
+# FreeCAD Material Card
+General:
+  UUID: "b7bd7095-d0db-40b5-9f85-c04845bf390d"
+  Author: "phi ARCHITECT"
+  License: "CC-BY-4.0"
+  Name: "Steel-304Stainless"
+  Description: "AISI 304 austenitic stainless steel (sheet, tubing, burner hoods, hardware)"
+  SourceURL: "https://en.wikipedia.org/wiki/SAE_304_stainless_steel"
+Models:
+  Density:
+    UUID: '454661e5-265b-4320-8e6f-fcf6223ac3af'
+    Density: "8000 kg/m^3"
+  LinearElastic:
+    UUID: '7b561d1d-fb9b-44f6-9da9-56a4f74d7536'
+    YoungsModulus: "193000 MPa"
+    PoissonRatio: "0.29"
+    YieldStrength: "215 MPa"
+    UltimateTensileStrength: "505 MPa"
+AppearanceModels:
+  BasicRendering:
+    UUID: 'f006c7e4-35b7-43d5-bbf9-c5d572309e6e'
+    AmbientColor: "(0.35, 0.36, 0.38, 1.0)"
+    DiffuseColor: "(0.80, 0.82, 0.85, 1.0)"
+    SpecularColor: "(0.90, 0.90, 0.92, 1.0)"
+    EmissiveColor: "(0.0, 0.0, 0.0, 1.0)"
+    Shininess: "0.70"
+    Transparency: "0.0"

@@ -22,6 +22,7 @@ except Exception:
     HAS_GUI = False
 
 from phi_works.maker.render import export_orthogonal_views, save_model, close_model
+from phi_works.maker.materials import apply_material, get_mass_properties, format_mass_report
 
 def create_torch_control_handle_component(doc, placement=None):
     """
@@ -42,14 +43,6 @@ def create_torch_control_handle_component(doc, placement=None):
     grp = doc.addObject("App::DocumentObjectGroup", "Torch_Control_Handle")
     grp.Label = "Torch Operator Control Handle & Squeeze Cockpit"
 
-    # Color Palette
-    HF_BLUE = (0.10, 0.35, 0.80, 0.0)         # Molded Blue Grip Shell
-    TORCH_BLACK = (0.15, 0.15, 0.15, 0.0)     # Rubber Grip Inlay & Fluted Valve Knob
-    BRASS = (0.85, 0.65, 0.20, 0.0)           # Machined Brass Valve Body & Fittings
-    CHROME = (0.75, 0.78, 0.82, 0.0)          # Squeeze Trigger Lever & Hardware
-    IGNITER_RED = (0.85, 0.15, 0.15, 0.0)     # Push-Button Piezo Cap
-    STEEL_CLAMP = (0.45, 0.48, 0.52, 0.0)     # 3/4" Tube Mounting Clamp
-
     # Dimensions
     HANDLE_L = 160.0
     HANDLE_W = 28.0
@@ -67,12 +60,16 @@ def create_torch_control_handle_component(doc, placement=None):
     inlay.Placement = placement
 
     grip_obj = doc.addObject("Part::Feature", "Blue_Molded_Handle_Grip")
+    grip_obj.Label = "Blue Ergonomic Molded Grip Housing"
     grip_obj.Shape = grip_shell
     grp.addObject(grip_obj)
+    apply_material(grip_obj, "PowderCoat-IndustrialBlue")
 
     inlay_obj = doc.addObject("Part::Feature", "Rubber_Traction_Inlay")
+    inlay_obj.Label = "Textured Rubber Top Palm Inlay"
     inlay_obj.Shape = inlay
     grp.addObject(inlay_obj)
+    apply_material(inlay_obj, "Rubber-Solid")
 
     # 2. Brass Valve Manifold Body & Inlet/Outlet Hex Fittings
     valve_body = Part.makeBox(22.0, 45.0, 28.0, FreeCAD.Vector(-11.0, HANDLE_L/2 - 30.0, -14.0))
@@ -85,8 +82,10 @@ def create_torch_control_handle_component(doc, placement=None):
     brass_manifold.Placement = placement
 
     valve_obj = doc.addObject("Part::Feature", "Brass_Valve_Manifold_Core")
+    valve_obj.Label = "Machined Brass Needle Valve Manifold Body"
     valve_obj.Shape = brass_manifold
     grp.addObject(valve_obj)
+    apply_material(valve_obj, "Brass-C360")
 
     # 3. Fluted Pilot Flame Adjustment / Shut-off Knob
     knob_base = Part.makeCylinder(12.0, 14.0, FreeCAD.Vector(0, HANDLE_L/2 - 10.0, HANDLE_H/2), FreeCAD.Vector(0, 0, 1))
@@ -96,8 +95,10 @@ def create_torch_control_handle_component(doc, placement=None):
     knob_solid.Placement = placement
 
     knob_obj = doc.addObject("Part::Feature", "Fluted_Pilot_Needle_Knob")
+    knob_obj.Label = "Fluted Polymer Needle Valve Adjustment Knob"
     knob_obj.Shape = knob_solid
     grp.addObject(knob_obj)
+    apply_material(knob_obj, "Plastic-ABS")
 
     # 4. Chrome Dead-Man Turbo Squeeze Boost Lever
     lever_arm = Part.makeBox(12.0, 130.0, 5.0, FreeCAD.Vector(-6.0, -HANDLE_L/2 + 10.0, -HANDLE_H/2 - 16.0))
@@ -107,8 +108,10 @@ def create_torch_control_handle_component(doc, placement=None):
     lever_solid.Placement = placement
 
     lever_obj = doc.addObject("Part::Feature", "Turbo_Boost_Squeeze_Lever")
+    lever_obj.Label = "Plated Dead-Man Turbo Boost Squeeze Lever"
     lever_obj.Shape = lever_solid
     grp.addObject(lever_obj)
+    apply_material(lever_obj, "Steel-ZincPlated")
 
     # 5. Brass Piezo Igniter Barrel & Red Push Button
     piezo_barrel = Part.makeCylinder(9.0, 45.0, FreeCAD.Vector(HANDLE_W/2 + 10.0, HANDLE_L/2 - 20.0, 0), FreeCAD.Vector(0, 1, 0))
@@ -120,12 +123,16 @@ def create_torch_control_handle_component(doc, placement=None):
     piezo_btn.Placement = placement
 
     piezo_body_obj = doc.addObject("Part::Feature", "Piezo_Igniter_Barrel")
+    piezo_body_obj.Label = "Brass Piezo Igniter Mechanism Body"
     piezo_body_obj.Shape = piezo_body
     grp.addObject(piezo_body_obj)
+    apply_material(piezo_body_obj, "Brass-C360")
 
     piezo_btn_obj = doc.addObject("Part::Feature", "Piezo_Push_Button_Red")
+    piezo_btn_obj.Label = "High-Visibility Red Piezo Push Button"
     piezo_btn_obj.Shape = piezo_btn
     grp.addObject(piezo_btn_obj)
+    apply_material(piezo_btn_obj, "PowderCoat-IndustrialRed")
 
     # 6. 3/4" Square Tube Frame Mounting Clamp Bracket
     clamp_body = Part.makeBox(30.0, 35.0, 25.4, FreeCAD.Vector(-HANDLE_W/2 - 26.0, -17.5, -12.7))
@@ -134,47 +141,29 @@ def create_torch_control_handle_component(doc, placement=None):
     clamp_solid.Placement = placement
 
     clamp_obj = doc.addObject("Part::Feature", "Square_Tube_Mounting_Clamp")
+    clamp_obj.Label = "Stainless 3/4in Tube Frame Clamp Bracket"
     clamp_obj.Shape = clamp_solid
     grp.addObject(clamp_obj)
-
-    # Apply colors
-    if HAS_GUI and hasattr(FreeCADGui, "getDocument"):
-        try:
-            gui_d = FreeCADGui.getDocument(doc.Name)
-            if gui_d:
-                color_map = [
-                    (grip_obj, HF_BLUE),
-                    (inlay_obj, TORCH_BLACK),
-                    (valve_obj, BRASS),
-                    (knob_obj, TORCH_BLACK),
-                    (lever_obj, CHROME),
-                    (piezo_body_obj, BRASS),
-                    (piezo_btn_obj, IGNITER_RED),
-                    (clamp_obj, STEEL_CLAMP)
-                ]
-                for o, c in color_map:
-                    g_o = gui_d.getObject(o.Name)
-                    if g_o:
-                        g_o.Visibility = True
-                        g_o.ShapeColor = c
-                        g_o.DisplayMode = "Flat Lines"
-        except Exception:
-            pass
+    apply_material(clamp_obj, "Steel-304Stainless")
 
     return grp
 
 def build_standalone_component():
-    doc = FreeCAD.newDocument("torch_control_handle_component")
+    doc_name = "torch_control_handle"
+    doc = FreeCAD.newDocument(doc_name)
     comp_dir = os.path.dirname(os.path.abspath(__file__)) if "__file__" in globals() else os.path.abspath(".")
 
-    create_torch_control_handle_component(doc)
+    grp = create_torch_control_handle_component(doc)
     doc.recompute()
 
-    fc_path = os.path.join(comp_dir, "torch_control_handle.FCStd")
+    report = get_mass_properties(grp)
+    print(format_mass_report(report, title="Torch Control Handle Component Mass Report"))
+
+    fc_path = os.path.join(comp_dir, f"{doc_name}.FCStd")
 
     if HAS_GUI and FreeCADGui and FreeCADGui.getDocument(doc.Name):
-        base_prefix = os.path.join(comp_dir, "torch_control_handle")
-        export_orthogonal_views(FreeCADGui.getDocument(doc.Name), base_prefix, model_prefix="torch_control_handle", camera_type="Perspective")
+        base_prefix = os.path.join(comp_dir, doc_name)
+        export_orthogonal_views(FreeCADGui.getDocument(doc.Name), base_prefix, model_prefix=doc_name, camera_type="Perspective")
 
     save_model(doc, fc_path, camera_type="Perspective")
     close_model(doc.Name)

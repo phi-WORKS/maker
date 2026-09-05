@@ -13,6 +13,8 @@ import math
 import FreeCAD
 import Part
 
+from phi_works.maker.materials import apply_material
+ 
 def create_solaronics_infrared_burner_component(doc, placement=None):
     """
     Creates Solaronics Infrared Burner assembly in `doc`.
@@ -31,14 +33,6 @@ def create_solaronics_infrared_burner_component(doc, placement=None):
 
     grp = doc.addObject("App::DocumentObjectGroup", "Solaronics_Infrared_Burner")
     grp.Label = "Solaronics 60,000 BTU High-Intensity Ceramic Infrared Burner & Parabolic Reflector"
-
-    # Color Palette
-    CERAMIC_GLOW = (0.95, 0.28, 0.08, 0.0)      # 1,800°F Cherry-Red Glowing Cordierite Ceramic Face
-    ALUMINUM_MIRROR = (0.90, 0.93, 0.96, 0.0)   # Mirror-Bright Polished Aluminum Parabolic Reflector
-    WIRE_GRID_SS = (0.80, 0.82, 0.85, 0.0)      # Inconel / 304 SS Re-Radiating Wire Grid Screen
-    MANIFOLD_CAST = (0.35, 0.35, 0.38, 0.0)     # Cast Iron / Aluminized Steel Venturi Manifold
-    BRASS_ORIFICE = (0.85, 0.65, 0.20, 0.0)     # Precision Brass Orifice Jet & 1/2" Gas Inlet
-    SPARK_ELECTRODE = (0.95, 0.95, 0.98, 0.0)   # Alumina Ceramic Spark Electrode
 
     # Core Dimensions (Metric mm / Imperial in)
     # Radiating surface: 173 sq in (~315 mm W x 355 mm L)
@@ -180,56 +174,36 @@ def create_solaronics_infrared_burner_component(doc, placement=None):
     obj_plaque.Label = "Cordierite Grooved Ceramic Radiant Plaque (1,800 F)"
     obj_plaque.Shape = ceramic_plaque_shape
     grp.addObject(obj_plaque)
+    apply_material(obj_plaque, "Ceramic-Cordierite")
 
     obj_grid = doc.addObject("Part::Feature", "Solaronics_Wire_Grid")
     obj_grid.Label = "Inconel / 304 SS Re-Radiating Wire Grid Screen"
     obj_grid.Shape = wire_grid_shape
     grp.addObject(obj_grid)
+    apply_material(obj_grid, "Steel-304Stainless")
 
     obj_refl = doc.addObject("Part::Feature", "Solaronics_Parabolic_Reflector")
     obj_refl.Label = "Mirror-Bright Aluminum Parabolic Focusing Reflector"
     obj_refl.Shape = reflector_shape
     grp.addObject(obj_refl)
+    apply_material(obj_refl, "Aluminum-6061-T6")
 
     obj_mani = doc.addObject("Part::Feature", "Solaronics_Venturi_Manifold")
     obj_mani.Label = "Premix Venturi Induction Manifold"
     obj_mani.Shape = manifold_shape
     grp.addObject(obj_mani)
+    apply_material(obj_mani, "CastIron-Gray")
 
     obj_brass = doc.addObject("Part::Feature", "Solaronics_Brass_Gas_Inlet")
     obj_brass.Label = "Precision Brass Orifice & 1/2in Gas Inlet"
     obj_brass.Shape = brass_orifice_shape
     grp.addObject(obj_brass)
+    apply_material(obj_brass, "Brass-C360")
 
     obj_spark = doc.addObject("Part::Feature", "Solaronics_Ignition_Electrode")
     obj_spark.Label = "High-Voltage Ceramic Spark Electrode"
     obj_spark.Shape = electrode_shape
     grp.addObject(obj_spark)
-
-    # Set Visual Properties if GUI available
-    try:
-        import FreeCADGui
-        if FreeCADGui.getDocument(doc.Name):
-            gui_doc = FreeCADGui.getDocument(doc.Name)
-            if gui_doc.getObject(obj_plaque.Name):
-                gui_doc.getObject(obj_plaque.Name).ShapeColor = CERAMIC_GLOW
-                gui_doc.getObject(obj_plaque.Name).DisplayMode = "Flat Lines"
-            if gui_doc.getObject(obj_grid.Name):
-                gui_doc.getObject(obj_grid.Name).ShapeColor = WIRE_GRID_SS
-                gui_doc.getObject(obj_grid.Name).DisplayMode = "Flat Lines"
-            if gui_doc.getObject(obj_refl.Name):
-                gui_doc.getObject(obj_refl.Name).ShapeColor = ALUMINUM_MIRROR
-                gui_doc.getObject(obj_refl.Name).DisplayMode = "Flat Lines"
-            if gui_doc.getObject(obj_mani.Name):
-                gui_doc.getObject(obj_mani.Name).ShapeColor = MANIFOLD_CAST
-                gui_doc.getObject(obj_mani.Name).DisplayMode = "Flat Lines"
-            if gui_doc.getObject(obj_brass.Name):
-                gui_doc.getObject(obj_brass.Name).ShapeColor = BRASS_ORIFICE
-                gui_doc.getObject(obj_brass.Name).DisplayMode = "Flat Lines"
-            if gui_doc.getObject(obj_spark.Name):
-                gui_doc.getObject(obj_spark.Name).ShapeColor = SPARK_ELECTRODE
-                gui_doc.getObject(obj_spark.Name).DisplayMode = "Flat Lines"
-    except Exception:
-        pass
+    apply_material(obj_spark, "Ceramic-Alumina")
 
     return grp

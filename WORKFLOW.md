@@ -71,6 +71,13 @@ Physical design iterations follow **Semantic Versioning** rules adapted for hard
 - Always call `doc.recompute()` BEFORE accessing `FreeCADGui.getDocument(doc.Name).getObject(...)`.
 - When framing long apparatuses (like a 60-inch tow bar), temporarily set `Visibility = False` on distant objects during `view.fitAll()`, take the snapshot image, and restore `Visibility = True` immediately after to keep renders close-up and sharp.
 
+### 2.3 Physical Materials & Mass Properties Standard
+- **No Hardcoded Color Constants**: Avoid hardcoding arbitrary RGB color tuples in CAD code. Assign real engineering materials from `materials/` using `apply_material(obj, "Material-Name")` from `phi_works.maker.materials`.
+- **Project-Native Material Storage**: All material definitions (`.FCMat` YAML cards) reside directly in `materials/` (`metals/`, `polymers/`, `finishes/`) within this repository for version control, reproducibility, and independence from local user configuration (`~/.local`).
+- **Dual Physical & Appearance Models**: Material cards bind physical properties (`Density` in $\text{kg/m}^3$) with appearance properties (`BasicRendering` with `DiffuseColor`, `Shininess`), guaranteeing both visual consistency and engineering rigor.
+- **Parametric Mass & Center of Gravity**: Component and project build scripts calculate and log physical weight and 3D Center of Gravity (CoG) using `get_mass_properties()` and `format_mass_report()`.
+
+
 ---
 
 ## 3. Fabrication Documentation Standard

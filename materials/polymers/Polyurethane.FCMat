@@ -1,0 +1,21 @@
+---
+# FreeCAD Material Card
+General:
+  UUID: "02d9dcd9-1045-44df-b106-a4a65655f925"
+  Author: "phi ARCHITECT"
+  License: "CC-BY-4.0"
+  Name: "Polyurethane"
+  Description: "High-impact molded polyurethane core (caster wheel centers, high-load wheels)"
+Models:
+  Density:
+    UUID: '454661e5-265b-4320-8e6f-fcf6223ac3af'
+    Density: "1200 kg/m^3"
+AppearanceModels:
+  BasicRendering:
+    UUID: 'f006c7e4-35b7-43d5-bbf9-c5d572309e6e'
+    AmbientColor: "(0.40, 0.30, 0.05, 1.0)"
+    DiffuseColor: "(0.92, 0.72, 0.08, 1.0)"
+    SpecularColor: "(0.50, 0.45, 0.20, 1.0)"
+    EmissiveColor: "(0.0, 0.0, 0.0, 1.0)"
+    Shininess: "0.30"
+    Transparency: "0.0"

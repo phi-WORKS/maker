@@ -22,6 +22,7 @@ except Exception:
     HAS_GUI = False
 
 from phi_works.maker.render import export_orthogonal_views, save_model, close_model
+from phi_works.maker.materials import apply_material, get_mass_properties, format_mass_report
 
 def create_steel_caster_wheel_component(doc, placement=None):
     """
@@ -41,10 +42,6 @@ def create_steel_caster_wheel_component(doc, placement=None):
 
     grp = doc.addObject("App::DocumentObjectGroup", "Steel_Caster_Wheel")
     grp.Label = "4.0\" Heavy-Duty Solid Steel Wheel"
-
-    # Color Palette
-    STEEL_WHEEL = (0.50, 0.53, 0.56, 0.0)     # Machined Cast Steel Rim
-    ZINC_BOLT = (0.75, 0.78, 0.80, 0.0)       # Zinc-Plated Axle & Hardware
 
     # Parametric Dimensions (4.0" Dia x 1.5" Face)
     WHEEL_DIA = 101.6     # 4.0 in outer diameter
@@ -68,8 +65,10 @@ def create_steel_caster_wheel_component(doc, placement=None):
     wheel_solid.Placement = placement
 
     wheel_obj = doc.addObject("Part::Feature", "Machined_Steel_Wheel_Body")
+    wheel_obj.Label = "Machined Cast Steel Wheel Body (4in Dia x 1.5in Face)"
     wheel_obj.Shape = wheel_solid
     grp.addObject(wheel_obj)
+    apply_material(wheel_obj, "CastIron-Gray")
 
     # 2. Axle Pin Bolt, Spacers & Hex Nut
     bolt_len = HUB_WIDTH + 30.0
@@ -82,37 +81,29 @@ def create_steel_caster_wheel_component(doc, placement=None):
     axle_assembly.Placement = placement
 
     axle_obj = doc.addObject("Part::Feature", "Steel_Axle_Bolt_Hardware")
+    axle_obj.Label = "Zinc-Plated 1/2in Grade 5 Axle Bolt, Washers & Nut"
     axle_obj.Shape = axle_assembly
     grp.addObject(axle_obj)
-
-    # Apply colors
-    if HAS_GUI and hasattr(FreeCADGui, "getDocument"):
-        try:
-            gui_d = FreeCADGui.getDocument(doc.Name)
-            if gui_d:
-                for o, c in [(wheel_obj, STEEL_WHEEL), (axle_obj, ZINC_BOLT)]:
-                    g_o = gui_d.getObject(o.Name)
-                    if g_o:
-                        g_o.Visibility = True
-                        g_o.ShapeColor = c
-                        g_o.DisplayMode = "Flat Lines"
-        except Exception:
-            pass
+    apply_material(axle_obj, "Steel-ZincPlated")
 
     return grp
 
 def build_standalone_component():
-    doc = FreeCAD.newDocument("steel_caster_wheel_component")
+    doc_name = "steel_caster_wheel"
+    doc = FreeCAD.newDocument(doc_name)
     comp_dir = os.path.dirname(os.path.abspath(__file__)) if "__file__" in globals() else os.path.abspath(".")
 
-    create_steel_caster_wheel_component(doc)
+    grp = create_steel_caster_wheel_component(doc)
     doc.recompute()
 
-    fc_path = os.path.join(comp_dir, "steel_caster_wheel.FCStd")
+    report = get_mass_properties(grp)
+    print(format_mass_report(report, title="4.0\" Steel Caster Wheel Mass Report"))
+
+    fc_path = os.path.join(comp_dir, f"{doc_name}.FCStd")
 
     if HAS_GUI and FreeCADGui and FreeCADGui.getDocument(doc.Name):
-        base_prefix = os.path.join(comp_dir, "steel_caster_wheel")
-        export_orthogonal_views(FreeCADGui.getDocument(doc.Name), base_prefix, model_prefix="steel_caster_wheel", camera_type="Perspective")
+        base_prefix = os.path.join(comp_dir, doc_name)
+        export_orthogonal_views(FreeCADGui.getDocument(doc.Name), base_prefix, model_prefix=doc_name, camera_type="Perspective")
 
     save_model(doc, fc_path, camera_type="Perspective")
     close_model(doc.Name)

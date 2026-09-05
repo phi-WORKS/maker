@@ -16,6 +16,7 @@
 ## Folder Layout
 
 - `src/`: Primary Python package library (`src/phi_works/maker/`) for shared CAD helpers and rendering utilities.
+- `materials/`: Reusable project-native FreeCAD material definitions (`.FCMat` YAML cards) organized by category (`metals/`, `polymers/`, `finishes/`).
 - `components/`: Reusable commercial tools and hardware modules (e.g., `components/torch_hf91037/`, `components/kombi_tools/`).
 - `projects/`: Physical assembly projects (`projects/kombi-kaddy/`, `projects/road-roaster/`, `projects/road-roaster-4w/`).
 - `templates/`: Boilerplate starter scripts (`component_template.py`, `project_template.py`).
@@ -37,3 +38,4 @@
 7. **Git Feature Branching**: Execute new features, refactors, and version iterations on dedicated Git branches (`feature/<name>` or `version/<name>`).
 8. **Streamlined Master Documentation**: Keep `README.md`, `SPECIFICATION.md`, and `CHANGELOG.md` updated as living master documents for each active project root. Derive material lists and cut dimensions parametrically from model parameters rather than maintaining static overworked spec files.
 9. **Shared Library Architecture (`src/`)**: Utilize `src/phi_works/maker` for shared Python infrastructure, CAD file import/placement helpers (`phi_works.maker.components.import_component`), and rendering exports (`phi_works.maker.render`). Keep `src/` free of component CAD geometry code.
+10. **Project-Native Materials & Mass Properties**: Store all material definitions (`.FCMat` YAML files) directly under `materials/` in the repository (never in `~/.local`). Use `phi_works.maker.materials.apply_material(obj, material_name)` instead of hardcoding RGB color constants. Build scripts should compute and log physical weight and 3D Center of Gravity (CoG) using `get_mass_properties()` and `format_mass_report()`.

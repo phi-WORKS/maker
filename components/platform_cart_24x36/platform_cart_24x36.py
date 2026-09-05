@@ -21,6 +21,7 @@ import sys
 import math
 import FreeCAD
 import Part
+from phi_works.maker.materials import apply_material
 
 try:
     import FreeCADGui
@@ -497,81 +498,81 @@ def create_platform_cart_component(doc, placement=None):
         hinges_solid.Placement = placement.multiply(hinges_solid.Placement)
 
     # ==========================================================================
-    # CREATE FREECAD DOCUMENT OBJECTS & VISUALS
+    # CREATE FREECAD DOCUMENT OBJECTS & MATERIALS
     # ==========================================================================
     # 1. Deck
     obj_deck = doc.addObject("Part::Feature", "Platform_Deck_Plate")
     obj_deck.Label = "24x36in Aluminum Diamond-Plate Deck & Skirt"
     obj_deck.Shape = deck_shell
     grp_deck.addObject(obj_deck)
-    set_obj_visuals(doc, obj_deck, DECK_ALUM)
+    apply_material(obj_deck, "Aluminum-6061-T6")
 
     obj_ribs = doc.addObject("Part::Feature", "Deck_Traction_Ribs")
     obj_ribs.Label = "Deck Diamond Non-Skid Traction Grid"
     obj_ribs.Shape = all_ribs
     grp_deck.addObject(obj_ribs)
-    set_obj_visuals(doc, obj_ribs, DIAMOND_LIP)
+    apply_material(obj_ribs, "Aluminum-6061-T6")
 
     obj_frame = doc.addObject("Part::Feature", "Under_Deck_Frame_Channels")
     obj_frame.Label = "Under-Deck Structural Steel C-Channels & Stringers"
     obj_frame.Shape = under_frame
     grp_deck.addObject(obj_frame)
-    set_obj_visuals(doc, obj_frame, FRAME_STEEL)
+    apply_material(obj_frame, "Steel-A36")
 
     obj_bumpers = doc.addObject("Part::Feature", "Corner_Rubber_Bumpers")
     obj_bumpers.Label = "Molded Impact Rubber Corner Bumpers (4 Corners)"
     obj_bumpers.Shape = all_bumpers
     grp_deck.addObject(obj_bumpers)
-    set_obj_visuals(doc, obj_bumpers, BUMPER_BLACK)
+    apply_material(obj_bumpers, "Rubber-Solid")
 
     obj_b_bolts = doc.addObject("Part::Feature", "Corner_Bumper_Fasteners")
     obj_b_bolts.Label = "Corner Bumper Recessed Fastener Hardware"
     obj_b_bolts.Shape = all_bumper_bolts
     grp_deck.addObject(obj_b_bolts)
-    set_obj_visuals(doc, obj_b_bolts, BUMPER_BOLT)
+    apply_material(obj_b_bolts, "Steel-ZincPlated")
 
     # 2. Running Gear
     obj_tires = doc.addObject("Part::Feature", "Caster_Rubber_Tires")
     obj_tires.Label = "5.0in Heavy-Duty Solid Rubber Tread Tires"
     obj_tires.Shape = compound_tires
     grp_gear.addObject(obj_tires)
-    set_obj_visuals(doc, obj_tires, TIRE_BLACK)
+    apply_material(obj_tires, "Rubber-Solid")
 
     obj_hubs = doc.addObject("Part::Feature", "Caster_Wheel_Hubs")
     obj_hubs.Label = "Industrial Yellow Caster Hub Cores & Bearings"
     obj_hubs.Shape = compound_hubs
     grp_gear.addObject(obj_hubs)
-    set_obj_visuals(doc, obj_hubs, WHEEL_YELLOW)
+    apply_material(obj_hubs, "Polyurethane")
 
     obj_axles = doc.addObject("Part::Feature", "Caster_Axle_Hardware")
     obj_axles.Label = "Zinc-Plated 1/2in Caster Axle Bolts & Nuts"
     obj_axles.Shape = compound_axles
     grp_gear.addObject(obj_axles)
-    set_obj_visuals(doc, obj_axles, AXLE_BOLT)
+    apply_material(obj_axles, "Steel-ZincPlated")
 
     obj_brackets = doc.addObject("Part::Feature", "Caster_Mounting_Brackets")
     obj_brackets.Label = "Stamped Steel Casters (2 Front Rigid, 2 Rear Swivel)"
     obj_brackets.Shape = compound_brackets
     grp_gear.addObject(obj_brackets)
-    set_obj_visuals(doc, obj_brackets, CASTER_STEEL)
+    apply_material(obj_brackets, "Steel-ZincPlated")
 
     obj_brakes = doc.addObject("Part::Feature", "Rear_Caster_Foot_Brakes")
     obj_brakes.Label = "Rear Swivel Caster Foot Lock Brake Levers"
     obj_brakes.Shape = compound_brakes
     grp_gear.addObject(obj_brakes)
-    set_obj_visuals(doc, obj_brakes, BRAKE_PEDAL)
+    apply_material(obj_brakes, "Steel-ZincPlated")
 
     # 3. Handle
     obj_handle = doc.addObject("Part::Feature", "Tubular_Push_Handle")
     obj_handle.Label = "29in Tubular Steel Push Handle (Dual Cross Rails)"
     obj_handle.Shape = handle_tubing
     grp_handle.addObject(obj_handle)
-    set_obj_visuals(doc, obj_handle, HANDLE_CHROME)
+    apply_material(obj_handle, "Steel-304Stainless")
 
     obj_hinges = doc.addObject("Part::Feature", "Handle_Folding_Hinges")
     obj_hinges.Label = "Folding Base Hinge Brackets & Foot Release Bar"
     obj_hinges.Shape = hinges_solid
     grp_handle.addObject(obj_hinges)
-    set_obj_visuals(doc, obj_hinges, HINGE_STEEL)
+    apply_material(obj_hinges, "Steel-ZincPlated")
 
     return grp_root

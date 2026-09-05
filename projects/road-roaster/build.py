@@ -16,6 +16,7 @@ except Exception:
 
 from phi_works.maker.render import export_orthogonal_views, save_model, close_model
 from phi_works.maker.components import import_component
+from phi_works.maker.materials import apply_material, get_mass_properties, format_mass_report
 
 def set_vis(doc, obj, color):
     if HAS_GUI and FreeCADGui and FreeCADGui.getDocument(doc.Name):
@@ -110,19 +111,19 @@ def build_radiant_sled_subassembly(doc, grp_sled, dims):
     obj_cowl.Label = "14-Gauge Steel Protective Radiant Sled Cowl & Skirts"
     obj_cowl.Shape = cowl_shell
     grp_sled.addObject(obj_cowl)
-    set_vis(doc, obj_cowl, STEEL_HOOD)
+    apply_material(obj_cowl, "Steel-A36")
     
     obj_skids = doc.addObject("Part::Feature", "Radiant_Sled_Skid_Runners")
     obj_skids.Label = "Continuous Flat Bar Skid Runners with 30-deg Ski Tips"
     obj_skids.Shape = skids_shape
     grp_sled.addObject(obj_skids)
-    set_vis(doc, obj_skids, SKID_STEEL)
+    apply_material(obj_skids, "Steel-304Stainless")
     
     obj_bridge = doc.addObject("Part::Feature", "Radiant_Sled_Suspension_Bridge")
     obj_bridge.Label = "Sled Suspension Bridge & Transit Latch Catch Tower"
     obj_bridge.Shape = bridge_shape
     grp_sled.addObject(obj_bridge)
-    set_vis(doc, obj_bridge, BRIDGE_STEEL)
+    apply_material(obj_bridge, "Steel-A36")
     
     # 4. Import Standalone Solaronics Ceramic Infrared Burner Component
     burner_pos = FreeCAD.Vector(0, SLED_Y, Z_skirt_bot + 45.0)
@@ -225,13 +226,13 @@ def build_suspension_linkage_subassembly(doc, grp_susp, dims):
     obj_arms.Label = "Axle-Mounted Triangular Sled Suspension Straps (Common Pivot Axis)"
     obj_arms.Shape = triangular_arms_compound
     grp_susp.addObject(obj_arms)
-    set_vis(doc, obj_arms, LINKAGE_STEEL)
+    apply_material(obj_arms, "Steel-A36")
     
     obj_latch = doc.addObject("Part::Feature", "Transit_Tilt_Snap_Latch")
     obj_latch.Label = "Foot-Release Upright Vacuum Tilt Snap Latch"
     obj_latch.Shape = latch_shape
     grp_susp.addObject(obj_latch)
-    set_vis(doc, obj_latch, LATCH_GOLD)
+    apply_material(obj_latch, "Steel-ZincPlated")
 
 # ==============================================================================
 # SUBASSEMBLY 3: PROPANE FUEL TRAIN & TANK-MOUNTED ROTARY FLOW VALVE
@@ -297,7 +298,7 @@ def build_gas_train_subassembly(doc, grp_gas, dims):
     obj_mount.Label = "Propane Harness Horizontal Cross-Strap Clamping Brackets"
     obj_mount.Shape = harness_clamps_solid
     grp_gas.addObject(obj_mount)
-    set_vis(doc, obj_mount, MOUNT_STEEL)
+    apply_material(obj_mount, "Steel-A36")
     
     # 3. Tank-Mounted Rotating Flow Control Valve & Integrated 11" W.C. Regulator
     valve_neck = Part.makeCylinder(10.0, 25.0, FreeCAD.Vector(80.0, 75.4, 650.0), FreeCAD.Vector(0, 0, 1))
@@ -312,7 +313,7 @@ def build_gas_train_subassembly(doc, grp_gas, dims):
     obj_valve.Label = "Tank-Mounted Rotary Flow Control Valve & 11in Regulator"
     obj_valve.Shape = valve_assembly_shape
     grp_gas.addObject(obj_valve)
-    set_vis(doc, obj_valve, VALVE_BRASS)
+    apply_material(obj_valve, "Brass-C360")
     
     # 4. Smooth B-Spline Flexible Gas Hose traveling down Center Support Pipe
     # Originates at regulator, curves over to center spine pipe, travels vertically down,
@@ -380,19 +381,19 @@ def build_gas_train_subassembly(doc, grp_gas, dims):
     obj_clips.Label = "Center Support Pipe Hose & Wire Retention Clips"
     obj_clips.Shape = clips_shape
     grp_gas.addObject(obj_clips)
-    set_vis(doc, obj_clips, MOUNT_STEEL)
+    apply_material(obj_clips, "Steel-ZincPlated")
     
     obj_hose = doc.addObject("Part::Feature", "Flexible_Gas_Feed_Hose")
     obj_hose.Label = "Flexible 3/8in Reinforced LP Gas Hose (Center Support Routed)"
     obj_hose.Shape = flexible_gas_hose
     grp_gas.addObject(obj_hose)
-    set_vis(doc, obj_hose, HOSE_BLACK)
+    apply_material(obj_hose, "Rubber-Solid")
     
     obj_spark = doc.addObject("Part::Feature", "Flexible_Spark_Ignition_Wire")
     obj_spark.Label = "High-Voltage Silicone Spark Ignition Wire (Center Support Routed)"
     obj_spark.Shape = flexible_spark_wire
     grp_gas.addObject(obj_spark)
-    set_vis(doc, obj_spark, WIRE_ORANGE)
+    apply_material(obj_spark, "PowderCoat-StihlOrange")
 
 # ==============================================================================
 # MASTER ASSEMBLY BUILD FUNCTION
@@ -441,6 +442,9 @@ def build_road_roaster():
     build_gas_train_subassembly(doc, grp_gas, dims)
     
     doc.recompute()
+    
+    report = get_mass_properties(doc)
+    print(format_mass_report(report, title="Road Roaster Master Assembly Mass Report"))
     
     fcstd_path = os.path.join(script_dir, "road-roaster.FCStd")
     

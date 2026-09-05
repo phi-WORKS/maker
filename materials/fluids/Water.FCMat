@@ -1,0 +1,21 @@
+---
+# FreeCAD Material Card
+General:
+  UUID: "aad50379-f4d7-4ec8-9471-404f67b0b82b"
+  Author: "phi ARCHITECT"
+  License: "CC-BY-4.0"
+  Name: "Water"
+  Description: "Liquid water (safety reservoir, ballast)"
+Models:
+  Density:
+    UUID: '454661e5-265b-4320-8e6f-fcf6223ac3af'
+    Density: "1000 kg/m^3"
+AppearanceModels:
+  BasicRendering:
+    UUID: 'f006c7e4-35b7-43d5-bbf9-c5d572309e6e'
+    AmbientColor: "(0.10, 0.30, 0.45, 0.5)"
+    DiffuseColor: "(0.20, 0.60, 0.90, 0.5)"
+    SpecularColor: "(0.80, 0.90, 1.00, 0.5)"
+    EmissiveColor: "(0.0, 0.0, 0.0, 1.0)"
+    Shininess: "0.80"
+    Transparency: "0.5"

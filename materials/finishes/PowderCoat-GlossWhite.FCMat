@@ -1,0 +1,25 @@
+---
+# FreeCAD Material Card
+General:
+  UUID: "4047963b-7c66-4dc3-8e44-941eff62cdb0"
+  Author: "phi ARCHITECT"
+  License: "CC-BY-4.0"
+  Name: "PowderCoat-GlossWhite"
+  Description: "Durable white gloss powder-coated carbon steel (DOT propane cylinders, outdoor tanks)"
+Models:
+  Density:
+    UUID: '454661e5-265b-4320-8e6f-fcf6223ac3af'
+    Density: "7850 kg/m^3"
+  LinearElastic:
+    UUID: '7b561d1d-fb9b-44f6-9da9-56a4f74d7536'
+    YoungsModulus: "200000 MPa"
+    PoissonRatio: "0.26"
+AppearanceModels:
+  BasicRendering:
+    UUID: 'f006c7e4-35b7-43d5-bbf9-c5d572309e6e'
+    AmbientColor: "(0.45, 0.45, 0.47, 1.0)"
+    DiffuseColor: "(0.90, 0.91, 0.93, 1.0)"
+    SpecularColor: "(0.95, 0.95, 0.98, 1.0)"
+    EmissiveColor: "(0.0, 0.0, 0.0, 1.0)"
+    Shininess: "0.50"
+    Transparency: "0.0"

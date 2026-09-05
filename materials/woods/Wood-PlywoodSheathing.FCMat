@@ -1,0 +1,26 @@
+---
+# FreeCAD Material Card
+General:
+  UUID: "11a85995-4d88-42ad-b8c7-9d1440e36b54"
+  Author: "phi ARCHITECT"
+  License: "CC-BY-4.0"
+  Name: "Wood-PlywoodSheathing"
+  Description: "Cross-laminated structural plywood sheathing (3/4in CDX / sanded pine plywood)"
+  SourceURL: "https://en.wikipedia.org/wiki/Plywood"
+Models:
+  Density:
+    UUID: '454661e5-265b-4320-8e6f-fcf6223ac3af'
+    Density: "600 kg/m^3"
+  LinearElastic:
+    UUID: '7b561d1d-fb9b-44f6-9da9-56a4f74d7536'
+    YoungsModulus: "8000 MPa"
+    PoissonRatio: "0.28"
+AppearanceModels:
+  BasicRendering:
+    UUID: 'f006c7e4-35b7-43d5-bbf9-c5d572309e6e'
+    AmbientColor: "(0.38, 0.30, 0.21, 1.0)"
+    DiffuseColor: "(0.76, 0.60, 0.42, 1.0)"
+    SpecularColor: "(0.15, 0.15, 0.12, 1.0)"
+    EmissiveColor: "(0.0, 0.0, 0.0, 1.0)"
+    Shininess: "0.10"
+    Transparency: "0.0"

@@ -1,0 +1,21 @@
+---
+# FreeCAD Material Card
+General:
+  UUID: "142f8625-07ba-4f09-963e-bddceeb395c1"
+  Author: "phi ARCHITECT"
+  License: "CC-BY-4.0"
+  Name: "PowderCoat-StihlOrange"
+  Description: "STIHL trademark high-visibility safety orange (tool housings, debris shields)"
+Models:
+  Density:
+    UUID: '454661e5-265b-4320-8e6f-fcf6223ac3af'
+    Density: "1050 kg/m^3"
+AppearanceModels:
+  BasicRendering:
+    UUID: 'f006c7e4-35b7-43d5-bbf9-c5d572309e6e'
+    AmbientColor: "(0.45, 0.15, 0.02, 1.0)"
+    DiffuseColor: "(0.95, 0.35, 0.05, 1.0)"
+    SpecularColor: "(0.60, 0.30, 0.10, 1.0)"
+    EmissiveColor: "(0.0, 0.0, 0.0, 1.0)"
+    Shininess: "0.35"
+    Transparency: "0.0"

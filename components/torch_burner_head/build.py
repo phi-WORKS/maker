@@ -22,6 +22,7 @@ except Exception:
     HAS_GUI = False
 
 from phi_works.maker.render import export_orthogonal_views, save_model, close_model
+from phi_works.maker.materials import apply_material, get_mass_properties, format_mass_report
 
 def create_torch_burner_head_component(doc, placement=None):
     """
@@ -42,13 +43,6 @@ def create_torch_burner_head_component(doc, placement=None):
     grp = doc.addObject("App::DocumentObjectGroup", "Torch_Burner_Head")
     grp.Label = "500,000 BTU Chassis Burner Nozzle & Venturi Bell"
 
-    # Color Palette
-    BELL_BLACK = (0.15, 0.15, 0.15, 0.0)      # High-Temp Black Coated Steel Combustion Bell
-    VENTURI_SILVER = (0.65, 0.68, 0.70, 0.0)  # Cast Venturi Air Induction Cone
-    BRASS = (0.85, 0.65, 0.20, 0.0)           # Precision Brass Orifice Hex Fitting
-    CERAMIC_WHITE = (0.92, 0.92, 0.95, 0.0)   # Insulated Spark Electrode
-    STEEL_FLANGE = (0.45, 0.48, 0.52, 0.0)    # Hood Mounting Flange Bracket
-
     # Dimensions
     BELL_OD = 63.5        # 2.5 in outer bell diameter
     BELL_ID = 58.0
@@ -63,8 +57,10 @@ def create_torch_burner_head_component(doc, placement=None):
     bell_solid.Placement = placement
 
     bell_obj = doc.addObject("Part::Feature", "Combustion_Bell_Cup")
+    bell_obj.Label = "High-Temp Coated Steel Combustion Bell Cup"
     bell_obj.Shape = bell_solid
     grp.addObject(bell_obj)
+    apply_material(bell_obj, "PowderCoat-MatteBlack")
 
     # 2. Cast Venturi Air Induction Cone with Triangular Air Windows
     cone_outer = Part.makeCone(CONE_BASE_D/2, BELL_OD/2, VENTURI_L, FreeCAD.Vector(0, 0, -VENTURI_L), FreeCAD.Vector(0, 0, 1))
@@ -80,8 +76,10 @@ def create_torch_burner_head_component(doc, placement=None):
     venturi_solid.Placement = placement
 
     venturi_obj = doc.addObject("Part::Feature", "Cast_Venturi_Cone")
+    venturi_obj.Label = "Plated Venturi Air Induction Cone"
     venturi_obj.Shape = venturi_solid
     grp.addObject(venturi_obj)
+    apply_material(venturi_obj, "Steel-ZincPlated")
 
     # 3. Brass Orifice Jet Hex Fitting & Gas Inlet
     jet_hex = Part.makeBox(16.0, 16.0, 12.0, FreeCAD.Vector(-8.0, -8.0, -VENTURI_L - 12.0))
@@ -91,8 +89,10 @@ def create_torch_burner_head_component(doc, placement=None):
     brass_jet.Placement = placement
 
     jet_obj = doc.addObject("Part::Feature", "Brass_Orifice_Jet_Inlet")
+    jet_obj.Label = "Precision Brass Orifice Jet Fitting"
     jet_obj.Shape = brass_jet
     grp.addObject(jet_obj)
+    apply_material(jet_obj, "Brass-C360")
 
     # 4. Ceramic Spark Electrode Assembly
     ceramic_body = Part.makeCylinder(4.0, 35.0, FreeCAD.Vector(15.0, 0, -VENTURI_L/2), FreeCAD.Vector(-1, 0, 1).normalize())
@@ -101,8 +101,10 @@ def create_torch_burner_head_component(doc, placement=None):
     electrode_solid.Placement = placement
 
     electrode_obj = doc.addObject("Part::Feature", "Ceramic_Spark_Electrode")
+    electrode_obj.Label = "High-Voltage Alumina Spark Electrode"
     electrode_obj.Shape = electrode_solid
     grp.addObject(electrode_obj)
+    apply_material(electrode_obj, "Ceramic-Alumina")
 
     # 5. Hood Apex Mounting Flange Bracket
     flange_plate = Part.makeBox(85.0, 75.0, 4.76, FreeCAD.Vector(-42.5, -37.5, -VENTURI_L/2 - 2.38))
@@ -118,44 +120,29 @@ def create_torch_burner_head_component(doc, placement=None):
     flange_solid.Placement = placement
 
     flange_obj = doc.addObject("Part::Feature", "Hood_Mounting_Flange")
+    flange_obj.Label = "Stainless Chassis Mounting Flange Bracket"
     flange_obj.Shape = flange_solid
     grp.addObject(flange_obj)
-
-    # Apply colors
-    if HAS_GUI and hasattr(FreeCADGui, "getDocument"):
-        try:
-            gui_d = FreeCADGui.getDocument(doc.Name)
-            if gui_d:
-                color_map = [
-                    (bell_obj, BELL_BLACK),
-                    (venturi_obj, VENTURI_SILVER),
-                    (jet_obj, BRASS),
-                    (electrode_obj, CERAMIC_WHITE),
-                    (flange_obj, STEEL_FLANGE)
-                ]
-                for o, c in color_map:
-                    g_o = gui_d.getObject(o.Name)
-                    if g_o:
-                        g_o.Visibility = True
-                        g_o.ShapeColor = c
-                        g_o.DisplayMode = "Flat Lines"
-        except Exception:
-            pass
+    apply_material(flange_obj, "Steel-304Stainless")
 
     return grp
 
 def build_standalone_component():
-    doc = FreeCAD.newDocument("torch_burner_head_component")
+    doc_name = "torch_burner_head"
+    doc = FreeCAD.newDocument(doc_name)
     comp_dir = os.path.dirname(os.path.abspath(__file__)) if "__file__" in globals() else os.path.abspath(".")
 
-    create_torch_burner_head_component(doc)
+    grp = create_torch_burner_head_component(doc)
     doc.recompute()
 
-    fc_path = os.path.join(comp_dir, "torch_burner_head.FCStd")
+    report = get_mass_properties(grp)
+    print(format_mass_report(report, title="Torch Burner Head Component Mass Report"))
+
+    fc_path = os.path.join(comp_dir, f"{doc_name}.FCStd")
 
     if HAS_GUI and FreeCADGui and FreeCADGui.getDocument(doc.Name):
-        base_prefix = os.path.join(comp_dir, "torch_burner_head")
-        export_orthogonal_views(FreeCADGui.getDocument(doc.Name), base_prefix, model_prefix="torch_burner_head", camera_type="Perspective")
+        base_prefix = os.path.join(comp_dir, doc_name)
+        export_orthogonal_views(FreeCADGui.getDocument(doc.Name), base_prefix, model_prefix=doc_name, camera_type="Perspective")
 
     save_model(doc, fc_path, camera_type="Perspective")
     close_model(doc.Name)

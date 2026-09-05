@@ -22,6 +22,7 @@ except Exception:
     HAS_GUI = False
 
 from phi_works.maker.render import export_orthogonal_views, save_model, close_model
+from phi_works.maker.materials import apply_material, get_mass_properties, format_mass_report
 
 def create_propane_harness_component(doc, placement=None):
     """
@@ -41,11 +42,6 @@ def create_propane_harness_component(doc, placement=None):
 
     grp = doc.addObject("App::DocumentObjectGroup", "Propane_Bottle_Harness")
     grp.Label = "Propane Bottle Harness Component (1 lb)"
-
-    # Color Palette
-    HARNESS_BLACK = (0.15, 0.15, 0.15, 0.0)   # Matte Powdercoated Steel Cage
-    BRACKET_SILVER = (0.60, 0.62, 0.65, 0.0)  # Zinc-Plated Mounting Clamps & Bolts
-    LATCH_RED = (0.85, 0.20, 0.20, 0.0)       # Quick-Release Latch Knob
 
     # Parametric Dimensions (Harness for 98.4 mm / 3.875" Cylinder)
     CYL_OD = 98.4
@@ -76,8 +72,10 @@ def create_propane_harness_component(doc, placement=None):
     spine_assembly.Placement = placement
 
     spine_obj = doc.addObject("Part::Feature", "Harness_Rear_Mounting_Spine")
+    spine_obj.Label = "Zinc-Plated Rear Mounting Spine & 3/4in Tube Clamps"
     spine_obj.Shape = spine_assembly
     grp.addObject(spine_obj)
+    apply_material(spine_obj, "Steel-ZincPlated")
 
     # 2. Bottom Support Seat Cup
     seat_outer = Part.makeCylinder(CAGE_OD/2, 20.0, FreeCAD.Vector(0, 0, 0), FreeCAD.Vector(0, 0, 1))
@@ -89,8 +87,10 @@ def create_propane_harness_component(doc, placement=None):
     seat_cup.Placement = placement
 
     seat_obj = doc.addObject("Part::Feature", "Bottom_Seat_Cup_Support")
+    seat_obj.Label = "Powder-Coated Steel Bottom Support Seat Cup"
     seat_obj.Shape = seat_cup
     grp.addObject(seat_obj)
+    apply_material(seat_obj, "PowderCoat-MatteBlack")
 
     # 3. Dual Vertical Side Retention Arms & Upper Ring
     arm_left = Part.makeBox(CAGE_WALL, 19.05, CAGE_H, FreeCAD.Vector(-10.0, -CAGE_OD/2 - CAGE_WALL, 0))
@@ -104,8 +104,10 @@ def create_propane_harness_component(doc, placement=None):
     cage_arms_shape.Placement = placement
 
     arms_obj = doc.addObject("Part::Feature", "Retention_Arms_Upper_Hoop")
+    arms_obj.Label = "Powder-Coated Steel Side Retention Arms & Hoop"
     arms_obj.Shape = cage_arms_shape
     grp.addObject(arms_obj)
+    apply_material(arms_obj, "PowderCoat-MatteBlack")
 
     # 4. Quick-Release Thumb-Screw Latch Strap
     latch_block = Part.makeBox(15.0, 25.0, 20.0, FreeCAD.Vector(CAGE_OD/2, -12.5, CAGE_H - 25.0))
@@ -115,39 +117,33 @@ def create_propane_harness_component(doc, placement=None):
     latch_shape.Placement = placement
 
     latch_obj = doc.addObject("Part::Feature", "Quick_Release_Latch_Knob")
+    latch_obj.Label = "Red Quick-Release Retention Latch Knob"
     latch_obj.Shape = latch_shape
     grp.addObject(latch_obj)
-
-    if HAS_GUI and hasattr(FreeCADGui, "getDocument"):
-        try:
-            gui_d = FreeCADGui.getDocument(doc.Name)
-            if gui_d:
-                for o, c in [(spine_obj, BRACKET_SILVER), (seat_obj, HARNESS_BLACK), (arms_obj, HARNESS_BLACK), (latch_obj, LATCH_RED)]:
-                    g_o = gui_d.getObject(o.Name)
-                    if g_o:
-                        g_o.Visibility = True
-                        g_o.ShapeColor = c
-                        g_o.DisplayMode = "Flat Lines"
-        except Exception:
-            pass
+    apply_material(latch_obj, "PowderCoat-IndustrialRed")
 
     return grp
 
 def build_standalone_component():
-    doc = FreeCAD.newDocument("propane_harness_component")
+    doc_name = "propane_harness"
+    doc = FreeCAD.newDocument(doc_name)
     comp_dir = os.path.dirname(os.path.abspath(__file__)) if "__file__" in globals() else os.path.abspath(".")
 
-    create_propane_harness_component(doc)
+    grp = create_propane_harness_component(doc)
     doc.recompute()
 
-    fc_path = os.path.join(comp_dir, "propane_harness.FCStd")
+    report = get_mass_properties(grp)
+    print(format_mass_report(report, title="Propane Bottle Harness Mass Report"))
+
+    fc_path = os.path.join(comp_dir, f"{doc_name}.FCStd")
 
     if HAS_GUI and FreeCADGui and FreeCADGui.getDocument(doc.Name):
-        base_prefix = os.path.join(comp_dir, "propane_harness")
-        export_orthogonal_views(FreeCADGui.getDocument(doc.Name), base_prefix, model_prefix="propane_harness", camera_type="Perspective")
+        base_prefix = os.path.join(comp_dir, doc_name)
+        export_orthogonal_views(FreeCADGui.getDocument(doc.Name), base_prefix, model_prefix=doc_name, camera_type="Perspective")
 
     save_model(doc, fc_path, camera_type="Perspective")
     close_model(doc.Name)
+    print("Propane harness build complete.")
 
 if __name__ == "__main__":
     build_standalone_component()

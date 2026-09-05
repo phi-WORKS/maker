@@ -10,6 +10,15 @@ from phi_works.maker.render import (
     HAS_GUI,
 )
 from phi_works.maker.components import import_component
+from phi_works.maker.materials import (
+    get_materials_dir,
+    init_materials,
+    list_materials,
+    get_material,
+    apply_material,
+    get_mass_properties,
+    format_mass_report,
+)
 
 __all__ = [
     "export_orthogonal_views",
@@ -18,4 +27,12 @@ __all__ = [
     "close_model",
     "HAS_GUI",
     "import_component",
+    "get_materials_dir",
+    "init_materials",
+    "list_materials",
+    "get_material",
+    "apply_material",
+    "get_mass_properties",
+    "format_mass_report",
 ]
+

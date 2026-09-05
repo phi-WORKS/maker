@@ -1,0 +1,21 @@
+---
+# FreeCAD Material Card
+General:
+  UUID: "1ad62aa7-566e-466a-8c60-d98845c9cba0"
+  Author: "phi ARCHITECT"
+  License: "CC-BY-4.0"
+  Name: "PowderCoat-IndustrialBlue"
+  Description: "Industrial blue powder-coated steel/aluminum (Harbor Freight tools, valve bodies)"
+Models:
+  Density:
+    UUID: '454661e5-265b-4320-8e6f-fcf6223ac3af'
+    Density: "7850 kg/m^3"
+AppearanceModels:
+  BasicRendering:
+    UUID: 'f006c7e4-35b7-43d5-bbf9-c5d572309e6e'
+    AmbientColor: "(0.05, 0.17, 0.40, 1.0)"
+    DiffuseColor: "(0.10, 0.35, 0.80, 1.0)"
+    SpecularColor: "(0.40, 0.60, 0.90, 1.0)"
+    EmissiveColor: "(0.0, 0.0, 0.0, 1.0)"
+    Shininess: "0.40"
+    Transparency: "0.0"

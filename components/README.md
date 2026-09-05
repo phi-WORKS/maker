@@ -85,3 +85,9 @@ Host assembly projects under `projects/` import these pre-built components via `
 | Component Preview | Technical Specifications & Files |
 | :---: | :--- |
 | [![STIHL Kombi Tools](kombi_tools/kombi_tools.png)](kombi_tools/) | • **Description**: 3D parametric CAD models for STIHL KombiSystem power heads and attachments (straight-shaft line trimmer, curved edger, gearbox elbows, orange debris shields).<br>• **Role**: Clearance verification and storage rack fitting models for the [Kombi Kaddy](../projects/kombi-kaddy/).<br>• 📖 [**`README.md`**](kombi_tools/README.md)<br>• 🛠️ [**`build_trimmer.py`**](kombi_tools/build_trimmer.py) / [**`build_kombi_tools.py`**](kombi_tools/build_kombi_tools.py)<br>• 📦 [**`trimmer.FCStd`**](kombi_tools/trimmer.FCStd) / [**`kombi_tools.FCStd`**](kombi_tools/kombi_tools.FCStd) |
+
+### 12. [2.5 Gallon Pressurized Water Safety Spray Tank](water_tank/)
+
+| Component Preview | Technical Specifications & Files |
+| :---: | :--- |
+| [![Water Safety Tank](water_tank/water_tank.png)](water_tank/) | • **Description**: 2.5-gallon (9.5 L) pressurized water safety tank with blow-molded safety blue HDPE vessel, plunger pump T-handle, brass discharge port, reinforced coiled washdown hose, and trigger spray wand.<br>• **Dimensions**: 7.09" OD × 18.2" overall height, ~2.8 lb empty tare weight (24.6 lbs charged with water).<br>• **Role**: Onboard fire-suppression and pavement-quenching safety system on [Road Roaster 4W](../projects/road-roaster-4w/).<br>• 📖 [**`README.md`**](water_tank/README.md)<br>• 🛠️ [**`build.py`**](water_tank/build.py)<br>• 📦 [**`water_tank.FCStd`**](water_tank/water_tank.FCStd) |

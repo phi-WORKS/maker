@@ -1,0 +1,22 @@
+---
+# FreeCAD Material Card
+General:
+  UUID: "3397e9ef-5986-4e8c-aff7-cc31b9353a44"
+  Author: "phi ARCHITECT"
+  License: "CC-BY-4.0"
+  Name: "Plastic-ABS"
+  Description: "Acrylonitrile butadiene styrene rigid thermoplastic (tool cases, knobs, handle grips)"
+  SourceURL: "https://en.wikipedia.org/wiki/Acrylonitrile_butadiene_styrene"
+Models:
+  Density:
+    UUID: '454661e5-265b-4320-8e6f-fcf6223ac3af'
+    Density: "1040 kg/m^3"
+AppearanceModels:
+  BasicRendering:
+    UUID: 'f006c7e4-35b7-43d5-bbf9-c5d572309e6e'
+    AmbientColor: "(0.12, 0.12, 0.14, 1.0)"
+    DiffuseColor: "(0.20, 0.20, 0.22, 1.0)"
+    SpecularColor: "(0.30, 0.30, 0.32, 1.0)"
+    EmissiveColor: "(0.0, 0.0, 0.0, 1.0)"
+    Shininess: "0.20"
+    Transparency: "0.0"

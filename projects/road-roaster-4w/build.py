@@ -30,6 +30,7 @@ except Exception:
 
 from phi_works.maker.render import export_orthogonal_views, save_model, close_model
 from phi_works.maker.components import import_component
+from phi_works.maker.materials import apply_material, get_mass_properties, format_mass_report
 
 def set_vis(doc, obj, color):
     if HAS_GUI and FreeCADGui and FreeCADGui.getDocument(doc.Name):
@@ -187,31 +188,31 @@ def build_front_cantilever_burner_subassembly(doc, grp_burner, dims):
     obj_hinges.Label = "Front Deck 180-deg Flip Hinge Brackets & Pivot Pins"
     obj_hinges.Shape = hinge_brackets_solid
     grp_burner.addObject(obj_hinges)
-    set_vis(doc, obj_hinges, HINGE_ZINC)
+    apply_material(obj_hinges, "Steel-ZincPlated")
     
     obj_arms = doc.addObject("Part::Feature", "Burner_Cantilever_Arms")
     obj_arms.Label = "Cantilever Square-Tube Arms (180-deg Flip & Height Adjust)"
     obj_arms.Shape = cantilever_arms_solid
     grp_burner.addObject(obj_arms)
-    set_vis(doc, obj_arms, ARM_STEEL)
+    apply_material(obj_arms, "Steel-A36")
     
     obj_tb = doc.addObject("Part::Feature", "Turnbuckle_Height_Adjuster")
     obj_tb.Label = "Threaded Turnbuckle Height Adjustment Struts"
     obj_tb.Shape = turnbuckle_solid
     grp_burner.addObject(obj_tb)
-    set_vis(doc, obj_tb, TURNBUCKLE_BRASS)
+    apply_material(obj_tb, "Brass-C360")
     
     obj_cowl = doc.addObject("Part::Feature", "Burner_Sled_Cowl")
     obj_cowl.Label = "14-Gauge Protective Burner Sled Cowl & Heat Skirts"
     obj_cowl.Shape = cowl_shell
     grp_burner.addObject(obj_cowl)
-    set_vis(doc, obj_cowl, COWL_STEEL)
+    apply_material(obj_cowl, "Steel-A36")
     
     obj_hose = doc.addObject("Part::Feature", "Burner_Flexible_Gas_Loop")
     obj_hose.Label = "Flexible Reinforced LP Gas Hose Supply Loop"
     obj_hose.Shape = hose_solid
     grp_burner.addObject(obj_hose)
-    set_vis(doc, obj_hose, HOSE_BLACK)
+    apply_material(obj_hose, "Rubber-Solid")
     
     # --------------------------------------------------------------------------
     # 6. Import Standalone Solaronics Ceramic Infrared Burner Component
@@ -272,13 +273,13 @@ def build_fuel_train_subassembly(doc, grp_fuel, dims):
     obj_ring.Label = "20 lb Propane Foot-Ring Deck Retention Clamp"
     obj_ring.Shape = retention_collar
     grp_fuel.addObject(obj_ring)
-    set_vis(doc, obj_ring, TANK_STEEL)
+    apply_material(obj_ring, "Steel-A36")
     
     obj_tee = doc.addObject("Part::Feature", "Dual_Manifold_Gas_Tee")
     obj_tee.Label = "Brass Dual-Outlet Regulator Distribution Manifold Tee"
     obj_tee.Shape = tee_assembly
     grp_fuel.addObject(obj_tee)
-    set_vis(doc, obj_tee, VALVE_BRASS)
+    apply_material(obj_tee, "Brass-C360")
 
 # ==============================================================================
 # SUBASSEMBLY 3: AUXILIARY SPOT TORCH WAND & WATER SAFETY RESERVOIR
@@ -292,10 +293,6 @@ def build_auxiliary_safety_subassembly(doc, grp_aux, dims):
     DECK_L = dims.DeckLength.Value
     HANDLE_Y = DECK_L / 2.0 - 45.0  # Y = +412.2 mm
     
-    WATER_BLUE = (0.10, 0.42, 0.85, 0.0)      # Vivid Safety Water Blue Tank
-    PUMP_BLACK = (0.15, 0.15, 0.16, 0.0)      # Molded Poly Pump Plunger & Hose
-    BRACKET_STEEL = (0.45, 0.48, 0.52, 0.0)   # Quick-Release Steel Brackets
-    
     # --------------------------------------------------------------------------
     # 1. 2.5-Gallon Blue Pressurized Water Safety Reservoir (Rear Deck, Beside Gas Tank)
     # --------------------------------------------------------------------------
@@ -303,13 +300,12 @@ def build_auxiliary_safety_subassembly(doc, grp_aux, dims):
     WATER_X = dims.WaterCenterX.Value  # -170.0 mm
     WATER_Y = dims.TankCenterY.Value   # +220.0 mm
     WATER_R = 90.0    # 7.1 in diameter
-    WATER_H = 340.0   # 13.4 in height
     
-    tank_cyl = Part.makeCylinder(WATER_R, WATER_H, FreeCAD.Vector(WATER_X, WATER_Y, DECK_TOP_Z), FreeCAD.Vector(0, 0, 1))
-    top_dome = Part.makeCone(WATER_R, 40.0, 45.0, FreeCAD.Vector(WATER_X, WATER_Y, DECK_TOP_Z + WATER_H), FreeCAD.Vector(0, 0, 1))
-    pump_handle = Part.makeBox(120.0, 30.0, 25.0, FreeCAD.Vector(WATER_X - 60.0, WATER_Y - 15.0, DECK_TOP_Z + WATER_H + 45.0))
-    spray_hose = Part.makeTorus(WATER_R + 15.0, 6.0, FreeCAD.Vector(WATER_X, WATER_Y, DECK_TOP_Z + WATER_H / 2.0), FreeCAD.Vector(0, 0, 1))
-    water_canister_solid = tank_cyl.fuse(top_dome).fuse(pump_handle).fuse(spray_hose)
+    # Import Standalone 2.5 Gallon Pressurized Water Tank Component
+    water_pos = FreeCAD.Vector(WATER_X, WATER_Y, DECK_TOP_Z)
+    water_grp = import_component(doc, "water_tank", placement=FreeCAD.Placement(water_pos, FreeCAD.Rotation()))
+    if water_grp:
+        grp_aux.addObject(water_grp)
     
     # Deck cradle bracket for water tank
     cradle_base = Part.makeBox(200.0, 200.0, 6.0, FreeCAD.Vector(WATER_X - 100.0, WATER_Y - 100.0, DECK_TOP_Z))
@@ -375,29 +371,23 @@ def build_auxiliary_safety_subassembly(doc, grp_aux, dims):
     face_t = Part.Face(Part.Wire([circ_t]))
     torch_supply_hose = wire_t.makePipe(face_t)
         
-    obj_water = doc.addObject("Part::Feature", "Water_Safety_Reservoir")
-    obj_water.Label = "2.5 Gal Pressurized Blue Water Safety Spray Tank"
-    obj_water.Shape = water_canister_solid
-    grp_aux.addObject(obj_water)
-    set_vis(doc, obj_water, WATER_BLUE)
-    
     obj_cradle = doc.addObject("Part::Feature", "Water_Tank_Deck_Cradle")
     obj_cradle.Label = "Water Safety Tank Quick-Lock Deck Cradle"
     obj_cradle.Shape = cradle_solid
     grp_aux.addObject(obj_cradle)
-    set_vis(doc, obj_cradle, BRACKET_STEEL)
+    apply_material(obj_cradle, "Steel-A36")
     
     obj_stirrups = doc.addObject("Part::Feature", "Torch_Handle_Stirrup_Holster")
     obj_stirrups.Label = "Quick-Draw Torch Handle Stirrup Loop & Guide Saddle"
     obj_stirrups.Shape = stirrups_solid
     grp_aux.addObject(obj_stirrups)
-    set_vis(doc, obj_stirrups, BRACKET_STEEL)
+    apply_material(obj_stirrups, "Steel-ZincPlated")
 
     obj_t_hose = doc.addObject("Part::Feature", "Torch_Auxiliary_Gas_Hose")
     obj_t_hose.Label = "Auxiliary Spot Torch Flexible Gas Hose"
     obj_t_hose.Shape = torch_supply_hose
     grp_aux.addObject(obj_t_hose)
-    set_vis(doc, obj_t_hose, (0.12, 0.12, 0.14, 0.0))
+    apply_material(obj_t_hose, "Rubber-Solid")
 
 # ==============================================================================
 # MASTER ASSEMBLY BUILD FUNCTION
@@ -463,6 +453,9 @@ def build_road_roaster_4w():
     build_auxiliary_safety_subassembly(doc, grp_aux, dims)
 
     doc.recompute()
+
+    report = get_mass_properties(doc)
+    print(format_mass_report(report, title="Road Roaster 4W Master Assembly Mass Report"))
 
     fcstd_path = os.path.join(script_dir, f"{doc_name}.FCStd")
 

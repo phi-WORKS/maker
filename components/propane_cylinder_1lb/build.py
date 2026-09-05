@@ -22,6 +22,7 @@ except Exception:
     HAS_GUI = False
 
 from phi_works.maker.render import export_orthogonal_views, save_model, close_model
+from phi_works.maker.materials import apply_material, get_mass_properties, format_mass_report
 
 def create_propane_cylinder_component(doc, placement=None):
     """
@@ -42,14 +43,10 @@ def create_propane_cylinder_component(doc, placement=None):
     grp = doc.addObject("App::DocumentObjectGroup", "Propane_Cylinder_1lb")
     grp.Label = "1 lb Propane Cylinder Component"
 
-    # Color Palette
-    PROPANE_GREEN = (0.12, 0.48, 0.22, 0.0)   # Standard Coleman / Flameking Dark Green
-    BRASS = (0.85, 0.65, 0.20, 0.0)           # 1"-20 UNEF Valve & Fittings
-    STEEL_DARK = (0.25, 0.27, 0.29, 0.0)      # Safety Collar & Base Rim
-
     # Parametric Dimensions (1 lb Cylinder)
     CYL_RADIUS = 49.2     # 3.875 in diameter -> 98.4 mm OD
     CYL_BODY_H = 140.0    # 5.5 in main cylindrical body
+    CYL_WALL = 1.2        # Standard 1 lb disposable canister steel wall (~0.045 in)
     BASE_COLLAR_R = 44.0  # Recessed bottom seating rim radius
     BASE_COLLAR_H = 12.0  # Bottom collar height
     VALVE_NECK_R = 14.0   # Upper neck collar
@@ -59,11 +56,13 @@ def create_propane_cylinder_component(doc, placement=None):
 
     # 1. Recessed Bottom Seat Collar
     seat_collar = Part.makeCylinder(BASE_COLLAR_R, BASE_COLLAR_H, FreeCAD.Vector(0, 0, 0), FreeCAD.Vector(0, 0, 1))
-    seat_inner = Part.makeCylinder(BASE_COLLAR_R - 3.0, BASE_COLLAR_H + 0.1, FreeCAD.Vector(0, 0, -0.1), FreeCAD.Vector(0, 0, 1))
+    seat_inner = Part.makeCylinder(BASE_COLLAR_R - 2.5, BASE_COLLAR_H + 0.1, FreeCAD.Vector(0, 0, -0.1), FreeCAD.Vector(0, 0, 1))
     seat_rim = seat_collar.cut(seat_inner)
 
-    # 2. Main Cylinder Body & Dome
-    cyl_body = Part.makeCylinder(CYL_RADIUS, CYL_BODY_H, FreeCAD.Vector(0, 0, BASE_COLLAR_H), FreeCAD.Vector(0, 0, 1))
+    # 2. Main Cylinder Body (Hollow Pressure Shell)
+    cyl_body_out = Part.makeCylinder(CYL_RADIUS, CYL_BODY_H, FreeCAD.Vector(0, 0, BASE_COLLAR_H), FreeCAD.Vector(0, 0, 1))
+    cyl_body_in = Part.makeCylinder(CYL_RADIUS - CYL_WALL, CYL_BODY_H + 2.0, FreeCAD.Vector(0, 0, BASE_COLLAR_H - 1.0), FreeCAD.Vector(0, 0, 1))
+    cyl_body = cyl_body_out.cut(cyl_body_in)
     
     # Upper Dome Transition
     dome_sphere = Part.makeSphere(CYL_RADIUS, FreeCAD.Vector(0, 0, BASE_COLLAR_H + CYL_BODY_H - CYL_RADIUS / 2))
@@ -74,8 +73,10 @@ def create_propane_cylinder_component(doc, placement=None):
     tank_steel_shape.Placement = placement
 
     tank_obj = doc.addObject("Part::Feature", "Cylinder_Steel_Body")
+    tank_obj.Label = "1 lb Steel Pressure Canister Body & Seating Collar"
     tank_obj.Shape = tank_steel_shape
     grp.addObject(tank_obj)
+    apply_material(tank_obj, "PowderCoat-ForestGreen")
 
     # 3. Brass Top Valve & Safety Neck
     neck_pos = FreeCAD.Vector(0, 0, BASE_COLLAR_H + CYL_BODY_H + 12.0)
@@ -86,44 +87,33 @@ def create_propane_cylinder_component(doc, placement=None):
     brass_valve_shape.Placement = placement
 
     valve_obj = doc.addObject("Part::Feature", "Brass_Threaded_Valve_1in20")
+    valve_obj.Label = "Brass 1in-20 UNEF Service Valve & Stem"
     valve_obj.Shape = brass_valve_shape
     grp.addObject(valve_obj)
-
-    if HAS_GUI and hasattr(FreeCADGui, "getDocument"):
-        try:
-            gui_d = FreeCADGui.getDocument(doc.Name)
-            if gui_d:
-                g_tank = gui_d.getObject(tank_obj.Name)
-                if g_tank:
-                    g_tank.Visibility = True
-                    g_tank.ShapeColor = PROPANE_GREEN
-                    g_tank.DisplayMode = "Flat Lines"
-
-                g_valve = gui_d.getObject(valve_obj.Name)
-                if g_valve:
-                    g_valve.Visibility = True
-                    g_valve.ShapeColor = BRASS
-                    g_valve.DisplayMode = "Flat Lines"
-        except Exception:
-            pass
+    apply_material(valve_obj, "Brass-C360")
 
     return grp
 
 def build_standalone_component():
-    doc = FreeCAD.newDocument("propane_cylinder_1lb_component")
+    doc_name = "propane_cylinder_1lb"
+    doc = FreeCAD.newDocument(doc_name)
     comp_dir = os.path.dirname(os.path.abspath(__file__)) if "__file__" in globals() else os.path.abspath(".")
 
-    create_propane_cylinder_component(doc)
+    grp = create_propane_cylinder_component(doc)
     doc.recompute()
 
-    fc_path = os.path.join(comp_dir, "propane_cylinder_1lb.FCStd")
+    report = get_mass_properties(grp)
+    print(format_mass_report(report, title="1 lb Disposable Propane Canister Mass Report"))
+
+    fc_path = os.path.join(comp_dir, f"{doc_name}.FCStd")
 
     if HAS_GUI and FreeCADGui and FreeCADGui.getDocument(doc.Name):
-        base_prefix = os.path.join(comp_dir, "propane_cylinder_1lb")
-        export_orthogonal_views(FreeCADGui.getDocument(doc.Name), base_prefix, model_prefix="propane_cylinder_1lb", camera_type="Perspective")
+        base_prefix = os.path.join(comp_dir, doc_name)
+        export_orthogonal_views(FreeCADGui.getDocument(doc.Name), base_prefix, model_prefix=doc_name, camera_type="Perspective")
 
     save_model(doc, fc_path, camera_type="Perspective")
     close_model(doc.Name)
+    print("1 lb propane cylinder build complete.")
 
 if __name__ == "__main__":
     build_standalone_component()

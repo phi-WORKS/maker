@@ -1,0 +1,26 @@
+---
+# FreeCAD Material Card
+General:
+  UUID: "ae4975a5-70ef-45c8-a8c5-74d0e55796cb"
+  Author: "phi ARCHITECT"
+  License: "CC-BY-4.0"
+  Name: "PowderCoat-IndustrialRed"
+  Description: "Industrial red powder-coated structural carbon steel (hand truck frames, chassis)"
+Models:
+  Density:
+    UUID: '454661e5-265b-4320-8e6f-fcf6223ac3af'
+    Density: "7850 kg/m^3"
+  LinearElastic:
+    UUID: '7b561d1d-fb9b-44f6-9da9-56a4f74d7536'
+    YoungsModulus: "200000 MPa"
+    PoissonRatio: "0.26"
+    YieldStrength: "250 MPa"
+AppearanceModels:
+  BasicRendering:
+    UUID: 'f006c7e4-35b7-43d5-bbf9-c5d572309e6e'
+    AmbientColor: "(0.40, 0.08, 0.08, 1.0)"
+    DiffuseColor: "(0.82, 0.12, 0.12, 1.0)"
+    SpecularColor: "(0.90, 0.40, 0.40, 1.0)"
+    EmissiveColor: "(0.0, 0.0, 0.0, 1.0)"
+    Shininess: "0.40"
+    Transparency: "0.0"

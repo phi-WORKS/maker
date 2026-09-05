@@ -12,6 +12,7 @@ except Exception:
     HAS_GUI = False
 
 from phi_works.maker.render import export_orthogonal_views
+from phi_works.maker.materials import apply_material, get_mass_properties, format_mass_report
 
 def build_trimmer_model():
     doc_name = "kombi_trimmer"
@@ -23,23 +24,6 @@ def build_trimmer_model():
 
     doc = FreeCAD.newDocument(doc_name)
     doc.Label = "STIHL Kombi Line Trimmer"
-
-    # --- Colors ---
-    SHAFT_COLOR = (0.85, 0.85, 0.88, 0.0)      # Aluminum shaft
-    COUPLER_COLOR = (0.15, 0.15, 0.15, 0.0)    # Black plastic coupler
-    STIHL_ORANGE = (0.95, 0.35, 0.05, 0.0)     # Shield orange
-    HEAD_BLACK = (0.20, 0.20, 0.20, 0.0)       # Trimmer head body
-
-    def set_vis(obj, color):
-        if HAS_GUI:
-            try:
-                g_obj = FreeCADGui.getDocument(doc.Name).getObject(obj.Name)
-                if g_obj:
-                    g_obj.Visibility = True
-                    g_obj.ShapeColor = color
-                    g_obj.DisplayMode = "Flat Lines"
-            except Exception:
-                pass
 
     IN2MM = 25.4
     OVERALL_H = 39.0 * IN2MM          # 990.6 mm overall vertical height
@@ -64,16 +48,16 @@ def build_trimmer_model():
     shaft = Part.makeCylinder(SHAFT_R, EXPOSED_SHAFT_L, FreeCAD.Vector(0, 0, z_elbow), FreeCAD.Vector(0, 0, 1))
     o_shaft = doc.addObject("Part::Feature", "Exposed_Drive_Shaft_31in")
     o_shaft.Shape = shaft
-    set_vis(o_shaft, SHAFT_COLOR)
     grp.addObject(o_shaft)
+    apply_material(o_shaft, "Aluminum-6061-T6")
 
     # 2. Top Coupler Sleeve (Top 70mm)
     z_coupler_start = OVERALL_H - 70.0
     coupler = Part.makeCylinder(14.0, 70.0, FreeCAD.Vector(0, 0, z_coupler_start), FreeCAD.Vector(0, 0, 1))
     o_coup = doc.addObject("Part::Feature", "Quick_Connect_Sleeve")
     o_coup.Shape = coupler
-    set_vis(o_coup, COUPLER_COLOR)
     grp.addObject(o_coup)
+    apply_material(o_coup, "Plastic-ABS")
 
     # 3. Gear Head & Bump Spool
     gearbox = Part.makeCylinder(22.0, GEARBOX_H, FreeCAD.Vector(0, 0, -GEARBOX_H), FreeCAD.Vector(0, 0, 1))
@@ -108,15 +92,18 @@ def build_trimmer_model():
 
     o_head = doc.addObject("Part::Feature", "Angled_Gearbox_Head")
     o_head.Shape = head_compound
-    set_vis(o_head, HEAD_BLACK)
     grp.addObject(o_head)
+    apply_material(o_head, "Plastic-ABS")
 
     o_sh = doc.addObject("Part::Feature", "Angled_Debris_Shield")
     o_sh.Shape = shield_shape
-    set_vis(o_sh, STIHL_ORANGE)
     grp.addObject(o_sh)
+    apply_material(o_sh, "PowderCoat-StihlOrange")
 
     doc.recompute()
+
+    report = get_mass_properties(grp)
+    print(format_mass_report(report, title="STIHL Kombi Line Trimmer Mass Report"))
 
     out_dir = os.path.dirname(os.path.abspath(__file__)) if "__file__" in globals() else os.path.abspath(".")
     os.makedirs(out_dir, exist_ok=True)

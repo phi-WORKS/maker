@@ -1,0 +1,26 @@
+---
+# FreeCAD Material Card
+General:
+  UUID: "1a005f09-421c-4769-ac84-099a9f02e3bb"
+  Author: "phi ARCHITECT"
+  License: "CC-BY-4.0"
+  Name: "Ceramic-Cordierite"
+  Description: "Porous high-temperature cordierite ceramic matrix (infrared radiant burner tiles, glowing 1,800 deg F face)"
+  SourceURL: "https://en.wikipedia.org/wiki/Cordierite"
+Models:
+  Density:
+    UUID: '454661e5-265b-4320-8e6f-fcf6223ac3af'
+    Density: "2100 kg/m^3"
+  LinearElastic:
+    UUID: '7b561d1d-fb9b-44f6-9da9-56a4f74d7536'
+    YoungsModulus: "135000 MPa"
+    PoissonRatio: "0.22"
+AppearanceModels:
+  BasicRendering:
+    UUID: 'f006c7e4-35b7-43d5-bbf9-c5d572309e6e'
+    AmbientColor: "(0.50, 0.15, 0.05, 1.0)"
+    DiffuseColor: "(0.95, 0.28, 0.08, 1.0)"
+    SpecularColor: "(0.40, 0.20, 0.10, 1.0)"
+    EmissiveColor: "(0.0, 0.0, 0.0, 1.0)"
+    Shininess: "0.10"
+    Transparency: "0.0"
