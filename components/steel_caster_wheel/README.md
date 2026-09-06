@@ -41,5 +41,10 @@
 ## 3. Build & Render Command
 
 ```bash
-/home/phi/AppImages/FreeCAD_1.1.3-Linux-x86_64-py311.AppImage -c "__file__='/home/phi/PROJECTS/phi-WORKS/maker/components/steel_caster_wheel/build.py'; exec(open(__file__).read())"
+# Using repository runner:
+./scripts/run_freecad.sh components/steel_caster_wheel/build.py
+
+# Or directly with xvfb-run:
+PYTHONPATH=src xvfb-run -a /home/phi/AppImages/FreeCAD_1.1.3-Linux-x86_64-py311.AppImage -c "__file__='components/steel_caster_wheel/build.py'; exec(open(__file__).read())"
 ```
+

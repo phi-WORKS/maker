@@ -116,5 +116,10 @@ Thermal weed control does **not** require burning green vegetation to ash. Heati
 To generate the 3D parametric CAD assembly and update all 7 orthogonal/isometric views:
 
 ```bash
-/home/phi/AppImages/FreeCAD_1.1.3-Linux-x86_64-py311.AppImage -c "__file__='projects/road-roaster/build.py'; exec(open(__file__).read())"
+# Using repository runner:
+./scripts/run_freecad.sh projects/road-roaster/build.py
+
+# Or directly with xvfb-run:
+PYTHONPATH=src xvfb-run -a /home/phi/AppImages/FreeCAD_1.1.3-Linux-x86_64-py311.AppImage -c "__file__='projects/road-roaster/build.py'; exec(open(__file__).read())"
 ```
+

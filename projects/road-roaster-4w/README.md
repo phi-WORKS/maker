@@ -82,5 +82,10 @@ While the original [Road Roaster (`road-roaster`)](../road-roaster/) leverages a
 
 To generate the active `.FCStd` model and 7 perspective views:
 ```bash
-/home/phi/AppImages/FreeCAD_1.1.3-Linux-x86_64-py311.AppImage -c "__file__='projects/road-roaster-4w/build.py'; exec(open(__file__).read())"
+# Using repository runner:
+./scripts/run_freecad.sh projects/road-roaster-4w/build.py
+
+# Or directly with xvfb-run:
+PYTHONPATH=src xvfb-run -a /home/phi/AppImages/FreeCAD_1.1.3-Linux-x86_64-py311.AppImage -c "__file__='projects/road-roaster-4w/build.py'; exec(open(__file__).read())"
 ```
+

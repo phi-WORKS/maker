@@ -77,6 +77,18 @@ Physical design iterations follow **Semantic Versioning** rules adapted for hard
 - **Dual Physical & Appearance Models**: Material cards bind physical properties (`Density` in $\text{kg/m}^3$) with appearance properties (`BasicRendering` with `DiffuseColor`, `Shininess`), guaranteeing both visual consistency and engineering rigor.
 - **Parametric Mass & Center of Gravity**: Component and project build scripts calculate and log physical weight and 3D Center of Gravity (CoG) using `get_mass_properties()` and `format_mass_report()`.
 
+### 2.4 Headless FreeCAD Execution Standard (`xvfb-run -a`)
+- **AppImage URI**: `/home/phi/AppImages/FreeCAD_1.1.3-Linux-x86_64-py311.AppImage`.
+- **Offscreen Xvfb Virtual Framebuffer**: Always execute CAD generation and rendering scripts with `xvfb-run -a` (or via `./scripts/run_freecad.sh`). This isolates the FreeCAD GUI/OpenGL pipeline in an offscreen virtual display, preventing window focus stealing, GUI lockups, and dramatically reducing rendering time.
+- **Agent Sandbox Bypass**: Because the FreeCAD AppImage is stored at `/home/phi/AppImages` outside the repository workspace root, AI agent tools (`run_command`) must specify `BypassSandbox: true` to prevent false starts with exit code 127 (`not found`).
+- **Python Module Path**: Set `PYTHONPATH=src` so FreeCAD's bundled Python 3.11 environment can locate `phi_works.maker`.
+- **Clean Process Exit**: Build scripts executed via `-c` must call `os._exit(0)` at termination to prevent FreeCAD's Qt application loop from hanging indefinitely.
+- **Standard Command**:
+  ```bash
+  PYTHONPATH=src xvfb-run -a /home/phi/AppImages/FreeCAD_1.1.3-Linux-x86_64-py311.AppImage -c "__file__='<script_path>'; exec(open(__file__).read())"
+  # Or with helper:
+  ./scripts/run_freecad.sh <script_path>
+  ```
 
 ---
 

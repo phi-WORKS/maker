@@ -37,4 +37,4 @@ def build_standalone():
 
 if __name__ == "__main__":
     build_standalone()
-    sys.exit(0)
+    os._exit(0)

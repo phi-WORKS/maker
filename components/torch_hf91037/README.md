@@ -53,5 +53,10 @@ This module is a standalone 3D CAD representation of the **Harbor Freight #91037
 To re-generate the standalone FreeCAD torch model document and all 7 views:
 
 ```bash
-/home/phi/AppImages/FreeCAD_1.1.3-Linux-x86_64-py311.AppImage -c "__file__='components/torch_hf91037/build.py'; exec(open(__file__).read())"
+# Using repository runner:
+./scripts/run_freecad.sh components/torch_hf91037/build.py
+
+# Or directly with xvfb-run:
+PYTHONPATH=src xvfb-run -a /home/phi/AppImages/FreeCAD_1.1.3-Linux-x86_64-py311.AppImage -c "__file__='components/torch_hf91037/build.py'; exec(open(__file__).read())"
 ```
+

@@ -38,4 +38,4 @@ def build_project():
 
 if __name__ == "__main__":
     build_project()
-    sys.exit(0)
+    os._exit(0)

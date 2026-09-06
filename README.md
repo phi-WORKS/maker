@@ -182,13 +182,17 @@ Physical design iterations follow Semantic Versioning (`vMAJOR.MINOR.PATCH`) pai
 
 ## FreeCAD Execution Commands
 
+Run builds headless using `xvfb-run -a` (or via the repo runner `./scripts/run_freecad.sh`):
+
 ```bash
-# Build Kombi Kaddy Master Model
-/home/phi/AppImages/FreeCAD_1.1.3-Linux-x86_64-py311.AppImage -c "__file__='/home/phi/PROJECTS/phi-WORKS/maker/projects/kombi-kaddy/build.py'; exec(open(__file__).read())"
+# Using the repository runner:
+./scripts/run_freecad.sh projects/kombi-kaddy/build.py
+./scripts/run_freecad.sh projects/road-roaster/build.py
+./scripts/run_freecad.sh projects/road-roaster-4w/build.py
 
-# Build Road Roaster Master Model (Compact Hand Truck)
-/home/phi/AppImages/FreeCAD_1.1.3-Linux-x86_64-py311.AppImage -c "__file__='/home/phi/PROJECTS/phi-WORKS/maker/projects/road-roaster/build.py'; exec(open(__file__).read())"
-
-# Build Road Roaster 4W Master Model (4-Wheel Platform Cart)
-/home/phi/AppImages/FreeCAD_1.1.3-Linux-x86_64-py311.AppImage -c "__file__='/home/phi/PROJECTS/phi-WORKS/maker/projects/road-roaster-4w/build.py'; exec(open(__file__).read())"
+# Or directly with xvfb-run:
+PYTHONPATH=src xvfb-run -a /home/phi/AppImages/FreeCAD_1.1.3-Linux-x86_64-py311.AppImage -c "__file__='projects/kombi-kaddy/build.py'; exec(open(__file__).read())"
+PYTHONPATH=src xvfb-run -a /home/phi/AppImages/FreeCAD_1.1.3-Linux-x86_64-py311.AppImage -c "__file__='projects/road-roaster/build.py'; exec(open(__file__).read())"
+PYTHONPATH=src xvfb-run -a /home/phi/AppImages/FreeCAD_1.1.3-Linux-x86_64-py311.AppImage -c "__file__='projects/road-roaster-4w/build.py'; exec(open(__file__).read())"
 ```
+

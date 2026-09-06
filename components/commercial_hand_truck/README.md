@@ -57,5 +57,10 @@ This module models an authentic vintage tubular steel hand truck donor frame (re
 To build the standalone `.FCStd` CAD model and regenerate all 7 orthogonal/isometric renders:
 
 ```bash
-/home/phi/AppImages/FreeCAD_1.1.3-Linux-x86_64-py311.AppImage -c "__file__='components/commercial_hand_truck/build.py'; exec(open(__file__).read())"
+# Using repository runner:
+./scripts/run_freecad.sh components/commercial_hand_truck/build.py
+
+# Or directly with xvfb-run:
+PYTHONPATH=src xvfb-run -a /home/phi/AppImages/FreeCAD_1.1.3-Linux-x86_64-py311.AppImage -c "__file__='components/commercial_hand_truck/build.py'; exec(open(__file__).read())"
 ```
+

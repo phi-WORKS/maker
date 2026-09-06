@@ -2,8 +2,23 @@
 
 **Workspace Root**: `/home/phi/PROJECTS/phi-WORKS/maker`  
 **Organization Rule**: `RULE[user_global]` (`phiarchitect` / `phi-WORKS`)  
-**FreeCAD AppImage Command**:  
-`/home/phi/AppImages/FreeCAD_1.1.3-Linux-x86_64-py311.AppImage -c "__file__='<script_path>'; exec(open(__file__).read())"`  
+**FreeCAD AppImage URI**: `/home/phi/AppImages/FreeCAD_1.1.3-Linux-x86_64-py311.AppImage`  
+**Primary Headless Runner Script**:  
+```bash
+./scripts/run_freecad.sh <script_path>
+```
+**Underlying Canonical Command**:  
+```bash
+PYTHONPATH=src xvfb-run -a /home/phi/AppImages/FreeCAD_1.1.3-Linux-x86_64-py311.AppImage -c "__file__='<script_path>'; exec(open(__file__).read())"
+```
+
+> [!IMPORTANT]
+> **FreeCAD Execution Rules & Preventing False Starts**:
+> 1. **Use the Runner Script (`./scripts/run_freecad.sh`)**: Always prefer `./scripts/run_freecad.sh <script_path>` to run FreeCAD CAD scripts. It automatically sets `PYTHONPATH=src`, validates the AppImage location, and runs under `xvfb-run -a`.
+> 2. **Sandbox Bypass Required (`BypassSandbox: true`)**: The FreeCAD AppImage is located at `/home/phi/AppImages/FreeCAD_1.1.3-Linux-x86_64-py311.AppImage` outside the repo workspace. In AI agent environments, `run_command` **MUST** specify `BypassSandbox: true`. Running with standard sandbox mode (`BypassSandbox: false`) will fail with exit code 127 (`not found`).
+> 3. **Offscreen Acceleration (`xvfb-run -a`)**: The runner script runs FreeCAD under `xvfb-run -a`. This isolates GUI/OpenGL rendering inside an offscreen virtual framebuffer, preventing GUI stalls, focus stealing, and X11 display freezes while accelerating renders.
+> 4. **Python Module Path (`PYTHONPATH=src`)**: Handled automatically by `./scripts/run_freecad.sh` to resolve `phi_works.maker` shared CAD helpers (`render`, `materials`, `components`, `assembly`).
+> 5. **Clean Termination (`os._exit(0)`)**: All scripts executed via `-c` must terminate with `os._exit(0)` upon completion. Plain `sys.exit()` can be intercepted by FreeCAD's Qt event loop, causing the process to hang open.
 
 ---
 
@@ -39,3 +54,5 @@
 8. **Streamlined Master Documentation**: Keep `README.md`, `SPECIFICATION.md`, and `CHANGELOG.md` updated as living master documents for each active project root. Derive material lists and cut dimensions parametrically from model parameters rather than maintaining static overworked spec files.
 9. **Shared Library Architecture (`src/`)**: Utilize `src/phi_works/maker` for shared Python infrastructure, CAD file import/placement helpers (`phi_works.maker.components.import_component`), and rendering exports (`phi_works.maker.render`). Keep `src/` free of component CAD geometry code.
 10. **Project-Native Materials & Mass Properties**: Store all material definitions (`.FCMat` YAML files) directly under `materials/` in the repository (never in `~/.local`). Use `phi_works.maker.materials.apply_material(obj, material_name)` instead of hardcoding RGB color constants. Build scripts should compute and log physical weight and 3D Center of Gravity (CoG) using `get_mass_properties()` and `format_mass_report()`.
+11. **Headless Execution Standard (`./scripts/run_freecad.sh`)**: Prefer running FreeCAD builds via `./scripts/run_freecad.sh <script_path>` (or canonical `PYTHONPATH=src xvfb-run -a ...`) with `BypassSandbox: true`. Ensure scripts exit cleanly via `os._exit(0)`.
+

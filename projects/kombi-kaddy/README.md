@@ -58,5 +58,10 @@ This project documents the evolutionary design transformation of the Kombi Kaddy
 To build the active master model (`caddy.FCStd`) and export all 7 orthographic/isometric PNG snapshot renders:
 
 ```bash
-/home/phi/AppImages/FreeCAD_1.1.3-Linux-x86_64-py311.AppImage -c "__file__='/home/phi/PROJECTS/phi-WORKS/maker/projects/kombi-kaddy/build.py'; exec(open(__file__).read())"
+# Using repository runner:
+./scripts/run_freecad.sh projects/kombi-kaddy/build.py
+
+# Or directly with xvfb-run:
+PYTHONPATH=src xvfb-run -a /home/phi/AppImages/FreeCAD_1.1.3-Linux-x86_64-py311.AppImage -c "__file__='projects/kombi-kaddy/build.py'; exec(open(__file__).read())"
 ```
+
