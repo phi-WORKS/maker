@@ -12,6 +12,11 @@ ENV/
 
 # FreeCAD Backups
 *.FCBak
+*.FCBak*
+.FCBak
+*.FCStd[0-9]
+*.FCStd*~
+*~
 
 # OS / System
 .DS_Store
