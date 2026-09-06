@@ -7,8 +7,26 @@
 
 ## Releases & Transformation Story
 
+### Version 1.0.0 — Modern Assembly Workbench & STIHL Fleet Overhaul
+**Status**: 🟢 `[CURRENT / ACTIVE]`  
+**Date**: 2026-09-05  
+**Visual Snapshot**: ![v1.0.0 Snapshot](changelog/v1.0.0.png)
+
+#### Changes & Milestones
+- **FreeCAD 1.1 Assembly Workbench & App::Link Architecture**: Converted the Kombi Kaddy to a native `Assembly::AssemblyObject` consuming standalone modular components via `App::Link`.
+- **Imported Commercial STIHL Fleet**: Replaced generic mockup drive shafts with full commercial parametric STIHL attachments:
+  - Bay 1: **FS-KM Straight Shaft String Trimmer** (`stihl/tools/kombi_trimmer_fs`) with AutoCut head and debris guard.
+  - Bay 2: **FBD-KM Bed Redefiner** (`stihl/tools/kombi_bed_redefiner_fbd`) with rubber guide wheel and curved digging blade.
+  - Bay 3: **BG-KM In-line Axial Blower** (`stihl/tools/kombi_blower_bg`) with axial fan housing and nozzle.
+  - Bay 4: **FH-KM 145° Articulating Power Scythe** (`stihl/tools/kombi_scythe_fh`) with articulating gearbox, rubber boot, and reciprocating cutter bar resting on the deck slat.
+- **COTS 5" Running Gear**: Linked standalone `caster_wheel_5in` components on 3/8" zinc-plated axle hardware.
+- **Embedded Materials & Visibility Integrity**: Embedded project-native `App::MaterialObject` cards (softwood pine, ABS, cast iron, steel, STIHL orange/white polymers) and enforced explicit visibility across all subcomponents.
+- **Kinematic Grounding & Exploded View**: Added kinematic ground joint anchoring the left foot and programmatic 6-step exploded presentation assembly view.
+
+---
+
 ### Version 0.9.0 — Master Cantilever Expansion
-**Status**: 🟡 `[IN PROGRESS]`  
+**Status**: 📦 `[SUPERSEDED]`  
 **Date**: 2026-08-13  
 **Visual Snapshot**: ![v0.9.0 Snapshot](caddy.png)
 

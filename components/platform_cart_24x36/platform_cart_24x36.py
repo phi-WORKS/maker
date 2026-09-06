@@ -1,18 +1,18 @@
 """
 Commercial 24" x 36" Platform Cart Component (Dolly Chassis)
-Standalone 3D Parametric CAD Module
+FreeCAD 1.1 Assembly Workbench Parametric CAD Module
 
 Modeled after standard commercial heavy-duty steel/aluminum platform trucks:
 - Deck: 24.0" (609.6 mm) wide x 36.0" (914.4 mm) long with diamond non-skid plate relief
 - Perimeter skirt downturn (1.75" / 45 mm) with 1.5" radiused corners
 - 4 heavy-duty molded rubber corner bumpers with recessed socket fasteners
 - Under-deck longitudinal channels and cross stringers (1000+ lb capacity)
-- 4-wheel running gear with 5.0" (127.0 mm) diameter wheels:
-  - 2 Front rigid stamped steel casters
-  - 2 Rear 360-deg swivel casters with integrated foot brake lock levers
-  - Heavy-duty yellow hub cores with black industrial treaded rubber tires
+- 4-wheel running gear with standalone COTS 5.0" plate casters:
+  - 2 Front rigid casters (caster_rigid_5in)
+  - 2 Rear 360-deg swivel casters with integrated foot brake lock levers (caster_swivel_5in)
+  - High-visibility yellow hub cores with black solid rubber tires
 - Handle: 1.25" OD tubular steel push handle rising 29.0" (736.6 mm) above the deck
-  - 2 horizontal reinforcement/accessory cross rails
+  - 2 horizontal reinforcement cross rails
   - Folding base hinge brackets with foot-release cross bar
 """
 
@@ -21,73 +21,56 @@ import sys
 import math
 import FreeCAD
 import Part
-from phi_works.maker.materials import apply_material
-
 try:
     import FreeCADGui
-    FreeCADGui.showMainWindow()
-    HAS_GUI = True
+    HAS_GUI = bool(getattr(FreeCAD, "GuiUp", False))
 except Exception:
     FreeCADGui = None
     HAS_GUI = False
 
-def set_obj_visuals(doc, obj, color):
-    if HAS_GUI and FreeCADGui and FreeCADGui.getDocument(doc.Name):
-        gui_d = FreeCADGui.getDocument(doc.Name)
-        if gui_d:
-            g_obj = gui_d.getObject(obj.Name)
-            if g_obj:
-                g_obj.Visibility = True
-                g_obj.ShapeColor = color
-                g_obj.DisplayMode = "Flat Lines"
+from phi_works.maker.materials import (
+    init_materials,
+    apply_material,
+    embed_materials_in_doc,
+)
+from phi_works.maker.components import import_component
+from phi_works.maker.assembly import (
+    create_assembly,
+    create_exploded_view,
+    add_exploded_step,
+)
+
 
 def create_platform_cart_component(doc, placement=None):
     """
-    Creates the Commercial 24" x 36" Platform Cart in `doc`.
-    
+    Creates the Commercial 24" x 36" Platform Cart in `doc` using FreeCAD 1.1 Assembly.
+
     Parameters:
       doc: FreeCAD Document
       placement: FreeCAD.Placement or FreeCAD.Vector (default: origin)
-      
+
     Returns:
-      App::DocumentObjectGroup containing cart subassemblies
+      Assembly::AssemblyObject root container
     """
     if placement is None:
         placement = FreeCAD.Placement()
     elif isinstance(placement, FreeCAD.Vector):
         placement = FreeCAD.Placement(placement, FreeCAD.Rotation())
 
-    grp_root = doc.addObject("App::DocumentObjectGroup", "Platform_Cart_24x36")
-    grp_root.Label = "Commercial 24x36 Platform Cart (5in Wheels, 29in Handle)"
+    assy = create_assembly(doc, "Platform_Cart_24x36", "Commercial 24x36 Platform Cart (5in Casters, 29in Handle)")
 
     grp_deck = doc.addObject("App::DocumentObjectGroup", "Cart_Deck_Subassembly")
     grp_deck.Label = "1. Deck & Frame Subassembly (24x36in Diamond Plate)"
 
     grp_gear = doc.addObject("App::DocumentObjectGroup", "Cart_Running_Gear")
-    grp_gear.Label = "2. Running Gear (5in Yellow-Hub Wheels & Casters)"
+    grp_gear.Label = "2. Running Gear (5in COTS Rigid & Swivel Casters)"
 
     grp_handle = doc.addObject("App::DocumentObjectGroup", "Cart_Push_Handle")
     grp_handle.Label = "3. Push Handle Subassembly (29in Height, Folding Base)"
 
-    grp_root.addObject(grp_deck)
-    grp_root.addObject(grp_gear)
-    grp_root.addObject(grp_handle)
-
-    # ==========================================================================
-    # COLOR PALETTE
-    # ==========================================================================
-    DECK_ALUM = (0.78, 0.80, 0.83, 0.0)       # Diamond-Plate Aluminum / Zinc Deck
-    DIAMOND_LIP = (0.84, 0.86, 0.88, 0.0)     # Embossed Diamond Plate Ribs
-    FRAME_STEEL = (0.38, 0.40, 0.44, 0.0)     # Under-Deck Structural Channel Steel
-    BUMPER_BLACK = (0.15, 0.15, 0.16, 0.0)    # Molded Impact Rubber Corner Bumpers
-    BUMPER_BOLT = (0.45, 0.65, 0.90, 0.0)     # Blue Anodized / Zinc Center Fasteners
-    CASTER_STEEL = (0.75, 0.78, 0.82, 0.0)    # Zinc-Plated Stamped Caster Brackets
-    WHEEL_YELLOW = (0.92, 0.72, 0.08, 0.0)    # High-Visibility Yellow Hub Core
-    TIRE_BLACK = (0.12, 0.12, 0.13, 0.0)      # Solid Rubber Tread
-    AXLE_BOLT = (0.82, 0.84, 0.86, 0.0)       # Grade 5 Axle Bolts & Nuts
-    HANDLE_CHROME = (0.86, 0.88, 0.91, 0.0)   # Chrome / Polished Stainless Tubing
-    HINGE_STEEL = (0.68, 0.70, 0.74, 0.0)     # Heavy Gauge Folding Hinge Hardware
-    BRAKE_PEDAL = (0.70, 0.72, 0.76, 0.0)     # Caster Foot Lock Pedal
+    assy.addObject(grp_deck)
+    assy.addObject(grp_gear)
+    assy.addObject(grp_handle)
 
     # ==========================================================================
     # PARAMETRIC DIMENSIONS
@@ -95,23 +78,16 @@ def create_platform_cart_component(doc, placement=None):
     DECK_W = 609.6              # 24.0 in width along X
     DECK_L = 914.4              # 36.0 in length along Y
     DECK_SKIRT_H = 45.0         # 1.77 in perimeter skirt height
-    DECK_TOP_Z = 175.0          # Top surface of deck from ground (~6.9 in)
-    DECK_BOT_Z = DECK_TOP_Z - DECK_SKIRT_H  # Bottom of skirt at Z = 130.0 mm
+    CASTER_H = 150.0            # 5.0" commercial caster overall height to mounting plate
+    DECK_BOT_Z = CASTER_H       # Underside of deck rests directly on caster top plate (150 mm)
+    DECK_TOP_Z = DECK_BOT_Z + DECK_SKIRT_H  # Top surface of deck: 195.0 mm (~7.7 in)
     CORNER_R = 38.1             # 1.5 in corner fillet radius
     SHEET_T = 3.175             # 1/8 in aluminum sheet deck
 
-    WHEEL_DIA = 127.0           # 5.0 in wheel outer diameter
-    WHEEL_R = WHEEL_DIA / 2.0   # 63.5 mm (2.5 in)
-    WHEEL_W = 35.0              # 1.38 in tread face width
-    AXLE_Z = WHEEL_R            # 63.5 mm from ground
-    HUB_DIA = 65.0              # Hub center diameter
-    HUB_W = 40.0                # Hub width across bearings
-
-    CASTER_TOP_Z = DECK_BOT_Z   # Mounting plate underside of deck frame (Z = 130 mm)
     TRACK_X = 220.0             # Caster lateral centerlines (X = ±220 mm)
     WHEELBASE_Y = 320.0         # Front casters Y = -320 mm, Rear casters Y = +320 mm
 
-    HANDLE_H = 736.6            # Exactly 29.0 in user specified handle height above deck
+    HANDLE_H = 736.6            # Exactly 29.0 in handle height above deck
     HANDLE_TUBE_OD = 31.75      # 1.25 in OD tubular steel
     R_tube = HANDLE_TUBE_OD / 2.0
     HANDLE_W = 480.0            # Center-to-center upright width
@@ -120,25 +96,21 @@ def create_platform_cart_component(doc, placement=None):
     # --------------------------------------------------------------------------
     # 1. DECK PLATE & PERIMETER SKIRT WITH ROUNDED CORNERS
     # --------------------------------------------------------------------------
-    # Outer rounded rectangle profile
     dx = DECK_W / 2.0 - CORNER_R
     dy = DECK_L / 2.0 - CORNER_R
 
-    # Central core boxes
     box_x = Part.makeBox(DECK_W - 2*CORNER_R, DECK_L, DECK_SKIRT_H,
                          FreeCAD.Vector(-dx, -DECK_L/2.0, DECK_BOT_Z))
     box_y = Part.makeBox(DECK_W, DECK_L - 2*CORNER_R, DECK_SKIRT_H,
                          FreeCAD.Vector(-DECK_W/2.0, -dy, DECK_BOT_Z))
     deck_solid = box_x.fuse(box_y)
 
-    # 4 Corner rounded cylinders
     c_fl = Part.makeCylinder(CORNER_R, DECK_SKIRT_H, FreeCAD.Vector(-dx, -dy, DECK_BOT_Z), FreeCAD.Vector(0, 0, 1))
     c_fr = Part.makeCylinder(CORNER_R, DECK_SKIRT_H, FreeCAD.Vector(dx, -dy, DECK_BOT_Z), FreeCAD.Vector(0, 0, 1))
     c_rl = Part.makeCylinder(CORNER_R, DECK_SKIRT_H, FreeCAD.Vector(-dx, dy, DECK_BOT_Z), FreeCAD.Vector(0, 0, 1))
     c_rr = Part.makeCylinder(CORNER_R, DECK_SKIRT_H, FreeCAD.Vector(dx, dy, DECK_BOT_Z), FreeCAD.Vector(0, 0, 1))
     deck_solid = deck_solid.fuse(c_fl).fuse(c_fr).fuse(c_rl).fuse(c_rr)
 
-    # Hollow out bottom to create 3.2 mm wall skirt downturn
     inner_w = DECK_W - 2*SHEET_T
     inner_l = DECK_L - 2*SHEET_T
     inner_r = max(CORNER_R - SHEET_T, 2.0)
@@ -159,7 +131,7 @@ def create_platform_cart_component(doc, placement=None):
 
     deck_shell = deck_solid.cut(inner_core)
 
-    # Diamond plate raised traction ribs on top surface (embossed non-skid relief)
+    # Diamond plate raised traction ribs on top surface
     rib_solids = []
     num_ribs_y = 11
     num_ribs_x = 7
@@ -252,157 +224,7 @@ def create_platform_cart_component(doc, placement=None):
         all_bumper_bolts = all_bumper_bolts.fuse(bb)
 
     # --------------------------------------------------------------------------
-    # 4. RUNNING GEAR: 5" WHEELS & HEAVY-DUTY CASTER ASSEMBLIES
-    # --------------------------------------------------------------------------
-    def make_wheel_assembly(center_pos, axis_dir):
-        cx, cy, cz = center_pos.x, center_pos.y, center_pos.z
-        norm_dir = axis_dir.normalize()
-
-        tire_cyl = Part.makeCylinder(WHEEL_R, WHEEL_W,
-                                     FreeCAD.Vector(cx - norm_dir.x * WHEEL_W/2.0,
-                                                    cy - norm_dir.y * WHEEL_W/2.0,
-                                                    cz - norm_dir.z * WHEEL_W/2.0),
-                                     norm_dir)
-        tire_inner = Part.makeCylinder(HUB_DIA/2.0, WHEEL_W + 2.0,
-                                       FreeCAD.Vector(cx - norm_dir.x * (WHEEL_W/2.0 + 1.0),
-                                                      cy - norm_dir.y * (WHEEL_W/2.0 + 1.0),
-                                                      cz - norm_dir.z * (WHEEL_W/2.0 + 1.0)),
-                                       norm_dir)
-        tire_solid = tire_cyl.cut(tire_inner)
-
-        hub_solid = Part.makeCylinder(HUB_DIA/2.0, HUB_W,
-                                      FreeCAD.Vector(cx - norm_dir.x * HUB_W/2.0,
-                                                     cy - norm_dir.y * HUB_W/2.0,
-                                                     cz - norm_dir.z * HUB_W/2.0),
-                                      norm_dir)
-        axle_bore = Part.makeCylinder(6.35, HUB_W + 10.0,
-                                      FreeCAD.Vector(cx - norm_dir.x * (HUB_W/2.0 + 5.0),
-                                                     cy - norm_dir.y * (HUB_W/2.0 + 5.0),
-                                                     cz - norm_dir.z * (HUB_W/2.0 + 5.0)),
-                                      norm_dir)
-        hub_solid = hub_solid.cut(axle_bore)
-
-        bolt_len = HUB_W + 35.0
-        axle_rod = Part.makeCylinder(6.0, bolt_len,
-                                     FreeCAD.Vector(cx - norm_dir.x * bolt_len/2.0,
-                                                    cy - norm_dir.y * bolt_len/2.0,
-                                                    cz - norm_dir.z * bolt_len/2.0),
-                                     norm_dir)
-        hex_head = Part.makeCylinder(10.0, 8.0,
-                                     FreeCAD.Vector(cx - norm_dir.x * (bolt_len/2.0),
-                                                    cy - norm_dir.y * (bolt_len/2.0),
-                                                    cz - norm_dir.z * (bolt_len/2.0)),
-                                     norm_dir)
-        hex_nut = Part.makeCylinder(10.0, 8.0,
-                                    FreeCAD.Vector(cx + norm_dir.x * (bolt_len/2.0 - 8.0),
-                                                   cy + norm_dir.y * (bolt_len/2.0 - 8.0),
-                                                   cz + norm_dir.z * (bolt_len/2.0 - 8.0)),
-                                    norm_dir)
-        axle_solid = axle_rod.fuse(hex_head).fuse(hex_nut)
-
-        return tire_solid, hub_solid, axle_solid
-
-    all_tires = []
-    all_hubs = []
-    all_axles = []
-    all_brackets = []
-    all_brakes = []
-
-    PLATE_W = 85.0
-    PLATE_L = 100.0
-    PLATE_T = 4.0
-    FORK_T = 3.5
-
-    # A. Front Rigid Casters
-    for x_c in [-TRACK_X, TRACK_X]:
-        w_center = FreeCAD.Vector(x_c, -WHEELBASE_Y, AXLE_Z)
-        tire, hub, axle = make_wheel_assembly(w_center, FreeCAD.Vector(1, 0, 0))
-        all_tires.append(tire)
-        all_hubs.append(hub)
-        all_axles.append(axle)
-
-        top_plate = Part.makeBox(PLATE_W, PLATE_L, PLATE_T,
-                                 FreeCAD.Vector(x_c - PLATE_W/2.0, -WHEELBASE_Y - PLATE_L/2.0, CASTER_TOP_Z - PLATE_T))
-        
-        for bx in [-28.0, 28.0]:
-            for by in [-35.0, 35.0]:
-                b_head = Part.makeCylinder(4.5, 5.0,
-                                           FreeCAD.Vector(x_c + bx, -WHEELBASE_Y + by, CASTER_TOP_Z - PLATE_T - 5.0),
-                                           FreeCAD.Vector(0, 0, 1))
-                top_plate = top_plate.fuse(b_head)
-
-        leg_spacing = HUB_W + 10.0
-        leg_l = Part.makeBox(FORK_T, 45.0, CASTER_TOP_Z - PLATE_T - AXLE_Z + 15.0,
-                             FreeCAD.Vector(x_c - leg_spacing/2.0 - FORK_T, -WHEELBASE_Y - 22.5, AXLE_Z - 15.0))
-        leg_r = Part.makeBox(FORK_T, 45.0, CASTER_TOP_Z - PLATE_T - AXLE_Z + 15.0,
-                             FreeCAD.Vector(x_c + leg_spacing/2.0, -WHEELBASE_Y - 22.5, AXLE_Z - 15.0))
-        rigid_bracket = top_plate.fuse(leg_l).fuse(leg_r)
-        all_brackets.append(rigid_bracket)
-
-    # B. Rear Swivel Casters with Brake Lever
-    SWIVEL_TRAIL = 25.0
-    for x_c in [-TRACK_X, TRACK_X]:
-        swivel_center_y = WHEELBASE_Y
-        wheel_center_y = swivel_center_y + SWIVEL_TRAIL
-        w_center = FreeCAD.Vector(x_c, wheel_center_y, AXLE_Z)
-        tire, hub, axle = make_wheel_assembly(w_center, FreeCAD.Vector(1, 0, 0))
-        all_tires.append(tire)
-        all_hubs.append(hub)
-        all_axles.append(axle)
-
-        top_plate = Part.makeBox(PLATE_W, PLATE_L, PLATE_T,
-                                 FreeCAD.Vector(x_c - PLATE_W/2.0, swivel_center_y - PLATE_L/2.0, CASTER_TOP_Z - PLATE_T))
-        swivel_race = Part.makeCylinder(36.0, 8.0,
-                                        FreeCAD.Vector(x_c, swivel_center_y, CASTER_TOP_Z - PLATE_T - 8.0),
-                                        FreeCAD.Vector(0, 0, 1))
-        leg_spacing = HUB_W + 10.0
-        fork_crown = Part.makeBox(leg_spacing + 2*FORK_T, 50.0, 6.0,
-                                  FreeCAD.Vector(x_c - leg_spacing/2.0 - FORK_T, swivel_center_y - 25.0, CASTER_TOP_Z - PLATE_T - 14.0))
-
-        dy = SWIVEL_TRAIL
-        dz = (CASTER_TOP_Z - PLATE_T - 14.0) - AXLE_Z
-        arm_h = math.hypot(dy, dz) + 20.0
-        angle = math.degrees(math.atan2(dy, dz))
-
-        arm_l = Part.makeBox(FORK_T, 40.0, arm_h,
-                             FreeCAD.Vector(x_c - leg_spacing/2.0 - FORK_T, swivel_center_y - 20.0, AXLE_Z - 10.0))
-        arm_l.rotate(FreeCAD.Vector(x_c, swivel_center_y, CASTER_TOP_Z - PLATE_T - 14.0), FreeCAD.Vector(1, 0, 0), -angle)
-
-        arm_r = Part.makeBox(FORK_T, 40.0, arm_h,
-                             FreeCAD.Vector(x_c + leg_spacing/2.0, swivel_center_y - 20.0, AXLE_Z - 10.0))
-        arm_r.rotate(FreeCAD.Vector(x_c, swivel_center_y, CASTER_TOP_Z - PLATE_T - 14.0), FreeCAD.Vector(1, 0, 0), -angle)
-
-        swivel_bracket = top_plate.fuse(swivel_race).fuse(fork_crown).fuse(arm_l).fuse(arm_r)
-        all_brackets.append(swivel_bracket)
-
-        brake_tab = Part.makeBox(leg_spacing + 8.0, 35.0, 3.0,
-                                 FreeCAD.Vector(x_c - (leg_spacing + 8.0)/2.0, wheel_center_y + 20.0, AXLE_Z + 25.0))
-        brake_tab.rotate(FreeCAD.Vector(x_c, wheel_center_y + 20.0, AXLE_Z + 25.0), FreeCAD.Vector(1, 0, 0), 30.0)
-        paddle = Part.makeBox(30.0, 20.0, 4.0,
-                              FreeCAD.Vector(x_c - 15.0, wheel_center_y + 42.0, AXLE_Z + 40.0))
-        brake_assembly = brake_tab.fuse(paddle)
-        all_brakes.append(brake_assembly)
-
-    compound_tires = all_tires[0]
-    for t in all_tires[1:]:
-        compound_tires = compound_tires.fuse(t)
-
-    compound_hubs = all_hubs[0]
-    for h in all_hubs[1:]:
-        compound_hubs = compound_hubs.fuse(h)
-
-    compound_axles = all_axles[0]
-    for a in all_axles[1:]:
-        compound_axles = compound_axles.fuse(a)
-
-    compound_brackets = all_brackets[0]
-    for b in all_brackets[1:]:
-        compound_brackets = compound_brackets.fuse(b)
-
-    compound_brakes = all_brakes[0].fuse(all_brakes[1])
-
-    # --------------------------------------------------------------------------
-    # 5. PUSH HANDLE SUBASSEMBLY (29.0" ABOVE DECK, 2 CROSS RAILS, FOLDING BASE)
+    # 4. PUSH HANDLE SUBASSEMBLY (29.0" ABOVE DECK, 2 CROSS RAILS, FOLDING BASE)
     # --------------------------------------------------------------------------
     Z_HANDLE_APEX = DECK_TOP_Z + HANDLE_H
     R_HANDLE_CORNER = 65.0
@@ -489,11 +311,6 @@ def create_platform_cart_component(doc, placement=None):
         under_frame.Placement = placement.multiply(under_frame.Placement)
         all_bumpers.Placement = placement.multiply(all_bumpers.Placement)
         all_bumper_bolts.Placement = placement.multiply(all_bumper_bolts.Placement)
-        compound_tires.Placement = placement.multiply(compound_tires.Placement)
-        compound_hubs.Placement = placement.multiply(compound_hubs.Placement)
-        compound_axles.Placement = placement.multiply(compound_axles.Placement)
-        compound_brackets.Placement = placement.multiply(compound_brackets.Placement)
-        compound_brakes.Placement = placement.multiply(compound_brakes.Placement)
         handle_tubing.Placement = placement.multiply(handle_tubing.Placement)
         hinges_solid.Placement = placement.multiply(hinges_solid.Placement)
 
@@ -531,38 +348,7 @@ def create_platform_cart_component(doc, placement=None):
     grp_deck.addObject(obj_b_bolts)
     apply_material(obj_b_bolts, "Steel-ZincPlated")
 
-    # 2. Running Gear
-    obj_tires = doc.addObject("Part::Feature", "Caster_Rubber_Tires")
-    obj_tires.Label = "5.0in Heavy-Duty Solid Rubber Tread Tires"
-    obj_tires.Shape = compound_tires
-    grp_gear.addObject(obj_tires)
-    apply_material(obj_tires, "Rubber-Solid")
-
-    obj_hubs = doc.addObject("Part::Feature", "Caster_Wheel_Hubs")
-    obj_hubs.Label = "Industrial Yellow Caster Hub Cores & Bearings"
-    obj_hubs.Shape = compound_hubs
-    grp_gear.addObject(obj_hubs)
-    apply_material(obj_hubs, "Polyurethane")
-
-    obj_axles = doc.addObject("Part::Feature", "Caster_Axle_Hardware")
-    obj_axles.Label = "Zinc-Plated 1/2in Caster Axle Bolts & Nuts"
-    obj_axles.Shape = compound_axles
-    grp_gear.addObject(obj_axles)
-    apply_material(obj_axles, "Steel-ZincPlated")
-
-    obj_brackets = doc.addObject("Part::Feature", "Caster_Mounting_Brackets")
-    obj_brackets.Label = "Stamped Steel Casters (2 Front Rigid, 2 Rear Swivel)"
-    obj_brackets.Shape = compound_brackets
-    grp_gear.addObject(obj_brackets)
-    apply_material(obj_brackets, "Steel-ZincPlated")
-
-    obj_brakes = doc.addObject("Part::Feature", "Rear_Caster_Foot_Brakes")
-    obj_brakes.Label = "Rear Swivel Caster Foot Lock Brake Levers"
-    obj_brakes.Shape = compound_brakes
-    grp_gear.addObject(obj_brakes)
-    apply_material(obj_brakes, "Steel-ZincPlated")
-
-    # 3. Handle
+    # 2. Handle
     obj_handle = doc.addObject("Part::Feature", "Tubular_Push_Handle")
     obj_handle.Label = "29in Tubular Steel Push Handle (Dual Cross Rails)"
     obj_handle.Shape = handle_tubing
@@ -575,4 +361,35 @@ def create_platform_cart_component(doc, placement=None):
     grp_handle.addObject(obj_hinges)
     apply_material(obj_hinges, "Steel-ZincPlated")
 
-    return grp_root
+    # 3. Import Standalone COTS Running Gear Components
+    p_fl = FreeCAD.Placement(FreeCAD.Vector(-TRACK_X, -WHEELBASE_Y, 0), FreeCAD.Rotation())
+    p_fr = FreeCAD.Placement(FreeCAD.Vector(TRACK_X, -WHEELBASE_Y, 0), FreeCAD.Rotation())
+    p_rl = FreeCAD.Placement(FreeCAD.Vector(-TRACK_X, WHEELBASE_Y, 0), FreeCAD.Rotation())
+    p_rr = FreeCAD.Placement(FreeCAD.Vector(TRACK_X, WHEELBASE_Y, 0), FreeCAD.Rotation())
+
+    if placement is not None:
+        p_fl = placement.multiply(p_fl)
+        p_fr = placement.multiply(p_fr)
+        p_rl = placement.multiply(p_rl)
+        p_rr = placement.multiply(p_rr)
+
+    caster_fl = import_component(doc, "caster_rigid_5in", placement=p_fl, label="Front Left Rigid Caster (5in)", as_link=True)
+    caster_fr = import_component(doc, "caster_rigid_5in", placement=p_fr, label="Front Right Rigid Caster (5in)", as_link=True)
+    caster_rl = import_component(doc, "caster_swivel_5in", placement=p_rl, label="Rear Left Swivel Caster (5in Brake)", as_link=True)
+    caster_rr = import_component(doc, "caster_swivel_5in", placement=p_rr, label="Rear Right Swivel Caster (5in Brake)", as_link=True)
+
+    grp_gear.addObject(caster_fl)
+    grp_gear.addObject(caster_fr)
+    grp_gear.addObject(caster_rl)
+    grp_gear.addObject(caster_rr)
+
+    # 4. Programmatic Exploded View
+    exp_view = create_exploded_view(doc, assy, "ExplodedView_RunningGear", "Running Gear & Handle Exploded View")
+    add_exploded_step(doc, exp_view, caster_fl, FreeCAD.Vector(-30, -60, -70), label="Explode FL Caster")
+    add_exploded_step(doc, exp_view, caster_fr, FreeCAD.Vector(30, -60, -70), label="Explode FR Caster")
+    add_exploded_step(doc, exp_view, caster_rl, FreeCAD.Vector(-30, 60, -70), label="Explode RL Caster")
+    add_exploded_step(doc, exp_view, caster_rr, FreeCAD.Vector(30, 60, -70), label="Explode RR Caster")
+    add_exploded_step(doc, exp_view, obj_handle, FreeCAD.Vector(0, 0, 100), label="Explode Push Handle")
+
+    doc.recompute()
+    return assy

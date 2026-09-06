@@ -1,0 +1,21 @@
+---
+# FreeCAD Material Card
+General:
+  UUID: "87c42b10-6819-4871-b2c3-11a84f09d84e"
+  Author: "phi ARCHITECT"
+  License: "CC-BY-4.0"
+  Name: "Plastic-StihlOrange"
+  Description: "STIHL trademark high-visibility safety orange high-impact molded polymer (housings, shields, shrouds)"
+Models:
+  Density:
+    UUID: '454661e5-265b-4320-8e6f-fcf6223ac3af'
+    Density: "1050 kg/m^3"
+AppearanceModels:
+  BasicRendering:
+    UUID: 'f006c7e4-35b7-43d5-bbf9-c5d572309e6e'
+    AmbientColor: "(0.45, 0.15, 0.02, 1.0)"
+    DiffuseColor: "(0.95, 0.35, 0.05, 1.0)"
+    SpecularColor: "(0.60, 0.30, 0.10, 1.0)"
+    EmissiveColor: "(0.0, 0.0, 0.0, 1.0)"
+    Shininess: "0.35"
+    Transparency: "0.0"

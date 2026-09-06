@@ -19,6 +19,21 @@ from phi_works.maker.materials import (
     get_mass_properties,
     format_mass_report,
 )
+from phi_works.maker.assembly import (
+    create_assembly,
+    create_ground_joint,
+    create_joint,
+    solve_assembly,
+    create_exploded_view,
+    add_exploded_step,
+    HAS_ASSEMBLY,
+)
+from phi_works.maker.skeleton import (
+    create_varset,
+    create_skeleton_sketch,
+    bind_expression,
+    build_box_skeleton,
+)
 
 __all__ = [
     "export_orthogonal_views",
@@ -34,5 +49,16 @@ __all__ = [
     "apply_material",
     "get_mass_properties",
     "format_mass_report",
+    "create_assembly",
+    "create_ground_joint",
+    "create_joint",
+    "solve_assembly",
+    "create_exploded_view",
+    "add_exploded_step",
+    "HAS_ASSEMBLY",
+    "create_varset",
+    "create_skeleton_sketch",
+    "bind_expression",
+    "build_box_skeleton",
 ]
 

@@ -33,14 +33,14 @@ def create_propane_cylinder_component(doc, placement=None):
       placement: FreeCAD.Placement or FreeCAD.Vector (default: origin)
       
     Returns:
-      App::DocumentObjectGroup containing cylinder sub-components
+      App::Part containing cylinder sub-components
     """
     if placement is None:
         placement = FreeCAD.Placement()
     elif isinstance(placement, FreeCAD.Vector):
         placement = FreeCAD.Placement(placement, FreeCAD.Rotation())
 
-    grp = doc.addObject("App::DocumentObjectGroup", "Propane_Cylinder_1lb")
+    grp = doc.addObject("App::Part", "Propane_Cylinder_1lb")
     grp.Label = "1 lb Propane Cylinder Component"
 
     # Parametric Dimensions (1 lb Cylinder)

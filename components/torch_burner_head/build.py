@@ -33,14 +33,14 @@ def create_torch_burner_head_component(doc, placement=None):
       placement: FreeCAD.Placement or FreeCAD.Vector (default: origin)
       
     Returns:
-      App::DocumentObjectGroup containing burner head sub-components
+      App::Part containing burner head sub-components
     """
     if placement is None:
         placement = FreeCAD.Placement()
     elif isinstance(placement, FreeCAD.Vector):
         placement = FreeCAD.Placement(placement, FreeCAD.Rotation())
 
-    grp = doc.addObject("App::DocumentObjectGroup", "Torch_Burner_Head")
+    grp = doc.addObject("App::Part", "Torch_Burner_Head")
     grp.Label = "500,000 BTU Chassis Burner Nozzle & Venturi Bell"
 
     # Dimensions

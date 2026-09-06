@@ -36,12 +36,12 @@ def create_torch_component(doc, insertion_point=None, lean_angle_deg=0.0, flame_
       flame_angle_deg: Float, retained for backward compatibility
       
     Returns:
-      App::DocumentObjectGroup containing torch sub-components
+      App::Part containing torch sub-components
     """
     if insertion_point is None:
         insertion_point = FreeCAD.Vector(0, 0, 0)
 
-    grp = doc.addObject("App::DocumentObjectGroup", "Harbor_Freight_Torch_91037")
+    grp = doc.addObject("App::Part", "Harbor_Freight_Torch_91037")
     grp.Label = "Harbor Freight #91037 Propane Torch Component"
 
     # Collinear central torch axis:

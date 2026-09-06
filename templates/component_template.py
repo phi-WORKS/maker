@@ -15,7 +15,7 @@ def create_component(doc, origin=None):
     if origin is None:
         origin = FreeCAD.Vector(0, 0, 0)
 
-    grp = doc.addObject("App::DocumentObjectGroup", "Component_Group")
+    grp = doc.addObject("App::Part", "Component_Group")
     grp.Label = "Sample Component"
 
     # Define CAD geometry relative to `origin`

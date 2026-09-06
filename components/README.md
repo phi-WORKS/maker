@@ -80,14 +80,33 @@ Host assembly projects under `projects/` import these pre-built components via `
 | :---: | :--- |
 | [![Steel Caster Wheel](steel_caster_wheel/steel_caster_wheel.png)](steel_caster_wheel/) | • **Description**: Heat-resistant machined cast steel wheel with 1/2" Grade 5 axle bolt hardware, machined spacers, and nyloc nut.<br>• **Dimensions**: 4.0" OD × 1.5" tread face width, 1.75" hub width across bearing faces.<br>• **Role**: High-temperature ground contact wheels for thermal agricultural sleds.<br>• 📖 [**`README.md`**](steel_caster_wheel/README.md)<br>• 🛠️ [**`build.py`**](steel_caster_wheel/build.py)<br>• 📦 [**`steel_caster_wheel.FCStd`**](steel_caster_wheel/steel_caster_wheel.FCStd) |
 
-### 11. [STIHL Kombi Tools & Attachments](kombi_tools/)
+### 11. [5.0" Standard Caster Wheel](caster_wheel_5in/)
 
 | Component Preview | Technical Specifications & Files |
 | :---: | :--- |
-| [![STIHL Kombi Tools](kombi_tools/kombi_tools.png)](kombi_tools/) | • **Description**: 3D parametric CAD models for STIHL KombiSystem power heads and attachments (straight-shaft line trimmer, curved edger, gearbox elbows, orange debris shields).<br>• **Role**: Clearance verification and storage rack fitting models for the [Kombi Kaddy](../projects/kombi-kaddy/).<br>• 📖 [**`README.md`**](kombi_tools/README.md)<br>• 🛠️ [**`build_trimmer.py`**](kombi_tools/build_trimmer.py) / [**`build_kombi_tools.py`**](kombi_tools/build_kombi_tools.py)<br>• 📦 [**`trimmer.FCStd`**](kombi_tools/trimmer.FCStd) / [**`kombi_tools.FCStd`**](kombi_tools/kombi_tools.FCStd) |
+| [![5in Caster Wheel](caster_wheel_5in/caster_wheel_5in.png)](caster_wheel_5in/) | • **Description**: 5.0" (127 mm) COTS running gear wheel with molded industrial polyurethane core and vulcanized non-marking rubber tire tread.<br>• **Dimensions**: 5.0" OD × 1.25" tread width, 1.50" hub length, 3/8" precision axle bore.<br>• **Role**: Base rolling element for rigid and swivel casters across platform carts and mobile dollies.<br>• 📖 [**`README.md`**](caster_wheel_5in/README.md)<br>• 🛠️ [**`build.py`**](caster_wheel_5in/build.py)<br>• 📦 [**`caster_wheel_5in.FCStd`**](caster_wheel_5in/caster_wheel_5in.FCStd) |
 
-### 12. [2.5 Gallon Pressurized Water Safety Spray Tank](water_tank/)
+### 12. [5.0" Heavy-Duty Rigid Caster](caster_rigid_5in/)
+
+| Component Preview | Technical Specifications & Files |
+| :---: | :--- |
+| [![5in Rigid Caster](caster_rigid_5in/caster_rigid_5in.png)](caster_rigid_5in/) | • **Description**: Commercial fixed/rigid caster assembly with cold-formed 10-gauge zinc-plated steel horn and top mounting plate.<br>• **Mounting**: Standard 4.0" × 4.5" mounting top plate with slotted bolt pattern, 6.0" overall mounted height.<br>• **Role**: Directional tracking running gear for [platform_cart_24x36](platform_cart_24x36/) and [Road Roaster 4W](../projects/road-roaster-4w/).<br>• 📖 [**`README.md`**](caster_rigid_5in/README.md)<br>• 🛠️ [**`build.py`**](caster_rigid_5in/build.py)<br>• 📦 [**`caster_rigid_5in.FCStd`**](caster_rigid_5in/caster_rigid_5in.FCStd) |
+
+### 13. [5.0" 360-Degree Swivel Caster with Foot Brake](caster_swivel_5in/)
+
+| Component Preview | Technical Specifications & Files |
+| :---: | :--- |
+| [![5in Swivel Caster](caster_swivel_5in/caster_swivel_5in.png)](caster_swivel_5in/) | • **Description**: Precision 360° swivel caster with double ball raceway swivel crown, stamped toe brake pedal, and integrated wheel lock.<br>• **Mounting**: 4.0" × 4.5" mounting top plate, 1.35" swivel trail offset, 6.0" overall mounted height.<br>• **Role**: Steering and parking running gear for platform carts and mobile tool kaddies.<br>• 📖 [**`README.md`**](caster_swivel_5in/README.md)<br>• 🛠️ [**`build.py`**](caster_swivel_5in/build.py)<br>• 📦 [**`caster_swivel_5in.FCStd`**](caster_swivel_5in/caster_swivel_5in.FCStd) |
+
+### 14. [STIHL Professional Equipment Ecosystem](stihl/)
+
+| Component Preview | Technical Specifications & Files |
+| :---: | :--- |
+| [![STIHL KMA 200 R & Kombi Fleet](stihl/stihl_kma200r/stihl_kma200r.png)](stihl/) | • **Description**: Complete commercial-grade cordless power and multi-tasking attachment ecosystem.<br>• **Powerhead**: [**`stihl_kma200r`**](stihl/stihl_kma200r/) 36V AP-System cordless KombiEngine with AP 500 S battery (14.16 lbs).<br>• **Modular Drive Shaft**: [**`kombi_shaft`**](stihl/kombi_shaft/) 25.4 mm (1.0") aluminum drive tube (0.72 lbs).<br>• **Attachments ([`stihl/tools/`](stihl/tools/))**: 7 independent parametric CAD attachments: line trimmer (FS-KM), brush cutter (FS-KM), axial blower (BG-KM), articulating scythe (FH-KM), 12" pole pruner (HT-KM), bed redefiner (FBD-KM), and mini-cultivator (BF-KM).<br>• 📖 [**`stihl/README.md`**](stihl/README.md) & [**`stihl/tools/README.md`**](stihl/tools/README.md) |
+
+### 15. [2.5 Gallon Pressurized Water Safety Spray Tank](water_tank/)
 
 | Component Preview | Technical Specifications & Files |
 | :---: | :--- |
 | [![Water Safety Tank](water_tank/water_tank.png)](water_tank/) | • **Description**: 2.5-gallon (9.5 L) pressurized water safety tank with blow-molded safety blue HDPE vessel, plunger pump T-handle, brass discharge port, reinforced coiled washdown hose, and trigger spray wand.<br>• **Dimensions**: 7.09" OD × 18.2" overall height, ~2.8 lb empty tare weight (24.6 lbs charged with water).<br>• **Role**: Onboard fire-suppression and pavement-quenching safety system on [Road Roaster 4W](../projects/road-roaster-4w/).<br>• 📖 [**`README.md`**](water_tank/README.md)<br>• 🛠️ [**`build.py`**](water_tank/build.py)<br>• 📦 [**`water_tank.FCStd`**](water_tank/water_tank.FCStd) |
+

@@ -28,14 +28,14 @@ def create_water_tank_component(doc, placement=None):
       placement: FreeCAD.Placement or FreeCAD.Vector (default: origin at bottom center of base rim)
       
     Returns:
-      App::DocumentObjectGroup containing water tank subassemblies
+      App::Part containing water tank subassemblies
     """
     if placement is None:
         placement = FreeCAD.Placement()
     elif isinstance(placement, FreeCAD.Vector):
         placement = FreeCAD.Placement(placement, FreeCAD.Rotation())
 
-    grp = doc.addObject("App::DocumentObjectGroup", "Water_Tank_2_5Gal")
+    grp = doc.addObject("App::Part", "Water_Tank_2_5Gal")
     grp.Label = "2.5 Gallon Pressurized Water Safety Spray Tank"
 
     # Parametric Dimensions

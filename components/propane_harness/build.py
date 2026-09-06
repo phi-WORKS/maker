@@ -33,14 +33,14 @@ def create_propane_harness_component(doc, placement=None):
       placement: FreeCAD.Placement or FreeCAD.Vector (default: origin)
       
     Returns:
-      App::DocumentObjectGroup containing harness sub-components
+      App::Part containing harness sub-components
     """
     if placement is None:
         placement = FreeCAD.Placement()
     elif isinstance(placement, FreeCAD.Vector):
         placement = FreeCAD.Placement(placement, FreeCAD.Rotation())
 
-    grp = doc.addObject("App::DocumentObjectGroup", "Propane_Bottle_Harness")
+    grp = doc.addObject("App::Part", "Propane_Bottle_Harness")
     grp.Label = "Propane Bottle Harness Component (1 lb)"
 
     # Parametric Dimensions (Harness for 98.4 mm / 3.875" Cylinder)

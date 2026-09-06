@@ -24,14 +24,14 @@ def create_solaronics_infrared_burner_component(doc, placement=None):
       placement: FreeCAD.Placement or FreeCAD.Vector (default: origin)
       
     Returns:
-      App::DocumentObjectGroup containing Solaronics burner sub-components
+      App::Part containing Solaronics burner sub-components
     """
     if placement is None:
         placement = FreeCAD.Placement()
     elif isinstance(placement, FreeCAD.Vector):
         placement = FreeCAD.Placement(placement, FreeCAD.Rotation())
 
-    grp = doc.addObject("App::DocumentObjectGroup", "Solaronics_Infrared_Burner")
+    grp = doc.addObject("App::Part", "Solaronics_Infrared_Burner")
     grp.Label = "Solaronics 60,000 BTU High-Intensity Ceramic Infrared Burner & Parabolic Reflector"
 
     # Core Dimensions (Metric mm / Imperial in)

@@ -33,14 +33,14 @@ def create_steel_caster_wheel_component(doc, placement=None):
       placement: FreeCAD.Placement or FreeCAD.Vector (default: origin)
       
     Returns:
-      App::DocumentObjectGroup containing wheel sub-components
+      App::Part containing wheel sub-components
     """
     if placement is None:
         placement = FreeCAD.Placement()
     elif isinstance(placement, FreeCAD.Vector):
         placement = FreeCAD.Placement(placement, FreeCAD.Rotation())
 
-    grp = doc.addObject("App::DocumentObjectGroup", "Steel_Caster_Wheel")
+    grp = doc.addObject("App::Part", "Steel_Caster_Wheel")
     grp.Label = "4.0\" Heavy-Duty Solid Steel Wheel"
 
     # Parametric Dimensions (4.0" Dia x 1.5" Face)

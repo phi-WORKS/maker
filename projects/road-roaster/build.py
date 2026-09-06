@@ -16,7 +16,8 @@ except Exception:
 
 from phi_works.maker.render import export_orthogonal_views, save_model, close_model
 from phi_works.maker.components import import_component
-from phi_works.maker.materials import apply_material, get_mass_properties, format_mass_report
+from phi_works.maker.materials import apply_material, get_mass_properties, format_mass_report, init_materials, embed_materials_in_doc
+from phi_works.maker.assembly import ensure_assembly_visible
 
 def set_vis(doc, obj, color):
     if HAS_GUI and FreeCADGui and FreeCADGui.getDocument(doc.Name):
@@ -399,6 +400,7 @@ def build_gas_train_subassembly(doc, grp_gas, dims):
 # MASTER ASSEMBLY BUILD FUNCTION
 # ==============================================================================
 def build_road_roaster():
+    init_materials()
     doc_name = "road_roaster"
     doc = FreeCAD.newDocument(doc_name)
     
@@ -441,6 +443,8 @@ def build_road_roaster():
     build_suspension_linkage_subassembly(doc, grp_susp, dims)
     build_gas_train_subassembly(doc, grp_gas, dims)
     
+    embed_materials_in_doc(doc)
+    ensure_assembly_visible(doc)
     doc.recompute()
     
     report = get_mass_properties(doc)

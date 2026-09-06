@@ -22,19 +22,28 @@ except Exception:
 sys.path.insert(0, script_dir)
 from solaronics_infrared_burner import create_solaronics_infrared_burner_component
 from phi_works.maker.render import export_orthogonal_views, save_model, close_model
-from phi_works.maker.materials import get_mass_properties, format_mass_report
+from phi_works.maker.materials import (
+    init_materials,
+    embed_materials_in_doc,
+    get_mass_properties,
+    format_mass_report,
+)
+from phi_works.maker.assembly import ensure_assembly_visible
 
 def build():
+    init_materials()
     doc_name = "solaronics_infrared_burner"
+    fcstd_path = os.path.join(script_dir, f"{doc_name}.FCStd")
     doc = FreeCAD.newDocument(doc_name)
+    doc.saveAs(fcstd_path)
 
     grp = create_solaronics_infrared_burner_component(doc)
+    embed_materials_in_doc(doc)
+    ensure_assembly_visible(doc)
     doc.recompute()
 
-    report = get_mass_properties(grp)
+    report = get_mass_properties(doc)
     print(format_mass_report(report, title="Solaronics Ceramic Infrared Burner Mass Report"))
-
-    fcstd_path = os.path.join(script_dir, f"{doc_name}.FCStd")
 
     if HAS_GUI and FreeCADGui and FreeCADGui.getDocument(doc.Name):
         gui_doc = FreeCADGui.getDocument(doc.Name)

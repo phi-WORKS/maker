@@ -33,14 +33,14 @@ def create_torch_control_handle_component(doc, placement=None):
       placement: FreeCAD.Placement or FreeCAD.Vector (default: origin)
       
     Returns:
-      App::DocumentObjectGroup containing handle sub-components
+      App::Part containing handle sub-components
     """
     if placement is None:
         placement = FreeCAD.Placement()
     elif isinstance(placement, FreeCAD.Vector):
         placement = FreeCAD.Placement(placement, FreeCAD.Rotation())
 
-    grp = doc.addObject("App::DocumentObjectGroup", "Torch_Control_Handle")
+    grp = doc.addObject("App::Part", "Torch_Control_Handle")
     grp.Label = "Torch Operator Control Handle & Squeeze Cockpit"
 
     # Dimensions

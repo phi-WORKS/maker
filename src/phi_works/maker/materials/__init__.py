@@ -39,6 +39,10 @@ def init_materials(force_refresh=False):
     param.SetString("CustomMaterialsDir", mat_dir)
     param.SetBool("UseMaterialsFromCustomDir", True)
     param.SetBool("UseBuiltInMaterials", True)
+    try:
+        FreeCAD.saveParameter()
+    except Exception:
+        pass
 
     mm = Materials.MaterialManager()
     mm.refresh()
@@ -110,9 +114,69 @@ def parse_color_tuple(color_str):
         return (vals[0], vals[1], vals[2])
     return (0.8, 0.8, 0.8)
 
+def ensure_materials_group(doc):
+    """
+    Ensures a standard `App::DocumentObjectGroup` named 'Materials' exists in `doc`.
+    """
+    grp = doc.getObject("Materials")
+    if not grp:
+        grp = doc.addObject("App::DocumentObjectGroup", "Materials")
+        grp.Label = "Materials"
+    return grp
+
+def import_material_to_doc(doc, material_or_name):
+    """
+    Imports and embeds a physical material into the FreeCAD Document as an `App::MaterialObject`.
+    The material definition card (YAML dictionary) is permanently stored inside the document,
+    making the `.FCStd` file self-contained across all FreeCAD installations.
+
+    Parameters:
+      doc: FreeCAD Document
+      material_or_name: Materials.Material object or string material name (e.g. 'Steel-A36')
+
+    Returns:
+      The App::MaterialObject DocumentObject in doc
+    """
+    if isinstance(material_or_name, str):
+        mat = get_material(material_or_name)
+    else:
+        mat = material_or_name
+
+    mat_name = getattr(mat, "Name", None) or "Material"
+    safe_name = "Material_" + re.sub(r"[^a-zA-Z0-9_]", "_", mat_name)
+    
+    existing = doc.getObject(safe_name)
+    if existing:
+        return existing
+
+    grp = ensure_materials_group(doc)
+    mat_obj = doc.addObject("App::MaterialObject", safe_name)
+    mat_obj.Label = f"Material: {mat_name}"
+    mat_obj.Material = mat
+    grp.addObject(mat_obj)
+    return mat_obj
+
+def embed_materials_in_doc(doc):
+    """
+    Scans all objects in `doc` with `ShapeMaterial` and ensures their material cards
+    are embedded as `App::MaterialObject`s in `doc.Materials`.
+    
+    Returns:
+      List of App::MaterialObject instances in doc.Materials
+    """
+    embedded = []
+    for obj in doc.Objects:
+        if hasattr(obj, "ShapeMaterial") and obj.ShapeMaterial:
+            mat = obj.ShapeMaterial
+            mat_obj = import_material_to_doc(doc, mat)
+            if mat_obj not in embedded:
+                embedded.append(mat_obj)
+    return embedded
+
 def apply_material(obj, material_or_name, color_fallback=None):
     """
-    Assigns a physical material to a FreeCAD DocumentObject and synchronizes its visual appearance.
+    Assigns a physical material to a FreeCAD DocumentObject, embeds the material card
+    into the host document as an `App::MaterialObject`, and synchronizes visual appearance.
     
     Parameters:
       obj: FreeCAD DocumentObject (Part::Feature, Part::Box, etc.)
@@ -126,6 +190,14 @@ def apply_material(obj, material_or_name, color_fallback=None):
         mat = get_material(material_or_name)
     else:
         mat = material_or_name
+
+    # Ensure material is embedded into document model
+    doc = getattr(obj, "Document", None)
+    if doc:
+        try:
+            import_material_to_doc(doc, mat)
+        except Exception:
+            pass
 
     # Assign physical material to object
     if hasattr(obj, "ShapeMaterial"):
@@ -163,23 +235,81 @@ def apply_material(obj, material_or_name, color_fallback=None):
 
     return mat
 
-def _extract_parts(target):
+def _extract_parts(target, parent_placement=None):
     """
-    Helper to extract all leaf CAD objects with shapes from an object, group, or document.
+    Helper to extract all leaf CAD objects with shapes, materials, and accumulated placements
+    from an object, group, link, or document.
     """
+    if parent_placement is None:
+        parent_placement = FreeCAD.Placement()
+        
     parts = []
     if isinstance(target, FreeCAD.Document):
-        for o in target.Objects:
-            if hasattr(o, "Shape") and not o.Shape.isNull() and o.Shape.Volume > 0:
-                parts.append(o)
-    elif hasattr(target, "Group"): # App::DocumentObjectGroup or App::Part
-        for o in target.Group:
-            parts.extend(_extract_parts(o))
-    elif isinstance(target, (list, tuple, set)):
+        roots = getattr(target, "RootObjects", target.Objects)
+        for r in roots:
+            if r.Name == "Materials" or r.isDerivedFrom("App::MaterialObject"):
+                continue
+            parts.extend(_extract_parts(r, parent_placement))
+        return parts
+
+    if isinstance(target, (list, tuple, set)):
         for o in target:
-            parts.extend(_extract_parts(o))
-    elif hasattr(target, "Shape") and not target.Shape.isNull() and target.Shape.Volume > 0:
-        parts.append(target)
+            parts.extend(_extract_parts(o, parent_placement))
+        return parts
+
+    # Ignore non-physical objects
+    type_id = getattr(target, "TypeId", "")
+    target_name = getattr(target, "Name", "")
+    target_name_lower = target_name.lower()
+    if (
+        type_id.startswith("Assembly::Joint")
+        or type_id.startswith("Assembly::View")
+        or type_id.startswith("Sketcher::")
+        or type_id in ("App::Origin", "App::Line", "App::Plane", "App::Point")
+        or type_id.startswith("App::Origin")
+        or target_name in ("Origin", "Joints", "Exploded_Views", "Materials")
+        or target_name_lower.startswith("origin")
+        or "_axis" in target_name_lower
+        or "_plane" in target_name_lower
+        or target_name_lower in ("x_axis", "y_axis", "z_axis", "xy_plane", "xz_plane", "yz_plane")
+        or "Joint" in target_name
+        or "Exploded" in target_name
+        or "Step" in target_name
+        or "Skeleton" in target_name
+    ):
+        return parts
+
+    # Accumulated placement
+    local_plc = getattr(target, "Placement", FreeCAD.Placement())
+    current_plc = parent_placement.multiply(local_plc)
+
+    # Handle App::Link
+    if hasattr(target, "LinkedObject") and target.LinkedObject:
+        linked = target.LinkedObject
+        if hasattr(linked, "Group") and len(linked.Group) > 0:
+            for child in linked.Group:
+                parts.extend(_extract_parts(child, current_plc))
+            return parts
+        else:
+            target = linked
+
+    # Handle Containers (App::Part, Assembly::AssemblyObject, App::DocumentObjectGroup)
+    if hasattr(target, "Group") and len(target.Group) > 0:
+        for child in target.Group:
+            parts.extend(_extract_parts(child, current_plc))
+        return parts
+
+    # Leaf Part with Shape
+    if hasattr(target, "Shape") and not target.Shape.isNull() and target.Shape.Volume > 0:
+        parts.append({
+            "object": target,
+            "name": target.Name,
+            "label": getattr(target, "Label", target.Name),
+            "shape": target.Shape,
+            "placement": current_plc,
+            "material": getattr(target, "ShapeMaterial", None),
+        })
+
     return parts
 
 def get_shape_center_of_gravity(shape):
@@ -230,15 +360,16 @@ def get_mass_properties(target):
     weighted_com_z = 0.0
 
     for p in parts:
-        vol_mm3 = float(p.Shape.Volume)
+        shape = p["shape"]
+        vol_mm3 = float(shape.Volume)
         if vol_mm3 <= 0:
             continue
             
+        mat = p["material"]
         mat_name = "Unassigned"
         density_kg_m3 = 0.0
         
-        if hasattr(p, "ShapeMaterial") and p.ShapeMaterial:
-            mat = p.ShapeMaterial
+        if mat is not None:
             mat_name = mat.Name or "Unknown"
             density_q = mat.getPhysicalValue("Density")
             if density_q is not None:
@@ -251,11 +382,12 @@ def get_mass_properties(target):
         mass_lb = mass_kg * 2.20462262
         vol_in3 = vol_mm3 / (25.4 ** 3)
         
-        com = get_shape_center_of_gravity(p.Shape)
+        local_com = get_shape_center_of_gravity(shape)
+        com = p["placement"].multVec(local_com)
 
         items.append({
-            "name": p.Name,
-            "label": getattr(p, "Label", p.Name),
+            "name": p["name"],
+            "label": p["label"],
             "material": mat_name,
             "density_kg_m3": density_kg_m3,
             "volume_mm3": vol_mm3,
@@ -348,6 +480,9 @@ __all__ = [
     "init_materials",
     "list_materials",
     "get_material",
+    "ensure_materials_group",
+    "import_material_to_doc",
+    "embed_materials_in_doc",
     "apply_material",
     "get_mass_properties",
     "format_mass_report",

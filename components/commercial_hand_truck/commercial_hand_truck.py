@@ -27,7 +27,7 @@ def create_commercial_hand_truck_component(doc, placement=None):
     elif isinstance(placement, FreeCAD.Vector):
         placement = FreeCAD.Placement(placement, FreeCAD.Rotation())
 
-    grp = doc.addObject("App::DocumentObjectGroup", "Commercial_Hand_Truck")
+    grp = doc.addObject("App::Part", "Commercial_Hand_Truck")
     grp.Label = "Vintage Commercial Hand Truck Chassis (Restored Red Frame)"
 
     # Verified Physical Dimensions (Imperial user-specified converted to mm)

@@ -29,3 +29,15 @@ All notable architectural transformations, parametric modifications, and visual 
 - **Handle-Mounted Spot Torch Wand & Safety Reservoir**:
   - Mounted Harbor Freight #91037 spot weed torch wand (`components/torch_hf91037`) to the handle cross rails using dual quick-draw holster clips.
   - Modeled 2.5-gallon pressurized stainless steel water safety spray canister with pump plunger and deck cradle for grass edge pre-wetting and emergency quenching.
+
+### Changed / Modular Assembly Architecture
+- **Idiomatic FreeCAD 1.1 Assembly Architecture (`App::Link`)**: Decomposed monolithic assembly into 4 modular, independently maintainable `.FCStd` subassemblies and components:
+  1. `components/platform_cart_24x36` (Commercial Platform Cart Foundation)
+  2. `subassemblies/cantilever_burner` (Front Cantilever Radiant Burner & Cowl)
+  3. `subassemblies/fuel_system` (20 lb Propane Tank Retention & Primary Gas Train)
+  4. `subassemblies/aux_torch_safety` (Handle-Mounted Spot Torch Wand & Water Safety Reservoir)
+- **Zero-Dependency Material Embedding**: Integrated dedicated `Materials` group container into all master and subassembly models, embedding `App::MaterialObject` definitions permanently into `.FCStd` files. Resolved all `Material not found` errors.
+- **Assembly Joint Normalization**: Enforced 2-element list `["", ""]` normalization in `phi_works.maker.assembly._normalize_subelements`, resolving FreeCAD `JointObject.py` migration script `list index out of range` errors.
+- **Lock Symbol Glyph Removal**: Removed redundant component-level ground joint from `platform_cart_24x36`, eliminating the 3D lock symbol from platform cart renders.
+- **Assembly Visibility Guarantee**: Added `ensure_assembly_visible(doc)` guaranteeing all assemblies, subassemblies, parts, and links are explicitly set to `Visibility = True` when assembling in code and saving models.
+- **Recursive Multi-Material Mass Engine**: Upgraded `get_mass_properties()` to recursively traverse nested `App::Link` subassemblies and accumulate spatial placements, producing an exact 435.72 lb mass breakdown with 3D Center of Gravity across 156 leaf components.
