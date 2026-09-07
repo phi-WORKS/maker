@@ -66,7 +66,7 @@ def import_component(doc, component_name, placement=None, label=None, as_link=Tr
     Returns:
       App::Link DocumentObject (if as_link=True) or App::DocumentObjectGroup (if as_link=False).
     """
-    from phi_works.maker.materials import init_materials, import_material_to_doc, ensure_materials_group
+    from phi_works.maker.materials import init_materials
 
     # Ensure material library paths are registered before loading component
     init_materials()
@@ -143,15 +143,6 @@ def import_component(doc, component_name, placement=None, label=None, as_link=Tr
         hide_origins(comp_doc)
         hide_origins(doc)
 
-        # Ensure parent doc has Materials group and embeds any material from component
-        ensure_materials_group(doc)
-        for o in comp_doc.Objects:
-            if hasattr(o, "ShapeMaterial") and o.ShapeMaterial:
-                try:
-                    import_material_to_doc(doc, o.ShapeMaterial)
-                except Exception:
-                    pass
-
         doc.recompute()
         return link
 
@@ -160,24 +151,11 @@ def import_component(doc, component_name, placement=None, label=None, as_link=Tr
     doc.mergeProject(fcstd_path)
     imported_objs = [o for o in doc.Objects if o not in existing_objs]
 
-    mat_grp = ensure_materials_group(doc)
     grp_name = f"{base_name}_subassembly"
     grp = doc.addObject("App::DocumentObjectGroup", grp_name)
     grp.Label = final_label or f"{base_name} Subassembly"
 
     for o in imported_objs:
-        if o.isDerivedFrom("App::MaterialObject"):
-            if o not in mat_grp.Group:
-                mat_grp.addObject(o)
-            continue
-        elif o.Name == "Materials" and o.isDerivedFrom("App::DocumentObjectGroup"):
-            continue
-
-        if hasattr(o, "ShapeMaterial") and o.ShapeMaterial:
-            try:
-                import_material_to_doc(doc, o.ShapeMaterial)
-            except Exception:
-                pass
 
         if o.InList:
             parent_in_imported = any(p in imported_objs for p in o.InList)

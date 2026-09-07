@@ -16,7 +16,7 @@ except Exception:
 
 from phi_works.maker.render import export_orthogonal_views, save_model, close_model
 from phi_works.maker.components import import_component
-from phi_works.maker.materials import apply_material, get_mass_properties, format_mass_report, init_materials, embed_materials_in_doc
+from phi_works.maker.materials import apply_material, get_mass_properties, format_mass_report, init_materials
 from phi_works.maker.assembly import ensure_assembly_visible
 
 def set_vis(doc, obj, color):
@@ -401,8 +401,10 @@ def build_gas_train_subassembly(doc, grp_gas, dims):
 # ==============================================================================
 def build_road_roaster():
     init_materials()
-    doc_name = "road_roaster"
+    doc_name = "road-roaster"
+    fcstd_path = os.path.join(script_dir, f"{doc_name}.FCStd")
     doc = FreeCAD.newDocument(doc_name)
+    doc.saveAs(fcstd_path)
     
     # Parametric VarSet (Accurate Physical Datum & Sled Dimensions)
     dims = doc.addObject("App::VarSet", "dims")
@@ -443,7 +445,6 @@ def build_road_roaster():
     build_suspension_linkage_subassembly(doc, grp_susp, dims)
     build_gas_train_subassembly(doc, grp_gas, dims)
     
-    embed_materials_in_doc(doc)
     ensure_assembly_visible(doc)
     doc.recompute()
     

@@ -23,7 +23,7 @@ except Exception:
     FreeCADGui = None
     HAS_GUI = False
 
-from phi_works.maker.materials import init_materials, apply_material, get_mass_properties, format_mass_report, embed_materials_in_doc
+from phi_works.maker.materials import init_materials, apply_material, get_mass_properties, format_mass_report
 from phi_works.maker.components import import_component
 from phi_works.maker.render import export_orthogonal_views, save_model, close_model
 from phi_works.maker.assembly import ensure_assembly_visible
@@ -86,7 +86,6 @@ def build_fuel_system():
     if tank_link:
         part_root.addObject(tank_link)
 
-    embed_materials_in_doc(doc)
     ensure_assembly_visible(doc)
     doc.recompute()
 

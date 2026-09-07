@@ -27,18 +27,27 @@ def get_materials_dir():
 
 def init_materials(force_refresh=False):
     """
-    Registers the project `materials/` directory as FreeCAD's active CustomMaterialsDir
-    and refreshes the FreeCAD MaterialManager.
+    Ensures the project materials are synchronized into FreeCAD's native User Material Library
+    (~/.local/share/FreeCAD/v1-1/Material/maker/), registers the project `materials/` directory
+    as FreeCAD's active CustomMaterialsDir, and refreshes the FreeCAD MaterialManager.
     """
     global _MATERIALS_INITIALIZED
     if _MATERIALS_INITIALIZED and not force_refresh:
         return Materials.MaterialManager()
+
+    # Synchronize material cards to ~/.local/share/FreeCAD/v1-1/Material/maker/
+    try:
+        from phi_works.maker.materials.sync import sync_materials
+        sync_materials(verbose=False)
+    except Exception as e:
+        pass
 
     mat_dir = get_materials_dir()
     param = FreeCAD.ParamGet("User parameter:BaseApp/Preferences/Mod/Material/Resources")
     param.SetString("CustomMaterialsDir", mat_dir)
     param.SetBool("UseMaterialsFromCustomDir", True)
     param.SetBool("UseBuiltInMaterials", True)
+    param.SetBool("UseMaterialsFromConfigDir", True)
     try:
         FreeCAD.saveParameter()
     except Exception:
@@ -48,6 +57,7 @@ def init_materials(force_refresh=False):
     mm.refresh()
     _MATERIALS_INITIALIZED = True
     return mm
+
 
 def list_materials():
     """
@@ -114,74 +124,60 @@ def parse_color_tuple(color_str):
         return (vals[0], vals[1], vals[2])
     return (0.8, 0.8, 0.8)
 
+def remove_legacy_material_objects(doc):
+    """
+    Removes any legacy `App::MaterialObject` and the legacy 'Materials' DocumentObjectGroup
+    from `doc`. FreeCAD 1.0/1.1 uses native `Part::Feature.ShapeMaterial` directly.
+    """
+    to_remove = []
+    for obj in doc.Objects:
+        if obj.isDerivedFrom("App::MaterialObject"):
+            to_remove.append(obj.Name)
+        elif obj.Name == "Materials" and obj.isDerivedFrom("App::DocumentObjectGroup"):
+            to_remove.append(obj.Name)
+
+    for name in to_remove:
+        try:
+            doc.removeObject(name)
+        except Exception:
+            pass
+
+
 def ensure_materials_group(doc):
     """
-    Ensures a standard `App::DocumentObjectGroup` named 'Materials' exists in `doc`.
+    Deprecated: FreeCAD 1.0/1.1 does not require an in-document Materials group.
+    Maintained for backward compatibility as a no-op returning None.
     """
-    grp = doc.getObject("Materials")
-    if not grp:
-        grp = doc.addObject("App::DocumentObjectGroup", "Materials")
-        grp.Label = "Materials"
-    return grp
+    return None
+
 
 def import_material_to_doc(doc, material_or_name):
     """
-    Imports and embeds a physical material into the FreeCAD Document as an `App::MaterialObject`.
-    The material definition card (YAML dictionary) is permanently stored inside the document,
-    making the `.FCStd` file self-contained across all FreeCAD installations.
-
-    Parameters:
-      doc: FreeCAD Document
-      material_or_name: Materials.Material object or string material name (e.g. 'Steel-A36')
-
-    Returns:
-      The App::MaterialObject DocumentObject in doc
+    Deprecated: FreeCAD 1.0/1.1 objects reference materials directly via `ShapeMaterial`.
+    Maintained for backward compatibility as a no-op returning None.
     """
-    if isinstance(material_or_name, str):
-        mat = get_material(material_or_name)
-    else:
-        mat = material_or_name
+    return None
 
-    mat_name = getattr(mat, "Name", None) or "Material"
-    safe_name = "Material_" + re.sub(r"[^a-zA-Z0-9_]", "_", mat_name)
-    
-    existing = doc.getObject(safe_name)
-    if existing:
-        return existing
-
-    grp = ensure_materials_group(doc)
-    mat_obj = doc.addObject("App::MaterialObject", safe_name)
-    mat_obj.Label = f"Material: {mat_name}"
-    mat_obj.Material = mat
-    grp.addObject(mat_obj)
-    return mat_obj
 
 def embed_materials_in_doc(doc):
     """
-    Scans all objects in `doc` with `ShapeMaterial` and ensures their material cards
-    are embedded as `App::MaterialObject`s in `doc.Materials`.
-    
-    Returns:
-      List of App::MaterialObject instances in doc.Materials
+    Deprecated: FreeCAD 1.0/1.1 objects reference materials directly via `ShapeMaterial`.
+    Cleans up any legacy App::MaterialObject instances and returns an empty list.
     """
-    embedded = []
-    for obj in doc.Objects:
-        if hasattr(obj, "ShapeMaterial") and obj.ShapeMaterial:
-            mat = obj.ShapeMaterial
-            mat_obj = import_material_to_doc(doc, mat)
-            if mat_obj not in embedded:
-                embedded.append(mat_obj)
-    return embedded
+    remove_legacy_material_objects(doc)
+    return []
+
 
 def apply_material(obj, material_or_name, color_fallback=None):
     """
-    Assigns a physical material to a FreeCAD DocumentObject, embeds the material card
-    into the host document as an `App::MaterialObject`, and synchronizes visual appearance.
+    Assigns a physical material to a FreeCAD DocumentObject via `obj.ShapeMaterial`.
+    FreeCAD 1.0/1.1 natively derives visual appearance (DiffuseColor, SpecularColor,
+    Shininess, Transparency) directly from the material card's BasicRendering model.
     
     Parameters:
       obj: FreeCAD DocumentObject (Part::Feature, Part::Box, etc.)
       material_or_name: Materials.Material object or string material name (e.g. 'Steel-A36')
-      color_fallback: Optional RGB/RGBA float tuple fallback for display if appearance model is missing
+      color_fallback: Deprecated / unused; appearance is driven by the material card.
       
     Returns:
       The assigned Materials.Material object
@@ -191,49 +187,20 @@ def apply_material(obj, material_or_name, color_fallback=None):
     else:
         mat = material_or_name
 
-    # Ensure material is embedded into document model
-    doc = getattr(obj, "Document", None)
-    if doc:
-        try:
-            import_material_to_doc(doc, mat)
-        except Exception:
-            pass
-
     # Assign physical material to object
     if hasattr(obj, "ShapeMaterial"):
         obj.ShapeMaterial = mat
 
-    # Sync visual appearance if ViewObject is accessible
+    # Set display mode to Flat Lines if ViewObject is accessible
     vobj = getattr(obj, "ViewObject", None)
-    if vobj:
-        color = None
-        if hasattr(mat, "getAppearanceValue"):
-            diffuse = mat.getAppearanceValue("DiffuseColor")
-            if diffuse:
-                color = parse_color_tuple(diffuse)
-        if color is None and color_fallback is not None:
-            if isinstance(color_fallback, (list, tuple)):
-                color = (float(color_fallback[0]), float(color_fallback[1]), float(color_fallback[2]))
-            else:
-                color = parse_color_tuple(str(color_fallback))
-
-        if color is not None:
-            try:
-                vobj.ShapeColor = (color[0], color[1], color[2])
-                vobj.DisplayMode = "Flat Lines"
-            except Exception:
-                pass
-
-        # Safeguard ShapeAppearance against uninitialized EmissiveColor memory in Coin3D
-        if hasattr(vobj, "ShapeAppearance") and vobj.ShapeAppearance:
-            for sa in vobj.ShapeAppearance:
-                try:
-                    if hasattr(sa, "EmissiveColor"):
-                        sa.EmissiveColor = (0.0, 0.0, 0.0, 1.0)
-                except Exception:
-                    pass
+    if vobj and hasattr(vobj, "DisplayMode"):
+        try:
+            vobj.DisplayMode = "Flat Lines"
+        except Exception:
+            pass
 
     return mat
+
 
 def _extract_parts(target, parent_placement=None):
     """

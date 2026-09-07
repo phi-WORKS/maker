@@ -24,7 +24,6 @@ from caster_rigid_5in import create_caster_rigid_5in_component
 from phi_works.maker.render import export_orthogonal_views, save_model, close_model
 from phi_works.maker.materials import (
     init_materials,
-    embed_materials_in_doc,
     get_mass_properties,
     format_mass_report,
 )
@@ -38,7 +37,6 @@ def build():
     doc.saveAs(fcstd_path)
 
     grp = create_caster_rigid_5in_component(doc)
-    embed_materials_in_doc(doc)
     ensure_assembly_visible(doc)
     doc.recompute()
 
