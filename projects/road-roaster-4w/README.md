@@ -49,7 +49,7 @@ While the original [Road Roaster (`road-roaster`)](../road-roaster/) leverages a
 | **Chassis** | Repurposed vintage 2-wheel hand truck | Commercial 24" × 36" 4-wheel platform cart |
 | **Footprint** | 18" W × 20" L (ultra-compact) | 24" W × 36" L (spacious, stable) |
 | **Wheel Setup** | Dual 9.5" pneumatic axle wheels | 4 Caster Wheels: 2 rigid front, 2 rear swivel w/ locks (5.0" dia) |
-| **Fuel Capacity** | 1 lb Propane Bottle (~40 min runtime) | 20 lb Propane Tank (~7.2 hours runtime) |
+| **Fuel Capacity** | 1 lb Propane Bottle (~40 min runtime) | 20 lb Propane Tank (~14.4 hours runtime @ 30k BTU/hr) |
 | **Burner Position** | Common-axis axle suspension sled | Cantilevered front mount with 180° flip-back stowage |
 | **Handle Height** | 46.0" top of U-bend | 29.0" above deck (with dual cross rails) |
 | **Auxiliary Torch** | None | Handle-mounted spot torch wand (`torch_hf91037`) |
