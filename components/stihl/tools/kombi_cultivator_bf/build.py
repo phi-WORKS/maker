@@ -26,15 +26,15 @@ from phi_works.maker.materials import get_mass_properties, format_mass_report
 
 def build():
     doc_name = "kombi_cultivator_bf"
+    fcstd_path = os.path.join(script_dir, f"{doc_name}.FCStd")
     doc = FreeCAD.newDocument(doc_name)
+    doc.saveAs(fcstd_path)
 
     grp = create_kombi_cultivator_bf_component(doc)
     doc.recompute()
 
     report = get_mass_properties(grp)
     print(format_mass_report(report, title="STIHL BF-KM Mini-Cultivator Mass Report"))
-
-    fcstd_path = os.path.join(script_dir, f"{doc_name}.FCStd")
 
     if HAS_GUI and FreeCADGui and FreeCADGui.getDocument(doc.Name):
         gui_doc = FreeCADGui.getDocument(doc.Name)

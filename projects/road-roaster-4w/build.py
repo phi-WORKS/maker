@@ -34,7 +34,6 @@ from phi_works.maker.materials import (
     apply_material,
     get_mass_properties,
     format_mass_report,
-    embed_materials_in_doc,
 )
 from phi_works.maker.assembly import (
     create_assembly,
@@ -130,7 +129,6 @@ def build_road_roaster_4w():
     add_exploded_step(doc, exp_assy, link_fuel, FreeCAD.Vector(0, 0, 160), label="Explode 20lb Propane Fuel Train Upward")
     add_exploded_step(doc, exp_assy, link_aux, FreeCAD.Vector(0, 120, 100), label="Explode Spot Torch & Water Reservoir")
 
-    embed_materials_in_doc(doc)
     ensure_assembly_visible(doc)
     doc.recompute()
 

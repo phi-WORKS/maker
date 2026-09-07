@@ -14,7 +14,11 @@ def is_gui_up():
     try:
         import FreeCAD
         import FreeCADGui
-        return bool(getattr(FreeCAD, "GuiUp", False)) and FreeCADGui is not None
+        if FreeCADGui is None:
+            return False
+        if bool(getattr(FreeCAD, "GuiUp", False)):
+            return True
+        return hasattr(FreeCADGui, "getMainWindow") and FreeCADGui.getMainWindow() is not None
     except Exception:
         return False
 
@@ -440,7 +444,7 @@ def save_model(doc, fc_path, camera_type="Perspective"):
     except Exception:
         pass
 
-    has_gui = bool(getattr(FreeCAD, "GuiUp", False)) and FreeCADGui is not None
+    has_gui = is_gui_up()
     if has_gui and hasattr(FreeCADGui, "getDocument"):
         try:
             gui_d = FreeCADGui.getDocument(doc.Name)

@@ -151,20 +151,20 @@ def audit_suite():
             if not has_gui:
                 status_notes.append("MISSING GuiDocument.xml")
                 issues += 1
-            if len(shape_mats) > 0 and len(mat_objs) == 0:
-                status_notes.append(f"MISSING MaterialObjects (has {len(shape_mats)} ShapeMaterials)")
+            if len(mat_objs) > 0:
+                status_notes.append(f"UNWANTED legacy MaterialObjects ({len(mat_objs)})")
                 issues += 1
 
             if status_notes:
                 print(f"  [!] {rel}: {', '.join(status_notes)}")
             else:
-                print(f"  [OK] {rel} (Materials: {len(mat_objs)}, Shapes: {len(shape_mats)}, GUI: Yes)")
+                print(f"  [OK] {rel} (Shapes: {len(shape_mats)}, GUI: Yes, Clean: Yes)")
         except Exception as e:
             print(f"  [ERROR] {rel}: {e}")
             issues += 1
 
     if issues == 0:
-        print("\nAUDIT RESULT: 100% PASS - All models have GuiDocument.xml and embedded materials!")
+        print("\nAUDIT RESULT: 100% PASS - All models have GuiDocument.xml and clean FreeCAD 1.1 materials (no legacy MaterialObjects)!")
     else:
         print(f"\nAUDIT RESULT: {issues} issues identified.")
     return issues == 0
@@ -272,6 +272,15 @@ def main():
     print(f" Root: {MAKER_ROOT}")
     print(f" FreeCAD: {FREECAD_APPIMAGE}")
     print("================================================================================")
+
+    src_path = os.path.join(MAKER_ROOT, "src")
+    if src_path not in sys.path:
+        sys.path.insert(0, src_path)
+    try:
+        from phi_works.maker.materials.sync import sync_materials
+        sync_materials()
+    except Exception as e:
+        print(f"Notice: sync_materials returned: {e}")
 
     total_start = time.time()
     total_scripts = sum(len(scripts) for _, scripts in ALL_BUILDS)

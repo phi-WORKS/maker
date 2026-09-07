@@ -26,15 +26,15 @@ from phi_works.maker.materials import get_mass_properties, format_mass_report
 
 def build():
     doc_name = "kombi_pruner_ht"
+    fcstd_path = os.path.join(script_dir, f"{doc_name}.FCStd")
     doc = FreeCAD.newDocument(doc_name)
+    doc.saveAs(fcstd_path)
 
     grp = create_kombi_pruner_ht_component(doc)
     doc.recompute()
 
     report = get_mass_properties(grp)
     print(format_mass_report(report, title="STIHL HT-KM 12\" Pole Pruner Mass Report"))
-
-    fcstd_path = os.path.join(script_dir, f"{doc_name}.FCStd")
 
     if HAS_GUI and FreeCADGui and FreeCADGui.getDocument(doc.Name):
         gui_doc = FreeCADGui.getDocument(doc.Name)

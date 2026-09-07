@@ -31,7 +31,6 @@ except Exception:
 from phi_works.maker.materials import (
     init_materials,
     apply_material,
-    embed_materials_in_doc,
 )
 from phi_works.maker.components import import_component
 from phi_works.maker.assembly import (

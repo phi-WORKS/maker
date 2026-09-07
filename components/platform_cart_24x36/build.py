@@ -26,7 +26,6 @@ from phi_works.maker.materials import (
     init_materials,
     get_mass_properties,
     format_mass_report,
-    embed_materials_in_doc,
 )
 from phi_works.maker.assembly import ensure_assembly_visible
 
@@ -38,7 +37,6 @@ def build():
     doc.saveAs(fcstd_path)
 
     grp = create_platform_cart_component(doc)
-    embed_materials_in_doc(doc)
     ensure_assembly_visible(doc)
     doc.recompute()
 

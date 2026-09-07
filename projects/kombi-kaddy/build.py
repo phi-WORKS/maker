@@ -39,7 +39,6 @@ from phi_works.maker.materials import (
     apply_material,
     get_mass_properties,
     format_mass_report,
-    embed_materials_in_doc,
 )
 from phi_works.maker.assembly import (
     create_assembly,
@@ -357,7 +356,6 @@ def build():
     if wheel_right:
         add_exploded_step(doc, exp_kaddy, wheel_right, FreeCAD.Vector(60, 0, 0), label="Explode Right Wheel")
 
-    embed_materials_in_doc(doc)
     ensure_assembly_visible(doc)
     doc.recompute()
 
