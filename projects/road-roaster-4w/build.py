@@ -44,6 +44,7 @@ from phi_works.maker.assembly import (
     ensure_assembly_visible,
 )
 from phi_works.maker.skeleton import create_skeleton_sketch
+from phi_works.maker.bom import export_bom
 
 def build_road_roaster_4w():
     init_materials()
@@ -149,6 +150,18 @@ def build_road_roaster_4w():
         if os.path.exists(home_src):
             shutil.copyfile(home_src, home_dst)
             print(f"Archived milestone render to changelog: {home_dst}")
+
+    # Generate Master Bill of Materials (BOM) & Fabrication Cut List
+    bom_config = {
+        "project_name": "Road Roaster 4W",
+        "version": "0.1.0",
+        "operations_map": {
+            "deck": "Cut diamond-plate deck, drill caster mounting holes",
+            "hinge": "Form 90° angle brackets, drill 3/8\" pivot pin holes",
+            "burner": "Assemble cantilever burner channel, mount Solaronics engine",
+        },
+    }
+    export_bom(doc, script_dir, formats=["markdown", "csv", "json"], config=bom_config)
 
     # Save Master CAD Model with framed Perspective Isometric home view
     save_model(doc, fcstd_path, camera_type="Perspective")

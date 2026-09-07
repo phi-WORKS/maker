@@ -5,7 +5,7 @@
 
 **Active CAD Model**: [`road-roaster.FCStd`](road-roaster.FCStd)  
 **Status**: 🟡 **`[IN PROGRESS - v0.7.0]`**  
-**Engineering Documents**: [**`HEAT_SOURCE_ANALYSIS.md`**](HEAT_SOURCE_ANALYSIS.md) | [**`MICROWAVE_VS_PROPANE_ANALYSIS.md`**](MICROWAVE_VS_PROPANE_ANALYSIS.md) | [**`SOLARONICS_INQUIRY.md`**](SOLARONICS_INQUIRY.md) | [**`WET_VS_DRY_STRATEGY.md`**](WET_VS_DRY_STRATEGY.md)  
+**Engineering Documents**: [**`BOM.md`**](BOM.md) | [**`SPECIFICATION.md`**](SPECIFICATION.md) | [**`HEAT_SOURCE_ANALYSIS.md`**](HEAT_SOURCE_ANALYSIS.md) | [**`MICROWAVE_VS_PROPANE_ANALYSIS.md`**](MICROWAVE_VS_PROPANE_ANALYSIS.md) | [**`SOLARONICS_INQUIRY.md`**](SOLARONICS_INQUIRY.md) | [**`WET_VS_DRY_STRATEGY.md`**](WET_VS_DRY_STRATEGY.md)  
 
 ![Road Roaster](road-roaster.png)
 

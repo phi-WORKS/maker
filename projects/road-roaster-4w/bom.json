@@ -1,0 +1,339 @@
+{
+  "project_name": "Road Roaster 4W",
+  "version": "0.1.0",
+  "date": "2026-09-07",
+  "total_mass_lb": 162.12,
+  "commercial_mass_lb": 129.09,
+  "fabricated_mass_lb": 29.85,
+  "hardware_mass_lb": 3.19,
+  "commercial_items": [
+    {
+      "name": "Commercial 24\" x 36\" Platform Truck / Dolly",
+      "component_id": "platform_cart_24x36",
+      "category": "Chassis / Rolling Platform",
+      "qty": 1,
+      "vendor": "Commercial Equipment / Harbor Freight / Uline",
+      "part_number": "PLATFORM-24X36-1000LB",
+      "description": "24\" W x 36\" L diamond plate steel deck, folding handle, dual 5\" rigid casters & dual 5\" swivel casters",
+      "subassembly": "Road Roaster 4W (4-Wheel Commercial Platform Dolly Architecture)",
+      "mass_kg": 21.8,
+      "mass_lb": 48.0,
+      "reference_url": "components/platform_cart_24x36/README.md",
+      "notes": ""
+    },
+    {
+      "name": "Solaronics High-Intensity Ceramic Infrared Burner",
+      "component_id": "solaronics_infrared_burner",
+      "category": "Thermal Engine / Radiant Burner",
+      "qty": 1,
+      "vendor": "Solaronics USA",
+      "part_number": "K-60 / 60,000 BTU",
+      "description": "60,000 BTU/hr @ 11\" W.C. LP gas, 173 sq. in cordierite ceramic matrix, parabolic reflector, Inconel re-radiating face grid",
+      "subassembly": "2. Front Cantilever Radiant Burner & Sled Cowl",
+      "mass_kg": 8.4,
+      "mass_lb": 18.5,
+      "reference_url": "components/solaronics_infrared_burner/README.md",
+      "notes": ""
+    },
+    {
+      "name": "DOT 20 lb Steel Propane Cylinder",
+      "component_id": "propane_cylinder_20lb",
+      "category": "Fuel System / Pressure Vessel",
+      "qty": 1,
+      "vendor": "Worthington / Manchester Tank",
+      "part_number": "DOT-4BA240 / 20 lb",
+      "description": "Standard 20 lb (5 gal) LP gas tank with OPD valve, foot ring, and protective collar",
+      "subassembly": "3. 20lb Propane Tank Mounting & Primary Gas Train",
+      "mass_kg": 7.7,
+      "mass_lb": 17.0,
+      "reference_url": "components/propane_cylinder_20lb/README.md",
+      "notes": ""
+    },
+    {
+      "name": "2.5 Gallon Pressurized Water Safety Spray Tank Component",
+      "component_id": "water_tank",
+      "category": "Commercial Hardware",
+      "qty": 1,
+      "vendor": "Commercial Supplier / COTS",
+      "part_number": "WATER_TANK",
+      "description": "",
+      "subassembly": "4. Handle-Mounted Spot Torch Wand & Water Safety Reservoir",
+      "mass_kg": 18.817441348855517,
+      "mass_lb": 41.485307546513845,
+      "reference_url": "",
+      "notes": ""
+    },
+    {
+      "name": "Harbor Freight #91037 Propane Torch Assembly",
+      "component_id": "torch_hf91037",
+      "category": "Combustion / Auxiliary Torch",
+      "qty": 1,
+      "vendor": "Harbor Freight",
+      "part_number": "ITEM 91037",
+      "description": "500,000 BTU propane torch with brass valve, squeeze boost lever, 32\" wand, and piezo igniter",
+      "subassembly": "4. Handle-Mounted Spot Torch Wand & Water Safety Reservoir",
+      "mass_kg": 1.86,
+      "mass_lb": 4.1,
+      "reference_url": "components/torch_hf91037/README.md",
+      "notes": ""
+    }
+  ],
+  "fabricated_parts": [
+    {
+      "name": "Cantilever Square-Tube Arms (180-deg Flip & Height Adjust)",
+      "part_mark": "P01",
+      "subassembly": "2. Front Cantilever Radiant Burner & Sled Cowl",
+      "material": "Steel-A36",
+      "stock_type": "Flat Bar & Bushing",
+      "stock_spec": "1.0\" \u00d7 3/16\" Flat Bar & 1.0\" OD Sleeve",
+      "length_mm": 390.8679258754029,
+      "width_mm": 25.4,
+      "thickness_mm": 4.76,
+      "qty": 1,
+      "mass_kg": 5.59801045950958,
+      "mass_lb": 12.34148581924401,
+      "operations": "Assemble cantilever burner channel, mount Solaronics engine",
+      "bounding_box_mm": [
+        368.1,
+        390.8679258754029,
+        126.91864299488245
+      ]
+    },
+    {
+      "name": "Threaded Turnbuckle Height Adjustment Struts",
+      "part_mark": "P02",
+      "subassembly": "2. Front Cantilever Radiant Burner & Sled Cowl",
+      "material": "Brass-C360",
+      "stock_type": "Solid Billet",
+      "stock_spec": "4.4\" x 3.3\" Stock",
+      "length_mm": 350.0,
+      "width_mm": 111.9895719584544,
+      "thickness_mm": 83.52706868439424,
+      "qty": 1,
+      "mass_kg": 1.4806046221913107,
+      "mass_lb": 3.264170562175407,
+      "operations": "Fabricate / machine to print",
+      "bounding_box_mm": [
+        350.0,
+        111.9895719584544,
+        83.52706868439424
+      ]
+    },
+    {
+      "name": "14-Gauge Protective Burner Sled Cowl & Heat Skirts",
+      "part_mark": "P03",
+      "subassembly": "2. Front Cantilever Radiant Burner & Sled Cowl",
+      "material": "Steel-A36",
+      "stock_type": "Sheet Metal",
+      "stock_spec": "14-Ga (0.075\") Sheet Steel",
+      "length_mm": 609.6,
+      "width_mm": 304.80000000000007,
+      "thickness_mm": 1.9049999999999998,
+      "qty": 1,
+      "mass_kg": 2.479350280000039,
+      "mass_lb": 5.466025214293685,
+      "operations": "Assemble cantilever burner channel, mount Solaronics engine",
+      "bounding_box_mm": [
+        609.6,
+        304.80000000000007,
+        100.00000000000001
+      ]
+    },
+    {
+      "name": "20 lb Propane Foot-Ring Deck Retention Clamp",
+      "part_mark": "P04",
+      "subassembly": "3. 20lb Propane Tank Mounting & Primary Gas Train",
+      "material": "Steel-A36",
+      "stock_type": "Flat Bar",
+      "stock_spec": "2.0\" \u00d7 3/16\" Flat Bar",
+      "length_mm": 271.4186483895975,
+      "width_mm": 50.0,
+      "thickness_mm": 4.76,
+      "qty": 1,
+      "mass_kg": 1.289440333490246,
+      "mass_lb": 2.842725948019266,
+      "operations": "Cut diamond-plate deck, drill caster mounting holes",
+      "bounding_box_mm": [
+        256.2,
+        271.4186483895975,
+        35.0
+      ]
+    },
+    {
+      "name": "Water Safety Tank Quick-Lock Deck Cradle",
+      "part_mark": "P05",
+      "subassembly": "4. Handle-Mounted Spot Torch Wand & Water Safety Reservoir",
+      "material": "Steel-A36",
+      "stock_type": "Solid Billet",
+      "stock_spec": "7.9\" x 1.4\" Stock",
+      "length_mm": 200.0,
+      "width_mm": 200.0,
+      "thickness_mm": 35.0,
+      "qty": 1,
+      "mass_kg": 2.4160965742867475,
+      "mass_lb": 5.3265748296040485,
+      "operations": "Cut diamond-plate deck, drill caster mounting holes",
+      "bounding_box_mm": [
+        200.0,
+        200.0,
+        35.0
+      ]
+    },
+    {
+      "name": "Quick-Draw Torch Handle Stirrup Loop & Guide Saddle",
+      "part_mark": "P06",
+      "subassembly": "4. Handle-Mounted Spot Torch Wand & Water Safety Reservoir",
+      "material": "Steel-ZincPlated",
+      "stock_type": "Solid Billet",
+      "stock_spec": "2.4\" x 1.7\" Stock",
+      "length_mm": 261.0,
+      "width_mm": 61.99873821212998,
+      "thickness_mm": 43.9949529932571,
+      "qty": 1,
+      "mass_kg": 0.2758503734343011,
+      "mass_lb": 0.6081452502807287,
+      "operations": "Fabricate / machine to print",
+      "bounding_box_mm": [
+        43.9949529932571,
+        61.99873821212998,
+        261.0
+      ]
+    }
+  ],
+  "hardware_items": [
+    {
+      "name": "Front Deck 180-deg Flip Hinge Brackets & Pivot Pins",
+      "category": "Hardware & Fasteners",
+      "subassembly": "Road Roaster 4W (4-Wheel Commercial Platform Dolly Architecture)",
+      "material": "Steel-ZincPlated",
+      "specification": "Burner Deck Hinge Brackets",
+      "qty": 1,
+      "mass_kg": 0.6796799634541695,
+      "mass_lb": 1.498436041030331,
+      "vendor_sku": "",
+      "notes": ""
+    },
+    {
+      "name": "Flexible Reinforced LP Gas Hose Supply Loop",
+      "category": "Hardware & Fasteners",
+      "subassembly": "2. Front Cantilever Radiant Burner & Sled Cowl",
+      "material": "Rubber-Solid",
+      "specification": "Burner Flexible Gas Loop",
+      "qty": 1,
+      "mass_kg": 0.2713017057031515,
+      "mass_lb": 0.5981171664272817,
+      "vendor_sku": "",
+      "notes": ""
+    },
+    {
+      "name": "Brass Dual-Outlet Regulator Distribution Manifold Tee",
+      "category": "Hardware & Fasteners",
+      "subassembly": "3. 20lb Propane Tank Mounting & Primary Gas Train",
+      "material": "Brass-C360",
+      "specification": "Dual Manifold Gas Tee",
+      "qty": 1,
+      "mass_kg": 0.34890818071016577,
+      "mass_lb": 0.7692099533572456,
+      "vendor_sku": "",
+      "notes": ""
+    },
+    {
+      "name": "Auxiliary Spot Torch Flexible Gas Hose",
+      "category": "Plumbing & Fuel Lines",
+      "subassembly": "4. Handle-Mounted Spot Torch Wand & Water Safety Reservoir",
+      "material": "Rubber-Solid",
+      "specification": "Torch Auxiliary Gas Hose",
+      "qty": 1,
+      "mass_kg": 0.1451368984067736,
+      "mass_lb": 0.31997170896554117,
+      "vendor_sku": "",
+      "notes": ""
+    }
+  ],
+  "stock_summary": [
+    {
+      "stock_spec": "4.4\" x 3.3\" Stock",
+      "material": "Brass-C360",
+      "stock_type": "Solid Billet",
+      "piece_count": 1,
+      "total_linear_in": 13.779527559055119,
+      "total_linear_ft": 1.1482939632545932,
+      "total_area_sq_in": 0.0,
+      "total_area_sq_ft": 0.0,
+      "total_mass_lb": 3.264170562175407,
+      "pieces": [
+        "P02"
+      ]
+    },
+    {
+      "stock_spec": "1.0\" \u00d7 3/16\" Flat Bar & 1.0\" OD Sleeve",
+      "material": "Steel-A36",
+      "stock_type": "Flat Bar & Bushing",
+      "piece_count": 1,
+      "total_linear_in": 15.38850101871665,
+      "total_linear_ft": 1.2823750848930542,
+      "total_area_sq_in": 0.0,
+      "total_area_sq_ft": 0.0,
+      "total_mass_lb": 12.34148581924401,
+      "pieces": [
+        "P01"
+      ]
+    },
+    {
+      "stock_spec": "14-Ga (0.075\") Sheet Steel",
+      "material": "Steel-A36",
+      "stock_type": "Sheet Metal",
+      "piece_count": 1,
+      "total_linear_in": 0.0,
+      "total_linear_ft": 0.0,
+      "total_area_sq_in": 288.0000000000001,
+      "total_area_sq_ft": 2.000000000000001,
+      "total_mass_lb": 5.466025214293685,
+      "pieces": [
+        "P03"
+      ]
+    },
+    {
+      "stock_spec": "2.0\" \u00d7 3/16\" Flat Bar",
+      "material": "Steel-A36",
+      "stock_type": "Flat Bar",
+      "piece_count": 1,
+      "total_linear_in": 10.68577355864557,
+      "total_linear_ft": 0.8904811298871308,
+      "total_area_sq_in": 0.0,
+      "total_area_sq_ft": 0.0,
+      "total_mass_lb": 2.842725948019266,
+      "pieces": [
+        "P04"
+      ]
+    },
+    {
+      "stock_spec": "7.9\" x 1.4\" Stock",
+      "material": "Steel-A36",
+      "stock_type": "Solid Billet",
+      "piece_count": 1,
+      "total_linear_in": 7.874015748031496,
+      "total_linear_ft": 0.6561679790026247,
+      "total_area_sq_in": 0.0,
+      "total_area_sq_ft": 0.0,
+      "total_mass_lb": 5.3265748296040485,
+      "pieces": [
+        "P05"
+      ]
+    },
+    {
+      "stock_spec": "2.4\" x 1.7\" Stock",
+      "material": "Steel-ZincPlated",
+      "stock_type": "Solid Billet",
+      "piece_count": 1,
+      "total_linear_in": 10.275590551181104,
+      "total_linear_ft": 0.8562992125984253,
+      "total_area_sq_in": 0.0,
+      "total_area_sq_ft": 0.0,
+      "total_mass_lb": 0.6081452502807287,
+      "pieces": [
+        "P06"
+      ]
+    }
+  ]
+}

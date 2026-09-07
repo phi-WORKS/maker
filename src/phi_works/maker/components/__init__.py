@@ -173,4 +173,7 @@ def import_component(doc, component_name, placement=None, label=None, as_link=Tr
     doc.recompute()
     return grp
 
-__all__ = ["get_component_path", "import_component"]
+from phi_works.maker.components.metadata import get_component_metadata
+
+__all__ = ["get_component_path", "import_component", "get_component_metadata"]
+
