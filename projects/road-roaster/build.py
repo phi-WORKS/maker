@@ -18,6 +18,7 @@ from phi_works.maker.render import export_orthogonal_views, save_model, close_mo
 from phi_works.maker.components import import_component
 from phi_works.maker.materials import apply_material, get_mass_properties, format_mass_report, init_materials
 from phi_works.maker.assembly import ensure_assembly_visible
+from phi_works.maker.bom import export_bom
 
 def set_vis(doc, obj, color):
     if HAS_GUI and FreeCADGui and FreeCADGui.getDocument(doc.Name):
@@ -451,9 +452,33 @@ def build_road_roaster():
     report = get_mass_properties(doc)
     print(format_mass_report(report, title="Road Roaster Master Assembly Mass Report"))
     
+    # 4. Generate Master Bill of Materials (BOM) & Fabrication Cut List
+    bom_config = {
+        "project_name": "Road Roaster",
+        "version": "0.7.0",
+        "operations_map": {
+            "cowl": "CNC plasma cut vents, press brake 90° skirt bends, corner seam welds",
+            "skid": "Cut to length, 30° cold tip bends front & rear, drill mounting holes",
+            "bridge": "Cut plate to length, weld upright catch tower pin",
+            "triangular": "Miter cut 3/16\" bar, ream axle pivot sleeve bushings, weld triangulated truss",
+            "latch": "Cut to length, weld foot pedal pad & catch hook",
+            "clamp": "Form cross-strap clamping lips, drill 1/4\" bolt clearance holes",
+        },
+        "part_marks": {
+            "cowl": "P-SLED-01",
+            "skid": "P-SLED-02",
+            "bridge": "P-SLED-03",
+            "triangular": "P-SUSP-01",
+            "latch": "P-SUSP-02",
+            "clamp": "P-GAS-01",
+        },
+    }
+    export_bom(doc, script_dir, formats=["markdown", "csv", "json"], config=bom_config)
+
     fcstd_path = os.path.join(script_dir, "road-roaster.FCStd")
     
-    # 4. Render Orthogonal & Isometric Perspective PNG Views
+    # 5. Render Orthogonal & Isometric Perspective PNG Views
+
     if HAS_GUI and FreeCADGui and FreeCADGui.getDocument(doc.Name):
         gui_doc = FreeCADGui.getDocument(doc.Name)
         base_prefix = os.path.join(script_dir, "road-roaster")

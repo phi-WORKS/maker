@@ -1,0 +1,7 @@
+Mark,Part Name,Subassembly,Material,Stock Spec,Length (in),Width (in),Thickness (in),Length (mm),Width (mm),Thickness (mm),Qty,Unit Weight (lb),Operations
+P01,Cantilever Square-Tube Arms (180-deg Flip & Height Adjust),2. Front Cantilever Radiant Burner & Sled Cowl,Steel-A36,"1.0"" × 3/16"" Flat Bar & 1.0"" OD Sleeve",15.389,1.000,0.187,390.9,25.4,4.76,1,12.34,"Assemble cantilever burner channel, mount Solaronics engine"
+P02,Threaded Turnbuckle Height Adjustment Struts,2. Front Cantilever Radiant Burner & Sled Cowl,Brass-C360,"4.4"" x 3.3"" Stock",13.780,4.409,3.288,350.0,112.0,83.53,1,3.26,Fabricate / machine to print
+P03,14-Gauge Protective Burner Sled Cowl & Heat Skirts,2. Front Cantilever Radiant Burner & Sled Cowl,Steel-A36,"14-Ga (0.075"") Sheet Steel",24.000,12.000,0.075,609.6,304.8,1.90,1,5.47,"Assemble cantilever burner channel, mount Solaronics engine"
+P04,20 lb Propane Foot-Ring Deck Retention Clamp,3. 20lb Propane Tank Mounting & Primary Gas Train,Steel-A36,"2.0"" × 3/16"" Flat Bar",10.686,1.969,0.187,271.4,50.0,4.76,1,2.84,"Cut diamond-plate deck, drill caster mounting holes"
+P05,Water Safety Tank Quick-Lock Deck Cradle,4. Handle-Mounted Spot Torch Wand & Water Safety Reservoir,Steel-A36,"7.9"" x 1.4"" Stock",7.874,7.874,1.378,200.0,200.0,35.00,1,5.33,"Cut diamond-plate deck, drill caster mounting holes"
+P06,Quick-Draw Torch Handle Stirrup Loop & Guide Saddle,4. Handle-Mounted Spot Torch Wand & Water Safety Reservoir,Steel-ZincPlated,"2.4"" x 1.7"" Stock",10.276,2.441,1.732,261.0,62.0,43.99,1,0.61,Fabricate / machine to print
