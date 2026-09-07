@@ -4,7 +4,7 @@
 > *Chemical-Free, Energy-Efficient Hardscape Weed Eradication via Cantilevered Radiant Heat*
 
 **Active CAD Model**: [`road-roaster-4w.FCStd`](road-roaster-4w.FCStd)  
-**Status**: 🟡 **`[IN PROGRESS - v0.1.0]`**  
+**Status**: 🟢 **`[RELEASED - v0.2.0]`**  
 **Foundation**: Commercial 24" × 36" Heavy-Duty Platform Truck (5" Caster Running Gear, 29" Push Handle)  
 **Parallel Variant**: See [`projects/road-roaster`](../road-roaster/) for the ultra-compact 2-wheel vintage hand truck variant.
 
@@ -21,21 +21,24 @@ While the original [Road Roaster (`road-roaster`)](../road-roaster/) leverages a
 │                         ROAD ROASTER 4W SYSTEM ARCHITECTURE                            │
 │                                                                                        │
 │  [FRONT CANTILEVER BURNER]  ◄──  [24x36 PLATFORM DECK]  ──►  [REAR POWER & CONTROLS]   │
-│   • 60,000 BTU Solaronics         • Commercial 1,000+ lb      • Standard 20 lb LP Tank │
+│   • 30,000 BTU Solaronics K-30    • Commercial 1,000+ lb      • Standard 20 lb LP Tank │
 │     Ceramic Infrared Engine         Diamond Plate Deck          (430,960 BTU capacity) │
-│   • 180° Flip Transit Hinge       • 2.5 Gal Pressurized       • 29" Tubular Push Handle│
-│     (Stows flat onto deck)          Water Safety Reservoir      with Dual Cross Rails  │
-│   • Hover Height Adjustment       • 4-Wheel Running Gear:     • Auxiliary Spot Torch   │
-│     (0.5" to 2.5" ground clr)       2 Front Rigid, 2 Rear       (HF #91037) Wand in    │
-│   • Never touches the ground        Swivel w/ Foot Brakes       Quick-Draw Holster     │
+│   • Flared Mirror Reflector Hood  • Bolted Heavy-Gauge Front  • 29" Tubular Push Handle│
+│     with 45° Miter Relief Corners   Skirt & Arched Brackets     with Dual Cross Rails  │
+│   • 3/4" Continuous Pivot Axle    • 2.5 Gal Pressurized       • Auxiliary Spot Torch   │
+│     with 180° Flip Transit Hinge    Water Safety Reservoir      (HF #91037) Wand in    │
+│   • Triangulated Cantilever Truss • 4-Wheel Running Gear:       Quick-Draw Holster     │
+│     and Cart-Side LP Manifold       2 Front Rigid, 2 Rear                              │
+│   • 1.5" Ground Hover Lock          Swivel w/ Foot Brakes                              │
 └────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
-1. **Massive Energy & Water Payload**: A spacious 24" × 36" (610 mm × 914 mm) deck effortlessly accommodates a full **20 lb LP propane cylinder** (430,000 BTU capacity = 7.2 hours continuous operation), auxiliary water reservoir, and safety gear without tipping risks.
-2. **Cantilevered Front Burner**: The ceramic infrared radiant burner is suspended cantilevered out in front of the dolly deck, hovering stably 1.0" above the ground without dragging or requiring ground contact.
-3. **180° Flip Transit / Stowage Mechanism**: A front hinged bracket allows the cantilevered burner assembly to flip 180° back onto the clear front deck space, tucking safely within the cart perimeter for compact transport, trailering, and garage storage.
-4. **Auxiliary Spot Wand Integration**: Dual horizontal cross-rails on the 29" tubular push handle provide quick-draw clip mounts for an auxiliary spot weed torch (`torch_hf91037`) to target fence lines, curbs, and tight obstacles.
-5. **Slow-Crawl Propulsion Ready**: Stable 4-wheel stance provides an ideal platform to add a slow motorized crawl drive to the front wheels (e.g. 0.5–1.0 mph), ensuring perfectly consistent heat soak depth without operator fatigue.
+1. **Massive Energy & Water Payload**: A spacious 24" × 36" (610 mm × 914 mm) deck effortlessly accommodates a full **20 lb LP propane cylinder** (430,000 BTU capacity = ~14 hours runtime at 30k BTU/hr), auxiliary water reservoir, and safety gear without tipping risks.
+2. **Cantilevered Front Solaronics K-30 Burner**: The realistic ceramic infrared radiant engine is suspended cantilevered out in front of the dolly deck, hovering stably 1.5" above the ground with lower flared reflector skirts maximizing heat soak efficiency.
+3. **Bolted Front Skirt & 3/4" Continuous Pivot Axle**: A 3/16" formed steel apron bolted to the cart front lip carries dual arched ear brackets and a continuous 3/4" cold-rolled steel axle, providing extreme torsional stiffness.
+4. **180° Flip Transit / Stowage Mechanism**: The cantilevered burner assembly pivots 180° over the axle onto the clear front deck space, shifting center of gravity rearward directly over the 4-wheel wheelbase ($X = +0.31''$, $Y = +0.53''$) for stable transport and compact garage storage.
+5. **Cart-Side Protected LP Gas Supply**: Burner manifold and control enclosure face rearward towards the cart, connecting to a flexible reinforced LP supply loop without exposed dangling lines.
+6. **Auxiliary Spot Wand Integration**: Dual horizontal cross-rails on the 29" tubular push handle provide quick-draw clip mounts for an auxiliary spot weed torch (`torch_hf91037`) to target fence lines, curbs, and tight obstacles.
 
 ---
 

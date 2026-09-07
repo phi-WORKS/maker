@@ -1,11 +1,11 @@
 {
   "project_name": "Road Roaster 4W",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "date": "2026-09-07",
-  "total_mass_lb": 162.12,
+  "total_mass_lb": 189.87,
   "commercial_mass_lb": 129.09,
-  "fabricated_mass_lb": 29.85,
-  "hardware_mass_lb": 3.19,
+  "fabricated_mass_lb": 55.9,
+  "hardware_mass_lb": 4.88,
   "commercial_items": [
     {
       "name": "Commercial 24\" x 36\" Platform Truck / Dolly",
@@ -80,68 +80,88 @@
   ],
   "fabricated_parts": [
     {
-      "name": "Cantilever Square-Tube Arms (180-deg Flip & Height Adjust)",
+      "name": "Heavy-Duty Wrap-Around Rigid Front Skirt & Wheel Shield",
       "part_mark": "P01",
+      "subassembly": "Road Roaster 4W (4-Wheel Commercial Platform Dolly Architecture)",
+      "material": "Steel-A36",
+      "stock_type": "Solid Billet",
+      "stock_spec": "9.9\" x 6.5\" Stock",
+      "length_mm": 633.6,
+      "width_mm": 252.0,
+      "thickness_mm": 166.0,
+      "qty": 1,
+      "mass_kg": 9.834592038921777,
+      "mass_lb": 21.681538300847727,
+      "operations": "Form 90\u00b0 front mounting apron channel, drill 3/8\" bolt holes",
+      "bounding_box_mm": [
+        633.6,
+        252.0,
+        166.0
+      ]
+    },
+    {
+      "name": "Continuous 3/4in Cold-Rolled Steel Pivot Axle & Shaft Collars",
+      "part_mark": "P02",
+      "subassembly": "Road Roaster 4W (4-Wheel Commercial Platform Dolly Architecture)",
+      "material": "Steel-ZincPlated",
+      "stock_type": "Solid Billet",
+      "stock_spec": "1.4\" x 1.4\" Stock",
+      "length_mm": 520.0,
+      "width_mm": 34.99661846472338,
+      "thickness_mm": 34.993237256154686,
+      "qty": 1,
+      "mass_kg": 1.2910274274758815,
+      "mass_lb": 2.8462248871618776,
+      "operations": "Cut 3/4\" cold-rolled steel axle shaft, mount zinc shaft collars",
+      "bounding_box_mm": [
+        520.0,
+        34.99661846472338,
+        34.993237256154686
+      ]
+    },
+    {
+      "name": "Cantilever Drop Arms & Pivot Sleeves (3/4in Axle Hinge)",
+      "part_mark": "P03",
       "subassembly": "2. Front Cantilever Radiant Burner & Sled Cowl",
       "material": "Steel-A36",
       "stock_type": "Flat Bar & Bushing",
       "stock_spec": "1.0\" \u00d7 3/16\" Flat Bar & 1.0\" OD Sleeve",
-      "length_mm": 390.8679258754029,
+      "length_mm": 498.1,
       "width_mm": 25.4,
       "thickness_mm": 4.76,
       "qty": 1,
-      "mass_kg": 5.59801045950958,
-      "mass_lb": 12.34148581924401,
-      "operations": "Assemble cantilever burner channel, mount Solaronics engine",
+      "mass_kg": 9.785195680207316,
+      "mass_lb": 21.57263810049865,
+      "operations": "Cut 3/4\" cold-rolled steel axle shaft, mount zinc shaft collars",
       "bounding_box_mm": [
-        368.1,
-        390.8679258754029,
-        126.91864299488245
+        498.1,
+        210.09999999999997,
+        184.04999999999998
       ]
     },
     {
-      "name": "Threaded Turnbuckle Height Adjustment Struts",
-      "part_mark": "P02",
-      "subassembly": "2. Front Cantilever Radiant Burner & Sled Cowl",
-      "material": "Brass-C360",
-      "stock_type": "Solid Billet",
-      "stock_spec": "4.4\" x 3.3\" Stock",
-      "length_mm": 350.0,
-      "width_mm": 111.9895719584544,
-      "thickness_mm": 83.52706868439424,
-      "qty": 1,
-      "mass_kg": 1.4806046221913107,
-      "mass_lb": 3.264170562175407,
-      "operations": "Fabricate / machine to print",
-      "bounding_box_mm": [
-        350.0,
-        111.9895719584544,
-        83.52706868439424
-      ]
-    },
-    {
-      "name": "14-Gauge Protective Burner Sled Cowl & Heat Skirts",
-      "part_mark": "P03",
+      "name": "Cantilever Diagonal Hood Braces (Rigidifying Truss)",
+      "part_mark": "P04",
       "subassembly": "2. Front Cantilever Radiant Burner & Sled Cowl",
       "material": "Steel-A36",
-      "stock_type": "Sheet Metal",
-      "stock_spec": "14-Ga (0.075\") Sheet Steel",
-      "length_mm": 609.6,
-      "width_mm": 304.80000000000007,
-      "thickness_mm": 1.9049999999999998,
+      "stock_type": "Solid Billet",
+      "stock_spec": "6.5\" x 3.3\" Stock",
+      "length_mm": 468.0,
+      "width_mm": 165.0,
+      "thickness_mm": 84.05,
       "qty": 1,
-      "mass_kg": 2.479350280000039,
-      "mass_lb": 5.466025214293685,
-      "operations": "Assemble cantilever burner channel, mount Solaronics engine",
+      "mass_kg": 0.4652499234130183,
+      "mass_lb": 1.0256992861548082,
+      "operations": "Fabricate / machine to print",
       "bounding_box_mm": [
-        609.6,
-        304.80000000000007,
-        100.00000000000001
+        468.0,
+        165.0,
+        84.05
       ]
     },
     {
       "name": "20 lb Propane Foot-Ring Deck Retention Clamp",
-      "part_mark": "P04",
+      "part_mark": "P05",
       "subassembly": "3. 20lb Propane Tank Mounting & Primary Gas Train",
       "material": "Steel-A36",
       "stock_type": "Flat Bar",
@@ -161,7 +181,7 @@
     },
     {
       "name": "Water Safety Tank Quick-Lock Deck Cradle",
-      "part_mark": "P05",
+      "part_mark": "P06",
       "subassembly": "4. Handle-Mounted Spot Torch Wand & Water Safety Reservoir",
       "material": "Steel-A36",
       "stock_type": "Solid Billet",
@@ -181,7 +201,7 @@
     },
     {
       "name": "Quick-Draw Torch Handle Stirrup Loop & Guide Saddle",
-      "part_mark": "P06",
+      "part_mark": "P07",
       "subassembly": "4. Handle-Mounted Spot Torch Wand & Water Safety Reservoir",
       "material": "Steel-ZincPlated",
       "stock_type": "Solid Billet",
@@ -202,26 +222,38 @@
   ],
   "hardware_items": [
     {
-      "name": "Front Deck 180-deg Flip Hinge Brackets & Pivot Pins",
+      "name": "Axle Ear Brackets (Pillow Flanges Bolted to Skirt)",
       "category": "Hardware & Fasteners",
       "subassembly": "Road Roaster 4W (4-Wheel Commercial Platform Dolly Architecture)",
-      "material": "Steel-ZincPlated",
-      "specification": "Burner Deck Hinge Brackets",
+      "material": "Steel-A36",
+      "specification": "Axle Ear Brackets",
       "qty": 1,
-      "mass_kg": 0.6796799634541695,
-      "mass_lb": 1.498436041030331,
+      "mass_kg": 0.6187205929805352,
+      "mass_lb": 1.3640437936967473,
       "vendor_sku": "",
       "notes": ""
     },
     {
-      "name": "Flexible Reinforced LP Gas Hose Supply Loop",
+      "name": "Burner Hood Side Mounting Brackets (4-Bolt Pattern)",
       "category": "Hardware & Fasteners",
       "subassembly": "2. Front Cantilever Radiant Burner & Sled Cowl",
-      "material": "Rubber-Solid",
-      "specification": "Burner Flexible Gas Loop",
+      "material": "Steel-A36",
+      "specification": "Burner Hood Brackets",
       "qty": 1,
-      "mass_kg": 0.2713017057031515,
-      "mass_lb": 0.5981171664272817,
+      "mass_kg": 0.851147019734578,
+      "mass_lb": 1.876455742647245,
+      "vendor_sku": "",
+      "notes": ""
+    },
+    {
+      "name": "Flexible Reinforced LP Gas Supply Loop (Cart-Side Connection)",
+      "category": "Plumbing & Fuel Lines",
+      "subassembly": "2. Front Cantilever Radiant Burner & Sled Cowl",
+      "material": "Rubber-Solid",
+      "specification": "Flexible Gas Supply Hose",
+      "qty": 1,
+      "mass_kg": 0.24922099762512723,
+      "mass_lb": 0.549437595784308,
       "vendor_sku": "",
       "notes": ""
     },
@@ -252,43 +284,15 @@
   ],
   "stock_summary": [
     {
-      "stock_spec": "4.4\" x 3.3\" Stock",
-      "material": "Brass-C360",
-      "stock_type": "Solid Billet",
-      "piece_count": 1,
-      "total_linear_in": 13.779527559055119,
-      "total_linear_ft": 1.1482939632545932,
-      "total_area_sq_in": 0.0,
-      "total_area_sq_ft": 0.0,
-      "total_mass_lb": 3.264170562175407,
-      "pieces": [
-        "P02"
-      ]
-    },
-    {
       "stock_spec": "1.0\" \u00d7 3/16\" Flat Bar & 1.0\" OD Sleeve",
       "material": "Steel-A36",
       "stock_type": "Flat Bar & Bushing",
       "piece_count": 1,
-      "total_linear_in": 15.38850101871665,
-      "total_linear_ft": 1.2823750848930542,
+      "total_linear_in": 19.610236220472444,
+      "total_linear_ft": 1.634186351706037,
       "total_area_sq_in": 0.0,
       "total_area_sq_ft": 0.0,
-      "total_mass_lb": 12.34148581924401,
-      "pieces": [
-        "P01"
-      ]
-    },
-    {
-      "stock_spec": "14-Ga (0.075\") Sheet Steel",
-      "material": "Steel-A36",
-      "stock_type": "Sheet Metal",
-      "piece_count": 1,
-      "total_linear_in": 0.0,
-      "total_linear_ft": 0.0,
-      "total_area_sq_in": 288.0000000000001,
-      "total_area_sq_ft": 2.000000000000001,
-      "total_mass_lb": 5.466025214293685,
+      "total_mass_lb": 21.57263810049865,
       "pieces": [
         "P03"
       ]
@@ -304,6 +308,20 @@
       "total_area_sq_ft": 0.0,
       "total_mass_lb": 2.842725948019266,
       "pieces": [
+        "P05"
+      ]
+    },
+    {
+      "stock_spec": "6.5\" x 3.3\" Stock",
+      "material": "Steel-A36",
+      "stock_type": "Solid Billet",
+      "piece_count": 1,
+      "total_linear_in": 18.425196850393704,
+      "total_linear_ft": 1.535433070866142,
+      "total_area_sq_in": 0.0,
+      "total_area_sq_ft": 0.0,
+      "total_mass_lb": 1.0256992861548082,
+      "pieces": [
         "P04"
       ]
     },
@@ -318,7 +336,35 @@
       "total_area_sq_ft": 0.0,
       "total_mass_lb": 5.3265748296040485,
       "pieces": [
-        "P05"
+        "P06"
+      ]
+    },
+    {
+      "stock_spec": "9.9\" x 6.5\" Stock",
+      "material": "Steel-A36",
+      "stock_type": "Solid Billet",
+      "piece_count": 1,
+      "total_linear_in": 24.94488188976378,
+      "total_linear_ft": 2.0787401574803153,
+      "total_area_sq_in": 0.0,
+      "total_area_sq_ft": 0.0,
+      "total_mass_lb": 21.681538300847727,
+      "pieces": [
+        "P01"
+      ]
+    },
+    {
+      "stock_spec": "1.4\" x 1.4\" Stock",
+      "material": "Steel-ZincPlated",
+      "stock_type": "Solid Billet",
+      "piece_count": 1,
+      "total_linear_in": 20.472440944881892,
+      "total_linear_ft": 1.7060367454068244,
+      "total_area_sq_in": 0.0,
+      "total_area_sq_ft": 0.0,
+      "total_mass_lb": 2.8462248871618776,
+      "pieces": [
+        "P02"
       ]
     },
     {
@@ -332,7 +378,7 @@
       "total_area_sq_ft": 0.0,
       "total_mass_lb": 0.6081452502807287,
       "pieces": [
-        "P06"
+        "P07"
       ]
     }
   ]
