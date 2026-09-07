@@ -104,7 +104,7 @@ Physical design iterations follow Semantic Versioning (`vMAJOR.MINOR.PATCH`) pai
 
 | Project Master Render | Quick Specs & Master Links |
 | :---: | :--- |
-| [![Kombi Kaddy Render](projects/kombi-kaddy/caddy.png)](projects/kombi-kaddy/) | • **Application**: Heavy-duty mobile 2x4 wooden rack for STIHL KombiSystem storage.<br>• **Active Master**: [**v0.9.0**](projects/kombi-kaddy/) 🟡 **`[IN PROGRESS]`**<br>• 📖 [**README.md**](projects/kombi-kaddy/README.md)<br>• 📐 [**SPECIFICATION.md**](projects/kombi-kaddy/SPECIFICATION.md)<br>• 📜 [**CHANGELOG.md**](projects/kombi-kaddy/CHANGELOG.md)<br>• 🛠️ [**build.py**](projects/kombi-kaddy/build.py)<br>• 📦 [**caddy.FCStd**](projects/kombi-kaddy/caddy.FCStd) |
+| [![Kombi Kaddy Render](projects/kombi-kaddy/caddy.png)](projects/kombi-kaddy/) | • **Application**: Heavy-duty mobile 2x4 wooden rack for STIHL KombiSystem storage.<br>• **Active Master**: [**v1.0.0**](projects/kombi-kaddy/) 🟢 **`[RELEASED]`**<br>• 📖 [**README.md**](projects/kombi-kaddy/README.md)<br>• 📐 [**SPECIFICATION.md**](projects/kombi-kaddy/SPECIFICATION.md)<br>• 📜 [**CHANGELOG.md**](projects/kombi-kaddy/CHANGELOG.md)<br>• 🛠️ [**build.py**](projects/kombi-kaddy/build.py)<br>• 📦 [**caddy.FCStd**](projects/kombi-kaddy/caddy.FCStd) |
 
 ---
 

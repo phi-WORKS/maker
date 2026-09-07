@@ -24,7 +24,8 @@
 - **Common-Wheel-Axle Triangular Sled Suspension**: The forward radiant sled connects directly to the same continuous wheel axle shaft via matching triangular straps ($X = \pm 145.0\text{ mm}$, inboard of frame trusses), providing concentric pivoting and eliminating frame flex.
 - **Rear-Mounted Propane Harness & Cross-Strap Clamps**: 1 lb LP bottle and cage harness relocated behind the vertical supports ($X = +80.0\text{ mm}, Y = +75.4\text{ mm}$), clamped directly around the middle horizontal cross-strap (Strap 2) with sandwich clamp jaws and side stabilizer tab.
 - **Center-Support Routed 3D B-Spline Flexible Hose & Spark Wire**: Modeled smooth 3D B-spline flexible LP gas hose and silicone igniter wire traveling down the center support pipe secured by retaining clips, sweeping under the frame directly into the Solaronics burner gas connector.
-- **Solaronics Engineering Outreach Document**: Created [`SOLARONICS_INQUIRY.md`](SOLARONICS_INQUIRY.md) detailing technical collaboration and OEM component inquiries.
+- **Solaronics Engineering Outreach Document**: Modernized [`SOLARONICS_INQUIRY.md`](SOLARONICS_INQUIRY.md) (v0.8.0) to introduce the full Road Roaster suite (2W & 4W), establish the Solaronics K-30 as a 3D CAD concept baseline, and focus inquiries on 180°F in-ground weed shock sizing, downward burner type selection, cavity thermostatic controls, and field-portable DC ignition packages.
+- **Documentation Cleanup**: Removed superseded microwave thermal feasibility study.
 - **Modular Component Library**: Added standalone CAD modules [`components/commercial_hand_truck/`](../../components/commercial_hand_truck/) and [`components/solaronics_infrared_burner/`](../../components/solaronics_infrared_burner/).
 
 ---

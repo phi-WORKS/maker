@@ -5,7 +5,7 @@
 
 **Active CAD Model**: [`road-roaster.FCStd`](road-roaster.FCStd)  
 **Status**: 🟡 **`[IN PROGRESS - v0.7.0]`**  
-**Engineering Documents**: [**`BOM.md`**](BOM.md) | [**`SPECIFICATION.md`**](SPECIFICATION.md) | [**`HEAT_SOURCE_ANALYSIS.md`**](HEAT_SOURCE_ANALYSIS.md) | [**`MICROWAVE_VS_PROPANE_ANALYSIS.md`**](MICROWAVE_VS_PROPANE_ANALYSIS.md) | [**`SOLARONICS_INQUIRY.md`**](SOLARONICS_INQUIRY.md) | [**`WET_VS_DRY_STRATEGY.md`**](WET_VS_DRY_STRATEGY.md)  
+**Engineering Documents**: [**`BOM.md`**](BOM.md) | [**`SPECIFICATION.md`**](SPECIFICATION.md) | [**`HEAT_SOURCE_ANALYSIS.md`**](HEAT_SOURCE_ANALYSIS.md) | [**`SOLARONICS_INQUIRY.md`**](SOLARONICS_INQUIRY.md) | [**`WET_VS_DRY_STRATEGY.md`**](WET_VS_DRY_STRATEGY.md)  
 
 ![Road Roaster](road-roaster.png)
 
@@ -100,7 +100,7 @@ Thermal weed control does **not** require burning green vegetation to ash. Heati
 
 | Version | Status | Milestone Description | Thumbnail Preview |
 | :--- | :--- | :--- | :--- |
-| **v0.7.0** | 🟡 `[IN PROGRESS]` | Solaronics Ceramic Infrared Array & Commercial Hand Truck Frame | ![v0.7.0](road-roaster.png) |
+| **v0.7.0** | 🟡 `[IN PROGRESS]` | Solaronics Ceramic Infrared Array & Commercial Hand Truck Frame | ![v0.7.0](changelog/v0.7.0.png) |
 | **v0.6.0** | 📦 `[SUPERSEDED]` | Decomposed Torch Controls & Forward-Firing Asymmetrical Hood | ![v0.6.0](changelog/v0.6.0_iso.png) |
 | **v0.5.0** | 📦 `[SUPERSEDED]` | Upright-Vacuum Tilt-Back Frame & Dual Metal Wheels | ![v0.5.0](changelog/v0.5.0_iso.png) |
 | **v0.4.0** | 📦 `[SUPERSEDED]` | Onboard Propane Harness & Imported Components | ![v0.4.0](changelog/v0.4.0_iso.png) |

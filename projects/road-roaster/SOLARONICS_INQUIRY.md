@@ -1,149 +1,171 @@
-# Engineering Collaboration & Application Inquiry
-## Integrating Solaronics High-Intensity Ceramic Infrared Technology into the Road Roaster Hardscape Weed Management Platform
+# Engineering Collaboration & OEM Application Inquiry
+## Integrating High-Intensity Infrared Radiant Heating into the Road Roaster Hardscape Weed Management Platform
 
-**To:** Solaronics, Inc. — Engineering & OEM Application Sales  
-**From:** phi ARCHITECT / phi-WORKS (`maker` physical design & CAD fabrication lab)  
-**Subject:** Technical Collaboration, OEM Component Inquiry, and Downward-Firing Ceramic Infrared Application  
-**Date:** September 2, 2026  
-**Document Reference:** `RR-SOLARONICS-INQUIRY-v0.7.0`  
+**To:** Solaronics, Inc. — Engineering & OEM Application Sales (`sales@solaronicsusa.com`)  
+**From:** phi ARCHITECT / phi-WORKS (`maker` physical design & CAD fabrication studio)  
+**Subject:** OEM Technical Collaboration: Downward-Firing Infrared Radiant Burner for Mobile Hardscape Weed Eradication  
+**Date:** September 7, 2026  
+**Document Reference:** `RR-SOLARONICS-INQUIRY-v0.8.0`  
+**Digital Models & Project Repository:** [github.com/phiarchitect/maker](https://github.com/phiarchitect/maker)  
 
 ---
 
 ## 1. Executive Summary & Purpose of Inquiry
 
-We are developing the **Road Roaster**, an innovative, chemical-free physical weed management tool designed for non-agricultural hardscapes—including gravel driveways, paver patios, cobblestone corridors, and roadside curbs. 
+We are developing the **Road Roaster** platform family—an innovative, chemical-free physical weed management system engineered specifically for non-agricultural hardscapes, including gravel driveways, paver walkways, cobblestone corridors, roadside curbs, and agricultural headlands.
 
-Conventional open-flame propane torches fail severely in these environments: their high-velocity open gas jets blow dangerous gravel, sand, and embers into the air while losing over 80% of their heat convectively to ambient wind. 
+### The Problem with Conventional Open-Flame Weed Torches
+Traditional high-output open-flame propane torches (such as weed dragon torches) fail severely in hardscape environments:
+* **Severe Aerodynamic Air Blast**: High-velocity open gas jets act like leaf blowers, blasting loose gravel, sand, and burning plant embers into the air.
+* **Massive Convective Heat Loss**: In outdoor ambient breezes, over 80% to 85% of convective heat is lost to the wind before conducting into the ground.
+* **Fire & Safety Hazards**: Uncontrolled open flames create intolerable fire ignition risks along dry borders, fences, and mulch beds.
 
-Through extensive thermodynamic research, we have identified **Solaronics high-intensity gas-fired ceramic infrared technology** as the premier thermal solution for our application. We are reaching out to introduce our platform, discuss the technical integration of Solaronics ceramic plaque and reflector assemblies into our downward-firing mobile sled, and explore options for procuring components or collaborating on build-to-spec OEM burner arrays.
+### The Infrared Radiant Solution
+Through extensive thermodynamic analysis, we have identified **gas-fired high-intensity infrared radiant technology** as the ideal thermal engine for non-contact hardscape weed eradication:
+* **Targeted Biological Shock**: Weed eradication does not require incinerating vegetation to ash. Heating plant foliage and root crowns to **$140^\circ\text{F} - 180^\circ\text{F}$ ($60^\circ\text{C} - 82^\circ\text{C}$)** causes intracellular moisture to boil instantaneously, rupturing cellular membranes. Deprived of moisture retention, the plant desiccates and dies within 24 to 48 hours without chemicals.
+* **Zero Aerodynamic Blast Pressure**: Silent, gentle micro-pore surface combustion produces pure electromagnetic radiant energy with zero dynamic air pressure, preventing stone and debris displacement.
+* **Directional Radiant Penetration**: Focused downward infrared radiation directly penetrates the foliar canopy and heats the gravel/soil interface without relying on convective air transfer.
+
+### Purpose of Reaching Out
+We have developed high-fidelity 3D CAD assemblies of our mobile platforms integrating the **Solaronics K-30** as a **concept / reference model**. We are reaching out to Solaronics engineering to:
+1. Introduce our platform concepts and operational requirements.
+2. Solicit your engineering critique and recommendations regarding the ideal burner device, burner media, and sizing for this application.
+3. Explore procurement options for sample burner hardware, gas train components, and ignition controls for prototype field validation.
 
 ---
 
-## 2. The Road Roaster Concept: Why High-Intensity Infrared?
+## 2. The Road Roaster Platform Family
 
-### 2.1 The Biological Mechanism of Thermal Weed Eradication
-Weed eradication does not require burning vegetation to ash. Heating plant foliage to **$140^\circ\text{F} – 180^\circ\text{F}$ ($60^\circ\text{C} – 82^\circ\text{C}$)** for **1 to 2 seconds** causes intracellular sap to boil instantaneously, rupturing cellular membranes. Deprived of water retention, the plant desiccates and dies within 24 to 48 hours, destroying the root crown without chemicals.
+We have engineered two distinct mobile platform architectures to cover residential and commercial operational envelopes:
 
 ```
 ┌────────────────────────────────────────────────────────────────────────────────────────┐
-│               CONVENTIONAL WEED TORCH vs. SOLARONICS CERAMIC INFRARED                  │
+│                              THE ROAD ROASTER PLATFORM SUITE                           │
 ├────────────────────────────────────────┬───────────────────────────────────────────────┤
-│ Conventional Open-Flame Torch Wand     │ Road Roaster / Solaronics Radiant Sled        │
+│ 1. Road Roaster (2-Wheel Compact Cart) │ 2. Road Roaster 4W (Commercial Platform Cart) │
 ├────────────────────────────────────────┼───────────────────────────────────────────────┤
-│ • High-velocity turbulent air blast    │ • Zero dynamic air blast pressure             │
-│ • Blown gravel, dirt, and projectiles  │ • Flameless surface micro-pore combustion     │
-│ • Convective heat lost to wind (>80%)  │ • Direct 3–5 µm electromagnetic radiant flux  │
-│ • 300,000 – 500,000 BTU/hr (wasteful)  │ • 40,000 – 60,000 BTU/hr (concentrated shock) │
-│ • 1 lb bottle runtime: 5–8 minutes     │ • 1 lb bottle runtime: 35–50 minutes          │
-│ • Cannot dwell without fire hazard     │ • 15–30s deep heat-soak for root crowns       │
+│ • Nimble walk-behind hand-truck frame  │ • Heavy-duty 24" × 36" 4-wheel platform dolly │
+│ • 1 lb or 11 lb portable LP cylinder   │ • Full 20 lb propane cylinder (~14.4 hr run)  │
+│ • Floating radiant sled on ground skids│ • 2.5 gal pressurized water safety reservoir  │
+│ • Sled tilts back on 9.5" wheels       │ • Cantilevered forward hover suspension       │
+│ • Residential paths, patios & curbs    │ • 180° flip-back burner transit stowage       │
+│ • Low mass, single-operator agility    │ • Commercial driveways & agricultural headland│
 └────────────────────────────────────────┴───────────────────────────────────────────────┘
 ```
 
-### 2.2 Why Solaronics?
-1. **Targeted Radiant Spectrum**: Solaronics cordierite grooved ceramic plaques operate at **$1,600^\circ\text{F} – 1,800^\circ\text{F}$**, emitting infrared energy peaked at **$3 - 5\,\mu\text{m}$**, which directly matches the absorption spectrum of water molecules within plant cell walls.
-2. **True Parabolic Focus**: Solaronics deep parabolic specular aluminum reflectors achieve over **$90\%$ directional radiant reflection efficiency**, focusing radiant energy downward into the weed canopy.
-3. **Whisper-Quiet Surface Combustion**: Atmospheric premix through the venturi manifold produces gentle micro-pore surface combustion with **zero positive blast pressure**, eliminating gravel displacement and operator noise fatigue.
-4. **Re-Radiating Inconel Grid Shield**: The front Inconel wire mesh increases radiant emissivity while providing a built-in impact shield against rocks and debris.
+### 2.1 Road Roaster 4W (Commercial Platform Cart — Active Baseline v0.2.0)
+* **Chassis**: Industrial 24" × 36" platform cart with two 5" front rigid casters, two 5" rear swivel casters with foot brakes, and an ergonomic 29" push handle.
+* **Cantilevered Burner Suspension**: The burner engine is mounted on forward cantilever drop-arms pivoting on a continuous $3/4''$ cold-rolled steel pivot axle supported by arched brackets on the front skirt.
+* **Operational Hover & Transit**: The burner hovers at an adjustable operating height of **$1.5'' - 2.0''$ ($38 - 50\text{ mm}$)** above the ground. For rolling transport over curbs and obstacles, the entire burner assembly rotates **$180^\circ$ backward** onto the front stow zone of the cart deck, shifting weight safely inboard over the wheelbase.
+* **Payload**: Carries a vertical 20 lb LP cylinder, dual-outlet manifold regulator, and a 2.5-gallon pressurized water spray tank for perimeter dampening.
+
+### 2.2 Road Roaster 2W (Compact Hand-Truck Platform — Baseline v0.7.0)
+* **Chassis**: Tubular steel walk-behind hand-truck chassis with heavy-duty 9.5" all-terrain rubber wheels.
+* **Floating Sled**: Forward radiant sled with perimeter ground skirts and 3/16" steel skids gliding with 0.5" ground clearance, holding the burner face ~2.0" above ground.
+* **Common Axle Pivot**: Sled suspension ties concentrically to the main wheel axle, allowing the operator to tilt the unit back like an upright vacuum for rapid wheeled transit.
 
 ---
 
-## 3. Physical Chassis Architecture & System Integration
+## 3. The Role of the Solaronics K-30 as a 3D CAD Concept Model
 
-The Road Roaster integrates the Solaronics radiant burner module into an ergonomic walk-behind chassis:
+In our engineering CAD repository (`components/solaronics_infrared_burner/`), we built a comprehensive parametric 3D CAD model of the **Solaronics K-30** high-intensity ceramic infrared heater (plaque matrix, cast iron venturi, plenum chamber, flared specular reflector hood, and gas train controls) derived directly from Solaronics architectural specifications and plan-view DWG drawings.
 
 ```
-                                  [LOOP HANDLE]
-                                        │
-                                        │ (Vertical Center Spine Pipe)
-                                        │
-                               [UPRIGHT U-FRAME]
-                                        │
-                          [PROPANE BOTTLE & REGULATOR]
-                                (Rear Mounted)
-                                        │
-                         [FLEXIBLE GAS HOSE & IGNITER]
-                         (Secured to Center Spine)
-                                        │
-        [SLED SUSPENSION TOWER]         │
-                  ▲                     │
-                  │              [COMMON AXLE] ─── (9.5" All-Terrain Wheels)
-       (Triangular Sled Straps)         │
-                  │        (Triangular Frame Trusses)
-                  ▼
-    ┌───────────────────────────┐
-    │  SOLARONICS INFRARED SLED │ ══► [Glides on 3/16" Steel Skids, 2.0" Clearance]
-    │  - Cordierite Plaque Grid │
-    │  - Parabolic Reflector    │
-    │  - Perimeter Ground Skirt │
-    └───────────────────────────┘
+                  [SOLARONICS K-30 CAD CONCEPT MODEL]
+        ┌───────────────────────────────────────────────────────┐
+        │  • 30,000 BTU/hr rated input (LP Gas @ 10"-11" W.C.)  │
+        │  • 173 sq. in radiating face (Cordierite matrix)      │
+        │  • 16.75" W × 23.9" L flared reflector mouth         │
+        │  • Total Mass: ~29.6 lbs                              │
+        │  • Modeled in downward-firing horizontal orientation  │
+        └───────────────────────────────────────────────────────┘
 ```
 
-### Key Mechanical Design Features
-* **Restored Vintage Hand Truck Frame**: Constructed from $1.0''\text{ OD}$ tubular steel ($12.5''$ upright centerline spacing, $46.0''$ top of U-bend) with 3 horizontal cross-straps.
-* **Common Wheel Axle Datum ($9.5''$ Wheels)**: The $5/8''$ continuous steel wheel axle $(Y = 4.75'', Z = 4.75'')$ serves as the unified structural datum.
-* **Triangular Axle Trusses**: Authentic dual-strut steel trusses weld to the vertical pipes and converge at the wheel axle sleeves.
-* **Concentric Sled Suspension**: The forward radiant sled connects directly to the same wheel axle via matching triangular straps, allowing the sled to glide flat on ground runners or swing upward when tilted back for rolling transit.
-* **Enclosed Radiant Sled**: A $15.0''\text{ W} \times 18.0''\text{ L} \times 5.12''\text{ H}$ 14-gauge steel cowl with perimeter ground skirts houses the Solaronics ceramic burner, maintaining a constant $2.0''$ emitter face distance from the soil.
-* **Rear-Mounted Onboard LP Gas Train**: 1 lb disposable or 11 lb/20 lb refillable propane cylinder clamped to the middle horizontal cross-strap behind the frame. Direct needle flow control valve and $11''\text{ W.C.}$ low-pressure regulator with push-button piezo igniter.
-* **Center-Support Conduit**: A flexible reinforced LP gas hose and silicone spark wire travel down the center support pipe directly into the Solaronics brass venturi gas connector.
+> [!IMPORTANT]
+> **Clarification on K-30 Status**:  
+> The Solaronics K-30 integration in our current CAD models represents a **proof-of-concept reference baseline**. We selected the K-30 because of its well-documented dimensional envelope, robust industrial build quality, and outstanding radiant efficiency.
+> 
+> However, because standard K-series heaters are primarily engineered for building space heating (hung overhead and angled $0^\circ - 30^\circ$), **we do not assume an unmodified K-30 is necessarily the final production device for our mobile ground-weeding application**. We actively seek Solaronics' guidance on the best burner configuration from your product lines or custom OEM manufacturing capabilities.
 
 ---
 
-## 4. Target Thermal Specifications
+## 4. Key Engineering Questions for Solaronics
 
-We have provisionally modeled a custom Solaronics radiant array sized to fit our forward sled enclosure:
+We would greatly value the technical guidance of Solaronics applications engineering on the following four core questions:
 
-| Parameter | Target Specification | Notes / Operating Context |
+### Question 1: Burner Sizing & Heat Flux (Target: 180°F In-Ground)
+* **Thermal Objective**: Our target is raising the weed foliar canopy and the immediate top soil / gravel layer to **$180^\circ\text{F}$ ($82^\circ\text{C}$)** to ensure complete cellular lysis and destroy the root crown.
+* **Operational Kinematics**:
+  - *Continuous Walking Pace*: $0.8 - 1.5\text{ mph}$ (yielding an exposure dwell time of approximately **$1.0 - 2.5\text{ seconds}$** over a given ground patch).
+  - *Slow Crawl / Spot Dwell*: $0.2 - 0.4\text{ mph}$ or stationary dwell (**$5 - 15\text{ seconds}$**) for dense perennial taproots.
+* **Engineering Inquiries**:
+  1. What thermal heat release rate (BTU/hr) and radiant flux density ($\text{BTU/hr}\cdot\text{in}^2$ or $\text{kW/m}^2$) does Solaronics recommend to reliably achieve $180^\circ\text{F}$ in ground media at these speeds?
+  2. Is a **30,000 BTU/hr** unit (e.g. K-30 footprint) adequate for this thermal dose, or would a higher-output array (e.g. **40,000 – 60,000 BTU/hr**, such as the K-50 / K-60 footprint) be required for continuous walking speeds?
+  3. What emitter face hover distance (currently modeled at **$1.5'' - 2.0''$**) provides the optimal balance of radiant energy concentration versus combustion air entrainment?
+
+### Question 2: Best Burner Type for this Scenario
+* **Operational Environment**: The burner will be deployed in an outdoor mobile vehicle, operating in a **continuous downward-firing orientation ($90^\circ$ horizontal, facing the ground)**, and subject to continuous vibrations, bumps, and minor mechanical shocks from rolling over gravel driveways and uneven ground.
+* **Engineering Inquiries**:
+  1. **Ceramic Plaque Resilience**: How do Solaronics cordierite ceramic plaques and refractory cement gaskets perform under continuous mechanical vibration and outdoor thermal cycling? Is special shock-isolated mounting recommended, or are ceramic plaques robust enough for cart-mounted service?
+  2. **Alternative Burner Media**: Does Solaronics manufacture or recommend alternative burner surface media—such as **woven metallic fiber (FeCrAlloy / Inconel)**, sintered porous metal, or radiant ribbon matrices—for close-proximity ground process heating? How do they compare in terms of shock resistance, thermal turn-down, and draft resistance?
+  3. **Downward Firing & Combustion Air Clearance**: When firing directly downward at a $1.5'' - 2.0''$ hover height, how is primary air aspiration at the venturi and secondary air at the burner face maintained? Does Solaronics recommend specific perimeter exhaust relief gaps, draft diverters, or chimney vents to prevent flame smothering?
+
+### Question 3: Thermostatic & Overheating Controls (Could it get too hot?)
+* **Operational Concern**: When operating close to the ground, significant radiant energy is reflected back upward from gravel and hardscapes, while hot flue gases rise around the hood.
+* **Engineering Inquiries**:
+  1. **Cavity Heat Trap & Back-Radiation**: Is there a risk of overheating the burner plenum box, venturi tube, gas orifice, or control enclosure due to trapped heat in the ground cavity? What are the maximum safe operating temperatures for the plenum and gas train?
+  2. **Substrate Overheating / Scorching**: If the operator pauses motion or travels very slowly, could ground temperatures spike excessively, posing scorching or ignition hazards?
+  3. **Control Strategies**:
+     - Does Solaronics offer or recommend **modulating control valves** (e.g., 2:1 or wider turndown) or **dual-stage (high/low)** firing to tailor heat input to ground speed and weed density?
+     - What thermal hi-limit safety switches are standard or recommended on the burner plenum?
+     - Have you integrated **non-contact infrared pyrometer sensors** or thermocouples in OEM equipment to monitor surface temperature and automatically throttle gas flow when the target ground temperature ($180^\circ\text{F}$) is reached?
+
+### Question 4: Field Ignition & Safety Requirements for an Off-Grid Mobile Cart
+* **Operational Reality**: Stationary Solaronics commercial heaters typically utilize building AC power ($24\text{ VAC}$ or $115\text{ VAC}$) for direct spark ignition (DSI) and flame rectification sensing, or a millivolt standing pilot (`TAL` series). On an autonomous outdoor mobile cart, 120VAC line power is unavailable.
+* **Engineering Inquiries**:
+  1. **Low-Voltage DC Ignition Packages**: Does Solaronics offer or support **12V DC battery-powered Direct Spark Ignition (DSI)** modules with 100% safety shutoff for portable / OEM equipment?
+  2. **Millivolt Standing Pilot in Outdoor Wind**: Is a self-powered millivolt standing pilot (`TAL` package) practical and reliable in outdoor mobile environments, or do ambient wind gusts and movement cause nuisance pilot flame outages?
+  3. **Flame Supervision Under Wind**: What flame rectification probe or sensor configuration is most reliable against outdoor wind turbulence when firing downward?
+  4. **Emergency Gas Shutoff**: What deadman switch or safety valve configuration does Solaronics recommend to instantly cut fuel supply in the event of an operator tip-over, cart release, or loss of flame?
+
+---
+
+## 5. Summary Technical Specification Comparison
+
+| Parameter | CAD Concept Baseline (Solaronics K-30) | Application Requirement / Query Envelope |
 | :--- | :--- | :--- |
-| **Plaque Array Dimensions** | $\approx 11.5''\text{ W} \times 15.0''\text{ L}$ ($173\text{ sq. in}$) | Rectangular array sized for our $15'' \times 18''$ outer sled cowl |
-| **Thermal Input Rating** | **$40,000 – 60,000\text{ BTU/hr}$** | Surface power density $\sim 230 - 340\text{ BTU/sq. in}$ |
-| **Fuel Type & Supply** | Propane (LP Gas) | $11''\text{ W.C.}$ regulated low-pressure supply |
-| **Operating Surface Temp** | **$1,600^\circ\text{F} – 1,800^\circ\text{F}$** | Cherry-red incandescence ($3 - 5\,\mu\text{m}$ peak infrared flux) |
-| **Combustion Type** | 100% Primary Aerated Premix | Atmospheric aspirating venturi tube with air shutter |
-| **Reflector Geometry** | Deep Parabolic Aluminum Hood | Specular mirror finish, focused downward |
-| **Face Protection** | Inconel / 304 SS Wire Mesh | Emissivity booster and physical rock guard |
-| **Firing Angle** | **Horizontal Downward Firing** | Radiant plaque oriented facing ground ($2.0'' – 3.5''$ above surface) |
+| **Thermal Input Rating** | $30,000\text{ BTU/hr}$ ($8.8\text{ kW}$) | $30,000 - 60,000\text{ BTU/hr}$ (seeking sizing recommendation) |
+| **Fuel Supply** | Propane (LP Gas) @ $10.0'' - 11.0''\text{ W.C.}$ | 20 lb cylinder (4W) or 1 lb/11 lb cylinder (2W) w/ low-pressure regulator |
+| **Operating Orientation** | Suspended overhead ($0^\circ - 30^\circ$) | **Direct horizontal downward firing ($90^\circ$ to ground)** |
+| **Ground Clearance** | N/A (Indoor factory ceiling mount) | **$1.5'' - 2.0''$ ($38 - 50\text{ mm}$)** hover height above soil/gravel |
+| **Target Workpiece Temp**| Indoor ambient comfort ($65^\circ - 72^\circ\text{F}$) | **$180^\circ\text{F}$ ($82^\circ\text{C}$)** ground / foliage weed root shock |
+| **Operating Medium** | Cordierite grooved ceramic tiles ($1,800^\circ\text{F}$) | Cordierite ceramic vs. metallic fiber mesh vs. ribbon burner |
+| **Ignition / Electrical**| $24\text{ VAC}$, $115\text{ VAC}$, or Millivolt Pilot | **12V DC Battery DSI, Piezo, or Wind-Resistant Millivolt** |
+| **Transit / Mobility** | Stationary suspended | Mobile wheeled platform subject to outdoor terrain vibration |
 
 ---
 
-## 5. Technical Questions for Solaronics Engineers
+## 6. Digital CAD Assets & Next Steps
 
-We would greatly value the guidance of Solaronics engineering team on the following operational questions:
+### 6.1 Available 3D Engineering Data
+We maintain complete, open parametric 3D CAD assemblies of both platforms in FreeCAD and can provide standard **STEP / IGES** digital models, dimensioned drawings, and clearance diagrams:
+* **`road-roaster-4w.FCStd` / `road-roaster-4w.png`**: Commercial 4W platform dolly showing cantilever suspension, pivot axle, 180° flip stowage, and gas/water payload zoning.
+* **`road-roaster.FCStd` / `road-roaster.png`**: Compact 2W hand-truck sled with Concentric Axle pivot and perimeter draft skirts.
+* **`solaronics_infrared_burner.FCStd`**: Detailed parametric representation of the K-30 burner core, plenum diffuser, venturi horn, and flared reflector hood.
 
-1. **Downward Horizontal Firing Orientation**:
-   - Solaronics high-intensity heaters are commonly installed at angles from horizontal up to $30^\circ$ or downward in ceiling suspensions. Are standard K-series ceramic plaques and housings rated for continuous, direct downward ($90^\circ$) horizontal firing at a $2.0'' – 3.5''$ ground clearance?
-   - What top/side ventilation clearances do you recommend to ensure adequate secondary aspiration and exhaust of combustion products without overheating the reflector hood or venturi tube?
-
-2. **Mechanical Vibration & Shock Resistance**:
-   - The Road Roaster traverses rough outdoor terrain (gravel, expansion joints, stone paths).
-   - How resilient are Solaronics cordierite ceramic plaques and cement gaskets to mechanical vibration and shock? Do you recommend special shock-damped mounting brackets or perimeter elastomeric/ceramic-fiber isolation gaskets?
-
-3. **Off-the-Shelf vs. Custom OEM Manifold Options**:
-   - Could our dimensional envelope ($11.5'' \times 15.0''$ active face, $\sim 50,000 - 60,000\text{ BTU/hr}$) be achieved by arranging standard modular replacement plaques/reflectors (e.g., from the K-30 or K-60 product lines), or would an engineered OEM manifold be recommended?
-   - What are the minimum order quantities or NRE expectations for custom OEM plaque manifolds?
-
-4. **Venturi & Gas Orifice Sizing**:
-   - Given a small portable LP gas delivery system operating at $11''\text{ W.C.}$ manifold pressure, what orifice size and venturi throat configuration does Solaronics recommend for optimal primary aeration and flame stability?
-
-5. **CAD Models & Submittals**:
-   - We maintain a fully parametric 3D FreeCAD/STEP digital model of the Road Roaster. Could Solaronics provide 3D CAD models (STEP/IGES) or dimensioned engineering drawings of standard K-series plaque assemblies, reflectors, and venturi manifolds to facilitate our digital assembly refinement?
-
-6. **Prototype Evaluation & Parts Procurement**:
-   - How can we proceed with purchasing a sample burner head, reflector assembly, and orifice fitting for bench testing and field prototype validation?
+### 6.2 Proposed Path to Collaboration
+We welcome the opportunity to discuss this application directly with a Solaronics OEM Application Engineer. Specifically, we would like to:
+1. Schedule a brief technical call to review your recommendations on burner sizing, media, and combustion clearances.
+2. Discuss options for purchasing a prototype evaluation burner assembly, appropriate gas orifice, and ignition controls.
+3. Explore potential OEM supply arrangements as we move from prototype trials to low-rate initial production.
 
 ---
 
-## 6. Closing & Next Steps
-
-We believe this downward-firing hardscape weed management application presents an exciting demonstration of Solaronics technology expanding beyond industrial space heating into sustainable, chemical-free land stewardship.
-
-We welcome the opportunity to discuss this project with an applications engineer, review your recommendations, and arrange for sample component procurement.
-
-**Contact:**  
+**Primary Engineering Contact:**  
 phi ARCHITECT  
 `phi-WORKS` Physical Design & AI-Augmented CAD Laboratory  
 Website: [github.com/phiarchitect/maker](https://github.com/phiarchitect/maker)  
 Repository: `phi-WORKS/maker`  
-Project: `projects/road-roaster`  
-Email / Phone: *(Provided upon submission)*  
-Attachments: Full 3D Multi-View Orthogonal CAD Renders (`road-roaster.png`, `road-roaster_right.png`, `road-roaster_back.png`)
+Project Directories: [`projects/road-roaster/`](.) & [`projects/road-roaster-4w/`](../road-roaster-4w/)  
+Email: `phi@phiarchitect.com`  
+Attachments: 3D Perspective & Orthogonal CAD Renders of Road Roaster 4W and Solaronics K-30 Concept Assembly.

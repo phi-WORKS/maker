@@ -25,7 +25,9 @@
 
 ## 1. Overview & Architecture
 
-This module models the commercial **Solaronics USA K-30** high-intensity ceramic infrared burner and flared focusing reflector hood, adapted as the primary downward-firing radiant thermal engine for the **Road Roaster** platform.
+This module models the commercial **Solaronics USA K-30** high-intensity ceramic infrared burner and flared focusing reflector hood, adapted as the primary downward-firing radiant thermal engine concept for the **Road Roaster** platform.
+
+> **Active OEM Engineering Inquiry**: See [**`SOLARONICS_INQUIRY.md`**](../../projects/road-roaster/SOLARONICS_INQUIRY.md) for our formal application inquiry to Solaronics engineering regarding downward-firing mobile burner sizing, media selection (ceramic vs. metallic fiber), thermostatic controls, and off-grid DC ignition packages.
 
 The CAD model is organized into two independent modular subcomponents inside the master `App::Part` assembly:
 1. **`Solaronics_Burner_Core` (`create_solaronics_burner_core_component`)**:

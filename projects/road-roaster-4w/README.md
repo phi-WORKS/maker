@@ -5,6 +5,7 @@
 
 **Active CAD Model**: [`road-roaster-4w.FCStd`](road-roaster-4w.FCStd)  
 **Status**: 🟢 **`[RELEASED - v0.2.0]`**  
+**Engineering Documents**: [**`BOM.md`**](BOM.md) | [**`SPECIFICATION.md`**](SPECIFICATION.md) | [**`SOLARONICS_INQUIRY.md`**](../road-roaster/SOLARONICS_INQUIRY.md)  
 **Foundation**: Commercial 24" × 36" Heavy-Duty Platform Truck (5" Caster Running Gear, 29" Push Handle)  
 **Parallel Variant**: See [`projects/road-roaster`](../road-roaster/) for the ultra-compact 2-wheel vintage hand truck variant.
 
@@ -77,6 +78,7 @@ While the original [Road Roaster (`road-roaster`)](../road-roaster/) leverages a
 
 | Version | Milestone Thumbnail | Date | Key Architectural Highlights |
 | :--- | :---: | :---: | :--- |
+| **v0.2.0** | <img src="changelog/v0.2.0.png" width="180"> | *2026-09-07* | **Solaronics K-30 Integration, Bolted Front Skirt & Cantilever Pivot Axle**: Full integration of realistic Solaronics K-30 ceramic infrared radiant burner engine (173 sq. in radiating matrix) with flared reflector hood in protected cart-side orientation; 3/16" bolted front skirt apron; continuous 3/4" pivot axle with arched ear brackets; triangulated cantilever drop arms locking 1.5" ground hover; and 180° flip-back stowage mechanism onto front deck. |
 | **v0.1.0** | <img src="changelog/v0.1.0.png" width="180"> | *2026-09-04* | **Integrated 4-Wheel Dolly Architecture**: Full integration of commercial 24" × 36" cart foundation (5" wheels, 29" handle), rear 20 lb propane cylinder, handle-mounted spot torch wand, 2.5 gal water safety tank, and front cantilevered 180° flip-back burner assembly with height adjustment. |
 
 ---
