@@ -4,6 +4,34 @@ All notable architectural transformations, parametric modifications, and visual 
 
 ---
 
+## [[v0.2.0]](changelog/v0.2.0.png) — 2026-09-07: Solaronics K-30 Integration, Bolted Front Skirt & Cantilever Pivot Axle
+
+<img src="changelog/v0.2.0.png" width="540" alt="Road Roaster 4W v0.2.0 Home Perspective View">
+
+### Added
+- **Bolted Front Skirt Mounting Apron**:
+  - Heavy-gauge $3/16''$ ($6\text{ mm}$) formed steel mounting apron spanning $540.0\text{ mm}$ across the front downturn lip of the cart deck between the molded rubber corner bumpers.
+  - Anchored with 4x $3/8''\text{-16}$ carriage through-bolts, distributing dynamic cantilever loads across the cart's extruded perimeter frame.
+- **Continuous 3/4" Pivot Axle & Pillow Ear Brackets**:
+  - Arched steel axle ear brackets mounted at $X = \pm 230.0\text{ mm}$ on top of the front skirt with precision $19.5\text{ mm}$ pivot bores elevated $35\text{ mm}$ ($Z = 230.0\text{ mm}$) above the deck top surface.
+  - Continuous $3/4''$ ($19.05\text{ mm}$) cold-rolled steel pivot axle ($520.0\text{ mm}$ length) spanning through both brackets, secured with outer zinc-plated shaft collars.
+- **Realistic Solaronics K-30 Ceramic Infrared Burner Integration**:
+  - Replaced the preliminary generic cowl with the photorealistic `solaronics_infrared_burner` component featuring 4x Cordierite ceramic plaques ($173\text{ in}^2$ radiating face), 304 SS retainer frame, matte black plenum, cast iron venturi mixer, DSI pilot electrodes, and flared mirror-aluminum reflector hood with $45^\circ$ mitered relief corners.
+  - **Cart-Side Fitting Orientation**: Rotated burner $180^\circ$ around Z so the NEMA control valve box, venturi tube, and brass gas orifice are positioned on the **cart side** facing the 20 lb propane cylinder, providing a clean, protected gas supply path.
+- **Cantilevered Flip-Over Bracket & Brace System (Per Concept Sketch)**:
+  - Modeled after the hand-drawn engineering sketch in [`projects/road-roaster-4w/sketches/side-view-proposed-burner-bracket.png`](sketches/side-view-proposed-burner-bracket.png):
+    - Dual axle pivot sleeve bushings ($32\text{ mm}$ OD) rotating smoothly on the $3/4''$ axle.
+    - Dual vertical drop legs ($38.1\text{ mm}$ square steel tubing) extending downward in front of the skirt.
+    - Formed steel **Hood Brackets** with 4-bolt patterns ($2 \times 2$) bolting to the burner throat.
+    - Forward horizontal projection arms and triangulated diagonal **Cantilever Braces** stabilizing the reflector hood.
+    - Rear mechanical stop pads contacting the front skirt, locking hover height at $1.5''$ ($38.1\text{ mm}$) above the road.
+    - Transverse cross-tie tube rigidifying both arms into a unified flip-up frame.
+- **Kinematic 180° Flip Transit Over Axle**:
+  - Burner frame rotates $180^\circ$ over the elevated pivot axle from forward operating position ($Y \approx -800\text{ mm}$) onto the clear **Front Stow Zone** of the deck ($Y \approx -150\text{ mm}$).
+  - Shifts center of gravity rearward over the 4-wheel wheelbase ($X = +0.31''$, $Y = +0.53''$, $Z = +11.08''$), eliminating forward tipping risks during high-speed transit.
+
+---
+
 ## [[v0.1.0]](changelog/v0.1.0.png) — 2026-09-04: Full 4-Wheel Dolly System Integration
 
 <img src="changelog/v0.1.0.png" width="540" alt="Road Roaster 4W v0.1.0 Home Perspective View">
