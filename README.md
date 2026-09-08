@@ -132,41 +132,18 @@ Complete engineering assemblies are maintained at `projects/<project_name>/`. Ea
 A foundational tenet of the **Maker** framework is the strict architectural boundary between **reusable commercial modules (`components/`)** and **integrated physical systems (`projects/`)**.
 
 ```mermaid
-classDiagram
-    class ComponentModule {
-        +String name
-        +Placement insertionOrigin (0,0,0)
-        +build.py
-        +component.FCStd
-        +component.png (Home)
-        +component_6views.png
-        +README.md (Mounting & Specs)
-        +build_standalone()
-    }
+flowchart LR
+    Comp["🧩 Reusable Component<br>components/[component_name]/<br>• Standalone build.py<br>• Master .FCStd model<br>• Standard insertion origin (0,0,0)<br>• 6-view projection gallery"]:::compStyle
+    Lib["📦 Shared CAD Core<br>src/phi_works/maker/<br>• import_component()<br>• apply_material()<br>• get_mass_properties()<br>• export_bom()"]:::libStyle
+    Proj["🚜 Master Project Assembly<br>projects/[project_name]/<br>• Single active build.py<br>• Master .FCStd assembly<br>• Custom structural frame<br>• Automated BOM & Cut List"]:::projStyle
 
-    class ProjectAssembly {
-        +String projectName
-        +build.py (Topological Build)
-        +project.FCStd
-        +project.png (Home)
-        +BOM.md & bom.json
-        +cut_list.csv
-        +SPECIFICATION.md
-        +CHANGELOG.md
-        +import_component(as_link=True)
-    }
+    Lib -.->|"CAD & Render Helpers"| Comp
+    Lib -.->|"Import & Physics Services"| Proj
+    Comp ==>|"App Link Modular Import"| Proj
 
-    class SharedCADLib {
-        +import_component()
-        +apply_material()
-        +get_mass_properties()
-        +export_bom()
-        +render_all_views()
-    }
-
-    ComponentModule <.. SharedCADLib : builds isolated CAD
-    ProjectAssembly ..> SharedCADLib : consumes services
-    ProjectAssembly o-- ComponentModule : links via App::Link
+    classDef compStyle fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40;
+    classDef libStyle fill:#e8eaf6,stroke:#3949ab,stroke-width:2px,color:#1a237e;
+    classDef projStyle fill:#e8f5e9,stroke:#43a047,stroke-width:2px,color:#1b5e20;
 ```
 
 ### Architectural Separation
