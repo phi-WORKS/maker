@@ -5,6 +5,8 @@
 
 **Active CAD Model**: [`foam-camper.FCStd`](foam-camper.FCStd)  
 **Status**: 🟢 **`[CURRENT / ACTIVE - v0.1.0]`**  
+**Master Shop Manual**: 📋 [**`ASSEMBLY.md`**](ASSEMBLY.md)  
+**Fabrication & Unfurling Suite**: 🔨 [**`fabrication/README.md`**](fabrication/README.md)  
 
 ![Compact Foam Camper Master Form Exploration](foam-camper.png)
 
@@ -92,6 +94,8 @@ Rigid insulation boards (such as Owens Corning Foamular XPS or Dow Styrofoam, 1.
 ## Documentation Index
 
 - 📐 [**`SPECIFICATION.md`**](SPECIFICATION.md): Dimensional specifications, parametric VarSet parameters, station coordinates, and volumetric analysis.
+- 📋 [**`ASSEMBLY.md`**](ASSEMBLY.md): **Master Shop Assembly Guide** with step-by-step photos/renders, tool checklist, and clamping protocol.
+- 🔨 [**`fabrication/`**](fabrication/README.md): **Fabrication & Unfurling Manual**, interlocking egg-crate plywood buck generator (`build_buck.py`), and surface unfurling / kerf scoring engine (`unfurl.py`).
 - 📜 [**`CHANGELOG.md`**](CHANGELOG.md): Version iteration log and visual milestone history.
 - 🛠️ [**`build.py`**](build.py): Parametric FreeCAD 1.1 Python script generating all 3D solid forms and snapshot renders.
 - 📦 [**`foam-camper.FCStd`**](foam-camper.FCStd): Master 3D CAD project model.
