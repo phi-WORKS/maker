@@ -1,0 +1,22 @@
+---
+# FreeCAD Material Card
+General:
+  UUID: "1772d513-e38c-454d-b44b-29117c263aa7"
+  Author: "phi ARCHITECT"
+  License: "CC-BY-4.0"
+  Name: "Polymer-XPS-Foam"
+  Description: "Extruded Polystyrene (XPS) rigid insulation foam (Foamular / Styrofoam), 2.0 lb/cu.ft"
+  SourceURL: "https://en.wikipedia.org/wiki/Extruded_polystyrene_foam"
+Models:
+  Density:
+    UUID: 'cd61819d-40c7-422e-9792-6bcfde0c1249'
+    Density: "32 kg/m^3"
+AppearanceModels:
+  BasicRendering:
+    UUID: 'da650561-b9b5-4c8f-893b-42d835dd54e1'
+    AmbientColor: "(0.50, 0.78, 0.85, 1.0)"
+    DiffuseColor: "(0.42, 0.72, 0.82, 1.0)"
+    SpecularColor: "(0.15, 0.15, 0.15, 1.0)"
+    EmissiveColor: "(0.0, 0.0, 0.0, 1.0)"
+    Shininess: "0.10"
+    Transparency: "0.0"
