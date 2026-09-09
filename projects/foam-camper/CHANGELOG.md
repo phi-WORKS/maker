@@ -7,11 +7,25 @@ All notable changes, CAD model versions, and visual evolutions of the Compact Fo
 
 ---
 
-## [v0.2.0] - Pop-Top & Orthogonal 1D Curvature Intersection Architecture
+## [v0.3.0] - Multi-Buck Fabrication Suite & Assembly Engineering
 
 **Release Date**: 2026-09-09  
 **Status**: 🟢 **`[CURRENT / ACTIVE]`**  
 **Active Master Model**: [`foam-camper.FCStd`](foam-camper.FCStd)  
+**Master Assembly Buck Model**: [`fabrication/camper_assembly_buck.FCStd`](fabrication/camper_assembly_buck.FCStd)  
+**Pop-Up Roof Canopy Buck**: [`fabrication/roof_canopy_buck.FCStd`](fabrication/roof_canopy_buck.FCStd)  
+**Side Wall Bending Jig**: [`fabrication/side_wall_buck.FCStd`](fabrication/side_wall_buck.FCStd)  
+
+| Milestone Thumbnail | Key Evolution & Architectural Features |
+| :---: | :--- |
+| ![v0.3.0 Milestone](changelog/v0.3.0.png) | • **Three-Tier Buck Fabrication Suite**: Designed and generated dedicated parametric CAD models for the complete fabrication lifecycle: Master Assembly Buck, Pop-Up Roof Canopy Buck, and Side Wall Bending Jig.<br>• **Master Egg-Crate Assembly Buck (`camper_assembly_buck.FCStd`)**: Full 12' × 6.5' interlocking 3/4" CDX plywood frame ($134.3\ \text{lbs}$) mounted to trailer deck. Features Station 0 with a $24''$ walk-through center door cutout, Stations 1–4 bulkheads with interior crawl openings, and dual shoulder stringers at $Y = \pm 533.5\ \text{mm}$ supporting the 3D compound shoulder seam.<br>• **Pop-Up Roof Canopy Form Buck (`roof_canopy_buck.FCStd`)**: Standalone $42'' \times 106''$ shop bench jig ($187.3\ \text{lbs}$) with 3 longitudinal arched formers and 4 interlocking cross-ties for pre-bending and gluing the transversely scored 1D $XZ$ foam canopy off-trailer.<br>• **Side Wall Planform Bending Jig (`side_wall_buck.FCStd`)**: Floor template ($46.6\ \text{lbs}$) with curved 3/4" plywood sole plate and vertical 2x4 posts for pre-curving the vertically scored $2.0''$ XPS side walls.<br>• **Walk-Through Buck Disassembly & Extraction**: Because Station 0 and the front bulkhead incorporate a centered $24''$ doorway, builders can step inside the cured monocoque shell, unslot the temporary egg-crate bulkheads, and slide them straight out the front door onto the tongue step platform!<br>• **Shop Assembly Manual**: Comprehensive revision of [`ASSEMBLY.md`](ASSEMBLY.md) detailing off-trailer pre-forming, trailer deck erection, joint bonding, buck removal, pop-top installation, and PMF composite skinning. |
+
+---
+
+## [v0.2.0] - Pop-Top & Orthogonal 1D Curvature Intersection Architecture
+
+**Release Date**: 2026-09-09  
+**Status**: ⚪ **`[SUPERSEDED BY v0.3.0]`**  
 **Archived Version Model**: [`changelog/v0.2.0_foam-camper.FCStd`](changelog/v0.2.0_foam-camper.FCStd)  
 
 | Milestone Thumbnail | Key Evolution & Architectural Features |
