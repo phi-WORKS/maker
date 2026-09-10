@@ -2,7 +2,7 @@
 
 ## Overview & Purpose
 
-The **2.5 Gallon Pressurized Water Safety Spray Tank** (`water_tank`) is a reusable parametric 3D CAD model representing an industrial safety water reservoir and washdown sprayer. It serves as the primary onboard fire-suppression and pavement-quenching safety system for thermal radiant weed eradication equipment such as the [Road Roaster 4W](../../projects/road-roaster-4w/).
+The **2.5 Gallon Pressurized Water Safety Spray Tank** (`water_tank`) is a reusable parametric 3D CAD model representing an industrial safety water reservoir and washdown sprayer. It serves as the primary onboard fire-suppression and pavement-quenching safety system for thermal radiant weed eradication equipment such as the [Road Roaster 4W](../../projects/road-roaster/road-roaster-4w/).
 
 | Parameter | Specification |
 | :--- | :--- |

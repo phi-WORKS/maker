@@ -48,15 +48,15 @@ LEVEL_1_COMPOUND = [
 ]
 
 LEVEL_2_SUBASSEMBLIES = [
-    "projects/road-roaster-4w/subassemblies/cantilever_burner/build.py",
-    "projects/road-roaster-4w/subassemblies/fuel_system/build.py",
-    "projects/road-roaster-4w/subassemblies/aux_torch_safety/build.py",
+    "projects/road-roaster/road-roaster-4w/subassemblies/cantilever_burner/build.py",
+    "projects/road-roaster/road-roaster-4w/subassemblies/fuel_system/build.py",
+    "projects/road-roaster/road-roaster-4w/subassemblies/aux_torch_safety/build.py",
 ]
 
 LEVEL_3_MASTER = [
-    "projects/road-roaster-4w/build.py",
+    "projects/road-roaster/road-roaster-4w/build.py",
     "projects/kombi-kaddy/build.py",
-    "projects/road-roaster/build.py",
+    "projects/road-roaster/road-roaster-2w/build.py",
 ]
 
 ALL_BUILDS = [

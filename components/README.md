@@ -24,13 +24,13 @@ Host assembly projects under `projects/` import these pre-built components via `
 
 | Component Preview | Technical Specifications & Files |
 | :---: | :--- |
-| [![Commercial Hand Truck](commercial_hand_truck/commercial_hand_truck.png)](commercial_hand_truck/) | • **Description**: Vintage restored tubular steel hand truck chassis with center spine handle & triangular axle trusses.<br>• **Dimensions**: $1.0''\text{ OD}$ tubing, $12.5''$ riser spacing, $46.0''$ overall height, $9.5'' \times 3.0''$ wheels on $5/8''$ continuous axle.<br>• **Role**: Mobile structural chassis for the [Road Roaster](../projects/road-roaster/) 2-wheel radiant weed shock sled.<br>• 📖 [**`README.md`**](commercial_hand_truck/README.md)<br>• 🛠️ [**`build.py`**](commercial_hand_truck/build.py)<br>• 📦 [**`commercial_hand_truck.FCStd`**](commercial_hand_truck/commercial_hand_truck.FCStd) |
+| [![Commercial Hand Truck](commercial_hand_truck/commercial_hand_truck.png)](commercial_hand_truck/) | • **Description**: Vintage restored tubular steel hand truck chassis with center spine handle & triangular axle trusses.<br>• **Dimensions**: $1.0''\text{ OD}$ tubing, $12.5''$ riser spacing, $46.0''$ overall height, $9.5'' \times 3.0''$ wheels on $5/8''$ continuous axle.<br>• **Role**: Mobile structural chassis for the [Road Roaster 2W](../projects/road-roaster/road-roaster-2w/) radiant weed shock sled.<br>• 📖 [**`README.md`**](commercial_hand_truck/README.md)<br>• 🛠️ [**`build.py`**](commercial_hand_truck/build.py)<br>• 📦 [**`commercial_hand_truck.FCStd`**](commercial_hand_truck/commercial_hand_truck.FCStd) |
 
 ### 2. [Commercial 24" × 36" Platform Cart](platform_cart_24x36/)
 
 | Component Preview | Technical Specifications & Files |
 | :---: | :--- |
-| [![Platform Cart 24x36](platform_cart_24x36/platform_cart_24x36.png)](platform_cart_24x36/) | • **Description**: Heavy-duty commercial platform truck (flatbed dolly) with diamond-plate deck, folding handle, and 5" casters.<br>• **Dimensions**: 24" W × 36" L deck footprint, 6.89" deck height, 29" push handle with dual cross rails, 1,000+ lb rating.<br>• **Running Gear**: 2 front rigid casters, 2 rear 360° swivel casters with foot brakes, high-visibility yellow hubs.<br>• **Role**: Rolling chassis foundation for the [Road Roaster 4W](../projects/road-roaster-4w/) platform sled.<br>• 📖 [**`README.md`**](platform_cart_24x36/README.md)<br>• 🛠️ [**`build.py`**](platform_cart_24x36/build.py)<br>• 📦 [**`platform_cart_24x36.FCStd`**](platform_cart_24x36/platform_cart_24x36.FCStd) |
+| [![Platform Cart 24x36](platform_cart_24x36/platform_cart_24x36.png)](platform_cart_24x36/) | • **Description**: Heavy-duty commercial platform truck (flatbed dolly) with diamond-plate deck, folding handle, and 5" casters.<br>• **Dimensions**: 24" W × 36" L deck footprint, 6.89" deck height, 29" push handle with dual cross rails, 1,000+ lb rating.<br>• **Running Gear**: 2 front rigid casters, 2 rear 360° swivel casters with foot brakes, high-visibility yellow hubs.<br>• **Role**: Rolling chassis foundation for the [Road Roaster 4W](../projects/road-roaster/road-roaster-4w/) platform sled.<br>• 📖 [**`README.md`**](platform_cart_24x36/README.md)<br>• 🛠️ [**`build.py`**](platform_cart_24x36/build.py)<br>• 📦 [**`platform_cart_24x36.FCStd`**](platform_cart_24x36/platform_cart_24x36.FCStd) |
 
 ### 3. [Solaronics High-Intensity Ceramic Infrared Burner](solaronics_infrared_burner/)
 
@@ -42,25 +42,25 @@ Host assembly projects under `projects/` import these pre-built components via `
 
 | Component Preview | Technical Specifications & Files |
 | :---: | :--- |
-| [![Propane Cylinder 20lb](propane_cylinder_20lb/propane_cylinder_20lb.png)](propane_cylinder_20lb/) | • **Description**: Industry-standard DOT 20 lb (5-gallon) LP gas pressure vessel with foot ring, protective collar, OPD brass valve, and 11" W.C. regulator.<br>• **Capacity**: 430,960 BTU total energy (~7.2 continuous hours @ 60k BTU/hr). 12.2" OD × 18.0" height.<br>• **Role**: High-capacity fuel reservoir for [Road Roaster 4W](../projects/road-roaster-4w/).<br>• 📖 [**`README.md`**](propane_cylinder_20lb/README.md)<br>• 🛠️ [**`build.py`**](propane_cylinder_20lb/build.py)<br>• 📦 [**`propane_cylinder_20lb.FCStd`**](propane_cylinder_20lb/propane_cylinder_20lb.FCStd) |
+| [![Propane Cylinder 20lb](propane_cylinder_20lb/propane_cylinder_20lb.png)](propane_cylinder_20lb/) | • **Description**: Industry-standard DOT 20 lb (5-gallon) LP gas pressure vessel with foot ring, protective collar, OPD brass valve, and 11" W.C. regulator.<br>• **Capacity**: 430,960 BTU total energy (~7.2 continuous hours @ 60k BTU/hr). 12.2" OD × 18.0" height.<br>• **Role**: High-capacity fuel reservoir for [Road Roaster 4W](../projects/road-roaster/road-roaster-4w/).<br>• 📖 [**`README.md`**](propane_cylinder_20lb/README.md)<br>• 🛠️ [**`build.py`**](propane_cylinder_20lb/build.py)<br>• 📦 [**`propane_cylinder_20lb.FCStd`**](propane_cylinder_20lb/propane_cylinder_20lb.FCStd) |
 
 ### 5. [1 lb Disposable/Refillable Propane Cylinder](propane_cylinder_1lb/)
 
 | Component Preview | Technical Specifications & Files |
 | :---: | :--- |
-| [![Propane Cylinder 1lb](propane_cylinder_1lb/propane_cylinder_1lb.png)](propane_cylinder_1lb/) | • **Description**: Standard 16.4 oz / 1 lb LP gas cylinder with threaded 1"-20 UNEF valve connection.<br>• **Dimensions**: 3.875" OD × 7.8" overall height, 3.46" seat collar base.<br>• **Role**: Lightweight, highly portable onboard fuel source for the compact 2-wheel [Road Roaster](../projects/road-roaster/).<br>• 📖 [**`README.md`**](propane_cylinder_1lb/README.md)<br>• 🛠️ [**`build.py`**](propane_cylinder_1lb/build.py)<br>• 📦 [**`propane_cylinder_1lb.FCStd`**](propane_cylinder_1lb/propane_cylinder_1lb.FCStd) |
+| [![Propane Cylinder 1lb](propane_cylinder_1lb/propane_cylinder_1lb.png)](propane_cylinder_1lb/) | • **Description**: Standard 16.4 oz / 1 lb LP gas cylinder with threaded 1"-20 UNEF valve connection.<br>• **Dimensions**: 3.875" OD × 7.8" overall height, 3.46" seat collar base.<br>• **Role**: Lightweight, highly portable onboard fuel source for the compact [Road Roaster 2W](../projects/road-roaster/road-roaster-2w/).<br>• 📖 [**`README.md`**](propane_cylinder_1lb/README.md)<br>• 🛠️ [**`build.py`**](propane_cylinder_1lb/build.py)<br>• 📦 [**`propane_cylinder_1lb.FCStd`**](propane_cylinder_1lb/propane_cylinder_1lb.FCStd) |
 
 ### 6. [1 lb Propane Bottle Harness](propane_harness/)
 
 | Component Preview | Technical Specifications & Files |
 | :---: | :--- |
-| [![Propane Harness](propane_harness/propane_harness.png)](propane_harness/) | • **Description**: Bike-cage-style quick-release retention harness for 1 lb propane bottles with bottom seat cup, side arms, and knurled latch.<br>• **Mounting**: Rear saddle clamps for direct attachment to 3/4" square tubing or round frame pipes.<br>• **Role**: Rigid bottle retention cage on [Road Roaster](../projects/road-roaster/).<br>• 📖 [**`README.md`**](propane_harness/README.md)<br>• 🛠️ [**`build.py`**](propane_harness/build.py)<br>• 📦 [**`propane_harness.FCStd`**](propane_harness/propane_harness.FCStd) |
+| [![Propane Harness](propane_harness/propane_harness.png)](propane_harness/) | • **Description**: Bike-cage-style quick-release retention harness for 1 lb propane bottles with bottom seat cup, side arms, and knurled latch.<br>• **Mounting**: Rear saddle clamps for direct attachment to 3/4" square tubing or round frame pipes.<br>• **Role**: Rigid bottle retention cage on [Road Roaster 2W](../projects/road-roaster/road-roaster-2w/).<br>• 📖 [**`README.md`**](propane_harness/README.md)<br>• 🛠️ [**`build.py`**](propane_harness/build.py)<br>• 📦 [**`propane_harness.FCStd`**](propane_harness/propane_harness.FCStd) |
 
 ### 7. [Harbor Freight #91037 Propane Torch](torch_hf91037/)
 
 | Component Preview | Technical Specifications & Files |
 | :---: | :--- |
-| [![Torch HF #91037](torch_hf91037/torch_hf91037.png)](torch_hf91037/) | • **Description**: Full assembly model of the commercial Harbor Freight #91037 high-output propane torch with brass valve, ergonomic grip, squeeze boost lever, 32" wand, piezo igniter, and 2.375" bell.<br>• **Role**: Standalone reference model and auxiliary spot-weeding wand holstered on [Road Roaster 4W](../projects/road-roaster-4w/).<br>• 📖 [**`README.md`**](torch_hf91037/README.md)<br>• 🛠️ [**`torch_hf91037.py`**](torch_hf91037/torch_hf91037.py)<br>• 📦 [**`torch_hf91037.FCStd`**](torch_hf91037/torch_hf91037.FCStd) |
+| [![Torch HF #91037](torch_hf91037/torch_hf91037.png)](torch_hf91037/) | • **Description**: Full assembly model of the commercial Harbor Freight #91037 high-output propane torch with brass valve, ergonomic grip, squeeze boost lever, 32" wand, piezo igniter, and 2.375" bell.<br>• **Role**: Standalone reference model and auxiliary spot-weeding wand holstered on [Road Roaster 4W](../projects/road-roaster/road-roaster-4w/).<br>• 📖 [**`README.md`**](torch_hf91037/README.md)<br>• 🛠️ [**`torch_hf91037.py`**](torch_hf91037/torch_hf91037.py)<br>• 📦 [**`torch_hf91037.FCStd`**](torch_hf91037/torch_hf91037.FCStd) |
 
 ### 8. [Torch Control Handle Cockpit](torch_control_handle/)
 
@@ -90,7 +90,7 @@ Host assembly projects under `projects/` import these pre-built components via `
 
 | Component Preview | Technical Specifications & Files |
 | :---: | :--- |
-| [![5in Rigid Caster](caster_rigid_5in/caster_rigid_5in.png)](caster_rigid_5in/) | • **Description**: Commercial fixed/rigid caster assembly with cold-formed 10-gauge zinc-plated steel horn and top mounting plate.<br>• **Mounting**: Standard 4.0" × 4.5" mounting top plate with slotted bolt pattern, 6.0" overall mounted height.<br>• **Role**: Directional tracking running gear for [platform_cart_24x36](platform_cart_24x36/) and [Road Roaster 4W](../projects/road-roaster-4w/).<br>• 📖 [**`README.md`**](caster_rigid_5in/README.md)<br>• 🛠️ [**`build.py`**](caster_rigid_5in/build.py)<br>• 📦 [**`caster_rigid_5in.FCStd`**](caster_rigid_5in/caster_rigid_5in.FCStd) |
+| [![5in Rigid Caster](caster_rigid_5in/caster_rigid_5in.png)](caster_rigid_5in/) | • **Description**: Commercial fixed/rigid caster assembly with cold-formed 10-gauge zinc-plated steel horn and top mounting plate.<br>• **Mounting**: Standard 4.0" × 4.5" mounting top plate with slotted bolt pattern, 6.0" overall mounted height.<br>• **Role**: Directional tracking running gear for [platform_cart_24x36](platform_cart_24x36/) and [Road Roaster 4W](../projects/road-roaster/road-roaster-4w/).<br>• 📖 [**`README.md`**](caster_rigid_5in/README.md)<br>• 🛠️ [**`build.py`**](caster_rigid_5in/build.py)<br>• 📦 [**`caster_rigid_5in.FCStd`**](caster_rigid_5in/caster_rigid_5in.FCStd) |
 
 ### 13. [5.0" 360-Degree Swivel Caster with Foot Brake](caster_swivel_5in/)
 
@@ -108,5 +108,5 @@ Host assembly projects under `projects/` import these pre-built components via `
 
 | Component Preview | Technical Specifications & Files |
 | :---: | :--- |
-| [![Water Safety Tank](water_tank/water_tank.png)](water_tank/) | • **Description**: 2.5-gallon (9.5 L) pressurized water safety tank with blow-molded safety blue HDPE vessel, plunger pump T-handle, brass discharge port, reinforced coiled washdown hose, and trigger spray wand.<br>• **Dimensions**: 7.09" OD × 18.2" overall height, ~2.8 lb empty tare weight (24.6 lbs charged with water).<br>• **Role**: Onboard fire-suppression and pavement-quenching safety system on [Road Roaster 4W](../projects/road-roaster-4w/).<br>• 📖 [**`README.md`**](water_tank/README.md)<br>• 🛠️ [**`build.py`**](water_tank/build.py)<br>• 📦 [**`water_tank.FCStd`**](water_tank/water_tank.FCStd) |
+| [![Water Safety Tank](water_tank/water_tank.png)](water_tank/) | • **Description**: 2.5-gallon (9.5 L) pressurized water safety tank with blow-molded safety blue HDPE vessel, plunger pump T-handle, brass discharge port, reinforced coiled washdown hose, and trigger spray wand.<br>• **Dimensions**: 7.09" OD × 18.2" overall height, ~2.8 lb empty tare weight (24.6 lbs charged with water).<br>• **Role**: Onboard fire-suppression and pavement-quenching safety system on [Road Roaster 4W](../projects/road-roaster/road-roaster-4w/).<br>• 📖 [**`README.md`**](water_tank/README.md)<br>• 🛠️ [**`build.py`**](water_tank/build.py)<br>• 📦 [**`water_tank.FCStd`**](water_tank/water_tank.FCStd) |
 

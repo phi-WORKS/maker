@@ -2,7 +2,7 @@
 
 ## Overview & Purpose
 
-The **Commercial 24" x 36" Platform Cart** (`platform_cart_24x36`) is a standardized 3D parametric CAD component representing a commercial heavy-duty steel/aluminum platform truck (flatbed dolly). It serves as the mobile rolling foundation for the **Road Roaster Dolly** (`road-roaster-dolly`) project.
+The **Commercial 24" x 36" Platform Cart** (`platform_cart_24x36`) is a standardized 3D parametric CAD component representing a commercial heavy-duty steel/aluminum platform truck (flatbed dolly). It serves as the mobile rolling foundation for the [Road Roaster 4W](../../projects/road-roaster/road-roaster-4w/) project.
 
 | Specification | Dimension / Value |
 | :--- | :--- |

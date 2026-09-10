@@ -33,7 +33,7 @@ PYTHONPATH=src xvfb-run -a /home/phi/AppImages/FreeCAD_1.1.3-Linux-x86_64-py311.
 - `src/`: Primary Python package library (`src/phi_works/maker/`) for shared CAD helpers and rendering utilities.
 - `materials/`: Reusable project-native FreeCAD material definitions (`.FCMat` YAML cards) organized by category (`metals/`, `polymers/`, `finishes/`).
 - `components/`: Reusable commercial tools and hardware modules (e.g., `components/torch_hf91037/`, `components/kombi_tools/`).
-- `projects/`: Physical assembly projects (`projects/kombi-kaddy/`, `projects/road-roaster/`, `projects/road-roaster-4w/`).
+- `projects/`: Physical assembly projects (`projects/kombi-kaddy/`, `projects/road-roaster/` [road-roaster-2w, road-roaster-4w], `projects/foam-camper/`).
 - `templates/`: Boilerplate starter scripts (`component_template.py`, `project_template.py`).
 - `pyproject.toml`: Package metadata, dependencies, and build settings (`phi_works_maker`).
 - `WORKFLOW.md`: Official Maker Collaboration & CAD Best Practices Guide.

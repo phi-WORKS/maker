@@ -6,7 +6,7 @@
 
 ## Component Overview
 
-This module is a standalone 3D CAD representation of the **Harbor Freight #91037 High-Output Propane Torch**. Built as a reusable building block in `components/`, it provides accurate parametric geometry and clean insertion origins for host assembly projects (such as the [Road Roaster](../../projects/road-roaster/)).
+This module is a standalone 3D CAD representation of the **Harbor Freight #91037 High-Output Propane Torch**. Built as a reusable building block in `components/`, it provides accurate parametric geometry and clean insertion origins for host assembly projects (such as the [Road Roaster 4W](../../projects/road-roaster/road-roaster-4w/)).
 
 ---
 

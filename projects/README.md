@@ -19,27 +19,19 @@ The `projects/` directory contains active physical product assemblies and fabric
 
 ## Project Catalog
 
-### 1. [Road Roaster 4W](road-roaster-4w/)
+### 1. [Road Roaster Platform Suite](road-roaster/)
 
-*4-Wheel Commercial Platform Dolly Architecture for Directional Ceramic Infrared Weed Eradication*
+*Directional Flameless Ceramic Infrared Thermal Weed Eradication System (Small & Large Prototype Suite)*  
+📖 [**`Master Suite README.md`**](road-roaster/README.md) | 📄 [**`HEAT_SOURCE_ANALYSIS.md`**](road-roaster/HEAT_SOURCE_ANALYSIS.md) | 📄 [**`SOLARONICS_INQUIRY.md`**](road-roaster/SOLARONICS_INQUIRY.md) | 📄 [**`WET_VS_DRY_STRATEGY.md`**](road-roaster/WET_VS_DRY_STRATEGY.md)
 
-| Master Assembly Thumbnail | Quick Specifications & Links |
-| :---: | :--- |
-| [![Road Roaster 4W](road-roaster-4w/road-roaster-4w.png)](road-roaster-4w/) | • **Application**: Heavy-duty commercial 24" × 36" platform cart for large-scale driveway, roadway, and agricultural headland weed eradication.<br>• **Core Architecture**: Commercial 24" × 36" diamond-plate steel dolly (5" wheels, 29" push handle); 30,000 BTU Solaronics K-30 ceramic infrared radiant burner engine with flared reflector hood cantilevered at front; 3-sided wrap-around rigid front skirt with continuous 3/4" pivot axle; 180° flip-over transit/stowage; cart-side protected LP gas manifold; full 20 lb propane cylinder (~14.4 hrs runtime); 2.5 gal pressurized water safety reservoir; auxiliary spot-weed torch wand (`torch_hf91037`) holstered on handle; slow-crawl propulsion ready.<br>• **Active Master**: [**v0.2.0**](road-roaster-4w/) 🟢 **`[RELEASED]`**<br>• 📖 [**`README.md`**](road-roaster-4w/README.md)<br>• 📐 [**`SPECIFICATION.md`**](road-roaster-4w/SPECIFICATION.md)<br>• 📜 [**`CHANGELOG.md`**](road-roaster-4w/CHANGELOG.md)<br>• 🛠️ [**`build.py`**](road-roaster-4w/build.py)<br>• 📦 [**`road-roaster-4w.FCStd`**](road-roaster-4w/road-roaster-4w.FCStd) |
-
----
-
-### 2. [Road Roaster](road-roaster/)
-
-*Directional Ceramic Infrared Thermal Weed Shock Sled (Compact 2-Wheel Hand Truck Variant)*
-
-| Master Assembly Thumbnail | Quick Specifications & Links |
-| :---: | :--- |
-| [![Road Roaster](road-roaster/road-roaster.png)](road-roaster/) | • **Application**: Chemical-free hardscape weed eradication via Solaronics ceramic infrared radiant heat shock on an ultra-compact 2-wheel chassis.<br>• **Core Architecture**: Vintage restored tubular steel commercial hand truck donor frame (1.0" OD red tubing, 9.5" wheels); common-wheel-axle triangular suspension sled; 60,000 BTU downward-firing Solaronics ceramic infrared emitter; zero aerodynamic blast pressure; 1 lb onboard propane bottle in quick-release cage; flexible center-spine fuel hose routing; dual-mode gliding roast vs. tilt-back rolling transit.<br>• **Active Master**: [**v0.7.0**](road-roaster/) 🟡 **`[IN PROGRESS]`**<br>• 📖 [**`README.md`**](road-roaster/README.md)<br>• 📐 [**`SPECIFICATION.md`**](road-roaster/SPECIFICATION.md)<br>• 📜 [**`CHANGELOG.md`**](road-roaster/CHANGELOG.md)<br>• 🛠️ [**`build.py`**](road-roaster/build.py)<br>• 📦 [**`road-roaster.FCStd`**](road-roaster/road-roaster.FCStd) |
+| Prototype Model | Master Assembly Preview | Core Architecture & Quick Links |
+| :--- | :---: | :--- |
+| **[Road Roaster 4W](road-roaster/road-roaster-4w/)**<br>*(Large / Commercial Platform Cart)*<br><br>🟢 **`[v0.2.0 RELEASED]`** | [![Road Roaster 4W](road-roaster/road-roaster-4w/road-roaster-4w.png)](road-roaster/road-roaster-4w/) | • **Application**: Commercial 24" × 36" platform cart for large-scale driveway, roadway, and agricultural headland weed eradication.<br>• **Core Architecture**: Commercial diamond-plate steel cart (5" casters, 29" push handle); 30,000 BTU Solaronics K-30 ceramic infrared radiant engine; 3-sided rigid front skirt; continuous 3/4" pivot axle; 180° flip-over transit stowage; full 20 lb LP cylinder (~14.4 hrs runtime); 2.5 gal pressurized water safety reservoir; auxiliary spot-weed torch wand (`torch_hf91037`).<br>• 📖 [**`README.md`**](road-roaster/road-roaster-4w/README.md) \| 📐 [**`SPECIFICATION.md`**](road-roaster/road-roaster-4w/SPECIFICATION.md) \| 📋 [**`BOM.md`**](road-roaster/road-roaster-4w/BOM.md) \| 📜 [**`CHANGELOG.md`**](road-roaster/road-roaster-4w/CHANGELOG.md)<br>• 🛠️ [**`build.py`**](road-roaster/road-roaster-4w/build.py) \| 📦 [**`road-roaster-4w.FCStd`**](road-roaster/road-roaster-4w/road-roaster-4w.FCStd) |
+| **[Road Roaster 2W](road-roaster/road-roaster-2w/)**<br>*(Small / Compact Hand Truck)*<br><br>🟡 **`[v0.7.0 IN PROGRESS]`** | [![Road Roaster 2W](road-roaster/road-roaster-2w/road-roaster.png)](road-roaster/road-roaster-2w/) | • **Application**: Chemical-free hardscape weed eradication on narrow residential paths, gravel borders, and tight garden beds.<br>• **Core Architecture**: Vintage restored tubular steel commercial hand truck frame (1.0" OD red tubing, 9.5" wheels); common-wheel-axle triangular suspension sled; 60,000 BTU downward ceramic infrared emitter; zero aerodynamic blast pressure; 1 lb onboard propane bottle in quick-release cage; dual-mode gliding roast vs. tilt-back transit.<br>• 📖 [**`README.md`**](road-roaster/road-roaster-2w/README.md) \| 📐 [**`SPECIFICATION.md`**](road-roaster/road-roaster-2w/SPECIFICATION.md) \| 📋 [**`BOM.md`**](road-roaster/road-roaster-2w/BOM.md) \| 📜 [**`CHANGELOG.md`**](road-roaster/road-roaster-2w/CHANGELOG.md)<br>• 🛠️ [**`build.py`**](road-roaster/road-roaster-2w/build.py) \| 📦 [**`road-roaster.FCStd`**](road-roaster/road-roaster-2w/road-roaster.FCStd) |
 
 ---
 
-### 3. [Kombi Kaddy](kombi-kaddy/)
+### 2. [Kombi Kaddy](kombi-kaddy/)
 
 *Mobile STIHL KombiSystem Multi-Tool Attachment Storage Rack*
 

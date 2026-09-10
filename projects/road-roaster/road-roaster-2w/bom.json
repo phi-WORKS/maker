@@ -1,0 +1,325 @@
+{
+  "project_name": "Road Roaster",
+  "version": "0.7.0",
+  "date": "2026-09-10",
+  "total_mass_lb": 69.49,
+  "commercial_mass_lb": 47.1,
+  "fabricated_mass_lb": 20.39,
+  "hardware_mass_lb": 1.99,
+  "commercial_items": [
+    {
+      "name": "Commercial Tubular Steel Hand Truck Chassis",
+      "component_id": "commercial_hand_truck",
+      "category": "Chassis / Running Gear",
+      "qty": 1,
+      "vendor": "Donor / Restored Commercial Equipment",
+      "part_number": "HANDTRUCK-VINTAGE-01",
+      "description": "1.0\" OD tubular steel frame, 12.5\" riser spacing, 9.5\" x 3.0\" wheels on 5/8\" solid axle",
+      "subassembly": "1. Vintage Hand Truck Chassis (U-Frame, Triangular Axle Trusses, 9.5in Wheels)",
+      "mass_kg": 11.1,
+      "mass_lb": 24.5,
+      "reference_url": "components/commercial_hand_truck/README.md",
+      "notes": ""
+    },
+    {
+      "name": "Solaronics High-Intensity Ceramic Infrared Burner",
+      "component_id": "solaronics_infrared_burner",
+      "category": "Thermal Engine / Radiant Burner",
+      "qty": 1,
+      "vendor": "Solaronics USA",
+      "part_number": "K-60 / 60,000 BTU",
+      "description": "60,000 BTU/hr @ 11\" W.C. LP gas, 173 sq. in cordierite ceramic matrix, parabolic reflector, Inconel re-radiating face grid",
+      "subassembly": "2. Forward Directional Radiant Ceramic Infrared Sled & Ground Skids",
+      "mass_kg": 8.4,
+      "mass_lb": 18.5,
+      "reference_url": "components/solaronics_infrared_burner/README.md",
+      "notes": ""
+    },
+    {
+      "name": "1 lb Disposable / Refillable Propane Cylinder",
+      "component_id": "propane_cylinder_1lb",
+      "category": "Fuel System / Pressure Vessel",
+      "qty": 1,
+      "vendor": "Worthington / Flame King / Coleman",
+      "part_number": "DOT-39 / 16.4 oz",
+      "description": "Standard DOT-39 16.4 oz / 1 lb LP gas cylinder with 1\"-20 UNEF threaded valve connection",
+      "subassembly": "4. Propane Gas Train & Tank-Mounted Rotary Flow Control Valve",
+      "mass_kg": 0.86,
+      "mass_lb": 1.9,
+      "reference_url": "components/propane_cylinder_1lb/README.md",
+      "notes": ""
+    },
+    {
+      "name": "1 lb Propane Bottle Retention Harness",
+      "component_id": "propane_harness",
+      "category": "Fuel System / Mounting",
+      "qty": 1,
+      "vendor": "Custom Fabricated / Commercial Quick-Release Bike Cage",
+      "part_number": "BOTTLE-CAGE-1LB",
+      "description": "Quick-release steel retention cage with base seat cup, side arms, and top knurled latch",
+      "subassembly": "4. Propane Gas Train & Tank-Mounted Rotary Flow Control Valve",
+      "mass_kg": 1.0,
+      "mass_lb": 2.2,
+      "reference_url": "components/propane_harness/README.md",
+      "notes": ""
+    }
+  ],
+  "fabricated_parts": [
+    {
+      "name": "14-Gauge Steel Protective Radiant Sled Cowl & Skirts",
+      "part_mark": "P-SLED-01",
+      "subassembly": "2. Forward Directional Radiant Ceramic Infrared Sled & Ground Skids",
+      "material": "Steel-A36",
+      "stock_type": "Sheet Metal",
+      "stock_spec": "14-Ga (0.075\") Sheet Steel",
+      "length_mm": 457.2,
+      "width_mm": 381.0,
+      "thickness_mm": 1.9049999999999998,
+      "qty": 1,
+      "mass_kg": 4.343916880602003,
+      "mass_lb": 9.576686033312788,
+      "operations": "CNC plasma cut vents, press brake 90\u00b0 skirt bends, corner seam welds",
+      "bounding_box_mm": [
+        381.0,
+        457.2,
+        180.8
+      ]
+    },
+    {
+      "name": "Continuous Flat Bar Skid Runners with 30-deg Ski Tips",
+      "part_mark": "P-SLED-02",
+      "subassembly": "2. Forward Directional Radiant Ceramic Infrared Sled & Ground Skids",
+      "material": "Steel-304Stainless",
+      "stock_type": "Flat Bar",
+      "stock_spec": "1-1/2\" \u00d7 3/16\" Flat Bar",
+      "length_mm": 545.188181024499,
+      "width_mm": 38.1,
+      "thickness_mm": 4.76,
+      "qty": 1,
+      "mass_kg": 1.5838021223864667,
+      "mass_lb": 3.491681835055652,
+      "operations": "Cut to length, 30\u00b0 cold tip bends front & rear, drill mounting holes",
+      "bounding_box_mm": [
+        381.0,
+        545.188181024499,
+        29.522280922013934
+      ]
+    },
+    {
+      "name": "Sled Suspension Bridge & Transit Latch Catch Tower",
+      "part_mark": "P-SLED-03",
+      "subassembly": "2. Forward Directional Radiant Ceramic Infrared Sled & Ground Skids",
+      "material": "Steel-A36",
+      "stock_type": "Flat Bar & Pin",
+      "stock_spec": "2-1/2\" \u00d7 3/16\" Flat Bar & \u00d81/2\" Pin",
+      "length_mm": 391.0,
+      "width_mm": 60.0,
+      "thickness_mm": 4.76,
+      "qty": 1,
+      "mass_kg": 1.5471453008390434,
+      "mass_lb": 3.4108674731357715,
+      "operations": "Cut plate to length, weld upright catch tower pin",
+      "bounding_box_mm": [
+        391.0,
+        60.0,
+        75.0
+      ]
+    },
+    {
+      "name": "Axle-Mounted Triangular Sled Suspension Straps (Common Pivot Axis)",
+      "part_mark": "P-SUSP-01",
+      "subassembly": "3. Common-Axis Triangular Sled Suspension Straps & Transit Tilt Latch",
+      "material": "Steel-A36",
+      "stock_type": "Flat Bar & Bushing",
+      "stock_spec": "1.0\" \u00d7 3/16\" Flat Bar & 1.0\" OD Sleeve",
+      "length_mm": 315.0,
+      "width_mm": 25.4,
+      "thickness_mm": 4.76,
+      "qty": 1,
+      "mass_kg": 1.3239075164049054,
+      "mass_lb": 2.9187129888165826,
+      "operations": "Miter cut 3/16\" bar, ream axle pivot sleeve bushings, weld triangulated truss",
+      "bounding_box_mm": [
+        315.0,
+        256.09815947865656,
+        167.688512042657
+      ]
+    },
+    {
+      "name": "Foot-Release Upright Vacuum Tilt Snap Latch",
+      "part_mark": "P-SUSP-02",
+      "subassembly": "3. Common-Axis Triangular Sled Suspension Straps & Transit Tilt Latch",
+      "material": "Steel-ZincPlated",
+      "stock_type": "Flat Bar & Pin",
+      "stock_spec": "5/8\" \u00d7 1/4\" Flat Bar & \u00d83/8\" Pin",
+      "length_mm": 141.4,
+      "width_mm": 15.0,
+      "thickness_mm": 6.0,
+      "qty": 1,
+      "mass_kg": 0.2045880612993491,
+      "mass_lb": 0.45103893170177095,
+      "operations": "Cut to length, weld foot pedal pad & catch hook",
+      "bounding_box_mm": [
+        50.0,
+        141.4,
+        38.996908459956444
+      ]
+    },
+    {
+      "name": "Propane Harness Horizontal Cross-Strap Clamping Brackets",
+      "part_mark": "P-GAS-01",
+      "subassembly": "4. Propane Gas Train & Tank-Mounted Rotary Flow Control Valve",
+      "material": "Steel-A36",
+      "stock_type": "Flat Bar",
+      "stock_spec": "2.0\" \u00d7 3/16\" Flat Bar",
+      "length_mm": 103.75,
+      "width_mm": 50.0,
+      "thickness_mm": 4.76,
+      "qty": 1,
+      "mass_kg": 0.24717942848820812,
+      "mass_lb": 0.5449367116336733,
+      "operations": "Form cross-strap clamping lips, drill 1/4\" bolt clearance holes",
+      "bounding_box_mm": [
+        103.75,
+        18.0,
+        45.0
+      ]
+    }
+  ],
+  "hardware_items": [
+    {
+      "name": "Tank-Mounted Rotary Flow Control Valve & 11in Regulator",
+      "category": "Plumbing & Fuel Lines",
+      "subassembly": "4. Propane Gas Train & Tank-Mounted Rotary Flow Control Valve",
+      "material": "Brass-C360",
+      "specification": "Tank Mounted Regulator Valve",
+      "qty": 1,
+      "mass_kg": 0.38401093529906866,
+      "mass_lb": 0.8465981881790327,
+      "vendor_sku": "",
+      "notes": ""
+    },
+    {
+      "name": "Center Support Pipe Hose & Wire Retention Clips",
+      "category": "Plumbing & Fuel Lines",
+      "subassembly": "4. Propane Gas Train & Tank-Mounted Rotary Flow Control Valve",
+      "material": "Steel-ZincPlated",
+      "specification": "Center Spine Hose Clips",
+      "qty": 1,
+      "mass_kg": 0.028085193023849913,
+      "mass_lb": 0.06191717824423999,
+      "vendor_sku": "",
+      "notes": ""
+    },
+    {
+      "name": "Flexible 3/8in Reinforced LP Gas Hose (Center Support Routed)",
+      "category": "Plumbing & Fuel Lines",
+      "subassembly": "4. Propane Gas Train & Tank-Mounted Rotary Flow Control Valve",
+      "material": "Rubber-Solid",
+      "specification": "Flexible Gas Feed Hose",
+      "qty": 1,
+      "mass_kg": 0.3925389720889296,
+      "mass_lb": 0.8653992686466959,
+      "vendor_sku": "",
+      "notes": ""
+    },
+    {
+      "name": "High-Voltage Silicone Spark Ignition Wire (Center Support Routed)",
+      "category": "Electrical & Ignition",
+      "subassembly": "4. Propane Gas Train & Tank-Mounted Rotary Flow Control Valve",
+      "material": "PowderCoat-StihlOrange",
+      "specification": "Flexible Spark Ignition Wire",
+      "qty": 1,
+      "mass_kg": 0.09979583698530187,
+      "mass_lb": 0.22001189813453617,
+      "vendor_sku": "",
+      "notes": ""
+    }
+  ],
+  "stock_summary": [
+    {
+      "stock_spec": "1-1/2\" \u00d7 3/16\" Flat Bar",
+      "material": "Steel-304Stainless",
+      "stock_type": "Flat Bar",
+      "piece_count": 1,
+      "total_linear_in": 21.46410161513776,
+      "total_linear_ft": 1.7886751345948133,
+      "total_area_sq_in": 0.0,
+      "total_area_sq_ft": 0.0,
+      "total_mass_lb": 3.491681835055652,
+      "pieces": [
+        "P-SLED-02"
+      ]
+    },
+    {
+      "stock_spec": "1.0\" \u00d7 3/16\" Flat Bar & 1.0\" OD Sleeve",
+      "material": "Steel-A36",
+      "stock_type": "Flat Bar & Bushing",
+      "piece_count": 1,
+      "total_linear_in": 12.401574803149607,
+      "total_linear_ft": 1.033464566929134,
+      "total_area_sq_in": 0.0,
+      "total_area_sq_ft": 0.0,
+      "total_mass_lb": 2.9187129888165826,
+      "pieces": [
+        "P-SUSP-01"
+      ]
+    },
+    {
+      "stock_spec": "14-Ga (0.075\") Sheet Steel",
+      "material": "Steel-A36",
+      "stock_type": "Sheet Metal",
+      "piece_count": 1,
+      "total_linear_in": 0.0,
+      "total_linear_ft": 0.0,
+      "total_area_sq_in": 270.0,
+      "total_area_sq_ft": 1.875,
+      "total_mass_lb": 9.576686033312788,
+      "pieces": [
+        "P-SLED-01"
+      ]
+    },
+    {
+      "stock_spec": "2-1/2\" \u00d7 3/16\" Flat Bar & \u00d81/2\" Pin",
+      "material": "Steel-A36",
+      "stock_type": "Flat Bar & Pin",
+      "piece_count": 1,
+      "total_linear_in": 15.393700787401576,
+      "total_linear_ft": 1.2828083989501313,
+      "total_area_sq_in": 0.0,
+      "total_area_sq_ft": 0.0,
+      "total_mass_lb": 3.4108674731357715,
+      "pieces": [
+        "P-SLED-03"
+      ]
+    },
+    {
+      "stock_spec": "2.0\" \u00d7 3/16\" Flat Bar",
+      "material": "Steel-A36",
+      "stock_type": "Flat Bar",
+      "piece_count": 1,
+      "total_linear_in": 4.084645669291339,
+      "total_linear_ft": 0.3403871391076116,
+      "total_area_sq_in": 0.0,
+      "total_area_sq_ft": 0.0,
+      "total_mass_lb": 0.5449367116336733,
+      "pieces": [
+        "P-GAS-01"
+      ]
+    },
+    {
+      "stock_spec": "5/8\" \u00d7 1/4\" Flat Bar & \u00d83/8\" Pin",
+      "material": "Steel-ZincPlated",
+      "stock_type": "Flat Bar & Pin",
+      "piece_count": 1,
+      "total_linear_in": 5.5669291338582685,
+      "total_linear_ft": 0.4639107611548557,
+      "total_area_sq_in": 0.0,
+      "total_area_sq_ft": 0.0,
+      "total_mass_lb": 0.45103893170177095,
+      "pieces": [
+        "P-SUSP-02"
+      ]
+    }
+  ]
+}
