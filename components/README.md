@@ -110,3 +110,12 @@ Host assembly projects under `projects/` import these pre-built components via `
 | :---: | :--- |
 | [![Water Safety Tank](water_tank/water_tank.png)](water_tank/) | • **Description**: 2.5-gallon (9.5 L) pressurized water safety tank with blow-molded safety blue HDPE vessel, plunger pump T-handle, brass discharge port, reinforced coiled washdown hose, and trigger spray wand.<br>• **Dimensions**: 7.09" OD × 18.2" overall height, ~2.8 lb empty tare weight (24.6 lbs charged with water).<br>• **Role**: Onboard fire-suppression and pavement-quenching safety system on [Road Roaster 4W](../projects/road-roaster/road-roaster-4w/).<br>• 📖 [**`README.md`**](water_tank/README.md)<br>• 🛠️ [**`build.py`**](water_tank/build.py)<br>• 📦 [**`water_tank.FCStd`**](water_tank/water_tank.FCStd) |
 
+### 16. [Modular Ceramic Infrared Burner Ecosystem](modular_burner/)
+
+| Component Preview | Technical Specifications & Files |
+| :---: | :--- |
+| [![Modular Burner Ecosystem](modular_burner/interconnect/modular_burner_interconnect.png)](modular_burner/) | • **Description**: Scalable, commodity-based ceramic infrared radiant thermal engine suite for custom arrays, replacing proprietary industrial heaters.<br>• **Building Block ([`cassette/`](modular_burner/cassette/))**: Standard 220 × 170 mm cordierite ceramic cassette (10,000 BTU/hr @ 11" W.C. LP, 5.19 lbs, quick-swap M5 slide tabs).<br>• **Connection System ([`interconnect/`](modular_burner/interconnect/))**: Detailed CAD model of dual 1" stainless angle slide rails, captive M5 studs, knurled thumb nuts, ceramic fiber expansion gasket, flame crossover tunnel, 3/4" manifold rail, and #60 brass spuds with 6 mm air gaps (14.45 lbs).<br>• **Road Roaster 2W ([`array_2w/`](modular_burner/array_2w/))**: Dual-cassette 20,000 BTU array with 85 mm low-profile aluminum cowl & skids (15.89 lbs, 46% lighter than Solaronics K-30).<br>• **Road Roaster 4W ([`array_4w/`](modular_burner/array_4w/))**: 4-cassette 2×2 grid (40,000 BTU, 232 sq. in. active radiant area) with continuous 3/4" pivot hinge ears for 180° flip-back stowage on platform cart deck (29.87 lbs).<br>• 📖 [**`modular_burner/README.md`**](modular_burner/README.md) (Includes Abstract Tank-to-Burner Schematic) |
+
+
+
+
