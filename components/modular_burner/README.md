@@ -23,25 +23,21 @@ Below is the complete architectural schematic and Mermaid power-system diagram m
 
 ```mermaid
 flowchart TD
-    Tank["Propane Tank"] --> Regulator["Pressure Regulator"]
+    Fuel["Propane Tank"] --> Regulator["Pressure Regulator"]
     Regulator --> Valve["Flame Safety Valve"]
     Valve --> Hose["Gas Supply Hose"]
     Hose --> Manifold["Gas Manifold Rail"]
-    
     Manifold --> Orifice["Brass Orifices"]
+    
     Orifice --> Venturi["Venturi Mixers"]
-    Air["Ambient Air"] --> Venturi
-    
+    Air["Air Intake"] --> Venturi
     Venturi --> Plenum["Combustion Plenums"]
+    Plenum --> Burner["Ceramic Burner"]
     
-    Igniter["Pulse Igniter"] -.->|"Spark"| Ceramic
+    Valve -.->|"Push to Light"| Igniter["Pulse Igniter"]
+    Igniter -.->|"Spark"| Burner
     
-    Plenum --> Ceramic["Ceramic Plaques"]
-    Ceramic --> Screen["Wire Mesh Guards"]
-    Screen --> RadiantFlux["Infrared Radiant Flux"]
-    RadiantFlux --> Ground["Ground Weeds"]
-    
-    Ceramic -.->|"Heat"| Sensor["Thermocouple"]
+    Burner -.->|"Heat"| Sensor["Thermocouple"]
     Sensor -.->|"Safety Hold"| Valve
 ```
 
