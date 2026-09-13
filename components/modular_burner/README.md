@@ -9,9 +9,10 @@
 
 The `modular_burner/` component suite provides a standardized, scalable alternative to bulky, expensive commercial radiant heaters (such as the Solaronics K-30). By standardizing on mass-market **220 × 170 mm cordierite ceramic plaque cassettes** (10,000 BTU/hr each), physical projects can scale thermal power and radiant footprint modularly:
 - **`cassette/`**: Autonomous 10,000 BTU ($2.93\text{ kW}$) ceramic infrared plaque cassette ($5.19\text{ lbs}$).
-- **`interconnect/`**: Full mechanical, pneumatic, flame bridging, and electrical connection system ($14.45\text{ lbs}$).
-- **`array_2w/`**: Dual-cassette 20,000 BTU ($5.86\text{ kW}$) low-profile array for Road Roaster 2W ($15.89\text{ lbs}$).
-- **`array_4w/`**: 4-cassette 40,000 BTU ($11.72\text{ kW}$) $2 \times 2$ grid array with 180° flip-back transit hinge ears for Road Roaster 4W ($29.87\text{ lbs}$).
+- **`interconnect/`**: Full mechanical, pneumatic, flame bridging, and coaxial gas connection system ($14.60\text{ lbs}$).
+- **`array_2w/`**: Dual-cassette 20,000 BTU ($5.86\text{ kW}$) low-profile array for Road Roaster 2W ($16.65\text{ lbs}$).
+- **`array_4w/`**: 4-cassette 40,000 BTU ($11.72\text{ kW}$) $2 \times 2$ grid array with central balanced manifold and 180° flip-back transit hinge ears for Road Roaster 4W ($29.14\text{ lbs}$).
+- [**`THERMAL_JOINTS_STUDY.md`**](file:///home/phi/PROJECTS/phi-WORKS/maker/components/modular_burner/THERMAL_JOINTS_STUDY.md): In-depth engineering study on thermal expansion, Belleville spring compliance, manifold thermal breaks, and radiant heat baffles.
 
 ---
 

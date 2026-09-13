@@ -59,7 +59,7 @@ WIRE_MESH_T = 1.0            # Wire screen wire thickness
 WIRE_GRID_PITCH = 12.5       # Grid wire spacing
 
 
-def create_modular_ceramic_burner_component(doc, name="Modular_Ceramic_Burner", placement=None):
+def create_modular_ceramic_burner_component(doc, name="Modular_Ceramic_Burner", placement=None, include_orifice=True):
     """
     Builds the standalone modular ceramic infrared burner cassette:
       - Cordierite honeycomb ceramic tile with simulated radiant micro-grooves
@@ -309,11 +309,12 @@ def create_modular_ceramic_burner_component(doc, name="Modular_Ceramic_Burner", 
     )
     gas_spud = spud_hex.fuse(spud_nozzle)
 
-    obj_spud = doc.addObject("Part::Feature", f"{name}_Orifice_Spud")
-    obj_spud.Label = "Machined Brass Hex Gas Orifice Spud (#60 Drill, 10k BTU LP)"
-    obj_spud.Shape = gas_spud
-    grp.addObject(obj_spud)
-    apply_material(obj_spud, "Brass-C360")
+    if include_orifice:
+        obj_spud = doc.addObject("Part::Feature", f"{name}_Orifice_Spud")
+        obj_spud.Label = "Machined Brass Hex Gas Orifice Spud (#60 Drill, 10k BTU LP)"
+        obj_spud.Shape = gas_spud
+        grp.addObject(obj_spud)
+        apply_material(obj_spud, "Brass-C360")
 
     # --------------------------------------------------------------------------
     # 7. Spark Ignition Electrode Post & Thermocouple Sensor Clip
